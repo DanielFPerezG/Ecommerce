@@ -9637,3 +9637,8 @@ a.text-dark:hover, a.text-dark:focus {
 .dropdown-link {
   margin-right: 2rem;
 }
+
+.base-body {
+  background-size: cover;
+  
+}
