@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-from .models import User
+from .models import User,Topic,Product
 
 # Create your views here.
 
@@ -39,3 +39,24 @@ def logoutUser(request):
 @login_required(login_url='login')
 def home(request):
     return render(request, 'base/home.html')
+
+@login_required(login_url='login')
+def createProduct(request):
+    topics = Topic.objects.all()
+
+    if request.method == "POST":
+        topic_name = request.POST.get('topic')
+        topic, created = Topic.objects.get_or_create(name=topic_name)
+
+        Product.objects.create(
+            topic=topic,
+            name=request.POST.get('name'),
+            bio=request.POST.get('bio'),
+            image=request.FILES['image'],
+            price=request.POST.get('price'),
+            cost=request.POST.get('cost'),
+            stock=request.POST.get('stock')
+            )
+        return redirect('home')
+    
+    return render(request, 'base/createProduct.html', {'topics':topics})

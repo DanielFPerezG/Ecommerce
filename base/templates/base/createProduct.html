@@ -1,0 +1,52 @@
+{% extends 'main_base.html' %}
+
+{% block content %}
+    <div class="modal-dialog text-center">
+        <div class="col-sm-12 main-section">
+            <div class="modal-content">
+                <form class="col-12" method="POST" enctype="multipart/form-data" action="">
+                    {% csrf_token %}
+                    <div class="form-group form-icon" id="user-group">
+                        <i class="material-icons">view_list</i>
+                        <input class="form-control" name="name" type="text" placeholder="Nombre del producto:" />
+                    </div>
+                    <div class="form-group form-icon" id="user-group">
+                        <i class="material-icons">category</i>
+                        <input class="form-control" name="topic" list="topic-list" type="text" placeholder="Categoría del producto:" />
+                        <datalist id="topic-list" >
+                            <select id="room_topic" >
+                                {% for topic in topics %}
+                                <option value="{{ topic.name }}" >{{ topic.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </datalist>
+                    </div>
+                    <div class="form-group form-icon" id="password-group">
+                        <i class="material-icons">article</i>
+                        <textarea class="form-control" name="bio" type="text" placeholder="descripción del producto:"></textarea>
+                    </div>
+                    <div class="form-group form-icon form-margin" >
+                        <i class="material-icons">image</i>
+                        <input class="form-control" id="image-group" name="image" type="file"/></br>
+                    </div>
+                    <div class="form-group form-icon form-margin" >
+                        <i class="material-icons">attach_money</i>
+                        <input class="form-control" name="price" type="number" placeholder="Precio de venta:"/></br>
+                    </div>
+                    <div class="form-group form-icon form-margin" >
+                        <i class="material-icons">payments</i>
+                        <input class="form-control" name="cost" type="number" placeholder="Costo por producto:"/></br>
+                    </div>
+                    <div class="form-group form-icon form-margin" >
+                        <i class="material-icons">inventory_2</i>
+                        <input class="form-control" name="stock" type="number" placeholder="Cantidad de productos disponibles:"/></br>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btn-login">
+                        <i class="fas fa-sign-in-alt"></i>  Ingresar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock  %}
+

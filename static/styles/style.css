@@ -9604,6 +9604,17 @@ a.text-dark:hover, a.text-dark:focus {
   padding-left: 2.2rem;
   border-radius: 5px;
 }
+#image-group {
+  height: 3.5rem;
+}
+.form-group textarea {
+  height: 6rem;
+  font-size: 1.2rem;
+  border: 0;
+  padding-left: 2.2rem;
+  border-radius: 5px;
+}
+
 #user-group {
   margin-top: 2rem;
 }
@@ -9612,24 +9623,21 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: 2rem;
 }
 
-.form-group::before {
-  font-family: "Font Awesome\ 5 Free";
+.form-group.form-icon.form-margin {
+  margin: 0;
+}
+
+.form-group.form-icon i {
   position: absolute;
   left: 28px;
   font-size: 18px;
-  padding-top: 4px;
+  padding-top: 6.5px;
 }
 
-.form-group#user-group::before {
-  content: "\f007";
-}
 
-.form-group#password-group::before {
-  content: "\f022";
-}
 
 #btn-login {
-  width: 60%;
+  width: 40%;
   margin: 5px 0 25px;
   border-radius: 5px;
 }
