@@ -8,13 +8,19 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
+class Topic(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
 class Product(models.Model):
     name = models.CharField(max_length=150,null=True)
     bio = models.CharField(max_length=1000,null=True)
-    image = models.ImageField(null=True)
+    image = models.ImageField(null=True, upload_to='product/')
     price = models.PositiveIntegerField(null=True)
     stock = models.PositiveIntegerField(null=True)
-    topic = models.CharField(max_length=150, null=True)
+    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
     cost = models.PositiveIntegerField(null=True)
 
     updated = models.DateTimeField(auto_now=True)
