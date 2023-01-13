@@ -31,6 +31,7 @@
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     });
+    
 
 
     // Vendor carousel
@@ -100,5 +101,13 @@
         button.parent().parent().find('input').val(newVal);
     });
     
-})(jQuery);
 
+    //Data table
+    $(document).ready(function() {
+        $('#table-data-model').DataTable({
+            responsive: true
+        });
+        
+    });
+
+})(jQuery);

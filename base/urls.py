@@ -1,5 +1,7 @@
 from django.urls import path
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 from . import views
 
@@ -11,6 +13,9 @@ urlpatterns = [
     path('', views.loginPage, name="login"),
     path('logout/', views.logoutUser, name="logout"),
     path('home', views.home, name="home"),
-    path('createProduct', views.createProduct, name="createProduct")
-
+    path('createProduct', views.createProduct, name="createProduct"),
+    path('adminProduct', views.adminProduct, name="adminProduct"),
+    path('deleteProduct/<str:pk>', views.deleteProduct, name="deleteProduct"),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

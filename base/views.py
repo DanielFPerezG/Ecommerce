@@ -43,11 +43,12 @@ def home(request):
 @login_required(login_url='login')
 def createProduct(request):
     topics = Topic.objects.all()
+    topic_name = request.POST.get('topic')
+    
 
     if request.method == "POST":
-        topic_name = request.POST.get('topic')
         topic, created = Topic.objects.get_or_create(name=topic_name)
-
+        
         Product.objects.create(
             topic=topic,
             name=request.POST.get('name'),
@@ -55,8 +56,25 @@ def createProduct(request):
             image=request.FILES['image'],
             price=request.POST.get('price'),
             cost=request.POST.get('cost'),
+            discount=request.POST.get('discount'),
             stock=request.POST.get('stock')
             )
         return redirect('home')
     
     return render(request, 'base/createProduct.html', {'topics':topics})
+
+@login_required(login_url='login')
+def adminProduct(request):
+    products = Product.objects.all()
+
+    return render(request, 'base/adminProduct.html', {'products':products})
+
+@login_required(login_url='login')
+def deleteProduct(request,pk):
+    product = Product.objects.get(id=pk)
+
+    if request.method == 'POST':
+        product.delete()
+        return redirect('adminProduct')
+    return render(request, 'base/deleteProduct.html', {'product':product})
+

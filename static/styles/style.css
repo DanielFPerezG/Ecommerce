@@ -9650,3 +9650,43 @@ a.text-dark:hover, a.text-dark:focus {
   background-size: cover;
   
 }
+
+@media (min-width: 576px){
+  #product-container {
+      max-width: 100%;
+  }
+}
+
+#main-product-container {
+  margin-top: 3%;
+  
+}
+
+#table-data-model_wrapper {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.product-option {
+  display: flex;
+  justify-content: space-between;
+}
+
+.message-delete-product {
+  margin-top: 2rem;
+}
+
+.button-delete-product {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.button-delete-product a {
+  margin-left: 0.5rem;
+}
+
+.button-product {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,27 @@
+{% extends 'main_base.html' %}
+
+{% block content %}
+    <div class="modal-dialog text-center">
+        <div class="col-sm-12 main-section">
+            <div class="modal-content">
+                <form class="col-12" method="POST" enctype="multipart/form-data" action="">
+                    {% csrf_token %}
+
+                    <div class="message-delete-product">
+                        <p>¿Seguro quieres eliminar "{{product.name}}"?</p>
+                    </div>
+
+                    <div class="button-delete-product">
+                        <button href="{% url 'adminProduct' %}" class="btn btn-secondary button-product" id="btn-login">
+                            <i class="material-icons md-18">backspace</i>  <a>Cancelar</a>
+                        </button>
+                        <button type="submit" class="btn btn-primary button-product" id="btn-login">
+                            <i class="material-icons md-18">delete</i> <a>Confirmar</a>
+                        </button>
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock  %}
+
