@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
+from .forms import ProductForm
 from .models import User,Topic,Product
 
 # Create your views here.
@@ -77,4 +78,16 @@ def deleteProduct(request,pk):
         product.delete()
         return redirect('adminProduct')
     return render(request, 'base/deleteProduct.html', {'product':product})
+
+def updateProduct(request,pk):
+    product = Product.objects.get(id=pk)
+    form = ProductForm(instance=product)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('adminProduct')
+
+    return render(request,'base/updateProduct.html', {'form':form, 'product':product})
 

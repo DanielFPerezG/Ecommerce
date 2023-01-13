@@ -47,7 +47,7 @@
                                     {{product.discount}}%
                                 </td>
                                 <td class="product-option">
-                                    <a href="{% url 'logout' %}" class="dropdown-link">
+                                    <a href="{% url 'updateProduct' product.id %}" class="dropdown-link">
                                         <i class="material-icons">edit</i>
                                     </a>
                                     <a href="{% url 'deleteProduct' product.id %}" class="dropdown-link">
