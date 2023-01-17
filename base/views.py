@@ -79,6 +79,7 @@ def deleteProduct(request,pk):
         return redirect('adminProduct')
     return render(request, 'base/deleteProduct.html', {'product':product})
 
+@login_required(login_url='login')
 def updateProduct(request,pk):
     product = Product.objects.get(id=pk)
     form = ProductForm(instance=product)
@@ -91,3 +92,8 @@ def updateProduct(request,pk):
 
     return render(request,'base/updateProduct.html', {'form':form, 'product':product})
 
+@login_required(login_url='login')
+def adminTopic(request):
+    topics = Topic.objects.all()
+
+    return render(request, 'base/adminTopic.html', {'topics':topics})

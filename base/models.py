@@ -12,9 +12,16 @@ class User(AbstractUser):
 
 class Topic(models.Model):
     name = models.CharField(max_length=200)
+    image = models.ImageField(null=True, upload_to='topic/')
+
+    def delete(self, *args, **kwargs):
+        if os.path.isfile(self.image.path):
+            os.remove(self.image.path)
+        super(Topic, self).delete(*args, **kwargs)
 
     def __str__(self):
         return self.name
+
 
 class Product(models.Model):
     name = models.CharField(max_length=150,null=True)
