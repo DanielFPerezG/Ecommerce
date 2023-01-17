@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-from .forms import ProductForm
+from .forms import ProductForm, TopicForm
 from .models import User,Topic,Product
 
 # Create your views here.
@@ -97,3 +97,16 @@ def adminTopic(request):
     topics = Topic.objects.all()
 
     return render(request, 'base/adminTopic.html', {'topics':topics})
+
+@login_required(login_url='login')
+def updateTopic(request,pk):
+    topic = Topic.objects.get(id=pk)
+    form = TopicForm(instance=topic)
+
+    if request.method == 'POST':
+        form = TopicForm(request.POST, request.FILES, instance=topic)
+        if form.is_valid():
+            form.save()
+            return redirect('adminTopic')
+
+    return render(request,'base/updateTopic.html', {'form':form, 'topic':topic})

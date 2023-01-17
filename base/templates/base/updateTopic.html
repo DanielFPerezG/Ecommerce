@@ -1,0 +1,25 @@
+{% extends 'main_base.html' %}
+
+{% block content %}
+    <div class="modal-dialog text-center">
+        <div class="col-sm-12 main-section">
+            <div class="modal-content">
+                <form class="col-12" method="POST" enctype="multipart/form-data" action="">
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                    <div class="form-group" id="user-group">
+                        <label for="profile_pic">{{field.label}}</label>
+                        {{field}}
+                    </div>
+                    {% endfor %}
+
+                    <button type="submit" class="btn btn-primary" id="btn-login">
+                        <i class="fas fa-sign-in-alt"></i>  Ingresar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock  %}
+
