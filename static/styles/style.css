@@ -9557,6 +9557,12 @@ a.text-dark:hover, a.text-dark:focus {
 .cat-item:hover .cat-img img,
 .product-item:hover .product-img img {
   transform: scale(1.2);
+  
+}
+
+.product-img img {
+  height: 25rem;
+  object-fit:cover;
 }
 
 .product-item .btn:hover {

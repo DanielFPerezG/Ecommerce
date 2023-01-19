@@ -6,7 +6,7 @@ from .models import Product, Topic
 class ProductForm(ModelForm):
     class Meta:
         model = Product
-        fields = ['image','name','topic', 'price','bio','cost','stock']
+        fields = ['image','name','topic', 'price','bio','cost','stock','discount']
 
 class TopicForm(ModelForm):
     class Meta:

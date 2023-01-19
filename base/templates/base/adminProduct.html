@@ -10,11 +10,12 @@
                             <th>Imagen</th>
                             <th>Nombre</th>
                             <th>Descripción</th>
-                            <th>Tipo</th>
+                            <th>Categoría</th>
+                            <th>Descuento</th>
                             <th>Precio</th>
+                            <th>Precio con Descuento</th>
                             <th>Costo</th>
                             <th>Inventario</th>
-                            <th>Descuento</th>
                             <th>Options</th>
                             
                         </tr>
@@ -35,16 +36,19 @@
                                     {{product.topic}}
                                 </td>
                                 <td>
+                                    {{product.discount}}%
+                                </td>
+                                <td>
                                     ${{product.price}}
+                                </td>
+                                <td>
+                                    ${{product.priceDiscount}}
                                 </td>
                                 <td>
                                     ${{product.cost}}
                                 </td>
                                 <td>
                                     {{product.stock}}
-                                </td>
-                                <td>
-                                    {{product.discount}}%
                                 </td>
                                 <td class="product-option">
                                     <a href="{% url 'updateProduct' product.id %}" class="dropdown-link">

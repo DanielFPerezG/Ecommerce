@@ -32,6 +32,7 @@ class Product(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
     cost = models.PositiveIntegerField(null=True)
     discount = models.PositiveIntegerField(null=True)
+    priceDiscount = models.PositiveIntegerField(null=True)
 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)

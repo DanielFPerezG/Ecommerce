@@ -44,21 +44,23 @@ def home(request):
 @login_required(login_url='login')
 def createProduct(request):
     topics = Topic.objects.all()
-    topic_name = request.POST.get('topic')
-    
 
     if request.method == "POST":
+        topic_name = request.POST.get('topic')
+        price = int(request.POST.get('price'))
+        discount = int(request.POST.get('discount'))
         topic, created = Topic.objects.get_or_create(name=topic_name)
-        
+        priceDiscount = price - (price*(discount/100))
         Product.objects.create(
             topic=topic,
             name=request.POST.get('name'),
             bio=request.POST.get('bio'),
             image=request.FILES['image'],
-            price=request.POST.get('price'),
+            price=price,
             cost=request.POST.get('cost'),
-            discount=request.POST.get('discount'),
-            stock=request.POST.get('stock')
+            discount=discount,
+            stock=request.POST.get('stock'),
+            priceDiscount=priceDiscount
             )
         return redirect('home')
     
@@ -88,6 +90,10 @@ def updateProduct(request,pk):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
+            priceDiscount = product.price - (product.price*(product.discount/100))
+            Product.objects.update(
+                priceDiscount=priceDiscount
+            )
             return redirect('adminProduct')
 
     return render(request,'base/updateProduct.html', {'form':form, 'product':product})
