@@ -45,7 +45,4 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-
-    class Meta:
-        order_with_respect_to = 'discount'
     

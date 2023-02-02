@@ -6,7 +6,7 @@ from base.models import Product, Topic
 
 
 def home(request):
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('-discount')
     topics = Topic.objects.all()
     context = {'products':products,'topics':topics}
     return render(request, 'store/home.html', context)
