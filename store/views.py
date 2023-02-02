@@ -8,6 +8,19 @@ from base.models import Product, Topic
 def home(request):
     products = Product.objects.all().order_by('-discount')
     topics = Topic.objects.all()
+    discount_10 = 0
+    discount_20 = 0
 
-    context = {'products':products,'topics':topics}
+    for product in products:
+        if product.discount >= 10:
+            discount_10+=1
+        if product.discount >= 20:
+            discount_20+=1
+
+
+    context = {
+        'products':products,
+        'topics':topics,
+        'discount_10':discount_10,
+        'discount_20':discount_20}
     return render(request, 'store/home.html', context)
