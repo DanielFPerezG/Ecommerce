@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from base.models import Product, Topic
+from base.models import Product, Topic, Banner
 
 # Create your views here.
 
@@ -8,6 +8,7 @@ from base.models import Product, Topic
 def home(request):
     products = Product.objects.all().order_by('-discount')
     topics = Topic.objects.all()
+    banners = Banner.objects.all()
     discount_10 = 0
     discount_20 = 0
 
@@ -21,6 +22,7 @@ def home(request):
     context = {
         'products':products,
         'topics':topics,
+        'banners':banners,
         'discount_10':discount_10,
         'discount_20':discount_20}
     return render(request, 'store/home.html', context)

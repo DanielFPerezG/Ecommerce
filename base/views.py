@@ -134,6 +134,7 @@ def createBanner(request):
             Banner.objects.create(
                 topic=topic,
                 title=title,
+                message=message,
                 type=type,
                 image=image
                 )
@@ -144,6 +145,7 @@ def createBanner(request):
             Banner.objects.create(
                 maxPrice=maxPrice,
                 title=title,
+                message=message,
                 type=type,
                 image=image
                 )
@@ -156,6 +158,7 @@ def createBanner(request):
                 maxPrice=maxPrice,
                 minPrice=minPrice,
                 title=title,
+                message=message,
                 type=type,
                 image=image
                 )
@@ -166,6 +169,7 @@ def createBanner(request):
             Banner.objects.create(
                 minDiscount=minDiscount,
                 title=title,
+                message=message,
                 type=type,
                 image=image
                 )
