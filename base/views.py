@@ -122,26 +122,54 @@ def createBanner(request):
     topics = Topic.objects.all()
 
     if request.method == "POST":
-        topic_name = request.POST.get('topic')
-        topic, created = Topic.objects.get_or_create(name=topic_name)
-        title = request.POST.get('title')
         type = request.POST.get('type')
+        title = request.POST.get('title')
         message=request.POST.get('message')
-        minPrice = int(request.POST.get('minPrice'))
-        maxPrice = int(request.POST.get('maxPrice'))
-        minDiscount = int(request.POST.get('minDiscount'))
-        image=request.FILES['image'],
+        image=request.FILES['image']
 
-        Banner.objects.create(
-            topic=topic,
-            title=title,
-            type=type,
-            message=message,
-            minPrice=minPrice,
-            maxPrice=maxPrice,
-            minDiscount=minDiscount,
-            image=image
-            )
-        return redirect('home')
+        if type == "Categoria":
+            topic_name = request.POST.get('topic')
+            topic, created = Topic.objects.get_or_create(name=topic_name)
+
+            Banner.objects.create(
+                topic=topic,
+                title=title,
+                type=type,
+                image=image
+                )
+            return redirect('home')
+        
+        elif type == "Precio Maximo":
+            maxPrice = int(request.POST.get('maxPrice'))
+            Banner.objects.create(
+                maxPrice=maxPrice,
+                title=title,
+                type=type,
+                image=image
+                )
+            return redirect('home')
+        
+        elif type == "Rango de Precio":
+            maxPrice = int(request.POST.get('maxPrice'))
+            minPrice = int(request.POST.get('minPrice'))
+            Banner.objects.create(
+                maxPrice=maxPrice,
+                minPrice=minPrice,
+                title=title,
+                type=type,
+                image=image
+                )
+            return redirect('home')
+        
+        elif type == "Descuento Minimo":
+            minDiscount = int(request.POST.get('minDiscount'))
+            Banner.objects.create(
+                minDiscount=minDiscount,
+                title=title,
+                type=type,
+                image=image
+                )
+            return redirect('home')
+
     
     return render(request, 'base/createBanner.html', {'topics':topics})
