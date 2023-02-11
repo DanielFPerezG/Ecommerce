@@ -48,4 +48,24 @@ class Product(models.Model):
 
     class Meta:
         order_with_respect_to = 'discount'
+
+class Banner(models.Model):
+
+    title = models.CharField(max_length=150,null=True)
+    type = models.CharField(max_length=150,null=True)
+    message = models.CharField(max_length=150,null=True)
+    image = models.ImageField(null=True, upload_to='banner/')
+    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
+    minPrice = models.PositiveIntegerField(null=True)
+    maxPrice = models.PositiveIntegerField(null=True)
+    minDiscount = models.PositiveIntegerField(null=True)
+    
+
+    def delete(self, *args, **kwargs):
+        if os.path.isfile(self.image.path):
+            os.remove(self.image.path)
+        super(Topic, self).delete(*args, **kwargs)
+    
+    def __str__(self):
+        return self.title
     

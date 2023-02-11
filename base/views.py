@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from .forms import ProductForm, TopicForm
-from .models import User,Topic,Product
+from .models import User,Topic,Product,Banner
 
 # Create your views here.
 
@@ -116,3 +116,32 @@ def updateTopic(request,pk):
             return redirect('adminTopic')
 
     return render(request,'base/updateTopic.html', {'form':form, 'topic':topic})
+
+@login_required(login_url='login')
+def createBanner(request):
+    topics = Topic.objects.all()
+
+    if request.method == "POST":
+        topic_name = request.POST.get('topic')
+        topic, created = Topic.objects.get_or_create(name=topic_name)
+        title = request.POST.get('title')
+        type = request.POST.get('type')
+        message=request.POST.get('message')
+        minPrice = int(request.POST.get('minPrice'))
+        maxPrice = int(request.POST.get('maxPrice'))
+        minDiscount = int(request.POST.get('minDiscount'))
+        image=request.FILES['image'],
+
+        Banner.objects.create(
+            topic=topic,
+            title=title,
+            type=type,
+            message=message,
+            minPrice=minPrice,
+            maxPrice=maxPrice,
+            minDiscount=minDiscount,
+            image=image
+            )
+        return redirect('home')
+    
+    return render(request, 'base/createBanner.html', {'topics':topics})
