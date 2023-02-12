@@ -26,3 +26,15 @@ def home(request):
         'discount_10':discount_10,
         'discount_20':discount_20}
     return render(request, 'store/home.html', context)
+
+
+def shopDetail(request,pk):
+    product = Product.objects.get(id=pk)
+    topics = Topic.objects.all()
+
+    context = {
+        'product':product,
+        'topics':topics
+        }
+
+    return render(request,'store/shopDetail.html', context)
