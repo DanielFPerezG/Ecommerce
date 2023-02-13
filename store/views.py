@@ -30,9 +30,11 @@ def home(request):
 
 def shopDetail(request,pk):
     product = Product.objects.get(id=pk)
+    products = Product.objects.all()
     topics = Topic.objects.all()
 
     context = {
+        'products':products,
         'product':product,
         'topics':topics
         }
