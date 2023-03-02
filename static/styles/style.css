@@ -9609,6 +9609,7 @@ a.text-dark:hover, a.text-dark:focus {
   box-shadow: 0px 0px 3px #848484;
   border-radius: 5%;
 }
+
 .form-group input {
   height: 2rem;
   font-size: 1.2rem;
@@ -9715,4 +9716,16 @@ a.text-dark:hover, a.text-dark:focus {
   box-shadow: 0px 0px 3px #848484;
   border-radius:50%;
   object-fit:cover;
+}
+
+.modal-dialog-shop {
+  position: relative;
+  left: 30%;
+  width: 40%;
+  margin: 0.5rem;
+  pointer-events: none;
+}
+
+.btn--link {
+  padding-bottom: 1rem;
 }

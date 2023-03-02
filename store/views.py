@@ -29,7 +29,7 @@ def loginPage(request):
             messages.error(request, 'Username or password is incorrect')
 
     context= {'page': page}
-    return render(request, 'base/login_register.html', context)
+    return render(request, 'store/login_register.html', context)
 
 def logoutUser(request):
     logout(request)
