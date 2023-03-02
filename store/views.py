@@ -31,6 +31,29 @@ def loginPage(request):
     context= {'page': page}
     return render(request, 'base/login_register.html', context)
 
+def logoutUser(request):
+    logout(request)
+    return redirect('store:home')
+
+def registerPage(request):
+    pass
+    # page = 'register'
+    # form = MyUserCreationForm()
+
+    # if request.method == 'POST':
+    #     form = MyUserCreationForm(request.POST)
+    #     if form.is_valid():
+    #         user = form.save(commit=False)
+    #         user.username = user.username.lower()
+    #         user.save()
+    #         login(request, user)
+    #         return redirect('home')
+    #     else:
+    #         messages.error(request, 'An error occurred during registration')
+
+
+    # return render(request, 'base/login_register.html',{'form':form})
+
 def home(request):
     products = Product.objects.all().order_by('-discount')
     topics = Topic.objects.all()
