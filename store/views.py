@@ -1,9 +1,35 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
-from base.models import Product, Topic, Banner
+from base.models import Product, Topic, Banner, User
 
 # Create your views here.
 
+def loginPage(request):
+    page = 'login'
+    if request.user.is_authenticated:
+        return redirect('store:home')
+
+    if request.method == 'POST':
+        email = request.POST.get('email').lower()
+        password = request.POST.get('password')
+        
+        try:
+            user = User.objects.get(email = email)
+        except:
+            messages.error(request, 'User does not exist')
+        
+        user = authenticate(request, email = email, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('store:home')
+        else:
+            messages.error(request, 'Username or password is incorrect')
+
+    context= {'page': page}
+    return render(request, 'base/login_register.html', context)
 
 def home(request):
     products = Product.objects.all().order_by('-discount')
