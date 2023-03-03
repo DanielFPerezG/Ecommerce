@@ -4,6 +4,8 @@ from django.contrib import messages
 
 from base.models import Product, Topic, Banner, User
 
+from store.forms import UserForm, MyUserCreationForm
+
 # Create your views here.
 
 def loginPage(request):
@@ -36,23 +38,21 @@ def logoutUser(request):
     return redirect('store:home')
 
 def registerPage(request):
-    pass
-    # page = 'register'
-    # form = MyUserCreationForm()
+    page = 'register'
+    form = MyUserCreationForm()
 
-    # if request.method == 'POST':
-    #     form = MyUserCreationForm(request.POST)
-    #     if form.is_valid():
-    #         user = form.save(commit=False)
-    #         user.username = user.username.lower()
-    #         user.save()
-    #         login(request, user)
-    #         return redirect('home')
-    #     else:
-    #         messages.error(request, 'An error occurred during registration')
+    if request.method == 'POST':
+        form = MyUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.save()
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'An error occurred during registration')
 
-
-    # return render(request, 'base/login_register.html',{'form':form})
+    context = {'page': page, 'form':form}
+    return render(request, 'store/login_register.html',context)
 
 def home(request):
     products = Product.objects.all().order_by('-discount')

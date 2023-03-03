@@ -26,14 +26,38 @@
 
                     <div class="auth__action">
                         <p>¿Aun no estas registrado?</p>
-                        <a href="" class="btn btn--link">Registrate</a>
+                        <a href="{% url 'store:register' %}" class="btn btn--link">Registrate</a>
                     </div>
                 </div>
             </div>
 
         </div>
         {% else %}
-        
+        <div class="modal-dialog-shop text-center">
+            <div class="col-sm-10 main-section">
+                <div class="modal-content">
+                    <form class="col-12" method="POST" action="">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group form-icon" id="user-group"> 
+                                <label for="room_name">{{field.label}}</label>
+                                {{field}}
+                            </div>
+                        {% endfor %}
+
+                        <button type="submit" class="btn btn-primary" id="btn-login">
+                            <i class="fas fa-sign-in-alt"></i>  Ingresar
+                        </button>
+                    </form>
+
+                    <div class="auth__action">
+                        <p>¿Ya tienes una cuenta?</p>
+                        <a href="{% url 'store:login' %}" class="btn btn--link">Ingresa aquí</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
         {% endif %}
     </main>
 

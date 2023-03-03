@@ -5,10 +5,15 @@ import os
 
 class User(AbstractUser):
     name = models.CharField(max_length=200, null=True)
+    lastName = models.CharField(max_length=200, null=True)
     email = models.EmailField(unique=True, null=True)
+    phone = models.PositiveIntegerField(null=True)
+    state = models.CharField(max_length=200, null=True)
+    city = models.CharField(max_length=200, null=True)
+    address = models.CharField(max_length=200, null=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    REQUIRED_FIELDS = []
 
 class Topic(models.Model):
     name = models.CharField(max_length=200)
