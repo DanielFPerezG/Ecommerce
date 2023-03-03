@@ -21,12 +21,6 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-3 col-6 text-right">
-                    <a href="" class="btn border">
-                        <i class="fas fa-shopping-cart text-primary"></i>
-                        <span class="badge">0</span>
-                    </a>
-                </div>
             </div>
         </div>
         <!-- Topbar End -->
@@ -72,8 +66,20 @@
                             </div>
 
                             {% if request.user.is_authenticated %}
-                                <div class="navbar-nav ml-auto py-0">
-                                    <a href="{% url 'store:logout' %}" class="nav-item nav-link">Cerrar Sesion</a>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{request.user.name}}</a>
+                                    <div class="dropdown-menu rounded-0 m-0">
+                                        <a href="cart.html" class="dropdown-item">Perfil</a>
+                                        <a href="{% url 'store:logout' %}" class="dropdown-item">Cerrar Sesion</a>
+                                    </div>
+                                    
+                                </div>
+                                <a href="" class="nav-item nav-link">Mis Compras</a>
+                                <div>
+                                    <a href="" class="btn border">
+                                        <i class="fas fa-shopping-cart text-primary"></i>
+                                        <span class="badge">0</span>
+                                    </a>
                                 </div>
                             {% else %}
                                 <!-- Not Logged In -->
