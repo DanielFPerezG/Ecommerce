@@ -11,6 +11,7 @@ urlpatterns = [
 
     path('', views.home, name="home"),
     path('shopDetail/<str:pk>', views.shopDetail, name="shopDetail"),
+    path('store', views.store, name="store"),
     
     
 ]

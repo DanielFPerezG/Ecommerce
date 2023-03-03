@@ -89,3 +89,11 @@ def shopDetail(request,pk):
         }
 
     return render(request,'store/shopDetail.html', context)
+
+def store(request):
+    products = Product.objects.all()
+    topics = Topic.objects.all()
+
+    context = {'products':products,'topics':topics}
+
+    return render(request, 'store/store.html', context)

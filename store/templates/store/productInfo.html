@@ -16,8 +16,7 @@
                         <div class="d-flex justify-content-center">
                             <h6>${{product.priceDiscount}}</h6><h6 class="text-muted ml-2"><del>${{product.price}}</del></h6>
                         </div>                  
-                        {% endif %}
-                        {% if product.discount == 0 %}
+                        {% else %}
                         <div class="d-flex justify-content-center">
                             <h6>${{product.price}}</h6><h6 class="text-muted ml-2"></h6>
                         </div>
