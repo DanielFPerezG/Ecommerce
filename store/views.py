@@ -93,6 +93,9 @@ def shopDetail(request,pk):
 
 def store(request):
     query = request.GET.get('q') if request.GET.get('q') != None else ''
+    order_by = request.GET.get('order_by') if request.GET.get('order_by') != None else ''
+    topics = Topic.objects.all()
+    
 
     products = Product.objects.filter(
         Q(topic__name__icontains = query)|
@@ -100,17 +103,18 @@ def store(request):
         Q(bio__icontains= query)
         )
 
-    topics = Topic.objects.all()
+    if order_by=="priceDiscount":
+        products = products.order_by('priceDiscount')
+    elif order_by=="-priceDiscount":
+        products = products.order_by('-priceDiscount')
+    elif order_by=="name":
+        products = products.order_by('name')
+    elif order_by=="-name":
+        products = products.order_by('-name')
+    elif order_by=="discount":
+        products = products.order_by('discount')
+    elif order_by=="-discount":
+        products = products.order_by('-discount')
 
     context = {'products':products,'topics':topics}
-
     return render(request, 'store/store.html', context)
-
-def search(request):
-    query = request.GET.get('q') if request.GET.get('q') != None else ''
-    results = Product.objects.filter(name__icontains=query) | Product.objects.filter(description__icontains=query)
-    context = {
-        'query': query,
-        'results': results,
-    }
-    return render(request, 'search.html', context)

@@ -50,7 +50,10 @@ def createProduct(request):
         price = int(request.POST.get('price'))
         discount = int(request.POST.get('discount'))
         topic, created = Topic.objects.get_or_create(name=topic_name)
-        priceDiscount = price - (price*(discount/100))
+        if discount>0:
+            priceDiscount = price - (price*(discount/100))
+        else:
+            priceDiscount = price
         Product.objects.create(
             topic=topic,
             name=request.POST.get('name'),
@@ -90,10 +93,13 @@ def updateProduct(request,pk):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            priceDiscount = product.price - (product.price*(product.discount/100))
-            Product.objects.update(
-                priceDiscount=priceDiscount
-            )
+            if product.priceDiscount>0:
+                priceDiscount = product.price - (product.price*(product.discount/100))
+            else:
+                priceDiscount = product.price
+            
+            product.priceDiscount =priceDiscount
+            product.save()
             return redirect('adminProduct')
 
     return render(request,'base/updateProduct.html', {'form':form, 'product':product})
