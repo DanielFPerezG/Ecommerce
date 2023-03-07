@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.core.paginator import Paginator
 
-from base.models import Product, Topic, Banner, User
 from django.db.models import Q
+from base.models import Product, Topic, Banner, User
 
 from store.forms import UserForm, MyUserCreationForm
 
@@ -93,16 +94,18 @@ def shopDetail(request,pk):
 
 def store(request):
     query = request.GET.get('q') if request.GET.get('q') != None else ''
-    order_by = request.GET.get('order_by') if request.GET.get('order_by') != None else ''
+    order_by = request.GET.get('order_by', 'default_orders') 
     topics = Topic.objects.all()
-    
 
-    products = Product.objects.filter(
-        Q(topic__name__icontains = query)|
-        Q(name__icontains= query)|
-        Q(bio__icontains= query)
+    if query:
+        products = Product.objects.filter(
+            Q(topic__name__icontains = query)|
+            Q(name__icontains= query)|
+            Q(bio__icontains= query)
         )
-
+    else: 
+        products = Product.objects.all()
+    
     if order_by=="priceDiscount":
         products = products.order_by('priceDiscount')
     elif order_by=="-priceDiscount":
@@ -115,6 +118,11 @@ def store(request):
         products = products.order_by('discount')
     elif order_by=="-discount":
         products = products.order_by('-discount')
+    
+    paginator = Paginator(products, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    products = page_obj.object_list
 
-    context = {'products':products,'topics':topics}
+    context = {'products':products,'topics':topics,'query':query,'page_obj':page_obj,'products':products,'order_by':order_by}
     return render(request, 'store/store.html', context)
