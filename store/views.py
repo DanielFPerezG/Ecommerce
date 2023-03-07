@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from base.models import Product, Topic, Banner, User
+from django.db.models import Q
 
 from store.forms import UserForm, MyUserCreationForm
 
@@ -91,9 +92,25 @@ def shopDetail(request,pk):
     return render(request,'store/shopDetail.html', context)
 
 def store(request):
-    products = Product.objects.all()
+    query = request.GET.get('q') if request.GET.get('q') != None else ''
+
+    products = Product.objects.filter(
+        Q(topic__name__icontains = query)|
+        Q(name__icontains= query)|
+        Q(bio__icontains= query)
+        )
+
     topics = Topic.objects.all()
 
     context = {'products':products,'topics':topics}
 
     return render(request, 'store/store.html', context)
+
+def search(request):
+    query = request.GET.get('q') if request.GET.get('q') != None else ''
+    results = Product.objects.filter(name__icontains=query) | Product.objects.filter(description__icontains=query)
+    context = {
+        'query': query,
+        'results': results,
+    }
+    return render(request, 'search.html', context)
