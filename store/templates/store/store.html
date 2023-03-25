@@ -35,6 +35,7 @@
                 <div class="col-12 pb-1">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <form action="{% url 'store:store' %}" method="GET">
+                            {% csrf_token %}
                             <div class="input-group">
                                 <input name="q" type="text" class="form-control" placeholder="Search by name">
                                 <div class="input-group-append">
