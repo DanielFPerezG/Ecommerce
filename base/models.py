@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 import os
+import json
 
 class User(AbstractUser):
     name = models.CharField(max_length=200, null=True)
@@ -74,3 +75,48 @@ class Banner(models.Model):
     def __str__(self):
         return self.title
     
+
+class Cart(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    products = models.TextField(default='[]')
+
+    def add_product(self, product):
+        products_list = json.loads(self.products)
+        for p in products_list:
+            if p['id'] == product.id:
+                p['quantity'] += 1
+                break
+        else:
+            products_list.append({
+                'id': product.id,
+                'name': product.name,
+                'price': float(product.price),
+                'quantity': 1
+            })
+        self.products = json.dumps(products_list)
+        self.save()
+
+    def delete_product(self, product_id):
+        products_list = json.loads(self.products)
+        for i, p in enumerate(products_list):
+            if p['id'] == product_id:
+                if p['quantity'] == 1:
+                    products_list.pop(i)
+                else:
+                    p['quantity'] -= 1
+                break
+        self.products = json.dumps(products_list)
+        self.save()
+
+    def obtain_products(self):
+        products_list = json.loads(self.products)
+        products = []
+        for p in products_list:
+            product = {
+                'id': p['id'],
+                'name': p['name'],
+                'price': p['price'],
+                'quantity': p['quantity'],
+            }
+            products.append(product)
+        return products
