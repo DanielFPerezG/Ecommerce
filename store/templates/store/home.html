@@ -50,7 +50,7 @@
                         <div class="position-relative" style="z-index: 1;">
                             <h5 class="text-uppercase text-primary mb-3">Desde 10% de descuento</h5>
                             <h1 class="mb-4 font-weight-semi-bold">Productos Capilares</h1>
-                            <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Compra ahora</a>
+                            <a href="{% url 'store:store' %}?q_min_discount=10" class="btn btn-outline-primary py-md-2 px-md-3">Compra ahora</a>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         <div class="position-relative" style="z-index: 1;">
                             <h5 class="text-uppercase text-primary mb-3">Desde 20% de descuento</h5>
                             <h1 class="mb-4 font-weight-semi-bold">Productos Seleccionados</h1>
-                            <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Compra Ahora</a>
+                            <a href="{% url 'store:store' %}?q_min_discount=20" class="btn btn-outline-primary py-md-2 px-md-3">Compra Ahora</a>
                         </div>
                     </div>
                 </div>

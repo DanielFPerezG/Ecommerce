@@ -110,7 +110,16 @@
                                             <div class="p-3" style="max-width: 700px;">
                                                 <h4 class="text-light text-uppercase font-weight-medium mb-3">{{banner.message}}</h4>
                                                 <h3 class="display-4 text-white font-weight-semi-bold mb-4">{{banner.title}}</h3>
-                                                <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+
+                                                {% if banner.type == 'Categoria' %}
+                                                <a href="{% url 'store:store' %}?q={{banner.topic}}" class="btn btn-light py-2 px-3">Shop Now</a>
+                                                {% elif banner.type == 'Precio Maximo' %}
+                                                <a href="{% url 'store:store' %}?q_max_price={{banner.maxPrice}}" class="btn btn-light py-2 px-3">Shop Now</a>
+                                                {% elif banner.type == 'Rango de Precio' %}
+                                                <a href="{% url 'store:store' %}?q_max_price={{banner.maxPrice}}&q_min_price={{banner.minPrice}}" class="btn btn-light py-2 px-3">Shop Now</a>
+                                                {% elif banner.type == 'Descuento Minimo' %}
+                                                <a href="{% url 'store:store' %}?q_min_discount={{banner.minDiscount}}" class="btn btn-light py-2 px-3">Shop Now</a>
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>

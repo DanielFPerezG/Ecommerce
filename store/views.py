@@ -94,10 +94,26 @@ def shopDetail(request,pk):
 
 def store(request):
     query = request.GET.get('q') if request.GET.get('q') != None else ''
+    query_max_price = request.GET.get('q_max_price') if request.GET.get('q_max_price') != None else ''
+    query_min_price = request.GET.get('q_min_price') if request.GET.get('q_min_price') != None else ''
+    query_min_discount = request.GET.get('q_min_discount') if request.GET.get('q_min_discount') != None else ''
     order_by = request.GET.get('order_by', 'default_orders') 
     topics = Topic.objects.all()
 
-    if query:
+    if query_max_price != '' and query_min_price != '': 
+        products = Product.objects.filter(
+            Q(price__gte=query_min_price) &
+            Q(price__lte=query_max_price))
+    elif query_max_price != '': 
+        products = Product.objects.filter(
+            Q(price__lte=query_max_price)
+            )
+    elif query_min_discount != '': 
+        products = Product.objects.filter(
+            Q(discount__gte=query_min_discount)
+            )
+        print('hpt')
+    elif query:
         products = Product.objects.filter(
             Q(topic__name__icontains = query)|
             Q(name__icontains= query)|
