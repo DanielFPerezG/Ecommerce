@@ -86,7 +86,12 @@
                         </div>
                         <div class="card-footer d-flex justify-content-between bg-light border">
                             <a href="{% url 'store:shopDetail' product.id %}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            <form method="POST" action="{% url 'store:addCart' product.id %}">
+                                {% csrf_token %}
+                                <button type="submit" name="add_cart" class="btn btn-sm text-dark p-0">
+                                    <i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -94,25 +99,25 @@
                 
                 <div class="col-12 pb-1">
                     <nav aria-label="Page navigation">
-                      <ul class="pagination justify-content-center mb-3">
-                        <li class="page-item">
-                        {% if page_obj.has_previous %}
-                          <a class="page-link" href="?page={{ page_obj.previous_page_number }}&order_by={{ order_by }}&products={{ products }}" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                          </a>
-                        {% endif %}   
-                        </li>
-                        <li class="page-item active"><a class="page-link current-page" href="#">{{ page_obj.number }}</a></li>
-                        <li class="page-item">
-                        {% if page_obj.has_next %}
-                            <a class="page-link" href="?page={{ page_obj.next_page_number }}&order_by={{ order_by }}&products={{ products }}" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        {% endif %}
-                        </li>
-                      </ul>
+                        <ul class="pagination justify-content-center mb-3">
+                            <li class="page-item">
+                            {% if page_obj.has_previous %}
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}&order_by={{ order_by }}&products={{ products }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                                </a>
+                            {% endif %}   
+                            </li>
+                            <li class="page-item active"><a class="page-link current-page" href="#">{{ page_obj.number }}</a></li>
+                            <li class="page-item">
+                            {% if page_obj.has_next %}
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}&order_by={{ order_by }}&products={{ products }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            {% endif %}
+                            </li>
+                        </ul>
                     </nav>
                 </div>
             </div>

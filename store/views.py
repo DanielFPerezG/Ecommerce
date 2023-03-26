@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.contrib import messages
 from django.core.paginator import Paginator
 
 from django.db.models import Q
-from base.models import Product, Topic, Banner, User
+from base.models import Product, Topic, Banner, User, Cart
 
 from store.forms import UserForm, MyUserCreationForm
 
@@ -142,3 +145,17 @@ def store(request):
 
     context = {'products':products,'topics':topics,'query':query,'page_obj':page_obj,'products':products,'order_by':order_by}
     return render(request, 'store/store.html', context)
+
+@receiver(post_save, sender=User)
+def create_cart(sender, instance, created, **kwargs):
+    if created:
+        Cart.objects.create(user=instance)
+
+
+@login_required(login_url='login')
+def addCart(request,pk):
+    product = Product.objects.get(id=pk)
+    cart, create = Cart.objects.get_or_create(user=request.user)
+    if request.method == 'POST':
+        cart.add_product(product)
+    return redirect(request.META['HTTP_REFERER'])

@@ -81,6 +81,8 @@ class Cart(models.Model):
     products = models.TextField(default='[]')
 
     def add_product(self, product):
+        if not self.pk:
+            self.save()
         products_list = json.loads(self.products)
         for p in products_list:
             if p['id'] == product.id:
