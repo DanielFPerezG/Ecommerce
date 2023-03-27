@@ -86,6 +86,7 @@
 
 
     // Product Quantity
+
     $('.quantity button').on('click', function () {
         var button = $(this);
         var oldValue = button.parent().parent().find('input').val();
@@ -99,8 +100,38 @@
             }
         }
         button.parent().parent().find('input').val(newVal);
+        total_price();
     });
-    
+
+    // Seleccionar la tabla y sus filas
+    total_price();
+    function total_price (){
+        const table = document.getElementById("CartTable");
+        const rows = table.getElementsByTagName("tr");
+        const sub_total = document.getElementById("subtotal")
+        const total_price = document.getElementById("total_price");
+        let totalPrice = 0;
+      // Iterar por cada fila, omitiendo la fila de encabezado
+      for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+
+        // Obtener los valores de las columnas "precio" y "cantidad"
+        const price = parseInt(row.cells[1].textContent);
+        const quantity = parseInt(row.cells[2].querySelector('input').value);
+        // Calcular el valor total
+        const total = price * quantity;
+        totalPrice += total;
+
+        // Actualizar la columna "total" con el valor calculado
+        row.cells[3].textContent = total;
+        sub_total.textContent = totalPrice;
+        total_price.textContent = totalPrice + 10000;
+
+      }
+
+    }
+
+
 
     //Data table
     $(document).ready(function() {
