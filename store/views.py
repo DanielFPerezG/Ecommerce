@@ -159,3 +159,11 @@ def addCart(request,pk):
     if request.method == 'POST':
         cart.add_product(product)
     return redirect(request.META['HTTP_REFERER'])
+
+def viewCart(request):
+    cart = Cart.objects.get(user=request.user)
+    productCart = cart.obtain_products()
+    total = sum([p['price'] * p['quantity'] for p in productCart])
+
+    context = {'cart':cart,'productCart':productCart,'total':total}
+    return render(request, 'store/viewCart.html', context)

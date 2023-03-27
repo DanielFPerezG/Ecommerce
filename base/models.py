@@ -92,8 +92,9 @@ class Cart(models.Model):
             products_list.append({
                 'id': product.id,
                 'name': product.name,
-                'price': float(product.price),
-                'quantity': 1
+                'price': int(product.price),
+                'quantity': 1,
+                'image_url': product.image.url,
             })
         self.products = json.dumps(products_list)
         self.save()
@@ -119,6 +120,7 @@ class Cart(models.Model):
                 'name': p['name'],
                 'price': p['price'],
                 'quantity': p['quantity'],
+                'image_url': p['image_url'],
             }
             products.append(product)
         return products
