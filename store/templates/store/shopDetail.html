@@ -9,6 +9,9 @@
                     <div class="carousel-inner border">
                         <div class="carousel-item active">
                             <img class="w-100 h-100" src="{{product.image.url}}" alt="Image" style="height: 41rem;object-fit:cover;">
+                            {% if product.discount > 0 %}
+                                <div class="discount-badge view-detail">{{ product.discount }}% OFF</div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -64,6 +67,9 @@
                             <div class="card product-item border-0">
                                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                     <img class="img-fluid w-100" src="{{product2.image.url}}" alt="">
+                                    {% if product2.discount > 0 %}
+                                    <div class="discount-badge">{{ product2.discount }}% OFF</div>
+                                {% endif %}
                                 </div>
                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                     <h6 class="text-truncate mb-3">{{product2.name}}</h6>
