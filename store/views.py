@@ -69,6 +69,7 @@ def home(request):
     banners = Banner.objects.all()
     discount_10 = 0
     discount_20 = 0
+    cart, create = Cart.objects.get_or_create(user=request.user)
 
     for product in products:
         if product.discount >= 10:
@@ -76,13 +77,19 @@ def home(request):
         if product.discount >= 20:
             discount_20+=1
 
+    productCarts = json.loads(cart.products)
+    numberProductsCart = 0
+    for productJson in productCarts:
+        numberProductsCart += 1
+
 
     context = {
         'products':products,
         'topics':topics,
         'banners':banners,
         'discount_10':discount_10,
-        'discount_20':discount_20}
+        'discount_20':discount_20,
+        'numberProductsCart':numberProductsCart}
     return render(request, 'store/home.html', context)
 
 
@@ -90,11 +97,18 @@ def shopDetail(request,pk):
     product = Product.objects.get(id=pk)
     products = Product.objects.all()
     topics = Topic.objects.all()
+    cart, create = Cart.objects.get_or_create(user=request.user)
+
+    productCarts = json.loads(cart.products)
+    numberProductsCart = 0
+    for productJson in productCarts:
+        numberProductsCart += 1
 
     context = {
         'products':products,
         'product':product,
-        'topics':topics
+        'topics':topics,
+        'numberProductsCart':numberProductsCart
         }
 
     return render(request,'store/shopDetail.html', context)
@@ -106,6 +120,7 @@ def store(request):
     query_min_discount = request.GET.get('q_min_discount') if request.GET.get('q_min_discount') != None else ''
     order_by = request.GET.get('order_by', 'default_orders') 
     topics = Topic.objects.all()
+    cart, create = Cart.objects.get_or_create(user=request.user)
 
     if query_max_price != '' and query_min_price != '': 
         products = Product.objects.filter(
@@ -147,7 +162,13 @@ def store(request):
     page_obj = paginator.get_page(page_number)
     products = page_obj.object_list
 
-    context = {'products':products,'topics':topics,'query':query,'page_obj':page_obj,'products':products,'order_by':order_by}
+    productCarts = json.loads(cart.products)
+    numberProductsCart = 0
+    for productJson in productCarts:
+        numberProductsCart += 1
+
+
+    context = {'products':products,'topics':topics,'query':query,'page_obj':page_obj,'products':products,'order_by':order_by,'numberProductsCart':numberProductsCart}
     return render(request, 'store/store.html', context)
 
 @receiver(post_save, sender=User)
@@ -160,16 +181,27 @@ def create_cart(sender, instance, created, **kwargs):
 def addCart(request,pk):
     product = Product.objects.get(id=pk)
     cart, create = Cart.objects.get_or_create(user=request.user)
-    if request.method == 'POST':
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         cart.add_product(product)
-    return redirect(request.META['HTTP_REFERER'])
+    productCarts = json.loads(cart.products)
+    numberProductsCart = 0
+    for productJson in productCarts :
+        numberProductsCart += 1
+    numberProductsCart = json.dumps(numberProductsCart)
+    return HttpResponse(numberProductsCart)
 
 def viewCart(request):
     cart = Cart.objects.get(user=request.user)
     productCart = cart.obtain_products()
     productCart_json = json.dumps(productCart)
-    print(productCart_json)
-    context = {'cart': cart,'productCart': productCart, 'productCart_json': productCart_json}
+
+    productCarts = json.loads(cart.products)
+    numberProductsCart = 0
+    for productJson in productCarts:
+        numberProductsCart += 1
+    numberProductsCart = json.dumps(numberProductsCart)
+
+    context = {'cart': cart,'productCart': productCart, 'productCart_json': productCart_json,'numberProductsCart':numberProductsCart}
     return render(request, 'store/viewCart.html', context)
 
 @csrf_exempt

@@ -39,6 +39,7 @@ class Product(models.Model):
     cost = models.PositiveIntegerField(null=True)
     discount = models.PositiveIntegerField(null=True)
     priceDiscount = models.PositiveIntegerField(null=True)
+    quantity = models.PositiveIntegerField(null=True)
 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -87,8 +88,9 @@ class Cart(models.Model):
         for p in products_list:
             if p['id'] == product.id:
                 p['quantity'] += 1
-                p['total'] = p['price']*p['quantity']
+                p['total'] = p['price'] * p['quantity']
                 break
+
         else:
             products_list.append({
                 'id': product.id,
@@ -96,7 +98,7 @@ class Cart(models.Model):
                 'price': int(product.price),
                 'quantity': 1,
                 'image_url': product.image.url,
-                'total': int(product.price)*int(product.quantity)
+                'total': int(product.price)*1
             })
         self.products = json.dumps(products_list)
         self.save()

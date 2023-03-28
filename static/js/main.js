@@ -1,6 +1,41 @@
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const csrftoken = getCookie('csrftoken');
+function addCart(idProduct){
+
+        fetch('addCart/'+idProduct,{
+            method: 'POST',
+            headers:{
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': csrftoken,
+            }
+        }
+        )
+        .then(response => {
+                return response.json() //Convert response to JSON
+        })
+        .then(data => {
+            var number_products = document.getElementById("number_products");
+            number_products.textContent = data
+        });
+    };
+
 (function ($) {
     "use strict";
-    
+
     // Dropdown on mouse hover
     $(document).ready(function () {
         function toggleNavbarMethod() {
@@ -166,9 +201,7 @@ const csrftoken = getCookie('csrftoken');
 
     }
 
-    function addCart(idProduct){
 
-    };
 
     //Data table
     $(document).ready(function() {
