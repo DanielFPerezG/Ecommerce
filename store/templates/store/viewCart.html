@@ -44,7 +44,14 @@
                                     </form>
                                 </td>
                                 <td class="align-middle" id="total_price_{{ product.id }}"> ${{ product.total }} </td>
-                                <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
+
+                                <td class="align-middle">
+                                    <form action="{% url 'store:deleteCart' pk=product.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button>
+                                    </form>
+                                </td>
+
                             </tr>
                             {% endfor %}
                         </tbody>

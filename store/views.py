@@ -153,9 +153,9 @@ def store(request):
     elif order_by=="-name":
         products = products.order_by('-name')
     elif order_by=="discount":
-        products = products.order_by('discount')
-    elif order_by=="-discount":
         products = products.order_by('-discount')
+    elif order_by=="-discount":
+        products = products.order_by('discount')
     
     paginator = Paginator(products, 9)
     page_number = request.GET.get('page')
@@ -241,9 +241,9 @@ def updateCart(request):
         productCart = json.dumps(productCart)
     return HttpResponse(productCart)
 
-def deleteCart(request, pk):
-
-
-
-    context = {}
-    return render(request, 'store/deleteCart.html', context)
+def deleteCart(request,pk):
+    if request.method == 'POST':
+        cart = Cart.objects.get(user=request.user)
+        cart.delete_product(int(pk))
+        cart.save()
+    return redirect('store:viewCart')
