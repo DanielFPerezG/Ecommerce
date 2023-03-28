@@ -14,5 +14,6 @@ urlpatterns = [
     path('store', views.store, name="store"),
     path('addCart/<str:pk>', views.addCart, name="addCart"),
     path('viewCart', views.viewCart, name="viewCart"),
-    
+
+    path('updateCart', views.updateCart, name='updateCart'),
 ]

@@ -83,7 +83,22 @@
             }
         }
     });
-
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const csrftoken = getCookie('csrftoken');
 
     // Product Quantity
 
@@ -92,6 +107,7 @@
         var oldValue = button.parent().parent().find('input').val();
         if (button.hasClass('btn-plus')) {
             var newVal = parseFloat(oldValue) + 1;
+
         } else {
             if (oldValue > 0) {
                 var newVal = parseFloat(oldValue) - 1;
@@ -100,38 +116,59 @@
             }
         }
         button.parent().parent().find('input').val(newVal);
-        total_price();
+        createJSON()
+        //total_price();
     });
 
-    // Seleccionar la tabla y sus filas
-    total_price();
-    function total_price (){
-        const table = document.getElementById("CartTable");
-        const rows = table.getElementsByTagName("tr");
-        const sub_total = document.getElementById("subtotal")
-        const total_price = document.getElementById("total_price");
-        let totalPrice = 0;
-      // Iterar por cada fila, omitiendo la fila de encabezado
+    function createJSON() {
+      const myTable = document.getElementById("CartTable");
+      const rows = myTable.getElementsByTagName("tr");
+      const data = [];
+
+      // Recorrer cada fila de la tabla (empezar en la segunda fila para ignorar la fila de encabezado)
       for (let i = 1; i < rows.length; i++) {
-        const row = rows[i];
+        const row = rows[i].getElementsByTagName("td");
 
-        // Obtener los valores de las columnas "precio" y "cantidad"
-        const price = parseInt(row.cells[1].textContent);
-        const quantity = parseInt(row.cells[2].querySelector('input').value);
-        // Calcular el valor total
-        const total = price * quantity;
-        totalPrice += total;
+        // Obtener los valores de las celdas y construir un objeto JavaScript
+        const jsonRow = {
+          id: row[0].textContent,
+            quantity: parseInt(row[4].querySelector('input').value)
+        };
 
-        // Actualizar la columna "total" con el valor calculado
-        row.cells[3].textContent = total;
-        sub_total.textContent = totalPrice;
-        total_price.textContent = totalPrice + 10000;
 
+        // Agregar el objeto a la lista de datos
+        data.push(jsonRow);
       }
+      // Convertir el objeto JavaScript en una cadena JSON
+      const json = JSON.stringify(data);
+
+      fetch('updateCart',{
+            method: 'POST',
+          body: json,
+            headers:{
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': csrftoken,
+            }
+        }
+        )
+        .then(response => {
+                return response.json() //Convert response to JSON
+        })
+        .then(data => {
+
+                for (let i = 0; i < data.length; i++) {
+                    var totalElement = document.getElementById("total_price_"+data[i]["id"]);
+                    totalElement.textContent = data[i]["total"]
+                }
+                const subTotal = document.getElementById("subtotal");
+                const totalPrice = document.getElementById("total_price");
+        });
 
     }
 
+    function addCart(idProduct){
 
+    };
 
     //Data table
     $(document).ready(function() {

@@ -86,12 +86,10 @@
                         </div>
                         <div class="card-footer d-flex justify-content-between bg-light border">
                             <a href="{% url 'store:shopDetail' product.id %}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                            <form method="POST" action="{% url 'store:addCart' product.id %}">
-                                {% csrf_token %}
-                                <button type="submit" name="add_cart" class="btn btn-sm text-dark p-0">
+
+                                <button type="submit" onclick="addCart({{ product.id }})" name="add_cart" class="btn btn-sm text-dark p-0">
                                     <i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart
                                 </button>
-                            </form>
                         </div>
                     </div>
                 </div>

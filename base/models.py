@@ -87,6 +87,7 @@ class Cart(models.Model):
         for p in products_list:
             if p['id'] == product.id:
                 p['quantity'] += 1
+                p['total'] = p['price']*p['quantity']
                 break
         else:
             products_list.append({
@@ -95,6 +96,7 @@ class Cart(models.Model):
                 'price': int(product.price),
                 'quantity': 1,
                 'image_url': product.image.url,
+                'total': int(product.price)*int(product.quantity)
             })
         self.products = json.dumps(products_list)
         self.save()
@@ -121,6 +123,7 @@ class Cart(models.Model):
                 'price': p['price'],
                 'quantity': p['quantity'],
                 'image_url': p['image_url'],
+                'total':p['total']
             }
             products.append(product)
         return products

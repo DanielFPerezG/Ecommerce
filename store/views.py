@@ -5,11 +5,15 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from django.db.models import Q
 from base.models import Product, Topic, Banner, User, Cart
 
 from store.forms import UserForm, MyUserCreationForm
+
+import json
 
 # Create your views here.
 
@@ -163,7 +167,31 @@ def addCart(request,pk):
 def viewCart(request):
     cart = Cart.objects.get(user=request.user)
     productCart = cart.obtain_products()
-    total = sum([p['price'] * p['quantity'] for p in productCart])
-
-    context = {'cart':cart,'productCart':productCart,'total':total}
+    productCart_json = json.dumps(productCart)
+    print(productCart_json)
+    context = {'cart': cart,'productCart': productCart, 'productCart_json': productCart_json}
     return render(request, 'store/viewCart.html', context)
+
+@csrf_exempt
+def updateCart(request):
+    cart = Cart.objects.get(user=request.user)
+    productCart = cart.obtain_products()
+
+    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        data = json.loads(request.body)
+
+
+        for product in productCart:
+            for i in data:
+                if product["id"] == int(i["id"]):
+                    product["quantity"] = int(i["quantity"])
+            if product["quantity"] == 0:
+                cart.delete_product(product["id"])
+
+            product["total"] = product["price"]*product["quantity"]
+
+        cart.products = productCart
+        cart.products = json.dumps(cart.products)
+        cart.save()
+        productCart = json.dumps(productCart)
+    return HttpResponse(productCart)
