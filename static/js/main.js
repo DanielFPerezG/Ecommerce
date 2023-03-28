@@ -190,13 +190,17 @@ const csrftoken = getCookie('csrftoken');
                 return response.json() //Convert response to JSON
         })
         .then(data => {
+                var subTotal = document.getElementById("subtotal");
+                var totalPrice = document.getElementById("total_price");
+                var subTotalcount = 0;
 
                 for (let i = 0; i < data.length; i++) {
                     var totalElement = document.getElementById("total_price_"+data[i]["id"]);
-                    totalElement.textContent = data[i]["total"]
+                    totalElement.textContent = "$"+data[i]["total"]
+                    subTotalcount += data[i]["total"]
                 }
-                const subTotal = document.getElementById("subtotal");
-                const totalPrice = document.getElementById("total_price");
+                subTotal.textContent = "$"+subTotalcount
+                totalPrice.textContent = "$"+(subTotalcount+10000)
         });
 
     }

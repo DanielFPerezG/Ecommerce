@@ -192,16 +192,29 @@ def addCart(request,pk):
 
 def viewCart(request):
     cart = Cart.objects.get(user=request.user)
-    productCart = cart.obtain_products()
-    productCart_json = json.dumps(productCart)
 
     productCarts = json.loads(cart.products)
     numberProductsCart = 0
+    subTotal = 0
+
     for productJson in productCarts:
         numberProductsCart += 1
-    numberProductsCart = json.dumps(numberProductsCart)
+        subTotal += productJson['total']
+        if productJson['quantity'] == 0:
+            cart.delete_product(productJson['id'])
+            cart.save()
+            productCarts.remove(productJson)
 
-    context = {'cart': cart,'productCart': productCart, 'productCart_json': productCart_json,'numberProductsCart':numberProductsCart}
+
+    numberProductsCart = json.dumps(numberProductsCart)
+    productCart = cart.obtain_products()
+    productCart_json = json.dumps(productCart)
+
+
+
+    total = subTotal + 10000
+
+    context = {'cart': cart, 'productCart': productCart, 'productCart_json': productCart_json,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total}
     return render(request, 'store/viewCart.html', context)
 
 @csrf_exempt
@@ -227,3 +240,10 @@ def updateCart(request):
         cart.save()
         productCart = json.dumps(productCart)
     return HttpResponse(productCart)
+
+def deleteCart(request, pk):
+
+
+
+    context = {}
+    return render(request, 'store/deleteCart.html', context)

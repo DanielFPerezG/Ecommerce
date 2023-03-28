@@ -77,7 +77,7 @@
                                 </div>
                                 <a href="" class="nav-item nav-link">Mis Compras</a>
                                 <div>
-                                    <a href="" class="btn border">
+                                    <a href="{% url 'store:viewCart' %}" class="btn border">
                                         <i class="fas fa-shopping-cart text-primary"></i>
                                         <span id="number_products" class="badge">{{ numberProductsCart }}</span>
                                     </a>

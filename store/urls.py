@@ -16,4 +16,5 @@ urlpatterns = [
     path('viewCart', views.viewCart, name="viewCart"),
 
     path('updateCart', views.updateCart, name='updateCart'),
+    path('deleteCart/<str:pk>', views.deleteCart, name='deleteCart'),
 ]

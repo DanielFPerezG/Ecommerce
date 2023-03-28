@@ -107,11 +107,7 @@ class Cart(models.Model):
         products_list = json.loads(self.products)
         for i, p in enumerate(products_list):
             if p['id'] == product_id:
-                if p['quantity'] == 1:
-                    products_list.pop(i)
-                else:
-                    p['quantity'] -= 1
-                break
+                products_list.pop(i)
         self.products = json.dumps(products_list)
         self.save()
 
