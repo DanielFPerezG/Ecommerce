@@ -9745,3 +9745,66 @@ a.text-dark:hover, a.text-dark:focus {
 .discount-badge.view-detail {
   font-size: 24px;
 }
+
+
+.modal-body img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin-right: 1rem;
+}
+
+.modal-body p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.modal-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.modal.fade:not(.show) .modal-dialog.modal-bottom-right {
+  transform: translate(137%, 100%);
+}
+
+.modal.fade.show .modal-dialog.modal-bottom-right {
+  transform: translate(137%, 38%);
+}
+
+.modal-backdrop {
+    display: none;
+}
+.modal.fade .modal-dialog {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+@media (max-width: 767px) {
+  .modal.fade:not(.show) .modal-dialog.modal-bottom-right {
+    transform: translate(0%, 120%);
+  }
+
+  .modal.fade.show .modal-dialog.modal-bottom-right {
+    transform: translate(0%, 30%);
+  }
+
+  .modal-body {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal-body img {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .modal-body p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}

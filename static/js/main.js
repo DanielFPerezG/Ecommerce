@@ -15,8 +15,9 @@ function getCookie(name) {
 }
 const csrftoken = getCookie('csrftoken');
 function addCart(idProduct){
+        console.log(idProduct)
 
-        fetch('addCart/'+idProduct,{
+        fetch('/addCart/'+idProduct,{
             method: 'POST',
             headers:{
                 'X-Requested-With': 'XMLHttpRequest',
@@ -29,9 +30,61 @@ function addCart(idProduct){
         })
         .then(data => {
             var number_products = document.getElementById("number_products");
-            number_products.textContent = data
+            json1 = data.json1
+            json2 = JSON.parse(data.json2)
+            var image_url_product = json2[0].image_url;
+            var name_product = json2[0].name;
+            number_products.textContent = json1
+            console.log(name_product)
+            console.log(image_url_product)
+            showModal(name_product, image_url_product)
         });
     };
+function addCartProductDetail(idProduct){
+        console.log(idProduct)
+
+        fetch('../addCart/'+idProduct,{
+            method: 'POST',
+            headers:{
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': csrftoken,
+            }
+        }
+        )
+        .then(response => {
+                return response.json() //Convert response to JSON
+        })
+        .then(data => {
+            var number_products = document.getElementById("number_products");
+            json1 = data.json1
+            json2 = JSON.parse(data.json2)
+            var image_url_product = json2[0].image_url;
+            var name_product = json2[0].name;
+            number_products.textContent = json1
+            console.log(name_product)
+            console.log(image_url_product)
+            showModal(name_product, image_url_product)
+        });
+    };
+
+
+function showModal(name_product, image_url_product) {
+      var modalContent = document.getElementsByClassName("modal-body");
+        console.log(name_product)
+        console.log(image_url_product)
+
+        const img = modalContent[0].querySelector("img");
+        const paragraph = modalContent[0].querySelector("p");
+        console.log(img)
+        img.src = image_url_product;
+        paragraph.textContent = name_product
+
+        $('#modalBoot').modal('show');
+                setTimeout(function() {
+                    $('#modalBoot').modal('hide');
+                  }, 2100);
+
+    }
 
 (function ($) {
     "use strict";
@@ -202,6 +255,8 @@ const csrftoken = getCookie('csrftoken');
                 subTotal.textContent = "$"+subTotalcount
                 totalPrice.textContent = "$"+(subTotalcount+10000)
         });
+
+
 
     }
 
