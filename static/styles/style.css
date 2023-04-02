@@ -9770,11 +9770,11 @@ a.text-dark:hover, a.text-dark:focus {
 
 
 .modal.fade:not(.show) .modal-dialog.modal-bottom-right {
-  transform: translate(137%, 100%);
+  transform: translate(126%, 100%);
 }
 
 .modal.fade.show .modal-dialog.modal-bottom-right {
-  transform: translate(137%, 38%);
+  transform: translate(126%, 40%);
 }
 
 .modal-backdrop {
