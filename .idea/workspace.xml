@@ -4,151 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Merge from test branch to main branch">
-      <change afterPath="$PROJECT_DIR$/store/templates/store/bannerTopicArea.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/adminProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/adminProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/adminTopic.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/adminTopic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/createBanner.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/createBanner.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/createProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/createProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/deleteProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/deleteProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/updateProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/updateProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/updateTopic.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/updateTopic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/carousel-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/carousel-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/cat-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/cat-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/cat-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/cat-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/cat-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/cat-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/offer-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/offer-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/payments.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/product-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/product-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/product-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/product-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/product-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/product-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/product-7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/product-8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/user.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/vendor-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/vendor-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/vendor-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/vendor-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/vendor-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/vendor-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/vendor-7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/vendor-8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/mail/contact.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/mail/contact.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/mail/jqBootstrapValidation.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_alert.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_badge.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_breadcrumb.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_button-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_card.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_carousel.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_close.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_code.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_custom-forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_dropdown.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_functions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_images.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_input-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_jumbotron.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_list-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_media.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_modal.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_nav.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_navbar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_popover.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_print.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_progress.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_reboot.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_root.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_spinners.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_tables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_toasts.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_tooltip.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_transitions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_type.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_utilities.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/bootstrap-grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/bootstrap-reboot.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/bootstrap.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_alert.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_background-variant.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_badge.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_border-radius.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_box-shadow.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_breakpoints.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_caret.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_clearfix.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_deprecate.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_float.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_gradients.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_grid-framework.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_hover.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_image.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_list-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_lists.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_nav-divider.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_reset-text.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_resize.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_screen-reader.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_size.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_table-row.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_text-emphasis.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_text-hide.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_text-truncate.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_transition.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_visibility.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_align.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_background.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_borders.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_clearfix.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_display.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_embed.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_flex.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_float.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_interactions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_overflow.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_position.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_screenreaders.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_shadows.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_sizing.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_spacing.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_stretched-link.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_text.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_visibility.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/vendor/_rfs.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scss/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/login_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/login_register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/shopDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/shopDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/store.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/viewCart.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/viewCart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/navbar_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/navbar.html" afterDir="false" />
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Templates First Version">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -255,7 +114,7 @@
       <updated>1679866861284</updated>
       <workItem from="1679866862989" duration="60697000" />
       <workItem from="1680096120382" duration="3570000" />
-      <workItem from="1680457799348" duration="9966000" />
+      <workItem from="1680457799348" duration="14864000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -334,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680457606419</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Update Templates First Version">
+      <created>1680640576881</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680640576882</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +222,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="test" />
                       </list>
                     </value>
                   </entry>
@@ -379,7 +245,8 @@
     <MESSAGE value="Add Modal to Templates" />
     <MESSAGE value="Update Modal to style" />
     <MESSAGE value="Merge from test branch to main branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge from test branch to main branch" />
+    <MESSAGE value="Update Templates First Version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Templates First Version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
