@@ -1,0 +1,172 @@
+<div class="main-banner" id="top">
+        <div class="container-fluid">
+
+            <div class="row">
+                <!-- ***** Banner Start ***** -->
+                <div class="col-lg-6">
+                      <div id="carouselExampleControls" class="carousel slide left-content" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="left-content">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>{{banners.0.title}}</h4>
+                                                <span>{{banners.0.message}}</span>
+                                            <div class="main-border-button">
+                                                {% if banners.0.type == 'Categoria' %}
+                                                        <a href="{% url 'store:store' %}?q={{banners.0.topic}}" >Shop Now</a>
+                                                        {% elif banners.0.type == 'Precio Maximo' %}
+                                                        <a href="{% url 'store:store' %}?q_max_price={{banners.0.maxPrice}}" >Shop Now</a>
+                                                        {% elif banners.0.type == 'Rango de Precio' %}
+                                                        <a href="{% url 'store:store' %}?q_max_price={{banners.0.maxPrice}}&q_min_price={{banners.0.minPrice}}" >Shop Now</a>
+                                                        {% elif banners.0.type == 'Descuento Minimo' %}
+                                                        <a href="{% url 'store:store' %}?q_min_discount={{banners.0.minDiscount}}" >Shop Now</a>
+                                                {% endif %}
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                                {% if banners.0.image %}
+                                    <img src="{{banners.0.image.url}}" class="d-block w-100 img-banner" alt="...">
+                                {% endif %}
+                            </div>
+
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                </div>
+
+                <!-- ***** Banner End ***** -->
+
+                 <!--***** 4 main categories (are required by default) Start *****-->
+                <div class="col-lg-6">
+                    <div class="right-content">
+                        <div class="row">
+
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>{{ topics.0.name }}</h4>
+                                            <span>Best Clothes For Women</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>{{ topics.0.name }}</h4>
+                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <div class="main-border-button">
+                                                    <a href="#">Discover More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="{{ topics.0.image.url }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>{{ topics.1.name }}</h4>
+                                            <span>Best Clothes For Women</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>{{ topics.1.name }}</h4>
+                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <div class="main-border-button">
+                                                    <a href="#">Discover More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="{{ topics.1.image.url }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>{{ topics.2.name }}</h4>
+                                            <span>Best Clothes For Men</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>{{ topics.2.name }}</h4>
+                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <div class="main-border-button">
+                                                    <a href="#">Discover More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="{{ topics.2.image.url }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>{{ topics.3.name }}</h4>
+                                            <span>Best Clothes For Kids</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>{{ topics.3.name }}</h4>
+                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <div class="main-border-button">
+                                                    <a href="#">Discover More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="{{ topics.3.image.url }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!--***** 4 main categories (are required by default) End ***** -->
+
+                 <!--***** Add more categories start ***** -->
+                <div class="col-lg-12">
+                    <div class="right-content">
+                        <div class="row">
+                            {% for topic in topics|slice:"4:" %}
+                                <div class="col-lg-3">
+                                    <div class="right-first-image">
+                                        <div class="thumb">
+                                            <div class="inner-content">
+                                                <h4>{{ topic.name }}</h4>
+                                                <span>Best Clothes For Women</span>
+                                            </div>
+                                            <div class="hover-content">
+                                                <div class="inner">
+                                                    <h4>{{ topic.name }}</h4>
+                                                    <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                    <div class="main-border-button">
+                                                        <a href="#">Discover More</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <img src="{{ topic.image.url }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                 <!-- ***** Add more categories end ***** -->
+            </div>
+
+        </div>
+    </div>
+</div>

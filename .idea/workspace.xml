@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Merge from test branch to main branch">
+      <change afterPath="$PROJECT_DIR$/store/templates/store/bannerTopicArea.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/adminProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/adminProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/adminTopic.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/adminTopic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/createBanner.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/createBanner.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/createProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/createProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/deleteProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/deleteProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/updateProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/updateProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/updateTopic.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/updateTopic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/carousel-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/carousel-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/cat-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/cat-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/cat-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/cat-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/cat-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/cat-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/offer-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/offer-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/payments.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/user.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/vendor-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/vendor-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/vendor-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/vendor-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/vendor-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/vendor-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/vendor-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/vendor-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/mail/contact.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/mail/contact.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/mail/jqBootstrapValidation.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_alert.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_badge.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_breadcrumb.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_button-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_card.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_carousel.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_close.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_code.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_custom-forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_dropdown.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_functions.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_images.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_input-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_jumbotron.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_list-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_media.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_modal.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_nav.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_navbar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_pagination.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_popover.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_print.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_progress.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_reboot.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_root.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_spinners.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_tables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_toasts.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_tooltip.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_transitions.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_type.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_utilities.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/bootstrap-grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/bootstrap-reboot.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/bootstrap.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_alert.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_background-variant.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_badge.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_border-radius.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_box-shadow.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_breakpoints.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_caret.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_clearfix.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_deprecate.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_float.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_gradients.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_grid-framework.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_hover.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_image.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_list-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_lists.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_nav-divider.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_pagination.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_reset-text.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_resize.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_screen-reader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_size.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_table-row.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_text-emphasis.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_text-hide.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_text-truncate.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_transition.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/mixins/_visibility.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_align.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_background.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_borders.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_clearfix.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_display.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_embed.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_flex.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_float.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_interactions.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_overflow.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_position.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_screenreaders.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_shadows.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_sizing.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_spacing.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_stretched-link.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_text.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/utilities/_visibility.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/bootstrap/scss/vendor/_rfs.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scss/style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/login_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/login_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/shopDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/shopDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/store.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/viewCart.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/viewCart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/navbar.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f4a399ba-e65f-439f-a3f9-89aff792c89d" />
+        <option name="url" value="https://github.com/DanielFPerezG/ecommerce.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///usr/local/Cellar/python@3.10/3.10.9/Frameworks/Python.framework/Versions/3.10/lib/python3.10/wsgiref/handlers.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NZLs4NIpcLz4lPw9RUbhmMVwqR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/daniel.galindo/Documents/Ecommerce/ecommerce&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$/templates/base" />
+      <recent name="$PROJECT_DIR$/templates/store" />
+      <recent name="$PROJECT_DIR$/store/templatetags" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ecommerce" type="Python.DjangoServer" factoryName="Django server">
+      <module name="ecommerce" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="ecommerce.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="" />
+      <created>1679866861284</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679866861284</updated>
+      <workItem from="1679866862989" duration="60697000" />
+      <workItem from="1680096120382" duration="3570000" />
+      <workItem from="1680457799348" duration="9966000" />
+    </task>
+    <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
+      <created>1679879176707</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679879176707</updated>
+    </task>
+    <task id="LOCAL-00002" summary="js to Shopping Cart">
+      <created>1679879205396</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679879205396</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update Shopping Cart With Asynchronous Method">
+      <created>1679974457556</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679974457556</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add Product to Cart With Asynchronous Method">
+      <created>1679979587596</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679979587596</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Discount % in product image">
+      <created>1680033014744</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680033014744</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update Asynchronous Method">
+      <created>1680036057756</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680036057756</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Delete Product to Shopping Cart">
+      <created>1680038499229</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680038499229</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add Modal to Templates">
+      <created>1680066206539</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680066206539</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add Modal to Templates">
+      <created>1680066273156</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680066273156</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Update Modal to style">
+      <created>1680457332385</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680457332386</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Merge from test branch to main branch">
+      <created>1680457606418</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680457606419</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="View &amp; Templates to Shopping Cart" />
+    <MESSAGE value="js to Shopping Cart" />
+    <MESSAGE value="Update Shopping Cart With Asynchronous Method" />
+    <MESSAGE value="Add Product to Cart With Asynchronous Method" />
+    <MESSAGE value="Discount % in product image" />
+    <MESSAGE value="Update Asynchronous Method" />
+    <MESSAGE value="Delete Product to Shopping Cart" />
+    <MESSAGE value="Add Modal to Templates" />
+    <MESSAGE value="Update Modal to style" />
+    <MESSAGE value="Merge from test branch to main branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge from test branch to main branch" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/store/views.py</url>
+          <line>251</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

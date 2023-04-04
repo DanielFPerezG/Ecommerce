@@ -84,12 +84,12 @@ def home(request):
 
 
     context = {
-        'products':products,
-        'topics':topics,
-        'banners':banners,
-        'discount_10':discount_10,
-        'discount_20':discount_20,
-        'numberProductsCart':numberProductsCart}
+        'products': products,
+        'topics': topics,
+        'banners': banners,
+        'discount_10': discount_10,
+        'discount_20': discount_20,
+        'numberProductsCart': numberProductsCart}
     return render(request, 'store/home.html', context)
 
 
