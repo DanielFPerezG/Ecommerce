@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Templates First Version">
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Main &amp; Navbar Base Templates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/adminProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/adminProduct.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +114,7 @@
       <updated>1679866861284</updated>
       <workItem from="1679866862989" duration="60697000" />
       <workItem from="1680096120382" duration="3570000" />
-      <workItem from="1680457799348" duration="14864000" />
+      <workItem from="1680457799348" duration="17937000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -200,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680640576882</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update Main &amp; Navbar Base Templates">
+      <created>1680645684833</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680645684833</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +253,8 @@
     <MESSAGE value="Update Modal to style" />
     <MESSAGE value="Merge from test branch to main branch" />
     <MESSAGE value="Update Templates First Version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Templates First Version" />
+    <MESSAGE value="Update Main &amp; Navbar Base Templates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Main &amp; Navbar Base Templates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
