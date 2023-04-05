@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-from .forms import ProductForm, TopicForm
+from .forms import ProductForm, TopicForm, BannerForm
 from .models import User,Topic,Product,Banner
 
 # Create your views here.
@@ -183,3 +183,16 @@ def createBanner(request):
 
     
     return render(request, 'base/createBanner.html', {'topics':topics})
+
+@login_required(login_url='login')
+def updateBanner(request,pk):
+    banner = Banner.objects.get(id=pk)
+    form = BannerForm(instance=banner)
+
+    if request.method == 'POST':
+        form = BannerForm(request.POST, request.FILES, instance=banner)
+        if form.is_valid():
+            form.save()
+            return redirect('adminBanner')
+
+    return render(request,'base/updateBanner.html', {'form':form, 'banner':banner})
