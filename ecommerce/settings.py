@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base.apps.BaseConfig',
     'store.apps.StoreConfig',
-
+    'widget_tweaks',
     'django_hosts',
 ]
 
