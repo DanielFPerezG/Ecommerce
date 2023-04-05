@@ -82,12 +82,36 @@
                                     <a href="{% url 'updateProduct' product.id %}" class="dropdown-link mx-3">
                                         <i class="nav-icon fas fa-edit"></i>
                                     </a>
-                                    <a href="{% url 'deleteProduct' product.id %}" class="dropdown-link mx-3">
-                                        <i class="nav-icon fas fa-trash"></i>
-                                    </a>
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default_{{ product.id }}">
+                                      <i class="nav-icon fas fa-trash"></i>
+                                    </button>
                                 </td>
                                 
                             </tr>
+                            <div class="modal fade" id="modal-default_{{ product.id }}">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 class="modal-title">Eliminar producto</h4>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>¿Seguro de querer eliminar el producto {{ product.name }}?</p>
+                                    </div>
+                                    <div class="modal-footer justify-content-between">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+                                        <a href="{% url 'deleteProduct' product.id %}">
+                                            <button type="button"  class="btn btn-danger">Eliminar</button>
+                                        </a>
+                                    </div>
+                                  </div>
+                                  <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                              </div>
+                              <!-- /.modal -->
                         {% endfor %}
                     </tbody>
                 </table>
@@ -105,5 +129,6 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
 {% endblock  %}
 

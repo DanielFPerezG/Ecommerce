@@ -78,11 +78,10 @@ def adminProduct(request):
 @login_required(login_url='login')
 def deleteProduct(request,pk):
     product = Product.objects.get(id=pk)
+    product.delete()
 
-    if request.method == 'POST':
-        product.delete()
-        return redirect('adminProduct')
-    return render(request, 'base/deleteProduct.html', {'product':product})
+    return redirect('adminProduct')
+
 
 @login_required(login_url='login')
 def updateProduct(request,pk):
