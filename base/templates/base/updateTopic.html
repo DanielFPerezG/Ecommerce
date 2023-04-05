@@ -1,22 +1,58 @@
 {% extends 'base/main.html' %}
+{% load widget_tweaks %}
 
 {% block content %}
-    <div class="modal-dialog text-center">
-        <div class="col-sm-12 main-section">
-            <div class="modal-content">
+     <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Actualizar Categoría</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb-item active">Actualizar Categoría</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Actualizar Categoría</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
                 <form class="col-12" method="POST" enctype="multipart/form-data" action="">
-                    {% csrf_token %}
+                    <div class="card-body">
+                        {% csrf_token %}
+                        <div class="form-group text-center mx-auto">
+                            <label>{{ topic.name }}</label>
+                            <figure class="update-image">
+                                <img src="{{topic.image.url}}" style="width: 6rem; height: 6rem; border-radius:25%;object-fit:cover;">
+                            </figure>
+                        </div>
+                        {% for field in form %}
+                        <div class="form-group" id="user-group">
+                            <label for="profile_pic">{{field.label}}</label>
+                            {{field}}
+                        </div>
+                        {% endfor %}
 
-                    {% for field in form %}
-                    <div class="form-group" id="user-group">
-                        <label for="profile_pic">{{field.label}}</label>
-                        {{field}}
+                        <button type="submit" class="btn btn-primary" id="btn-login">
+                            <i class="fas fa-sign-in-alt"></i>  Actualizar
+                        </button>
                     </div>
-                    {% endfor %}
-
-                    <button type="submit" class="btn btn-primary" id="btn-login">
-                        <i class="fas fa-sign-in-alt"></i>  Ingresar
-                    </button>
                 </form>
             </div>
         </div>

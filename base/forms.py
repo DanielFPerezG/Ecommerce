@@ -24,4 +24,10 @@ class ProductForm(ModelForm):
 class TopicForm(ModelForm):
     class Meta:
         model = Topic
-        fields = ['image']
+        fields = ['image','bio']
+        labels = {
+            'bio': 'Descripción',
+        }
+        widgets = {
+            'bio': Textarea(attrs={'class': 'form-control', 'rows': 3}),  # Usa el widget Textarea para 'bio'
+        }

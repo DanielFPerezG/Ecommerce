@@ -18,6 +18,7 @@ class User(AbstractUser):
 
 class Topic(models.Model):
     name = models.CharField(max_length=200)
+    bio = models.CharField(max_length=1000,null=True)
     image = models.ImageField(null=True, upload_to='topic/')
 
     def delete(self, *args, **kwargs):
@@ -39,7 +40,6 @@ class Product(models.Model):
     cost = models.PositiveIntegerField(null=True)
     discount = models.PositiveIntegerField(null=True)
     priceDiscount = models.PositiveIntegerField(null=True)
-    quantity = models.PositiveIntegerField(null=True)
 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)

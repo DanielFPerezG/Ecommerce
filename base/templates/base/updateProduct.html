@@ -34,8 +34,8 @@
               <!-- /.card-header -->
               <!-- form start -->
                 <form class="col-12" method="POST" enctype="multipart/form-data" action="">
+                    {% csrf_token %}
                     <div class="card-body">
-                        {% csrf_token %}
                         <div class="form-group text-center mx-auto">
                             <label>{{ product.name }}</label>
                             <figure class="update-image">
