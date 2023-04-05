@@ -25,6 +25,7 @@ urlpatterns = [
     path('createBanner', views.createBanner, name="createBanner"),
     path('adminBanner', views.adminBanner, name="adminBanner"),
     path('updateBanner/<str:pk>', views.updateBanner, name="updateBanner"),
+    path('deleteBanner/<str:pk>', views.deleteBanner, name="deleteBanner"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

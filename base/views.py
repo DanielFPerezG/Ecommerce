@@ -201,3 +201,10 @@ def adminBanner(request):
     banners = Banner.objects.all()
 
     return render(request, 'base/adminBanner.html', {'banners': banners})
+
+@login_required(login_url='login')
+def deleteBanner(request,pk):
+    banner = Product.objects.get(id=pk)
+    banner.delete()
+
+    return redirect('adminBanner')
