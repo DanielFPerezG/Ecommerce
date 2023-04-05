@@ -196,3 +196,9 @@ def updateBanner(request,pk):
             return redirect('adminBanner')
 
     return render(request,'base/updateBanner.html', {'form':form, 'banner':banner})
+
+@login_required(login_url='login')
+def adminBanner(request):
+    banners = Banner.objects.all()
+
+    return render(request, 'base/adminBanner.html', {'banners': banners})

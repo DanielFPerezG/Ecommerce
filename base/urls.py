@@ -23,6 +23,7 @@ urlpatterns = [
     path('updateTopic/<str:pk>', views.updateTopic, name="updateTopic"),
 
     path('createBanner', views.createBanner, name="createBanner"),
+    path('adminBanner', views.adminBanner, name="adminBanner"),
     path('updateBanner/<str:pk>', views.updateBanner, name="updateBanner"),
 ]
 

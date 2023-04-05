@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Template to Admin Banners">
-      <change afterPath="$PROJECT_DIR$/base/templates/base/updateBanner.html" afterDir="false" />
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Create Template, From &amp; View to Banner Update">
+      <change afterPath="$PROJECT_DIR$/base/templates/base/adminBanner.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/updateProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/updateProduct.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/views.py" afterDir="false" />
     </list>
@@ -117,7 +115,7 @@
       <updated>1679866861284</updated>
       <workItem from="1679866862989" duration="60697000" />
       <workItem from="1680096120382" duration="3570000" />
-      <workItem from="1680457799348" duration="27039000" />
+      <workItem from="1680457799348" duration="27584000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -245,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680661208426</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Create Template, From &amp; View to Banner Update">
+      <created>1680661822427</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1680661822427</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +302,8 @@
     <MESSAGE value="Update Template in the Product Update Section" />
     <MESSAGE value="Update Template in the Topic Update &amp; Admin Section" />
     <MESSAGE value="Update Template to Admin Banners" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Template to Admin Banners" />
+    <MESSAGE value="Create Template, From &amp; View to Banner Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create Template, From &amp; View to Banner Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
