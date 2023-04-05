@@ -59,6 +59,8 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{% static 'base/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- bs-custom-file-input -->
+<script src="{% static 'base/plugins/bs-custom-file-input/bs-custom-file-input.min.js' %}"></script>
 <!-- ChartJS -->
 <script src="{% static 'base/plugins/chart.js/Chart.min.js' %}"></script>
 <!-- Sparkline -->
@@ -113,6 +115,11 @@
       "responsive": true,
     });
   });
+</script>
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
 </script>
 </body>
 </html>
