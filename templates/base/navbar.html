@@ -1,4 +1,5 @@
 <!-- Navbar -->
+{% load static %}
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -42,10 +43,11 @@
 <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <div class="d-flex align-items-center">
+    <a href="index3.html" class="brand-link d-flex w-100">
+      <img src="{% static 'images/icons/logo_grey.png' %}" class="brand-image img-fluid w-50 mx-auto " >
     </a>
+    </div>
 
 
 
@@ -54,8 +56,13 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link active">
+        {% if request.resolver_match.url_name == 'adminProduct' or request.resolver_match.url_name == 'createProduct' %}
+          <li class="nav-item menu-is-opening menu-open">
+                  <a href="#" class="nav-link active">
+        {% else %}
+            <li class="nav-item">
+                  <a href="#" class="nav-link ">
+                {% endif %}
               <i class="nav-icon fas fa-shopping-bag"></i>
               <p>
                 Productos
@@ -64,13 +71,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                  {% if request.resolver_match.url_name == 'adminProduct'%}
                 <a href="{% url 'adminProduct' %}" class="nav-link active">
+                      {% else %}
+                      <a href="{% url 'adminProduct' %}" class="nav-link">
+                    {% endif %}
                   <i class="far fa-circle nav-icon"></i>
                   <p>Administrar productos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{% url 'createProduct' %}" class="nav-link">
+                  {% if request.resolver_match.url_name == 'createProduct'%}
+                <a href="{% url 'createProduct' %}" class="nav-link active">
+                    {% else %}
+                      <a href="{% url 'createProduct' %}" class="nav-link">
+                    {% endif %}
                   <i class="far fa-circle nav-icon"></i>
                   <p>Crear producto</p>
                 </a>
