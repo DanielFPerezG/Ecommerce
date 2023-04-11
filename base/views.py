@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-from .forms import ProductForm, TopicForm
+from .forms import ProductForm, TopicForm, BannerForm
 from .models import User,Topic,Product,Banner
 
 # Create your views here.
@@ -78,11 +78,10 @@ def adminProduct(request):
 @login_required(login_url='login')
 def deleteProduct(request,pk):
     product = Product.objects.get(id=pk)
+    product.delete()
 
-    if request.method == 'POST':
-        product.delete()
-        return redirect('adminProduct')
-    return render(request, 'base/deleteProduct.html', {'product':product})
+    return redirect('adminProduct')
+
 
 @login_required(login_url='login')
 def updateProduct(request,pk):
@@ -183,3 +182,29 @@ def createBanner(request):
 
     
     return render(request, 'base/createBanner.html', {'topics':topics})
+
+@login_required(login_url='login')
+def updateBanner(request,pk):
+    banner = Banner.objects.get(id=pk)
+    form = BannerForm(instance=banner)
+
+    if request.method == 'POST':
+        form = BannerForm(request.POST, request.FILES, instance=banner)
+        if form.is_valid():
+            form.save()
+            return redirect('adminBanner')
+
+    return render(request,'base/updateBanner.html', {'form':form, 'banner':banner})
+
+@login_required(login_url='login')
+def adminBanner(request):
+    banners = Banner.objects.all()
+
+    return render(request, 'base/adminBanner.html', {'banners': banners})
+
+@login_required(login_url='login')
+def deleteBanner(request,pk):
+    banner = Product.objects.get(id=pk)
+    banner.delete()
+
+    return redirect('adminBanner')

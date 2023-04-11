@@ -1,18 +1,48 @@
 {% extends 'base/main.html' %}
 
 {% block content %}
-    <div class="modal-dialog text-center">
-        <div class="col-sm-12 main-section">
-            <div class="modal-content">
-                <form class="col-12" method="POST" enctype="multipart/form-data" action="">
-                    {% csrf_token %}
-                    <div class="form-group form-icon" id="user-group">
-                        <i class="material-icons">view_list</i>
-                        <input class="form-control" name="name" type="text" placeholder="Nombre del producto:" />
-                    </div>
-                    <div class="form-group form-icon" id="user-group">
-                        <i class="material-icons">category</i>
-                        <input class="form-control" name="topic" list="topic-list" type="text" placeholder="Categoría del producto:" />
+
+    <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Crear producto</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb-item active">Crear producto</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Crear producto</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+              {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nombre del producto:</label>
+                    <input type="text" class="form-control"  name="name"  placeholder="Nombre del producto">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Categoría:</label>
+                      <input class="form-control" name="topic" list="topic-list" type="text" placeholder="Categoría del producto:" />
                         <datalist id="topic-list" >
                             <select id="room_topic" >
                                 {% for topic in topics %}
@@ -20,37 +50,51 @@
                                 {% endfor %}
                             </select>
                         </datalist>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">Descripción:</label>
+                    <textarea class="form-control" name="bio" type="text" placeholder="Descripción del producto:"></textarea>
+                  </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">Imagen:</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
+                        <label class="custom-file-label" for="exampleInputFile">Seleccionar Imagen</label>
+                      </div>
                     </div>
-                    <div class="form-group form-icon" id="password-group">
-                        <i class="material-icons">article</i>
-                        <textarea class="form-control" name="bio" type="text" placeholder="descripción del producto:"></textarea>
-                    </div>
-                    <div class="form-group form-icon form-margin" >
-                        <i class="material-icons">image</i>
-                        <input class="form-control" id="image-group" name="image" type="file"/></br>
-                    </div>
-                    <div class="form-group form-icon form-margin" >
-                        <i class="material-icons">attach_money</i>
-                        <input class="form-control" name="price" type="number" placeholder="Precio de venta:"/></br>
-                    </div>
-                    <div class="form-group form-icon form-margin" >
-                        <i class="material-icons">payments</i>
-                        <input class="form-control" name="cost" type="number" placeholder="Costo por producto:"/></br>
-                    </div>
-                    <div class="form-group form-icon form-margin" >
-                        <i class="material-icons">inventory_2</i>
-                        <input class="form-control" name="stock" type="number" placeholder="Cantidad de productos disponibles:"/></br>
-                    </div>
-                    <div class="form-group form-icon form-margin" >
-                        <i class="material-icons">percent</i>
-                        <input class="form-control" name="discount" type="number" placeholder="Valor de descuento:" value="0"/></br>
-                    </div>
-                    <button type="submit" class="btn btn-primary" id="btn-login">
-                        <i class="fas fa-sign-in-alt"></i>  Ingresar
-                    </button>
-                </form>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Precio de venta:</label>
+                    <input type="number" class="form-control"  name="price"  placeholder="Precio de venta">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Costo por producto:</label>
+                    <input type="number" class="form-control"  name="cost"  placeholder="Costo por producto">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Productos disponibles:</label>
+                    <input type="number" class="form-control"  name="stock"  placeholder="Productos disponibles">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Porcentaje de descuento:</label>
+                    <input type="number" class="form-control"  name="discount"  placeholder="Porcentaje de descuento" value="0">
+                </div>
+              </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
             </div>
+            <!-- /.card -->
+          </div>
         </div>
-    </div>
+            <!-- /.row -->
+          </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+      </div>
 {% endblock  %}
 

@@ -9,12 +9,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Productos</h1>
+            <h1>Banners</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
-              <li class="breadcrumb-item active">Productos</li>
+              <li class="breadcrumb-item active">Banners</li>
             </ol>
           </div>
         </div>
@@ -28,7 +28,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Productos</h3>
+                <h3 class="card-title">Banners</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -36,73 +36,69 @@
                   <thead>
                   <tr>
                     <th>Imagen</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
+                    <th>Titulo</th>
+                    <th>Mensaje</th>
+                    <th>Tipo</th>
                     <th>Categoría</th>
-                    <th>Descuento</th>
-                    <th>Precio</th>
-                    <th>Precio con Descuento</th>
-                    <th>Costo</th>
-                    <th>Inventario</th>
-                    <th>Options</th>
-                            
+                    <th>Precio Minimo</th>
+                    <th>Precio Maximo</th>
+                    <th>Descuento Minimo</th>
+                    <th>Opciones</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        {% for product in products %}
+                        {% for banner in banners %}
                             <tr>
                                 <td>
-                                    <img src="{{product.image.url}}" style="width: 4rem; height: 4rem; border-radius:50%;object-fit:cover;">
+                                    <img src="{{banner.image.url}}" style="width: 4rem; height: 4rem; border-radius:50%;object-fit:cover;">
                                 </td>
                                 <td>
-                                    {{product.name}}
+                                    {{banner.title}}
                                 </td>
                                 <td>
-                                    {{product.bio}}
+                                    {{banner.message}}
                                 </td>
                                 <td>
-                                    {{product.topic}}
+                                    {{banner.type}}
                                 </td>
                                 <td>
-                                    {{product.discount}}%
+                                    {{banner.topic}}
                                 </td>
                                 <td>
-                                    ${{product.price}}
+                                    ${{banner.minPrice}}
                                 </td>
                                 <td>
-                                    ${{product.priceDiscount}}
+                                    ${{banner.maxPrice}}
                                 </td>
                                 <td>
-                                    ${{product.cost}}
-                                </td>
-                                <td>
-                                    {{product.stock}}
+                                    {{banner.minDiscount}}
                                 </td>
                                 <td class="product-option">
-                                    <a href="{% url 'updateProduct' product.id %}" class="dropdown-link mx-3">
+                                    <a href="{% url 'updateBanner' banner.id %}" class="dropdown-link mx-3">
                                         <i class="nav-icon fas fa-edit"></i>
                                     </a>
-                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default_{{ product.id }}">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default_{{ banner.id }}">
                                       <i class="nav-icon fas fa-trash"></i>
                                     </button>
                                 </td>
-                                
+
                             </tr>
-                            <div class="modal fade" id="modal-default_{{ product.id }}">
+                            <div class="modal fade" id="modal-default_{{ banner.id }}">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
-                                      <h4 class="modal-title">Eliminar producto</h4>
+                                      <h4 class="modal-title">Eliminar banner</h4>
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      <p>¿Seguro de querer eliminar el producto {{ product.name }}?</p>
+                                      <p>¿Seguro de querer eliminar el banner {{ banner.title }}?</p>
                                     </div>
                                     <div class="modal-footer justify-content-between">
                                       <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
-                                        <a href="{% url 'deleteProduct' product.id %}">
+                                        <a href="{% url 'deleteBanner' banner.id %}">
                                             <button type="button"  class="btn btn-danger">Eliminar</button>
                                         </a>
                                     </div>
@@ -129,6 +125,5 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
 {% endblock  %}
 
