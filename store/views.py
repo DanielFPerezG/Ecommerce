@@ -67,6 +67,7 @@ def home(request):
     topics = Topic.objects.all()
     banners = Banner.objects.all()
     cart, create = Cart.objects.get_or_create(user=request.user)
+    products = Product.objects.order_by('-discount')
 
     productCarts = json.loads(cart.products)
     numberProductsCart = 0
@@ -76,7 +77,8 @@ def home(request):
     context = {
         'topics': topics,
         'banners': banners,
-        'numberProductsCart': numberProductsCart}
+        'numberProductsCart': numberProductsCart,
+        'products': products}
     return render(request, 'store/home.html', context)
 
 
