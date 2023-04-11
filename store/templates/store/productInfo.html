@@ -1,40 +1,44 @@
-<div class="container-fluid pt-5">
-    <div class="text-center mb-4">
-        <h2 class="section-title px-5"><span class="px-2">Trandy Products</span></h2>
-    </div>
-    <div class="row px-xl-5 pb-3">
 
-        {% for product in products %}
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="card product-item border-0 mb-4">
-                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                        <img class="img-fluid w-100" src="{{product.image.url}}" alt="">
-                        {% if product.discount > 0 %}
-                            <div class="discount-badge">{{ product.discount }}% OFF</div>
-                        {% endif %}
-                    </div>
-                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                        <h6 class="text-truncate mb-3">{{product.name}}</h6>
-                        {% if product.discount > 0 %}
-                        <div class="d-flex justify-content-center">
-                            <h6>${{product.priceDiscount}}</h6><h6 class="text-muted ml-2"><del>${{product.price}}</del></h6>
-                        </div>                  
-                        {% else %}
-                        <div class="d-flex justify-content-center">
-                            <h6>${{product.price}}</h6><h6 class="text-muted ml-2"></h6>
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div class="card-footer d-flex justify-content-between bg-light border">
-                        <a href="{% url 'store:shopDetail' product.id %}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                            <button type="button" onclick="addCart( {{ product.id }} );" class="btn btn-sm text-dark p-0">
-                                    <i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart
-                            </button>
+
+<!-- ***** Product Area Starts ***** -->
+{% for topic in topics %}
+    <section class="section" id="men">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <h2>{{ topic.name }}</h2>
+                        <span>{{ topic.}}</span>
                     </div>
                 </div>
             </div>
-        {% endfor %}
-
-    </div>
-</div>
- 
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="men-item-carousel">
+                        <div class="owl-men-item owl-carousel">
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <img src="assets/images/men-01.jpg" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>Classic Spring</h4>
+                                    <span>$120.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endfor %}
+    <!-- ***** Product Area Ends ***** -->
