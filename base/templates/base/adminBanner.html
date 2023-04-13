@@ -51,7 +51,9 @@
                         {% for banner in banners %}
                             <tr>
                                 <td>
-                                    <img src="{{banner.image.url}}" style="width: 4rem; height: 4rem; border-radius:50%;object-fit:cover;">
+                                    {% if banner.image %}
+                                        <img src="{{banner.image.url}}" style="width: 4rem; height: 4rem; border-radius:50%;object-fit:cover;">
+                                    {% endif %}
                                 </td>
                                 <td>
                                     {{banner.title}}

@@ -85,16 +85,15 @@ class Banner(models.Model):
     
 
     def delete(self, *args, **kwargs):
-        if os.path.isfile(self.image.path):
+        if self.image and os.path.isfile(self.image.path):
             os.remove(self.image.path)
         super(Banner, self).delete(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         if self.pk:
-            old_image = Banner.objects.get(pk=self.pk).image
-            if self.image and old_image != self.image:
-                if os.path.isfile(old_image.path):
-                    os.remove(old_image.path)
+            old_banner = Banner.objects.get(pk=self.pk)
+            if old_banner.image and self.image != old_banner.image and os.path.isfile(old_banner.image.path):
+                os.remove(old_banner.image.path)
         super(Banner, self).save(*args, **kwargs)
     
     def __str__(self):

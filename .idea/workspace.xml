@@ -4,11 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="draft template migration">
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Add Change Image Resolution System">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/productInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/productInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/adminBanner.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/adminBanner.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/banner/Banner1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/banner/Banner1_BAojCI8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/banner/banner2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product/Joyeria_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product/Joyeria_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product/Joyeria_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product/Pulsera_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product/perfume-femenino.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product/perfume-masculino_jI9ztKZ.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product/shampoo_FA2ZVGj.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product/shampoo_JHK7voM.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/product/shampoo_Ke4UxHu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/topic/Perfumes.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/topic/joyeria_TT6exHJ.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/topic/pexels-polina-tankilevitch-3735627.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/topic/pulsera.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +135,9 @@
       <workItem from="1679866862989" duration="60697000" />
       <workItem from="1680096120382" duration="3570000" />
       <workItem from="1680457799348" duration="33435000" />
-      <workItem from="1681171470435" duration="2020000" />
+      <workItem from="1681171470435" duration="2525000" />
+      <workItem from="1681253022728" duration="5113000" />
+      <workItem from="1681405285475" duration="2764000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -275,7 +293,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680664456085</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Update Template to Products Home">
+      <created>1681252387815</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1681252387815</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Add Change Image Resolution System">
+      <created>1681413532995</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1681413532995</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,6 +363,19 @@
     <MESSAGE value="Create Template &amp; View to Banner Admin" />
     <MESSAGE value="Update Method Of Removing Products" />
     <MESSAGE value="Create Method Of Removing Banners" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Method Of Removing Banners" />
+    <MESSAGE value="Update Template to Products Home" />
+    <MESSAGE value="Add Change Image Resolution System" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Change Image Resolution System" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/base/views.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
