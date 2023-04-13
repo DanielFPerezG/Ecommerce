@@ -26,6 +26,14 @@ class Topic(models.Model):
             os.remove(self.image.path)
         super(Topic, self).delete(*args, **kwargs)
 
+    def save(self, *args, **kwargs):
+        if self.pk:
+            old_image = Topic.objects.get(pk=self.pk).image
+            if self.image and old_image != self.image:
+                if os.path.isfile(old_image.path):
+                    os.remove(old_image.path)
+        super(Topic, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.name
 
@@ -49,6 +57,14 @@ class Product(models.Model):
             os.remove(self.image.path)
         super(Product, self).delete(*args, **kwargs)
 
+    def save(self, *args, **kwargs):
+        if self.pk:
+            old_image = Product.objects.get(pk=self.pk).image
+            if self.image and old_image != self.image:
+                if os.path.isfile(old_image.path):
+                    os.remove(old_image.path)
+        super(Product, self).save(*args, **kwargs)
+
 
     def __str__(self):
         return self.name
@@ -71,7 +87,15 @@ class Banner(models.Model):
     def delete(self, *args, **kwargs):
         if os.path.isfile(self.image.path):
             os.remove(self.image.path)
-        super(Topic, self).delete(*args, **kwargs)
+        super(Banner, self).delete(*args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        if self.pk:
+            old_image = Banner.objects.get(pk=self.pk).image
+            if self.image and old_image != self.image:
+                if os.path.isfile(old_image.path):
+                    os.remove(old_image.path)
+        super(Banner, self).save(*args, **kwargs)
     
     def __str__(self):
         return self.title

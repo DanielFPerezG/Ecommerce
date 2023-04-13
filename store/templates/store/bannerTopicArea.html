@@ -1,35 +1,40 @@
 <div class="main-banner" id="top">
-        <div class="container-fluid">
-
+    <div class="container-fluid">
             <div class="row">
                 <!-- ***** Banner Start ***** -->
                 <div class="col-lg-6">
                       <div id="carouselExampleControls" class="carousel slide left-content" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="left-content">
-                                    <div class="thumb">
-                                        <div class="inner-content">
-                                            <h4>{{banners.0.title}}</h4>
-                                                <span>{{banners.0.message}}</span>
-                                            <div class="main-border-button">
-                                                {% if banners.0.type == 'Categoria' %}
-                                                        <a href="{% url 'store:store' %}?q={{banners.0.topic}}" >Shop Now</a>
-                                                        {% elif banners.0.type == 'Precio Maximo' %}
-                                                        <a href="{% url 'store:store' %}?q_max_price={{banners.0.maxPrice}}" >Shop Now</a>
-                                                        {% elif banners.0.type == 'Rango de Precio' %}
-                                                        <a href="{% url 'store:store' %}?q_max_price={{banners.0.maxPrice}}&q_min_price={{banners.0.minPrice}}" >Shop Now</a>
-                                                        {% elif banners.0.type == 'Descuento Minimo' %}
-                                                        <a href="{% url 'store:store' %}?q_min_discount={{banners.0.minDiscount}}" >Shop Now</a>
-                                                {% endif %}
-                                            </div>
-                                          </div>
-                                    </div>
-                                </div>
-                                {% if banners.0.image %}
-                                    <img src="{{banners.0.image.url}}" class="d-block w-100 img-banner" alt="...">
+                            {% for banner in banners %}
+                                {% if banner == banners.0 %}
+                                    <div class="carousel-item active">
+                                {% else %}
+                                    <div class="carousel-item banner">
                                 {% endif %}
-                            </div>
+                                <div class="left-content">
+                                <div class="thumb">
+                                    <div class="inner-content">
+                                        <h4>{{banner.title}}</h4>
+                                            <span>{{banner.message}}</span>
+                                        <div class="main-border-button">
+                                            {% if banner.type == 'Categoria' %}
+                                                    <a href="{% url 'store:store' %}?q={{banner.topic}}" >Shop Now</a>
+                                                    {% elif banner.type == 'Precio Maximo' %}
+                                                    <a href="{% url 'store:store' %}?q_max_price={{banner.maxPrice}}" >Shop Now</a>
+                                                    {% elif banner.type == 'Rango de Precio' %}
+                                                    <a href="{% url 'store:store' %}?q_max_price={{banner.maxPrice}}&q_min_price={{banner.minPrice}}" >Shop Now</a>
+                                                    {% elif banner.type == 'Descuento Minimo' %}
+                                                    <a href="{% url 'store:store' %}?q_min_discount={{banner.minDiscount}}" >Shop Now</a>
+                                            {% endif %}
+                                        </div>
+                                      </div>
+                                </div>
+                                </div>
+                                {% if banner.image %}
+                                    <img src="{{banner.image.url}}" class="d-block w-100 img-banner" alt="...">
+                                {% endif %}
+                              </div>
+                            {% endfor %}
 
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -41,7 +46,7 @@
                           <span class="sr-only">Next</span>
                         </a>
                       </div>
-                </div>
+                      </div>
 
                 <!-- ***** Banner End ***** -->
 

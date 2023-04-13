@@ -2,9 +2,17 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
 
 from .forms import ProductForm, TopicForm, BannerForm
 from .models import User,Topic,Product,Banner
+
+from resizeimage import resizeimage
+from PIL import Image
+import io
+import tempfile
+
 
 # Create your views here.
 
@@ -54,18 +62,35 @@ def createProduct(request):
             priceDiscount = price - (price*(discount/100))
         else:
             priceDiscount = price
-        Product.objects.create(
+
+        # Save image to temporary file
+        img = request.FILES['image']
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            temp_file.write(img.read())
+            temp_file.flush()
+
+
+        product = Product(
             topic=topic,
             name=request.POST.get('name'),
             bio=request.POST.get('bio'),
-            image=request.FILES['image'],
             price=price,
             cost=request.POST.get('cost'),
             discount=discount,
             stock=request.POST.get('stock'),
             priceDiscount=priceDiscount
-            )
-        return redirect('home')
+        )
+
+        # Change image resolution
+        with open(temp_file.name, 'rb') as f:
+            with Image.open(f) as image:
+                cover = resizeimage.resize_cover(image, [370, 390])
+                output = io.BytesIO()
+                cover.save(output, format='JPEG', quality=100)
+                output.seek(0)
+                product.image.save(img.name, ContentFile(output.read()), save=False)
+        product.save()
+        return redirect('adminProduct')
     
     return render(request, 'base/createProduct.html', {'topics':topics})
 
@@ -92,6 +117,19 @@ def updateProduct(request,pk):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
+
+            # Change image resolution
+            img = product.image
+            img_name = img.name
+            with default_storage.open(img_name, 'rb') as f:
+                with Image.open(f) as image:
+                    cover = resizeimage.resize_cover(image, [370, 390])
+                    output = io.BytesIO()
+                    cover.save(output, format='JPEG', quality=100)
+                    output.seek(0)
+                    product.image.save(img_name, ContentFile(output.read()), save=False)
+            product.save()
+
             if product.priceDiscount>0:
                 priceDiscount = product.price - (product.price*(product.discount/100))
             else:
