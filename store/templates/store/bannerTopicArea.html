@@ -18,13 +18,13 @@
                                         <span>{{banner.message}}</span>
                                     <div class="main-border-button">
                                         {% if banner.type == 'Categoria' %}
-                                            <a href="{% url 'store:store' %}?q={{banner.topic}}" >Shop Now</a>
+                                            <a href="{% url 'store:store' %}?q={{banner.topic}}" >Compra ahora</a>
                                         {% elif banner.type == 'Precio Maximo' %}
-                                            <a href="{% url 'store:store' %}?q_max_price={{banner.maxPrice}}" >Shop Now</a>
+                                            <a href="{% url 'store:store' %}?q_max_price={{banner.maxPrice}}" >Compra ahora</a>
                                         {% elif banner.type == 'Rango de Precio' %}
-                                            <a href="{% url 'store:store' %}?q_max_price={{banner.maxPrice}}&q_min_price={{banner.minPrice}}" >Shop Now</a>
+                                            <a href="{% url 'store:store' %}?q_max_price={{banner.maxPrice}}&q_min_price={{banner.minPrice}}" >Compra ahora</a>
                                         {% elif banner.type == 'Descuento Minimo' %}
-                                            <a href="{% url 'store:store' %}?q_min_discount={{banner.minDiscount}}" >Shop Now</a>
+                                            <a href="{% url 'store:store' %}?q_min_discount={{banner.minDiscount}}" >Compra ahora</a>
                                         {% endif %}
                                     </div>
                                   </div>
@@ -65,9 +65,9 @@
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4>{{ topics.0.name }}</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <p>{{ topics.0.bio }}</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
+                                                    <a href="#">Encuentra el tuyo</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -85,9 +85,9 @@
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4>{{ topics.1.name }}</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <p>{{ topics.1.bio }}</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
+                                                    <a href="#">Encuentra el tuyo</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -105,9 +105,9 @@
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4>{{ topics.2.name }}</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <p>{{ topics.2.bio }}</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
+                                                    <a href="#">Encuentra el tuyo</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -125,9 +125,9 @@
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4>{{ topics.3.name }}</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <p>{{ topics.3.bio }}</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
+                                                    <a href="#">Encuentra el tuyo</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -155,9 +155,9 @@
                                             <div class="hover-content">
                                                 <div class="inner">
                                                     <h4>{{ topic.name }}</h4>
-                                                    <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                    <p>{{ topic.bio }}</p>
                                                     <div class="main-border-button">
-                                                        <a href="#">Discover More</a>
+                                                        <a href="#">Encuentra el tuyo</a>
                                                     </div>
                                                 </div>
                                             </div>
