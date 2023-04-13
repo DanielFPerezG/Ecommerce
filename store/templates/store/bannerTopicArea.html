@@ -9,31 +9,31 @@
                                 {% if banner == banners.0 %}
                                     <div class="carousel-item active">
                                 {% else %}
-                                    <div class="carousel-item banner">
+                                    <div class="carousel-item">
                                 {% endif %}
-                                <div class="left-content">
-                                <div class="thumb">
-                                    <div class="inner-content">
-                                        <h4>{{banner.title}}</h4>
-                                            <span>{{banner.message}}</span>
-                                        <div class="main-border-button">
-                                            {% if banner.type == 'Categoria' %}
-                                                    <a href="{% url 'store:store' %}?q={{banner.topic}}" >Shop Now</a>
-                                                    {% elif banner.type == 'Precio Maximo' %}
-                                                    <a href="{% url 'store:store' %}?q_max_price={{banner.maxPrice}}" >Shop Now</a>
-                                                    {% elif banner.type == 'Rango de Precio' %}
-                                                    <a href="{% url 'store:store' %}?q_max_price={{banner.maxPrice}}&q_min_price={{banner.minPrice}}" >Shop Now</a>
-                                                    {% elif banner.type == 'Descuento Minimo' %}
-                                                    <a href="{% url 'store:store' %}?q_min_discount={{banner.minDiscount}}" >Shop Now</a>
-                                            {% endif %}
-                                        </div>
-                                      </div>
-                                </div>
-                                </div>
-                                {% if banner.image %}
+                            <div class="left-content">
+                            <div class="thumb">
+                                <div class="inner-content">
+                                    <h4>{{banner.title}}</h4>
+                                        <span>{{banner.message}}</span>
+                                    <div class="main-border-button">
+                                        {% if banner.type == 'Categoria' %}
+                                            <a href="{% url 'store:store' %}?q={{banner.topic}}" >Shop Now</a>
+                                        {% elif banner.type == 'Precio Maximo' %}
+                                            <a href="{% url 'store:store' %}?q_max_price={{banner.maxPrice}}" >Shop Now</a>
+                                        {% elif banner.type == 'Rango de Precio' %}
+                                            <a href="{% url 'store:store' %}?q_max_price={{banner.maxPrice}}&q_min_price={{banner.minPrice}}" >Shop Now</a>
+                                        {% elif banner.type == 'Descuento Minimo' %}
+                                            <a href="{% url 'store:store' %}?q_min_discount={{banner.minDiscount}}" >Shop Now</a>
+                                        {% endif %}
+                                    </div>
+                                  </div>
+                            </div>
+                            </div>
+                            {% if banner.image %}
                                     <img src="{{banner.image.url}}" class="d-block w-100 img-banner" alt="...">
                                 {% endif %}
-                              </div>
+                            </div>
                             {% endfor %}
 
                         </div>
@@ -46,7 +46,7 @@
                           <span class="sr-only">Next</span>
                         </a>
                       </div>
-                      </div>
+                  </div>
 
                 <!-- ***** Banner End ***** -->
 

@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 import os
 import json
 
+
 class User(AbstractUser):
     name = models.CharField(max_length=200, null=True)
     lastName = models.CharField(max_length=200, null=True)
@@ -17,9 +18,11 @@ class User(AbstractUser):
     REQUIRED_FIELDS = []
 
 class Topic(models.Model):
+    def get_topic_image_path(instance, filename):
+        return 'topic/{}'.format(filename)
     name = models.CharField(max_length=200)
     bio = models.CharField(max_length=1000,null=True)
-    image = models.ImageField(null=True, upload_to='topic/')
+    image = models.ImageField(null=True, upload_to=get_topic_image_path)
 
     def delete(self, *args, **kwargs):
         if os.path.isfile(self.image.path):
@@ -39,9 +42,12 @@ class Topic(models.Model):
 
 
 class Product(models.Model):
+    def get_product_image_path(instance, filename):
+        return 'product/{}'.format(filename)
+
     name = models.CharField(max_length=150,null=True)
     bio = models.CharField(max_length=1000,null=True)
-    image = models.ImageField(null=True, upload_to='product/')
+    image = models.ImageField(null=True, upload_to=get_product_image_path)
     price = models.PositiveIntegerField(null=True)
     stock = models.PositiveIntegerField(null=True)
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
@@ -73,16 +79,17 @@ class Product(models.Model):
         order_with_respect_to = 'discount'
 
 class Banner(models.Model):
+    def get_banner_image_path(instance, filename):
+        return 'banner/{}'.format(filename)
 
     title = models.CharField(max_length=150,null=True)
     type = models.CharField(max_length=150,null=True)
     message = models.CharField(max_length=150,null=True)
-    image = models.ImageField(null=True, upload_to='banner/')
+    image = models.ImageField(null=True, upload_to=get_banner_image_path)
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
     minPrice = models.PositiveIntegerField(null=True)
     maxPrice = models.PositiveIntegerField(null=True)
     minDiscount = models.PositiveIntegerField(null=True)
-    
 
     def delete(self, *args, **kwargs):
         if self.image and os.path.isfile(self.image.path):

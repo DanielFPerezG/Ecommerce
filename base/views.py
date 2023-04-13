@@ -201,7 +201,7 @@ def createBanner(request):
                 )
             with open(temp_file.name, 'rb') as f:
                 with Image.open(f) as image:
-                    cover = resizeimage.resize_cover(image, [570, 422])
+                    cover = resizeimage.resize_cover(image, [790, 680])
                     output = io.BytesIO()
                     cover.save(output, format='JPEG', quality=100)
                     output.seek(0)
@@ -293,7 +293,7 @@ def updateBanner(request,pk):
             img_name = img.name
             with default_storage.open(img_name, 'rb') as f:
                 with Image.open(f) as image:
-                    cover = resizeimage.resize_cover(image, [570, 422])
+                    cover = resizeimage.resize_cover(image, [790, 680])
                     output = io.BytesIO()
                     cover.save(output, format='JPEG', quality=100)
                     output.seek(0)
