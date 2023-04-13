@@ -2408,3 +2408,7 @@ responsive
     height: auto;
     object-fit: cover;
 }
+
+#discount-box {
+  background-color: pink !important;
+}

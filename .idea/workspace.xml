@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="update File Saving System">
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Banners &amp; Topics Messages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/bannerTopicArea.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/bannerTopicArea.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/productInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/productInfo.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +121,7 @@
       <workItem from="1680457799348" duration="33435000" />
       <workItem from="1681171470435" duration="2525000" />
       <workItem from="1681253022728" duration="5113000" />
-      <workItem from="1681405285475" duration="5340000" />
+      <workItem from="1681405285475" duration="7558000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -303,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681421318349</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Update Banners &amp; Topics Messages">
+      <created>1681421810728</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1681421810728</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +347,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="View &amp; Templates to Shopping Cart" />
     <MESSAGE value="js to Shopping Cart" />
     <MESSAGE value="Update Shopping Cart With Asynchronous Method" />
     <MESSAGE value="Add Product to Cart With Asynchronous Method" />
@@ -363,7 +371,8 @@
     <MESSAGE value="Add Change Image Resolution System" />
     <MESSAGE value="Update Banners Images" />
     <MESSAGE value="update File Saving System" />
-    <option name="LAST_COMMIT_MESSAGE" value="update File Saving System" />
+    <MESSAGE value="Update Banners &amp; Topics Messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Banners &amp; Topics Messages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
