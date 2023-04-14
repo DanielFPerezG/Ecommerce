@@ -1521,6 +1521,13 @@ footer {
 
 footer .logo {
   margin-bottom: 20px;
+  max-width: 200px; /* o cualquier otro valor que desees */
+  height: auto; /* para mantener la proporción */
+}
+
+footer .logo img {
+  max-width: 200px; /* o cualquier otro valor que desees */
+  height: auto; /* para mantener la proporción */
 }
 
 footer ul li {

@@ -1,4 +1,5 @@
 {% extends 'base/main.html' %}
+{% load humanize %}
 
 {% block content %}
 
@@ -68,10 +69,10 @@
                                     {{banner.topic}}
                                 </td>
                                 <td>
-                                    ${{banner.minPrice}}
+                                    ${{banner.minPrice|intcomma}}
                                 </td>
                                 <td>
-                                    ${{banner.maxPrice}}
+                                    ${{banner.maxPrice|intcomma}}
                                 </td>
                                 <td>
                                     {{banner.minDiscount}}
