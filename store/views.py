@@ -64,32 +64,21 @@ def registerPage(request):
     return render(request, 'store/login_register.html',context)
 
 def home(request):
-    products = Product.objects.all().order_by('-discount')
     topics = Topic.objects.all()
     banners = Banner.objects.all()
-    discount_10 = 0
-    discount_20 = 0
     cart, create = Cart.objects.get_or_create(user=request.user)
-
-    for product in products:
-        if product.discount >= 10:
-            discount_10+=1
-        if product.discount >= 20:
-            discount_20+=1
+    products = Product.objects.order_by('-discount')
 
     productCarts = json.loads(cart.products)
     numberProductsCart = 0
     for productJson in productCarts:
         numberProductsCart += 1
 
-
     context = {
-        'products':products,
-        'topics':topics,
-        'banners':banners,
-        'discount_10':discount_10,
-        'discount_20':discount_20,
-        'numberProductsCart':numberProductsCart}
+        'topics': topics,
+        'banners': banners,
+        'numberProductsCart': numberProductsCart,
+        'products': products}
     return render(request, 'store/home.html', context)
 
 

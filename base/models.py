@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 import os
 import json
 
+
 class User(AbstractUser):
     name = models.CharField(max_length=200, null=True)
     lastName = models.CharField(max_length=200, null=True)
@@ -17,29 +18,42 @@ class User(AbstractUser):
     REQUIRED_FIELDS = []
 
 class Topic(models.Model):
+    def get_topic_image_path(instance, filename):
+        return 'topic/{}'.format(filename)
     name = models.CharField(max_length=200)
-    image = models.ImageField(null=True, upload_to='topic/')
+    bio = models.CharField(max_length=1000,null=True)
+    image = models.ImageField(null=True, upload_to=get_topic_image_path)
 
     def delete(self, *args, **kwargs):
         if os.path.isfile(self.image.path):
             os.remove(self.image.path)
         super(Topic, self).delete(*args, **kwargs)
 
+    def save(self, *args, **kwargs):
+        if self.pk:
+            old_image = Topic.objects.get(pk=self.pk).image
+            if self.image and old_image != self.image:
+                if os.path.isfile(old_image.path):
+                    os.remove(old_image.path)
+        super(Topic, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.name
 
 
 class Product(models.Model):
+    def get_product_image_path(instance, filename):
+        return 'product/{}'.format(filename)
+
     name = models.CharField(max_length=150,null=True)
     bio = models.CharField(max_length=1000,null=True)
-    image = models.ImageField(null=True, upload_to='product/')
+    image = models.ImageField(null=True, upload_to=get_product_image_path)
     price = models.PositiveIntegerField(null=True)
     stock = models.PositiveIntegerField(null=True)
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
     cost = models.PositiveIntegerField(null=True)
     discount = models.PositiveIntegerField(null=True)
     priceDiscount = models.PositiveIntegerField(null=True)
-    quantity = models.PositiveIntegerField(null=True)
 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -49,6 +63,14 @@ class Product(models.Model):
             os.remove(self.image.path)
         super(Product, self).delete(*args, **kwargs)
 
+    def save(self, *args, **kwargs):
+        if self.pk:
+            old_image = Product.objects.get(pk=self.pk).image
+            if self.image and old_image != self.image:
+                if os.path.isfile(old_image.path):
+                    os.remove(old_image.path)
+        super(Product, self).save(*args, **kwargs)
+
 
     def __str__(self):
         return self.name
@@ -57,21 +79,29 @@ class Product(models.Model):
         order_with_respect_to = 'discount'
 
 class Banner(models.Model):
+    def get_banner_image_path(instance, filename):
+        return 'banner/{}'.format(filename)
 
     title = models.CharField(max_length=150,null=True)
     type = models.CharField(max_length=150,null=True)
     message = models.CharField(max_length=150,null=True)
-    image = models.ImageField(null=True, upload_to='banner/')
+    image = models.ImageField(null=True, upload_to=get_banner_image_path)
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
     minPrice = models.PositiveIntegerField(null=True)
     maxPrice = models.PositiveIntegerField(null=True)
     minDiscount = models.PositiveIntegerField(null=True)
-    
 
     def delete(self, *args, **kwargs):
-        if os.path.isfile(self.image.path):
+        if self.image and os.path.isfile(self.image.path):
             os.remove(self.image.path)
-        super(Topic, self).delete(*args, **kwargs)
+        super(Banner, self).delete(*args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        if self.pk:
+            old_banner = Banner.objects.get(pk=self.pk)
+            if old_banner.image and self.image != old_banner.image and os.path.isfile(old_banner.image.path):
+                os.remove(old_banner.image.path)
+        super(Banner, self).save(*args, **kwargs)
     
     def __str__(self):
         return self.title

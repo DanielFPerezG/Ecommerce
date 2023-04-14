@@ -2,9 +2,18 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
 
-from .forms import ProductForm, TopicForm
+from .forms import ProductForm, TopicForm, BannerForm
 from .models import User,Topic,Product,Banner
+
+from resizeimage import resizeimage
+from PIL import Image
+import io
+import tempfile
+import os
+
 
 # Create your views here.
 
@@ -54,18 +63,38 @@ def createProduct(request):
             priceDiscount = price - (price*(discount/100))
         else:
             priceDiscount = price
-        Product.objects.create(
+
+        # Save image to temporary file
+        img = request.FILES['image']
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            temp_file.write(img.read())
+            temp_file.flush()
+
+
+        product = Product(
             topic=topic,
             name=request.POST.get('name'),
             bio=request.POST.get('bio'),
-            image=request.FILES['image'],
             price=price,
             cost=request.POST.get('cost'),
             discount=discount,
             stock=request.POST.get('stock'),
             priceDiscount=priceDiscount
-            )
-        return redirect('home')
+        )
+
+        # Change image resolution
+        with open(temp_file.name, 'rb') as f:
+            with Image.open(f) as image:
+                cover = resizeimage.resize_cover(image, [370, 390])
+                output = io.BytesIO()
+                cover.save(output, format='JPEG', quality=100)
+                output.seek(0)
+                product.image.save(img.name, ContentFile(output.read()), save=False)
+        product.save()
+
+        # Remove temporary file
+        os.remove(temp_file.name)
+        return redirect('adminProduct')
     
     return render(request, 'base/createProduct.html', {'topics':topics})
 
@@ -78,11 +107,10 @@ def adminProduct(request):
 @login_required(login_url='login')
 def deleteProduct(request,pk):
     product = Product.objects.get(id=pk)
+    product.delete()
 
-    if request.method == 'POST':
-        product.delete()
-        return redirect('adminProduct')
-    return render(request, 'base/deleteProduct.html', {'product':product})
+    return redirect('adminProduct')
+
 
 @login_required(login_url='login')
 def updateProduct(request,pk):
@@ -93,6 +121,19 @@ def updateProduct(request,pk):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
+
+            # Change image resolution
+            img = product.image
+            img_name = img.name
+            with default_storage.open(img_name, 'rb') as f:
+                with Image.open(f) as image:
+                    cover = resizeimage.resize_cover(image, [370, 390])
+                    output = io.BytesIO()
+                    cover.save(output, format='JPEG', quality=100)
+                    output.seek(0)
+                    product.image.save(img_name, ContentFile(output.read()), save=False)
+            product.save()
+
             if product.priceDiscount>0:
                 priceDiscount = product.price - (product.price*(product.discount/100))
             else:
@@ -119,6 +160,17 @@ def updateTopic(request,pk):
         form = TopicForm(request.POST, request.FILES, instance=topic)
         if form.is_valid():
             form.save()
+            # Change image resolution
+            img = topic.image
+            img_name = img.name
+            with default_storage.open(img_name, 'rb') as f:
+                with Image.open(f) as image:
+                    cover = resizeimage.resize_cover(image, [385, 330])
+                    output = io.BytesIO()
+                    cover.save(output, format='JPEG', quality=100)
+                    output.seek(0)
+                    topic.image.save(img_name, ContentFile(output.read()), save=False)
+            topic.save()
             return redirect('adminTopic')
 
     return render(request,'base/updateTopic.html', {'form':form, 'topic':topic})
@@ -131,55 +183,135 @@ def createBanner(request):
         type = request.POST.get('type')
         title = request.POST.get('title')
         message=request.POST.get('message')
-        image=request.FILES['image']
+        # Save image to temporary file
+        img = request.FILES['image']
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            temp_file.write(img.read())
+            temp_file.flush()
 
         if type == "Categoria":
             topic_name = request.POST.get('topic')
             topic, created = Topic.objects.get_or_create(name=topic_name)
 
-            Banner.objects.create(
+            banner = Banner.objects.create(
                 topic=topic,
                 title=title,
                 message=message,
-                type=type,
-                image=image
+                type=type
                 )
+            with open(temp_file.name, 'rb') as f:
+                with Image.open(f) as image:
+                    cover = resizeimage.resize_cover(image, [790, 680])
+                    output = io.BytesIO()
+                    cover.save(output, format='JPEG', quality=100)
+                    output.seek(0)
+                    banner.image.save(img.name, ContentFile(output.read()), save=False)
+            banner.save()
+            # Remove temporary file
+            os.remove(temp_file.name)
             return redirect('home')
         
         elif type == "Precio Maximo":
             maxPrice = int(request.POST.get('maxPrice'))
-            Banner.objects.create(
+            banner = Banner.objects.create(
                 maxPrice=maxPrice,
                 title=title,
                 message=message,
-                type=type,
-                image=image
+                type=type
                 )
+
+            with open(temp_file.name, 'rb') as f:
+                with Image.open(f) as image:
+                    cover = resizeimage.resize_cover(image, [570, 422])
+                    output = io.BytesIO()
+                    cover.save(output, format='JPEG', quality=100)
+                    output.seek(0)
+                    banner.image.save(img.name, ContentFile(output.read()), save=False)
+            banner.save()
+            # Remove temporary file
+            os.remove(temp_file.name)
             return redirect('home')
         
         elif type == "Rango de Precio":
             maxPrice = int(request.POST.get('maxPrice'))
             minPrice = int(request.POST.get('minPrice'))
-            Banner.objects.create(
+            banner = Banner.objects.create(
                 maxPrice=maxPrice,
                 minPrice=minPrice,
                 title=title,
                 message=message,
-                type=type,
-                image=image
+                type=type
                 )
+
+            with open(temp_file.name, 'rb') as f:
+                with Image.open(f) as image:
+                    cover = resizeimage.resize_cover(image, [570, 422])
+                    output = io.BytesIO()
+                    cover.save(output, format='JPEG', quality=100)
+                    output.seek(0)
+                    banner.image.save(img.name, ContentFile(output.read()), save=False)
+            banner.save()
+            # Remove temporary file
+            os.remove(temp_file.name)
             return redirect('home')
         
         elif type == "Descuento Minimo":
             minDiscount = int(request.POST.get('minDiscount'))
-            Banner.objects.create(
+            banner = Banner.objects.create(
                 minDiscount=minDiscount,
                 title=title,
                 message=message,
-                type=type,
-                image=image
+                type=type
                 )
+
+            with open(temp_file.name, 'rb') as f:
+                with Image.open(f) as image:
+                    cover = resizeimage.resize_cover(image, [570, 422])
+                    output = io.BytesIO()
+                    cover.save(output, format='JPEG', quality=100)
+                    output.seek(0)
+                    banner.image.save(img.name, ContentFile(output.read()), save=False)
+            banner.save()
+            # Remove temporary file
+            os.remove(temp_file.name)
             return redirect('home')
 
     
     return render(request, 'base/createBanner.html', {'topics':topics})
+
+@login_required(login_url='login')
+def updateBanner(request,pk):
+    banner = Banner.objects.get(id=pk)
+    form = BannerForm(instance=banner)
+
+    if request.method == 'POST':
+        form = BannerForm(request.POST, request.FILES, instance=banner)
+        if form.is_valid():
+            form.save()
+            # Change image resolution
+            img = banner.image
+            img_name = img.name
+            with default_storage.open(img_name, 'rb') as f:
+                with Image.open(f) as image:
+                    cover = resizeimage.resize_cover(image, [790, 680])
+                    output = io.BytesIO()
+                    cover.save(output, format='JPEG', quality=100)
+                    output.seek(0)
+                    banner.image.save(img_name, ContentFile(output.read()), save=False)
+            banner.save()
+            return redirect('adminBanner')
+
+    return render(request,'base/updateBanner.html', {'form':form, 'banner':banner})
+
+@login_required(login_url='login')
+def adminBanner(request):
+    banners = Banner.objects.all()
+
+    return render(request, 'base/adminBanner.html', {'banners': banners})
+
+@login_required(login_url='login')
+def deleteBanner(request,pk):
+    banner = Banner.objects.get(id=pk)
+    banner.delete()
+
+    return redirect('adminBanner')

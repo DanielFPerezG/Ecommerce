@@ -1,17 +1,45 @@
-{% extends 'main_base.html' %}
+{% extends 'base/main.html' %}
 
 {% block content %}
-    <div class="modal-dialog text-center" id="product-container">
-        <div class="col-sm-10 main-section" id="main-product-container">
-            <div class="modal-content">
-                <table class= "table table-bordered nowrap" style="width:100%" id="table-data-model" >
-                    <thead>
-                        <tr>
-                            <th>Imagen</th>
-                            <th>Nombre</th>
-                            <th>Edit</th>
-                        </tr>
-                    </thead>
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Categorías</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+              <li class="breadcrumb-item active">Categorías</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Categorías</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                      <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Edit</th>
+                      </tr>
+                  </thead>
                     <tbody>
                         {% for topic in topics %}
                             <tr>
@@ -25,9 +53,12 @@
                                 <td>
                                     {{topic.name}}
                                 </td>
-                                <td class="product-option">
+                                <td>
+                                    {{topic.bio}}
+                                </td>
+                                <td class="product-option d-flex justify-content-center align-items-center">
                                     <a href="{% url 'updateTopic' topic.id %}" class="dropdown-link">
-                                        <i class="material-icons">edit</i>
+                                        <i class="nav-icon fas fa-edit"></i>
                                     </a>
                                 </td>
                                 
@@ -36,7 +67,18 @@
                     </tbody>
                 </table>
             </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
         </div>
-    </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
 {% endblock  %}
 

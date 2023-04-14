@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Products Template in Home">
+      <change afterPath="$PROJECT_DIR$/templates/store/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/adminBanner.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/adminBanner.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/adminProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/adminProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/store/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/main.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="test_base" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f4a399ba-e65f-439f-a3f9-89aff792c89d" />
+        <option name="url" value="https://github.com/DanielFPerezG/ecommerce.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///usr/local/Cellar/python@3.10/3.10.9/Frameworks/Python.framework/Versions/3.10/lib/python3.10/wsgiref/handlers.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NZLs4NIpcLz4lPw9RUbhmMVwqR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/daniel.galindo/Documents/Ecommerce/ecommerce/static/images/icons&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/images/icons" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$/templates/base" />
+      <recent name="$PROJECT_DIR$/templates/store" />
+      <recent name="$PROJECT_DIR$/store/templatetags" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ecommerce" type="Python.DjangoServer" factoryName="Django server">
+      <module name="ecommerce" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="ecommerce.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="" />
+      <created>1679866861284</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679866861284</updated>
+      <workItem from="1679866862989" duration="60697000" />
+      <workItem from="1680096120382" duration="3570000" />
+      <workItem from="1680457799348" duration="33435000" />
+      <workItem from="1681171470435" duration="2525000" />
+      <workItem from="1681253022728" duration="5113000" />
+      <workItem from="1681405285475" duration="9250000" />
+    </task>
+    <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
+      <created>1679879176707</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679879176707</updated>
+    </task>
+    <task id="LOCAL-00002" summary="js to Shopping Cart">
+      <created>1679879205396</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679879205396</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update Shopping Cart With Asynchronous Method">
+      <created>1679974457556</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679974457556</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add Product to Cart With Asynchronous Method">
+      <created>1679979587596</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679979587596</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Discount % in product image">
+      <created>1680033014744</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680033014744</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update Asynchronous Method">
+      <created>1680036057756</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680036057756</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Delete Product to Shopping Cart">
+      <created>1680038499229</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680038499229</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add Modal to Templates">
+      <created>1680066206539</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680066206539</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add Modal to Templates">
+      <created>1680066273156</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680066273156</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Update Modal to style">
+      <created>1680457332385</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680457332386</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Merge from test branch to main branch">
+      <created>1680457606418</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680457606419</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Update Templates First Version">
+      <created>1680640576881</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680640576882</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update Main &amp; Navbar Base Templates">
+      <created>1680645684833</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680645684833</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Update Templates to Product Management Section">
+      <created>1680649345521</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680649345521</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Update Create Product Template">
+      <created>1680655457916</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680655457916</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Update Template in the Product Update Section">
+      <created>1680657794251</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1680657794251</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update Template in the Topic Update &amp; Admin Section">
+      <created>1680660352432</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1680660352432</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Update Template to Admin Banners">
+      <created>1680661208426</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1680661208426</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Create Template, From &amp; View to Banner Update">
+      <created>1680661822427</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1680661822427</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Create Template &amp; View to Banner Admin">
+      <created>1680662380737</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1680662380737</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Update Method Of Removing Products">
+      <created>1680663614170</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1680663614170</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Create Method Of Removing Banners">
+      <created>1680664456085</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1680664456085</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Update Template to Products Home">
+      <created>1681252387815</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1681252387815</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Add Change Image Resolution System">
+      <created>1681413532995</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1681413532995</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Update Banners Images">
+      <created>1681415862101</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1681415862101</updated>
+    </task>
+    <task id="LOCAL-00026" summary="update File Saving System">
+      <created>1681421318349</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1681421318349</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Update Banners &amp; Topics Messages">
+      <created>1681421810728</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1681421810728</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Update Products Template in Home">
+      <created>1681424058283</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1681424058283</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="test_base" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update Shopping Cart With Asynchronous Method" />
+    <MESSAGE value="Add Product to Cart With Asynchronous Method" />
+    <MESSAGE value="Discount % in product image" />
+    <MESSAGE value="Update Asynchronous Method" />
+    <MESSAGE value="Delete Product to Shopping Cart" />
+    <MESSAGE value="Add Modal to Templates" />
+    <MESSAGE value="Update Modal to style" />
+    <MESSAGE value="Merge from test branch to main branch" />
+    <MESSAGE value="Update Templates First Version" />
+    <MESSAGE value="Update Main &amp; Navbar Base Templates" />
+    <MESSAGE value="Update Templates to Product Management Section" />
+    <MESSAGE value="Update Create Product Template" />
+    <MESSAGE value="Update Template in the Product Update Section" />
+    <MESSAGE value="Update Template in the Topic Update &amp; Admin Section" />
+    <MESSAGE value="Update Template to Admin Banners" />
+    <MESSAGE value="Create Template, From &amp; View to Banner Update" />
+    <MESSAGE value="Create Template &amp; View to Banner Admin" />
+    <MESSAGE value="Update Method Of Removing Products" />
+    <MESSAGE value="Create Method Of Removing Banners" />
+    <MESSAGE value="Update Template to Products Home" />
+    <MESSAGE value="Add Change Image Resolution System" />
+    <MESSAGE value="Update Banners Images" />
+    <MESSAGE value="update File Saving System" />
+    <MESSAGE value="Update Banners &amp; Topics Messages" />
+    <MESSAGE value="Update Products Template in Home" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Products Template in Home" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/base/views.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

@@ -1,0 +1,132 @@
+{% extends 'base/main.html' %}
+{% load humanize %}
+
+{% block content %}
+
+    <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Banners</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+              <li class="breadcrumb-item active">Banners</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Banners</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Imagen</th>
+                    <th>Titulo</th>
+                    <th>Mensaje</th>
+                    <th>Tipo</th>
+                    <th>Categoría</th>
+                    <th>Precio Minimo</th>
+                    <th>Precio Maximo</th>
+                    <th>Descuento Minimo</th>
+                    <th>Opciones</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for banner in banners %}
+                            <tr>
+                                <td>
+                                    {% if banner.image %}
+                                        <img src="{{banner.image.url}}" style="width: 4rem; height: 4rem; border-radius:50%;object-fit:cover;">
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {{banner.title}}
+                                </td>
+                                <td>
+                                    {{banner.message}}
+                                </td>
+                                <td>
+                                    {{banner.type}}
+                                </td>
+                                <td>
+                                    {{banner.topic}}
+                                </td>
+                                <td>
+                                    ${{banner.minPrice|intcomma}}
+                                </td>
+                                <td>
+                                    ${{banner.maxPrice|intcomma}}
+                                </td>
+                                <td>
+                                    {{banner.minDiscount}}
+                                </td>
+                                <td class="product-option">
+                                    <a href="{% url 'updateBanner' banner.id %}" class="dropdown-link mx-3">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                    </a>
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default_{{ banner.id }}">
+                                      <i class="nav-icon fas fa-trash"></i>
+                                    </button>
+                                </td>
+
+                            </tr>
+                            <div class="modal fade" id="modal-default_{{ banner.id }}">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 class="modal-title">Eliminar banner</h4>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>¿Seguro de querer eliminar el banner {{ banner.title }}?</p>
+                                    </div>
+                                    <div class="modal-footer justify-content-between">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+                                        <a href="{% url 'deleteBanner' banner.id %}">
+                                            <button type="button"  class="btn btn-danger">Eliminar</button>
+                                        </a>
+                                    </div>
+                                  </div>
+                                  <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                              </div>
+                              <!-- /.modal -->
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock  %}
+
