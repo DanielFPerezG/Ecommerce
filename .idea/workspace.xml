@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Products Template in Home">
-      <change afterPath="$PROJECT_DIR$/templates/store/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/helpers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/adminBanner.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/adminBanner.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/adminProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/adminProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/store/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="test_base" />
+        <entry key="$PROJECT_DIR$" value="test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -124,6 +122,7 @@
       <workItem from="1681171470435" duration="2525000" />
       <workItem from="1681253022728" duration="5113000" />
       <workItem from="1681405285475" duration="9250000" />
+      <workItem from="1681484362034" duration="6594000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -343,7 +342,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="test_base" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -388,8 +387,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/base/views.py</url>
-          <line>57</line>
+          <line>53</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/base/helpers.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

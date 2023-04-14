@@ -3,14 +3,10 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import default_storage
-from django.core.files.base import ContentFile
 
 from .forms import ProductForm, TopicForm, BannerForm
 from .models import User,Topic,Product,Banner
-
-from resizeimage import resizeimage
-from PIL import Image
-import io
+from .helpers import ImageHandler
 import tempfile
 import os
 
@@ -83,14 +79,7 @@ def createProduct(request):
         )
 
         # Change image resolution
-        with open(temp_file.name, 'rb') as f:
-            with Image.open(f) as image:
-                cover = resizeimage.resize_cover(image, [370, 390])
-                output = io.BytesIO()
-                cover.save(output, format='JPEG', quality=100)
-                output.seek(0)
-                product.image.save(img.name, ContentFile(output.read()), save=False)
-        product.save()
+        ImageHandler.save_resized_image_create(temp_file, img, object = product, type = "ProductHome")
 
         # Remove temporary file
         os.remove(temp_file.name)
@@ -116,23 +105,13 @@ def deleteProduct(request,pk):
 def updateProduct(request,pk):
     product = Product.objects.get(id=pk)
     form = ProductForm(instance=product)
+    img = product.image
+    img_name = img.name
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-
-            # Change image resolution
-            img = product.image
-            img_name = img.name
-            with default_storage.open(img_name, 'rb') as f:
-                with Image.open(f) as image:
-                    cover = resizeimage.resize_cover(image, [370, 390])
-                    output = io.BytesIO()
-                    cover.save(output, format='JPEG', quality=100)
-                    output.seek(0)
-                    product.image.save(img_name, ContentFile(output.read()), save=False)
-            product.save()
 
             if product.priceDiscount>0:
                 priceDiscount = product.price - (product.price*(product.discount/100))
@@ -141,6 +120,8 @@ def updateProduct(request,pk):
             
             product.priceDiscount =priceDiscount
             product.save()
+
+
             return redirect('adminProduct')
 
     return render(request,'base/updateProduct.html', {'form':form, 'product':product})
@@ -160,17 +141,6 @@ def updateTopic(request,pk):
         form = TopicForm(request.POST, request.FILES, instance=topic)
         if form.is_valid():
             form.save()
-            # Change image resolution
-            img = topic.image
-            img_name = img.name
-            with default_storage.open(img_name, 'rb') as f:
-                with Image.open(f) as image:
-                    cover = resizeimage.resize_cover(image, [385, 330])
-                    output = io.BytesIO()
-                    cover.save(output, format='JPEG', quality=100)
-                    output.seek(0)
-                    topic.image.save(img_name, ContentFile(output.read()), save=False)
-            topic.save()
             return redirect('adminTopic')
 
     return render(request,'base/updateTopic.html', {'form':form, 'topic':topic})
@@ -199,14 +169,8 @@ def createBanner(request):
                 message=message,
                 type=type
                 )
-            with open(temp_file.name, 'rb') as f:
-                with Image.open(f) as image:
-                    cover = resizeimage.resize_cover(image, [790, 680])
-                    output = io.BytesIO()
-                    cover.save(output, format='JPEG', quality=100)
-                    output.seek(0)
-                    banner.image.save(img.name, ContentFile(output.read()), save=False)
-            banner.save()
+            # Change image resolution
+            ImageHandler.save_resized_image_create(temp_file, img, object=banner, type="banner")
             # Remove temporary file
             os.remove(temp_file.name)
             return redirect('home')
@@ -220,14 +184,8 @@ def createBanner(request):
                 type=type
                 )
 
-            with open(temp_file.name, 'rb') as f:
-                with Image.open(f) as image:
-                    cover = resizeimage.resize_cover(image, [570, 422])
-                    output = io.BytesIO()
-                    cover.save(output, format='JPEG', quality=100)
-                    output.seek(0)
-                    banner.image.save(img.name, ContentFile(output.read()), save=False)
-            banner.save()
+            # Change image resolution
+            ImageHandler.save_resized_image_create(temp_file, img, object=banner, type="banner")
             # Remove temporary file
             os.remove(temp_file.name)
             return redirect('home')
@@ -243,14 +201,8 @@ def createBanner(request):
                 type=type
                 )
 
-            with open(temp_file.name, 'rb') as f:
-                with Image.open(f) as image:
-                    cover = resizeimage.resize_cover(image, [570, 422])
-                    output = io.BytesIO()
-                    cover.save(output, format='JPEG', quality=100)
-                    output.seek(0)
-                    banner.image.save(img.name, ContentFile(output.read()), save=False)
-            banner.save()
+            # Change image resolution
+            ImageHandler.save_resized_image_create(temp_file, img, object=banner, type="banner")
             # Remove temporary file
             os.remove(temp_file.name)
             return redirect('home')
@@ -264,14 +216,8 @@ def createBanner(request):
                 type=type
                 )
 
-            with open(temp_file.name, 'rb') as f:
-                with Image.open(f) as image:
-                    cover = resizeimage.resize_cover(image, [570, 422])
-                    output = io.BytesIO()
-                    cover.save(output, format='JPEG', quality=100)
-                    output.seek(0)
-                    banner.image.save(img.name, ContentFile(output.read()), save=False)
-            banner.save()
+            # Change image resolution
+            ImageHandler.save_resized_image_create(temp_file, img, object=banner, type="banner")
             # Remove temporary file
             os.remove(temp_file.name)
             return redirect('home')
@@ -288,17 +234,6 @@ def updateBanner(request,pk):
         form = BannerForm(request.POST, request.FILES, instance=banner)
         if form.is_valid():
             form.save()
-            # Change image resolution
-            img = banner.image
-            img_name = img.name
-            with default_storage.open(img_name, 'rb') as f:
-                with Image.open(f) as image:
-                    cover = resizeimage.resize_cover(image, [790, 680])
-                    output = io.BytesIO()
-                    cover.save(output, format='JPEG', quality=100)
-                    output.seek(0)
-                    banner.image.save(img_name, ContentFile(output.read()), save=False)
-            banner.save()
             return redirect('adminBanner')
 
     return render(request,'base/updateBanner.html', {'form':form, 'banner':banner})
