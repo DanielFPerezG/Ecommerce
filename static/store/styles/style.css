@@ -2419,3 +2419,11 @@ responsive
 #discount-box {
   background-color: pink !important;
 }
+
+#product-id-detail {
+  display: none;
+}
+
+#product-quantity-detail {
+  display: none;
+}

@@ -1,8 +1,26 @@
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const csrftoken = getCookie('csrftoken');
+
 function wcqib_refresh_quantity_increments() {
     jQuery("div.quantity:not(.buttons_added), td.quantity:not(.buttons_added)").each(function(a, b) {
         var c = jQuery(b);
         c.addClass("buttons_added"), c.children().first().before('<input type="button" value="-" class="minus" />'), c.children().last().after('<input type="button" value="+" class="plus" />')
-    })
+    });
+
 }
 String.prototype.getDecimals || (String.prototype.getDecimals = function() {
     var a = this,
@@ -18,5 +36,58 @@ String.prototype.getDecimals || (String.prototype.getDecimals = function() {
         c = parseFloat(a.attr("max")),
         d = parseFloat(a.attr("min")),
         e = a.attr("step");
-    b && "" !== b && "NaN" !== b || (b = 0), "" !== c && "NaN" !== c || (c = ""), "" !== d && "NaN" !== d || (d = 0), "any" !== e && "" !== e && void 0 !== e && "NaN" !== parseFloat(e) || (e = 1), jQuery(this).is(".plus") ? c && b >= c ? a.val(c) : a.val((b + parseFloat(e)).toFixed(e.getDecimals())) : d && b <= d ? a.val(d) : b > 0 && a.val((b - parseFloat(e)).toFixed(e.getDecimals())), a.trigger("change")
+    b && "" !== b && "NaN" !== b || (b = 0), "" !== c && "NaN" !== c || (c = ""), "" !== d && "NaN" !== d || (d = 0), "any" !== e && "" !== e && void 0 !== e && "NaN" !== parseFloat(e) || (e = 1), jQuery(this).is(".plus") ? c && b >= c ? a.val(c) : a.val((b + parseFloat(e)).toFixed(e.getDecimals())) : d && b <= d ? a.val(d) : b > 0 && a.val((b - parseFloat(e)).toFixed(e.getDecimals())), a.trigger("change");
+    updateProductsPrice(a);
+
+})
+;
+
+function updateProductsPrice(a) {
+      var oldQuantity = document.getElementById("product-quantity-detail");
+      var quantity = parseInt(a.val());
+      var totalElement = document.getElementById("total-price-detail");
+      var price = document.getElementById("price-detail").textContent;
+      price = price.replace("$", "");
+      price = parseInt(price)*1000;
+      totalElement.textContent = (quantity*price).toLocaleString()
+      oldQuantity.textContent = quantity
+    };
+
+function addProductDetail() {
+      var quantity = parseInt(document.getElementById("product-quantity-detail").textContent);
+      var productId = document.getElementById("product-id-detail").textContent;
+
+      const data = [];
+
+        // Obtener los valores de las celdas y construir un objeto JavaScript
+        const jsonRow = {
+          id: productId,
+            quantity: quantity
+        };
+
+        // Agregar el objeto a la lista de datos
+        data.push(jsonRow);
+
+      // Convertir el objeto JavaScript en una cadena JSON
+      const json = JSON.stringify(data);
+
+      fetch('../addCartDetail/'+productId,{
+            method: 'POST',
+            body: json,
+            headers:{
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': csrftoken,
+            }
+        }
+        )
+        .then(response => {
+                return response.json() //Convert response to JSON
+        })
+        .then(data => {
+        });
+    };
+
+jQuery('#add-to-cart-button').on('click', function() {
+    addProductDetail();
+    window.location.href = "..";
 });

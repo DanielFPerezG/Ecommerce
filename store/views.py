@@ -171,6 +171,7 @@ def addCart(request,pk):
     product = Product.objects.get(id=pk)
     cart, create = Cart.objects.get_or_create(user=request.user)
     newProductCarts = []
+
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         cart.add_product(product)
     productCarts = json.loads(cart.products)
@@ -185,6 +186,30 @@ def addCart(request,pk):
     data = {"json1": numberProductsCart, "json2": newProductCarts}
     data = json.dumps(data)
     return HttpResponse(data)
+
+def addCartDetail(request,pk):
+    product = Product.objects.get(id=pk)
+    cart, create = Cart.objects.get_or_create(user=request.user)
+    cart.add_product(product)
+
+    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        data = json.loads(request.body)
+        productCart = cart.obtain_products()
+
+        for i in data:
+            for productDetail in productCart:
+                if productDetail["id"] == int(i["id"]):
+                    productDetail["quantity"] = int(i["quantity"])
+                    break
+
+                productDetail["total"] = productDetail["price"] * productDetail["quantity"]
+        cart.products = productCart
+        cart.products = json.dumps(cart.products)
+        cart.save()
+
+    return redirect('store:home')
+
+
 
 def viewCart(request):
     cart = Cart.objects.get(user=request.user)
@@ -220,7 +245,6 @@ def updateCart(request):
 
     if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
         data = json.loads(request.body)
-
 
         for product in productCart:
             for i in data:
