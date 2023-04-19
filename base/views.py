@@ -66,10 +66,21 @@ def createProduct(request):
             temp_file.write(img.read())
             temp_file.flush()
 
+        imgDetail = request.FILES['imageDetail']
+        with tempfile.NamedTemporaryFile(delete=False) as temp_fileDetail:
+            temp_fileDetail.write(imgDetail.read())
+            temp_fileDetail.flush()
+
+        imgDetailSecond = request.FILES['imageDetailSecond']
+        with tempfile.NamedTemporaryFile(delete=False) as temp_fileDetailSecond:
+            temp_fileDetailSecond.write(imgDetailSecond.read())
+            temp_fileDetailSecond.flush()
+
 
         product = Product(
             topic=topic,
             name=request.POST.get('name'),
+            message=request.POST.get('message'),
             bio=request.POST.get('bio'),
             price=price,
             cost=request.POST.get('cost'),
@@ -80,6 +91,10 @@ def createProduct(request):
 
         # Change image resolution
         ImageHandler.save_resized_image_create(temp_file, img, object = product, type = "ProductHome")
+        ImageHandler.save_resized_image_create(temp_fileDetail, imgDetail, object=product, type="ProductDetail")
+        ImageHandler.save_resized_image_create(temp_fileDetailSecond, imgDetailSecond, object=product, type="ProductDetail")
+
+        product.save()
 
         # Remove temporary file
         os.remove(temp_file.name)
@@ -171,6 +186,7 @@ def createBanner(request):
                 )
             # Change image resolution
             ImageHandler.save_resized_image_create(temp_file, img, object=banner, type="banner")
+            banner.save()
             # Remove temporary file
             os.remove(temp_file.name)
             return redirect('home')

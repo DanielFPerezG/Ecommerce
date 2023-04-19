@@ -8,9 +8,10 @@ from .helpers import ImageHandler
 class ProductForm(ModelForm):
     class Meta:
         model = Product
-        fields = ['image','name','topic', 'price','bio','cost','stock','discount']
+        fields = ['image', 'message', 'imageDetail', 'imageDetailSecond', 'name', 'topic', 'price', 'bio', 'cost', 'stock', 'discount']
         labels = {
             'name': 'Nombre',
+            'message': 'Mensaje',
             'topic': 'Categoría',
             'price': 'Precio',
             'bio': 'Descripción',
@@ -24,9 +25,19 @@ class ProductForm(ModelForm):
 
     def save(self, commit=True):
         product = super().save(commit=False)
-        if self.cleaned_data.get('image'):
+        if self.cleaned_data.get('imageDetail') and self.cleaned_data.get(
+                'imageDetailSecond') and self.cleaned_data.get('image'):
+            imgDetail = self.cleaned_data['imageDetail']
+            product.imageDetail.save(imgDetail.name,
+                                     ImageHandler.save_resized_image_update(image=imgDetail, type='productDetail'),
+                                     save=False)
+            imgDetailSecond = self.cleaned_data['imageDetailSecond']
+            product.imageDetailSecond.save(imgDetailSecond.name,
+                                           ImageHandler.save_resized_image_update(image=imgDetailSecond,
+                                                                                  type='productDetail'), save=False)
             img = self.cleaned_data['image']
-            product.image.save(img.name, ImageHandler.save_resized_image_update(image=img, type='productHome'), save=False)
+            product.image.save(img.name, ImageHandler.save_resized_image_update(image=img, type='productHome'),
+                               save=False)
         if commit:
             product.save()
         return product
@@ -34,7 +45,7 @@ class ProductForm(ModelForm):
 class TopicForm(ModelForm):
     class Meta:
         model = Topic
-        fields = ['image','bio']
+        fields = ['image','title','bio']
         labels = {
             'bio': 'Descripción',
         }

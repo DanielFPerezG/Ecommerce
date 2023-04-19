@@ -21,6 +21,7 @@ class Topic(models.Model):
     def get_topic_image_path(instance, filename):
         return 'topic/{}'.format(filename)
     name = models.CharField(max_length=200)
+    title = models.CharField(null=True, max_length=200)
     bio = models.CharField(max_length=1000,null=True)
     image = models.ImageField(null=True, upload_to=get_topic_image_path)
 
@@ -46,8 +47,11 @@ class Product(models.Model):
         return 'product/{}'.format(filename)
 
     name = models.CharField(max_length=150,null=True)
+    message = models.CharField(max_length=150, null=True)
     bio = models.CharField(max_length=1000,null=True)
     image = models.ImageField(null=True, upload_to=get_product_image_path)
+    imageDetail = models.ImageField(null=True, upload_to=get_product_image_path)
+    imageDetailSecond = models.ImageField(null=True, upload_to=get_product_image_path)
     price = models.PositiveIntegerField(null=True)
     stock = models.PositiveIntegerField(null=True)
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
@@ -61,6 +65,10 @@ class Product(models.Model):
     def delete(self, *args, **kwargs):
         if os.path.isfile(self.image.path):
             os.remove(self.image.path)
+        if os.path.isfile(self.imageDetail.path):
+            os.remove(self.imageDetail.path)
+        if os.path.isfile(self.imageDetailSecond.path):
+            os.remove(self.imageDetailSecond.path)
         super(Product, self).delete(*args, **kwargs)
 
     def save(self, *args, **kwargs):
@@ -69,6 +77,16 @@ class Product(models.Model):
             if self.image and old_image != self.image:
                 if os.path.isfile(old_image.path):
                     os.remove(old_image.path)
+
+            old_imageDetail = Product.objects.get(pk=self.pk).imageDetail
+            if self.imageDetail and old_imageDetail != self.imageDetail:
+                if os.path.isfile(old_imageDetail.path):
+                    os.remove(old_imageDetail.path)
+
+            old_imageDetailSecond = Product.objects.get(pk=self.pk).imageDetailSecond
+            if self.imageDetailSecond and old_imageDetailSecond != self.imageDetailSecond:
+                if os.path.isfile(old_imageDetailSecond.path):
+                    os.remove(old_imageDetailSecond.path)
         super(Product, self).save(*args, **kwargs)
 
 

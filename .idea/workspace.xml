@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Products Template in Home">
-      <change afterPath="$PROJECT_DIR$/base/helpers.py" afterDir="false" />
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Modularize Image Resizing System">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/migrations/0010_product_quantity.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/createProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/createProduct.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +125,8 @@
       <workItem from="1681171470435" duration="2525000" />
       <workItem from="1681253022728" duration="5113000" />
       <workItem from="1681405285475" duration="9250000" />
-      <workItem from="1681484362034" duration="6594000" />
+      <workItem from="1681484362034" duration="10231000" />
+      <workItem from="1681867055143" duration="466000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -320,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681424058283</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Modularize Image Resizing System">
+      <created>1681491472214</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1681491472214</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +366,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update Shopping Cart With Asynchronous Method" />
     <MESSAGE value="Add Product to Cart With Asynchronous Method" />
     <MESSAGE value="Discount % in product image" />
     <MESSAGE value="Update Asynchronous Method" />
@@ -380,7 +390,8 @@
     <MESSAGE value="update File Saving System" />
     <MESSAGE value="Update Banners &amp; Topics Messages" />
     <MESSAGE value="Update Products Template in Home" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Products Template in Home" />
+    <MESSAGE value="Modularize Image Resizing System" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modularize Image Resizing System" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -392,7 +403,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/base/helpers.py</url>
-          <line>27</line>
+          <line>26</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

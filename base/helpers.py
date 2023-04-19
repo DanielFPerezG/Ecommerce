@@ -22,7 +22,6 @@ class ImageHandler:
                 cover.save(output, format='JPEG', quality=100)
                 output.seek(0)
                 object.image.save(img.name, ContentFile(output.read()), save=False)
-        object.save()
 
     def save_resized_image_update(image, type):
         with Image.open(image) as img:
