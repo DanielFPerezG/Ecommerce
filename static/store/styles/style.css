@@ -2446,3 +2446,16 @@ responsive
 .discount-detail-price span {
   font-size: 5.2rem;
 }
+
+.my-toast-container {
+  font-size: 3rem;
+  width: 40rem;
+}
+
+.my-toast-title {
+  font-size: 3rem;
+}
+
+.my-toast-icon {
+  font-size: 1.2rem;
+}

@@ -26,7 +26,7 @@
                                     <div class="hover-content">
                                         <ul>
                                             <li><a href="{% url 'store:shopDetail' product.id %}"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a type="button" onclick="addCart( {{ product.id }} );"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="{{product.image.url}}" alt="" class="img-fluid">

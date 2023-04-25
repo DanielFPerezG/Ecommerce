@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Create AJAX System to Add and Update Shopping Cart Product">
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Product Detail Template">
+      <change afterPath="$PROJECT_DIR$/static/store/js/modal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/store/js/quantity.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/js/quantity.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/shopDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/shopDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/productInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/productInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/store/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/store/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +50,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/store/templates/store/productInfo.html" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file:///usr/local/Cellar/python@3.10/3.10.9/Frameworks/Python.framework/Versions/3.10/lib/python3.10/wsgiref/handlers.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -125,7 +129,7 @@
       <workItem from="1681484362034" duration="10231000" />
       <workItem from="1681867055143" duration="466000" />
       <workItem from="1681999905814" duration="396000" />
-      <workItem from="1682379756328" duration="3440000" />
+      <workItem from="1682379756328" duration="7121000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -337,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681883645772</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Update Product Detail Template">
+      <created>1682450776875</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1682450776876</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +383,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Discount % in product image" />
     <MESSAGE value="Update Asynchronous Method" />
     <MESSAGE value="Delete Product to Shopping Cart" />
     <MESSAGE value="Add Modal to Templates" />
@@ -397,7 +407,8 @@
     <MESSAGE value="Update Products Template in Home" />
     <MESSAGE value="Modularize Image Resizing System" />
     <MESSAGE value="Create AJAX System to Add and Update Shopping Cart Product" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create AJAX System to Add and Update Shopping Cart Product" />
+    <MESSAGE value="Update Product Detail Template" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Product Detail Template" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
