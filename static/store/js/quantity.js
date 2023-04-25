@@ -48,7 +48,9 @@ function updateProductsPrice(a) {
       var totalElement = document.getElementById("total-price-detail");
       var price = document.getElementById("price-detail").textContent;
       price = price.replace("$", "");
-      price = parseInt(price)*1000;
+      console.log(price)
+      price = parseFloat(price)*1000;
+      console.log(price)
       totalElement.textContent = (quantity*price).toLocaleString()
       oldQuantity.textContent = quantity
     };

@@ -1776,7 +1776,12 @@ Single Product Page
   display: block;
   margin-top: 5px;
   border-bottom: 1px solid #eee;
-  padding-bottom: 20px;
+  padding-bottom: 0;
+}
+
+#product .right-content span.product-bio {
+  padding-top: 12px;
+
 }
 
 #product .right-content ul.stars {
@@ -1796,6 +1801,16 @@ Single Product Page
   font-weight: 500;
   display: block;
   margin-top: 25px;
+}
+
+#product .right-content.discount span {
+  margin-top: 0;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+#product .right-content.discount span:first-child {
+  margin-top: 0.5rem;
 }
 
 #product .right-content .quote {
@@ -2426,4 +2441,8 @@ responsive
 
 #product-quantity-detail {
   display: none;
+}
+
+.discount-detail-price span {
+  font-size: 5.2rem;
 }

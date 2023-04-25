@@ -32,10 +32,26 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="right-content">
+                <div class="right-content discount">
                     <h4>{{ product.name }}</h4>
-                    <span class="price" id="price-detail">${{ product.price|intcomma }}</span>
-                    <span>{{ product.bio }}</span>
+                    {% if product.discount > 0 %}
+                        <div class="row justify-content-center align-items-center">
+                          <div class="col-6 mx-auto">
+                            <span class="text-lg first-price-discount" style="text-decoration: line-through;">${{product.price|intcomma}}</span>
+                            <span class="text-lg price" id="price-detail" style="color: palevioletred;">${{product.priceDiscount|intcomma}}</span>
+                          </div>
+                          <div class="col-6 mx-auto">
+                              <div class="bg-pink text-danger d-flex justify-content-end">
+                                <div class="pl-2 rounded-right rounded-left" id="discount-box">
+                                   &nbsp;{{product.discount}}% OFF&nbsp;&nbsp;
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                    {% else %}
+                        <span class="price" id="price-detail">${{ product.price|intcomma }}</span>
+                    {% endif %}
+                    <span class="product-bio">{{ product.bio }}</span>
                     <div class="quote">
                         <i class="fa fa-quote-left"></i><p>{{ product.message }}</p>
                     </div>
@@ -50,7 +66,13 @@
                             </div>
                         </div>
                         <div class="total">
-                            <h4>Total: &nbsp$</h4> <h4 id="total-price-detail">{{ product.price|intcomma }}</h4>
+
+
+                            {% if product.discount > 0 %}
+                                <h4>Total: &nbsp$</h4> <h4 id="total-price-detail">{{ product.priceDiscount|intcomma }}</h4>
+                            {% else %}
+                                <h4>Total: &nbsp$</h4> <h4 id="total-price-detail">{{ product.price|intcomma }}</h4>
+                            {% endif %}
                             <div class="main-border-button"><a id="add-to-cart-button">Add To Cart</a></div>
                             <h4 id="product-id-detail">{{ product.id }}</h4>
                             <h4 id="product-quantity-detail">{{ product.name }}</h4>

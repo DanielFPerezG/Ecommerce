@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Modularize Image Resizing System">
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Create AJAX System to Add and Update Shopping Cart Product">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/store/js/quantity.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/js/quantity.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/productInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/productInfo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/templates/store/shopDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/shopDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/store/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +124,8 @@
       <workItem from="1681405285475" duration="9250000" />
       <workItem from="1681484362034" duration="10231000" />
       <workItem from="1681867055143" duration="466000" />
+      <workItem from="1681999905814" duration="396000" />
+      <workItem from="1682379756328" duration="3440000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -332,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681491472214</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Create AJAX System to Add and Update Shopping Cart Product">
+      <created>1681883645771</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1681883645772</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +372,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Product to Cart With Asynchronous Method" />
     <MESSAGE value="Discount % in product image" />
     <MESSAGE value="Update Asynchronous Method" />
     <MESSAGE value="Delete Product to Shopping Cart" />
@@ -392,7 +396,8 @@
     <MESSAGE value="Update Banners &amp; Topics Messages" />
     <MESSAGE value="Update Products Template in Home" />
     <MESSAGE value="Modularize Image Resizing System" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modularize Image Resizing System" />
+    <MESSAGE value="Create AJAX System to Add and Update Shopping Cart Product" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create AJAX System to Add and Update Shopping Cart Product" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
