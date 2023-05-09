@@ -131,7 +131,7 @@ def store(request):
             Q(bio__icontains= query)
         )
     else: 
-        products = Product.objects.all()
+        products = Product.objects.all().order_by('-discount')
     
     if order_by=="priceDiscount":
         products = products.order_by('priceDiscount')

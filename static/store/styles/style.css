@@ -2459,3 +2459,9 @@ responsive
 .my-toast-icon {
   font-size: 1.2rem;
 }
+
+@media (max-width: 767px) {
+  .search-form {
+    padding-bottom: 1rem;
+  }
+}
