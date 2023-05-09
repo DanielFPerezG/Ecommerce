@@ -245,6 +245,7 @@ header
   color: #2a2a2a!important;
 }
 
+
 .header-area {
   border-bottom: 3px dotted #eee;
   box-shadow: none;
@@ -329,7 +330,9 @@ header
 .header-area .main-nav .nav li a {
   color: #2a2a2a;
 }
-
+.header-area .main-nav .nav li a.info {
+  color: rosybrown!important;
+}
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
   color: #aaa!important;

@@ -66,19 +66,27 @@ def registerPage(request):
 def home(request):
     topics = Topic.objects.all()
     banners = Banner.objects.all()
-    cart, create = Cart.objects.get_or_create(user=request.user)
     products = Product.objects.order_by('-discount')
 
-    productCarts = json.loads(cart.products)
-    numberProductsCart = 0
-    for productJson in productCarts:
-        numberProductsCart += 1
+    if request.user.is_authenticated:
+        cart, create = Cart.objects.get_or_create(user=request.user)
 
-    context = {
-        'topics': topics,
-        'banners': banners,
-        'numberProductsCart': numberProductsCart,
-        'products': products}
+        productCarts = json.loads(cart.products)
+        numberProductsCart = 0
+        for productJson in productCarts:
+            numberProductsCart += 1
+
+        context = {
+            'topics': topics,
+            'banners': banners,
+            'numberProductsCart': numberProductsCart,
+            'products': products}
+
+    else:
+        context = {
+            'topics': topics,
+            'banners': banners,
+            'products': products}
     return render(request, 'store/home.html', context)
 
 
@@ -86,18 +94,25 @@ def shopDetail(request,pk):
     product = Product.objects.get(id=pk)
     products = Product.objects.all()
     topics = Topic.objects.all()
-    cart, create = Cart.objects.get_or_create(user=request.user)
 
-    productCarts = json.loads(cart.products)
-    numberProductsCart = 0
-    for productJson in productCarts:
-        numberProductsCart += 1
+    if request.user.is_authenticated:
+        cart, create = Cart.objects.get_or_create(user=request.user)
+        productCarts = json.loads(cart.products)
+        numberProductsCart = 0
+        for productJson in productCarts:
+            numberProductsCart += 1
 
-    context = {
-        'products':products,
-        'product':product,
-        'topics':topics,
-        'numberProductsCart':numberProductsCart
+        context = {
+            'products':products,
+            'product':product,
+            'topics':topics,
+            'numberProductsCart':numberProductsCart
+            }
+    else:
+        context = {
+            'products': products,
+            'product': product,
+            'topics': topics
         }
 
     return render(request,'store/shopDetail.html', context)
@@ -109,7 +124,8 @@ def store(request):
     query_min_discount = request.GET.get('q_min_discount') if request.GET.get('q_min_discount') != None else ''
     order_by = request.GET.get('order_by', 'default_orders') 
     topics = Topic.objects.all()
-    cart, create = Cart.objects.get_or_create(user=request.user)
+    if request.user.is_authenticated:
+        cart, create = Cart.objects.get_or_create(user=request.user)
 
     if query_max_price != '' and query_min_price != '': 
         products = Product.objects.filter(
@@ -151,13 +167,16 @@ def store(request):
     page_obj = paginator.get_page(page_number)
     products = page_obj.object_list
 
-    productCarts = json.loads(cart.products)
-    numberProductsCart = 0
-    for productJson in productCarts:
-        numberProductsCart += 1
+    if 'cart' in locals() and cart is not None:
+        productCarts = json.loads(cart.products)
+        numberProductsCart = 0
+        for productJson in productCarts:
+            numberProductsCart += 1
 
-
-    context = {'products':products,'topics':topics,'query':query,'page_obj':page_obj,'products':products,'order_by':order_by,'numberProductsCart':numberProductsCart}
+    if request.user.is_authenticated:
+        context = {'products':products,'topics':topics,'query':query,'page_obj':page_obj,'products':products,'order_by':order_by,'numberProductsCart':numberProductsCart}
+    else:
+        context = {'products': products, 'topics': topics, 'query': query, 'page_obj': page_obj, 'products': products, 'order_by': order_by,}
     return render(request, 'store/store.html', context)
 
 @receiver(post_save, sender=User)

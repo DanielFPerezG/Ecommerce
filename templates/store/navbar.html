@@ -13,23 +13,23 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="{%  url 'store:home' %}" class="active">Inicio</a></li>
+                            <li class="scroll-to-section"><a href="{%  url 'store:home' %}">Inicio</a></li>
                             <li class="scroll-to-section"><a href="{%  url 'store:store' %}">Tienda</a></li>
                             <li class="scroll-to-section"><a href="{%  url 'store:store' %}">Nosotros</a></li>
 
                             {% if request.user.is_authenticated %}
                                 <li class="submenu">
-                                    <a href="javascript:;">Features</a>
+                                    <a href="javascript:;">{{request.user.name}}</a>
                                     <ul>
                                         <li><a href="#">Features Page 1</a></li>
                                         <li><a href="#">Features Page 2</a></li>
                                         <li><a href="#">Features Page 3</a></li>
-                                        <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
+                                        <li><a href="{% url 'store:logout' %}" >Cerrar Sesion </a></li>
                                     </ul>
                                 </li>
                             {% else %}
-                                <li class="scroll-to-section"><a href="{% url 'store:login' %}">Iniciar Sesion</a></li>
-                                <li class="scroll-to-section"><a href="{% url 'store:register' %}">Registrarse</a></li>
+                                <li class="scroll-to-section"><a href="{% url 'store:login' %}" class="info">Iniciar Sesion</a></li>
+                                <li class="scroll-to-section"><a href="{% url 'store:register' %} " class="info">Registrarse</a></li>
                             {% endif %}
                         </ul>
                         <a class='menu-trigger'>
