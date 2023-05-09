@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/store/templates/store/store.html" afterDir="false" />
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Add Search, Sorting and Filtering System">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/store/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +125,7 @@
       <workItem from="1681867055143" duration="466000" />
       <workItem from="1681999905814" duration="396000" />
       <workItem from="1682379756328" duration="9518000" />
-      <workItem from="1683643843695" duration="9117000" />
+      <workItem from="1683643843695" duration="10312000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -353,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682456407985</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Add Search, Sorting and Filtering System">
+      <created>1683669482546</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1683669482546</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,7 +393,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Delete Product to Shopping Cart" />
     <MESSAGE value="Add Modal to Templates" />
     <MESSAGE value="Update Modal to style" />
     <MESSAGE value="Merge from test branch to main branch" />
@@ -413,7 +417,8 @@
     <MESSAGE value="Create AJAX System to Add and Update Shopping Cart Product" />
     <MESSAGE value="Update Product Detail Template" />
     <MESSAGE value="Implement AJAX &amp; Modal Add to Cart System" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement AJAX &amp; Modal Add to Cart System" />
+    <MESSAGE value="Add Search, Sorting and Filtering System" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Search, Sorting and Filtering System" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
