@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Navbar">
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Views User Authenticated System">
+      <change afterPath="$PROJECT_DIR$/static/store/js/quantityCart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/store/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/viewCart.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/viewCart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/store/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +128,7 @@
       <workItem from="1681867055143" duration="466000" />
       <workItem from="1681999905814" duration="396000" />
       <workItem from="1682379756328" duration="9518000" />
-      <workItem from="1683643843695" duration="12064000" />
+      <workItem from="1683643843695" duration="23695000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -367,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683670728168</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Update Views User Authenticated System">
+      <created>1683672550652</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1683672550652</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -402,7 +410,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update Modal to style" />
     <MESSAGE value="Merge from test branch to main branch" />
     <MESSAGE value="Update Templates First Version" />
     <MESSAGE value="Update Main &amp; Navbar Base Templates" />
@@ -427,7 +434,8 @@
     <MESSAGE value="Implement AJAX &amp; Modal Add to Cart System" />
     <MESSAGE value="Add Search, Sorting and Filtering System" />
     <MESSAGE value="Update Navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Navbar" />
+    <MESSAGE value="Update Views User Authenticated System" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Views User Authenticated System" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -3,14 +3,29 @@
 {% block content %}
     <!-- Cart Start -->
 
+        <!-- ***** Main Banner Area Start ***** -->
+        <div class="page-heading" id="top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-content">
+                            <h2>Carrito de compra</h2>
+                            <span>Awesome &amp; Creative HTML CSS layout by TemplateMo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Main Banner Area End ***** -->
+
         {% csrf_token %}
         <div class="container-fluid pt-5">
             <div class="row px-xl-5">
                 <div class="col-lg-8 table-responsive mb-5">
-                    <table class="table table-bordered text-center mb-0" id="CartTable">
+                    <table class="table table-cart table-bordered no-vertical-border text-center mb-0" id="CartTable">
                         <thead class="bg-secondary text-dark">
                             <tr>
-                                <th>#</th>
+                                <th class="d-none">#</th>
                                 <th>Imagen</th>
                                 <th>Productos</th>
                                 <th>Precio</th>
@@ -22,23 +37,17 @@
                         <tbody class="align-middle">
                             {% for product in productCart %}
                             <tr class="cart-row">
-                                <td class="align-middle" id="{{ product.id }}">{{ product.id }}</td>
-                                <td class="align-middle" id="price_{{ product.id }}"><img src="{{product.image_url}}" alt="" style="width: 50px;"></td>
+                                <td  class="align-middle d-none" id="{{ product.id }}">{{ product.id }}</td>
+                                <td class="align-middle" id="price_{{ product.id }}"><img src="{{product.image_url}}" alt="" style="width: 75px;"></td>
                                 <td class="align-middle"> {{ product.name }}</td>
                                 <td class="align-middle" id="price_{{ product.id }}">${{ product.price }}</td>
                                 <td class="align-middle">
                                     <form method="POST" action="">
-                                        <div class="input-group quantity mx-auto" style="width: 100px;">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn btn-sm btn-primary btn-minus" >
-                                                <i class="fa fa-minus"></i>
-                                                </button>
-                                            </div>
-                                                <input type="text" name="quantity_{{ product.id }}"  class="form-control form-control-sm bg-secondary text-center" id ="quantity_{{ product.id }}" value="{{ product.quantity }}">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn btn-sm btn-primary btn-plus">
-                                                    <i class="fa fa-plus"></i>
-                                                </button>
+                                        <div class="quantity-content quantity-content-cart">
+                                            <div class="right-content">
+                                                <div class="quantity buttons_added">
+                                                    <input type="button" value="-" class="minus-cart"><input type="number" step="1" min="1" max="" name="quantity" value="{{ product.quantity }}" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" readonly><input type="button" value="+" class="plus-cart">
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
@@ -59,7 +68,7 @@
                 </div>
                 <div class="col-lg-4">
                     <form class="mb-5" action="">
-                        <div class="input-group">
+                        <div class="input-group  pb-4">
                             <input type="text" class="form-control p-4" placeholder="Coupon Code">
                             <div class="input-group-append">
                                 <button class="btn btn-primary">Apply Coupon</button>

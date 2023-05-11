@@ -1851,6 +1851,11 @@ Single Product Page
   margin-bottom: 30px;
 }
 
+.quantity-content.quantity-content-cart {
+  border-top: none;
+  border-bottom: none;
+}
+
 .quantity-content .left-content {
   float: left;
   margin-right: 30px;
@@ -1916,17 +1921,23 @@ Single Product Page
  }
  
  .quantity.buttons_added .minus,
- .quantity.buttons_added .plus {
+ .quantity.buttons_added .plus,
+ .quantity.buttons_added .minus-cart,
+ .quantity.buttons_added .plus-cart
+ {
   padding: 7px 10px 8px;
   height: 39px;
   background-color: #ffffff;
   border: 1px solid #efefef;
   cursor:pointer;}
  
- .quantity.buttons_added .minus {
+ .quantity.buttons_added .minus,
+ .quantity.buttons_added .minus-cart
+ {
   border-right: 0; }
  
- .quantity.buttons_added .plus {
+ .quantity.buttons_added .plus,
+ .quantity.buttons_added .plus-cart{
   border-left: 0; }
  
  .quantity.buttons_added .minus:hover,
@@ -2467,4 +2478,25 @@ responsive
   .search-form {
     padding-bottom: 1rem;
   }
+}
+
+/* Para las th */
+.table.table-cart thead th {
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Para las td */
+.table.table-cart tbody td {
+  border-right: none;
+  border-left: none;
+}
+
+
+.table.table-cart tbody td:nth-of-type(2) {
+  border-left: 1px solid #dee2e6;
+}
+
+.table.table-cart tbody td:last-of-type {
+  border-right: 1px solid #dee2e6;
 }
