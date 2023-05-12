@@ -100,7 +100,9 @@ function createJSON(a,productId) {
 
                 for (let i = 0; i < data.length; i++) {
                     var totalElement = document.getElementById("total_price_"+data[i]["id"]);
+                    var totalElementMobile = document.getElementById("total_price_"+data[i]["id"]+"_mobile");
                     totalElement.textContent = "$"+data[i]["total"]
+                    totalElementMobile.textContent = "$"+data[i]["total"]
                     subTotalcount += data[i]["total"]
                 }
                 subTotal.textContent = "$"+subTotalcount

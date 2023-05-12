@@ -1,4 +1,5 @@
 {% extends 'store/main.html' %}
+{% load humanize %}
 
 {% block content %}
     <!-- Cart Start -->
@@ -21,7 +22,7 @@
         {% csrf_token %}
         <div class="container-fluid pt-5">
             <div class="row px-xl-5">
-                <div class="col-lg-8 table-responsive mb-5">
+                <div class="col-lg-8 table-responsive mb-5 products-desktop">
                     <table class="table table-cart table-bordered no-vertical-border text-center mb-0" id="CartTable">
                         <thead class="bg-secondary text-dark">
                             <tr>
@@ -65,6 +66,53 @@
                             {% endfor %}
                         </tbody>
                     </table>
+                </div>
+                <div class="col-lg-8 table-responsive mb-5 products-mobile">
+                {% for product in productCart %}
+                <div class="container container-mobile pt-4">
+                    <div class="row pb-4">
+                        <div class="col-6">
+                            <img src="{{product.image_url}}" alt="" style="width: 100%;">
+                        </div>
+                        <div class="col-6">
+                            <div class="mobile-product-name">
+                                <h6>{{ product.name }}</h6>
+                                <div>
+                                    <form action="{% url 'store:deleteCart' pk=product.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <button class="btn btn-lg pl-1 "><i class="fa fa-trash"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="price-mobile">
+                                <p class="align-middle" id="price_{{ product.id }}">${{ product.price }}</p>
+                            </div>
+                            <div>
+                                <table class="table table-cart table-cart-mobile table-borderless mb-0" id="CartTable">
+                                    <tbody class="align-middle">
+                                        <tr>
+                                            <td  class="align-middle  d-none" id="{{ product.id }}">{{ product.id }}</td>
+                                            <td class="pl-0">
+                                                <form method="POST" action="">
+                                                    <div class="quantity-content quantity-content-cart quantity-content-cart-mobile">
+                                                            <div class="quantity buttons_added">
+                                                                <input type="button" value="-" class="minus-cart"><input type="number" step="1" min="1" max="" name="quantity" value="{{ product.quantity }}" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" readonly><input type="button" value="+" class="plus-cart">
+                                                            </div>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <p id="total_price_{{ product.id }}_mobile"> ${{ product.total }} </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
                 </div>
                 <div class="col-lg-4">
                     <form class="mb-5" action="">

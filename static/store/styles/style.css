@@ -1856,6 +1856,16 @@ Single Product Page
   border-bottom: none;
 }
 
+.quantity-content.quantity-content-cart.quantity-content-cart-mobile {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+  border-top: 1.5px dashed #eee;
+  border-bottom: 1.5px dashed #eee;
+}
+
 .quantity-content .left-content {
   float: left;
   margin-right: 30px;
@@ -2486,7 +2496,12 @@ responsive
   border-bottom: 1px solid #dee2e6;
 }
 
-/* Para las td */
+.table.table-cart thead th {
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+}
+
+
 .table.table-cart tbody td {
   border-right: none;
   border-left: none;
@@ -2499,4 +2514,37 @@ responsive
 
 .table.table-cart tbody td:last-of-type {
   border-right: 1px solid #dee2e6;
+}
+
+.table.table-cart.table-cart-mobile tbody td {
+  border: 0;
+}
+
+@media (max-width: 629px) {
+  .products-desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 630px) {
+  .products-mobile {
+    display: none;
+  }
+}
+
+.mobile-product-name {
+  padding-top: 0;
+  padding-bottom: 0.25rem;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+  border-bottom: 1.5px dashed #eee;
+}
+
+.price-mobile {
+  padding-top: 1rem;
+}
+
+.container-mobile {
+  border-bottom: 2px solid #eee;
 }
