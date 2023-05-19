@@ -21,11 +21,16 @@
                                 <li class="submenu">
                                     <a href="javascript:;">{{request.user.name}}</a>
                                     <ul>
-                                        <li><a href="#">Features Page 1</a></li>
-                                        <li><a href="#">Features Page 2</a></li>
-                                        <li><a href="#">Features Page 3</a></li>
+                                        <li><a href="#">Mi Perfil</a></li>
+                                        <li><a href="#">Mis Compras</a></li>
                                         <li><a href="{% url 'store:logout' %}" >Cerrar Sesion </a></li>
                                     </ul>
+                                </li>
+                                <li class="d-flex justify-content-center align-items-center">
+                                    <a href="{% url 'store:viewCart' %}" class="btn">
+                                        <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+                                        <span id="number_products" class="badge">{{ numberProductsCart }}</span>
+                                    </a>
                                 </li>
                             {% else %}
                                 <li class="scroll-to-section"><a href="{% url 'store:login' %}" class="info">Iniciar Sesion</a></li>

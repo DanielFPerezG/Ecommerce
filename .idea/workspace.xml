@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update User Model">
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Register Model, View &amp; Template">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/store/js/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/js/modal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/login_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/login_register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/store/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +130,7 @@
       <workItem from="1683643843695" duration="31478000" />
       <workItem from="1683989119756" duration="109000" />
       <workItem from="1683999214336" duration="169000" />
-      <workItem from="1684171319524" duration="13911000" />
+      <workItem from="1684171319524" duration="16201000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -406,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684530804899</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Update Register Model, View &amp; Template">
+      <created>1684535070081</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1684535070081</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,7 +447,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update Create Product Template" />
     <MESSAGE value="Update Template in the Product Update Section" />
     <MESSAGE value="Update Template in the Topic Update &amp; Admin Section" />
     <MESSAGE value="Update Template to Admin Banners" />
@@ -466,7 +471,8 @@
     <MESSAGE value="Update Mobile Shopping Cart Template and AJAX Features" />
     <MESSAGE value="Update LogIn Template" />
     <MESSAGE value="Update User Model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update User Model" />
+    <MESSAGE value="Update Register Model, View &amp; Template" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Register Model, View &amp; Template" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -483,8 +489,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/store/views.py</url>
-          <line>225</line>
-          <option name="timeStamp" value="16" />
+          <line>205</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

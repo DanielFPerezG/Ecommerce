@@ -24,11 +24,11 @@ function addCart(idProduct){
             return response.json() //Convert response to JSON
     })
     .then(data => {
-        //var number_products = document.getElementById("number_products");
+        var number_products = document.getElementById("number_products");
         json1 = data.json1
         json2 = JSON.parse(data.json2)
         var name_product = json2[0].name;
-        //number_products.textContent = json1
+        number_products.textContent = json1
         console.log(name_product)
         Toast.fire({
             icon: 'success',
