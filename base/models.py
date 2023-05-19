@@ -13,6 +13,7 @@ class User(AbstractUser):
     state = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=200, null=True)
     address = models.CharField(max_length=200, null=True)
+    card = models.PositiveIntegerField(null=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
