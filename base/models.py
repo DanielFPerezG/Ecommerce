@@ -18,6 +18,9 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
+    def __str__(self):
+        return self.email
+
 class Topic(models.Model):
     def get_topic_image_path(instance, filename):
         return 'topic/{}'.format(filename)

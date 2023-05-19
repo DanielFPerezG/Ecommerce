@@ -25,21 +25,22 @@ def loginPage(request):
     if request.method == 'POST':
         email = request.POST.get('email').lower()
         password = request.POST.get('password')
-        
+
         try:
-            user = User.objects.get(email = email)
-        except:
-            messages.error(request, 'User does not exist')
-        
-        user = authenticate(request, email = email, password=password)
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            messages.error(request, 'El correo electrónico no está registrado')
+            return redirect('store:login')
+
+        user = authenticate(request, username=email, password=password)
 
         if user is not None:
             login(request, user)
             return redirect('store:home')
         else:
-            messages.error(request, 'Username or password is incorrect')
+            messages.error(request, 'El correo electrónico o la contraseña son incorrectos')
 
-    context= {'page': page}
+    context = {'page': page, 'messages': messages.get_messages(request)}
     return render(request, 'store/login_register.html', context)
 
 def logoutUser(request):
@@ -48,19 +49,34 @@ def logoutUser(request):
 
 def registerPage(request):
     page = 'register'
-    form = MyUserCreationForm()
 
     if request.method == 'POST':
-        form = MyUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.save()
-            login(request, user)
-            return redirect('home')
-        else:
-            messages.error(request, 'An error occurred during registration')
+        name = request.POST.get('name').capitalize()
+        email = request.POST.get('email').lower()
+        password = request.POST.get('password')
+        confirmPassword = request.POST.get('confirmPassword')
 
-    context = {'page': page, 'form':form}
+        # Check if the user already exists
+        if User.objects.filter(email=email).exists():
+            messages.error(request, 'El correo electronico ya está en uso.')
+            return redirect('store:register')
+
+        # Verify if passwords match
+        if password != confirmPassword:
+            messages.error(request, 'Las contraseñas no coinciden.')
+            return redirect('store:register')
+
+        # Create user
+        user = User.objects.create_user(username=email, email=email, password=password, name=name)
+        user.save()
+
+        # Authenticate and login the user
+        user = authenticate(request, username=email, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('store:home')
+
+    context = {'page': page, 'messages': messages.get_messages(request)}
     return render(request, 'store/login_register.html',context)
 
 def home(request):

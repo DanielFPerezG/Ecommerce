@@ -2521,7 +2521,8 @@ responsive
 }
 
 @media (max-width: 629px) {
-  .products-desktop {
+  .products-desktop,
+  .login-description{
     display: none;
   }
 }
@@ -2547,4 +2548,8 @@ responsive
 
 .container-mobile {
   border-bottom: 2px solid #eee;
+}
+
+.btn-gmail {
+  background-color: #ea4335; /* Reemplaza #ff0000 con el color deseado en formato hexadecimal */
 }
