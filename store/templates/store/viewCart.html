@@ -19,7 +19,7 @@
         </div>
         <!-- ***** Main Banner Area End ***** -->
 
-        {% csrf_token %}
+
         <div class="container-fluid pt-5">
             <div class="row px-xl-5">
                 <div class="col-lg-8 table-responsive mb-5 products-desktop">
@@ -44,6 +44,7 @@
                                 <td class="align-middle" id="price_{{ product.id }}">${{ product.price }}</td>
                                 <td class="align-middle">
                                     <form method="POST" action="">
+                                        {% csrf_token %}
                                         <div class="quantity-content quantity-content-cart">
                                             <div class="right-content">
                                                 <div class="quantity buttons_added">
