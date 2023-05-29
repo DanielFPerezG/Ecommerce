@@ -10,9 +10,6 @@ class User(AbstractUser):
     lastName = models.CharField(max_length=200, null=True)
     email = models.EmailField(unique=True, null=True)
     phone = models.PositiveIntegerField(null=True)
-    state = models.CharField(max_length=200, null=True)
-    city = models.CharField(max_length=200, null=True)
-    address = models.CharField(max_length=200, null=True)
     card = models.PositiveIntegerField(null=True)
 
     USERNAME_FIELD = 'email'
@@ -21,12 +18,23 @@ class User(AbstractUser):
     def __str__(self):
         return self.email
 
+class UserAddress(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='addresses')
+    address = models.CharField(max_length=200)
+    state = models.CharField(max_length=200, null=True)
+    city = models.CharField(max_length=200, null=True)
+    complement = models.CharField(max_length=200, null=True)
+
+    def __str__(self):
+        return self.address
+
+
 class Topic(models.Model):
     def get_topic_image_path(instance, filename):
         return 'topic/{}'.format(filename)
     name = models.CharField(max_length=200)
+    bio = models.CharField(max_length=400)
     title = models.CharField(null=True, max_length=200)
-    bio = models.CharField(max_length=1000,null=True)
     image = models.ImageField(null=True, upload_to=get_topic_image_path)
 
     def delete(self, *args, **kwargs):
