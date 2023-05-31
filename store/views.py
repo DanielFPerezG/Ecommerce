@@ -302,3 +302,15 @@ def deleteCart(request,pk):
         cart.delete_product(int(pk))
         cart.save()
     return redirect('store:viewCart')
+
+def userProfile(request):
+    cart = Cart.objects.get(user=request.user)
+
+    productCarts = json.loads(cart.products)
+    numberProductsCart = 0
+
+    for productJson in productCarts:
+        numberProductsCart += 1
+
+    context = {'numberProductsCart': numberProductsCart}
+    return render(request, 'store/userProfile.html', context)

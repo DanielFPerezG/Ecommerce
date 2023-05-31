@@ -667,7 +667,8 @@ banner
 --------------------------------------------- 
 */
 
-.main-banner {
+.main-banner,
+.main-profile{
   border-bottom: 3px dotted #eee;
   padding-top: 160px;
   padding-bottom: 30px;

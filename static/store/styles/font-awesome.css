@@ -2335,3 +2335,7 @@
   overflow: visible;
   clip: auto;
 }
+
+.fa-gray-color{
+  color: #444;
+}
