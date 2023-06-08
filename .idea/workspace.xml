@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update User Model">
-      <change afterPath="$PROJECT_DIR$/store/templates/store/userProfile.html" afterDir="false" />
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Create UserProfile Template &amp; View">
+      <change afterPath="$PROJECT_DIR$/store/templates/store/personalInformation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/store/styles/font-awesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/font-awesome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/store/js/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/js/modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/userProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/userProfile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/store/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +65,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/daniel.galindo/Documents/Ecommerce/ecommerce/static/images/icons&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/daniel.galindo/Documents/Ecommerce/ecommerce/store/templates/store&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -77,6 +76,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/store/templates/store" />
       <recent name="$PROJECT_DIR$/static/images/icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -135,7 +135,8 @@
       <workItem from="1683999214336" duration="169000" />
       <workItem from="1684171319524" duration="17380000" />
       <workItem from="1684862585778" duration="786000" />
-      <workItem from="1685395788324" duration="9275000" />
+      <workItem from="1685395788324" duration="13062000" />
+      <workItem from="1686166711246" duration="5454000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -431,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685398073887</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Create UserProfile Template &amp; View">
+      <created>1685492482417</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1685492482417</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +474,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update Template in the Topic Update &amp; Admin Section" />
     <MESSAGE value="Update Template to Admin Banners" />
     <MESSAGE value="Create Template, From &amp; View to Banner Update" />
     <MESSAGE value="Create Template &amp; View to Banner Admin" />
@@ -491,7 +498,8 @@
     <MESSAGE value="Update Register Model, View &amp; Template" />
     <MESSAGE value="Update navbar &amp; Shopping Cart AJAX Features" />
     <MESSAGE value="Update User Model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update User Model" />
+    <MESSAGE value="Create UserProfile Template &amp; View" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create UserProfile Template &amp; View" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -508,7 +516,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/store/views.py</url>
-          <line>205</line>
+          <line>206</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>

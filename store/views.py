@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models.signals import post_save
@@ -314,3 +315,43 @@ def userProfile(request):
 
     context = {'numberProductsCart': numberProductsCart}
     return render(request, 'store/userProfile.html', context)
+
+def personalInformation(request):
+    cart = Cart.objects.get(user=request.user)
+
+    productCarts = json.loads(cart.products)
+    numberProductsCart = 0
+
+    for productJson in productCarts:
+        numberProductsCart += 1
+
+    context = {'numberProductsCart': numberProductsCart}
+    return render(request, 'store/personalInformation.html', context)
+
+
+@csrf_exempt
+def updateUserInfo(request,pk):
+
+    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        data = json.loads(request.body)
+        new_info = data.get('newInfo')
+        info_type = data.get('type')
+
+        user = User.objects.get(pk=pk)
+
+        if info_type == 'name':
+            user.name = new_info
+        elif info_type == 'lastName':
+            user.lastName = new_info
+        elif info_type == 'card':
+            user.card = new_info
+        elif info_type == 'phone':
+            user.phone = new_info
+
+        user.save()
+
+        return JsonResponse({'message': 'User information updated successfully.'})
+    else:
+        return JsonResponse({'error': 'Invalid request.'})
+
+

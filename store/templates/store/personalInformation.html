@@ -1,0 +1,89 @@
+{% extends 'store/main.html' %}
+
+{% block content %}
+
+<div class="main-profile">
+  <div class="container">
+    <div class="row d-lg-flex d-md-flex justify-content-center align-items-center d-flex-row text-center h-100">
+      <div class="col-10 col-lg-8 col-md-8 pb-5">
+        <h4 class="text-left">Mis datos</h4>
+      </div>
+      <div class="col-10 col-lg-8 col-md-8 pb-4">
+        <h5 class="text-left">Datos de cuenta</h5>
+      </div>
+      <div class="col-10 col-lg-8 col-md-8 card shadow-sm rounded mb-5">
+        <a class="card-body d-flex align-items-center">
+          <span class=" text-dark">
+            E-mail
+          </span>
+          <span class="text-dark mx-auto">
+            {{ request.user.email }}
+          </span>
+        </a>
+      </div>
+
+      <div class="col-10 col-lg-8 col-md-8 pb-4">
+        <h5 class="text-left">Datos personales</h5>
+      </div>
+      <div class="col-10 col-lg-8 col-md-8 card shadow-sm rounded">
+        <a href="#" onclick="updateUserInfo({{ request.user.id }}, 'name');" class="card-body d-flex align-items-center border-bottom">
+          <span class=" text-dark" >
+            Nombre
+          </span>
+          <span class="text-dark mx-auto" id="userInfo_name">
+            {{ request.user.name }}
+          </span>
+          <div >
+            <i class="fa fa-angle-right fa-gray-color" aria-hidden="true"></i>
+          </div>
+        </a>
+        <a href="#" onclick="updateUserInfo({{ request.user.id }}, 'lastName');" class="card-body d-flex align-items-center border-bottom">
+          <span class=" text-dark" >
+            Apellido
+          </span>
+          <span class="text-dark mx-auto" id="userInfo_lastName">
+            {% if request.user.lastName %}
+              {{ request.user.lastName }}
+            {% else %}
+                Por favor ingrese su apellido
+            {% endif %}
+          </span>
+          <div >
+            <i class="fa fa-angle-right fa-gray-color" aria-hidden="true"></i>
+          </div>
+        </a>
+        <a href="#" onclick="updateUserInfo({{ request.user.id }}, 'card');" class="card-body d-flex align-items-center border-bottom">
+          <span class=" text-dark">
+            Documento
+          </span>
+          <span class="text-dark mx-auto" id="userInfo_card">
+            {% if request.user.card %}
+              {{ request.user.card }}
+            {% else %}
+                Por favor ingrese su numero de documento
+            {% endif %}
+          </span>
+          <div >
+            <i class="fa fa-angle-right fa-gray-color" aria-hidden="true"></i>
+          </div>
+        </a>
+        <a href="#" onclick="updateUserInfo({{ request.user.id }}, 'phone');" class="card-body d-flex align-items-center">
+          <span class=" text-dark">
+            Telefono
+          </span>
+          <span class="text-dark mx-auto" id="userInfo_phone">
+            {% if request.user.phone %}
+              {{ request.user.phone }}
+            {% else %}
+                Por favor ingrese su numero de telefono
+            {% endif %}
+          </span>
+          <div >
+            <i class="fa fa-angle-right fa-gray-color" aria-hidden="true"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

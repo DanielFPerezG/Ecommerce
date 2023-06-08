@@ -1,5 +1,4 @@
 function addCart(idProduct){
-    console.log(idProduct)
     var Toast = Swal.mixin({
       toast: true,
       position: 'bottom-end',
@@ -36,3 +35,69 @@ function addCart(idProduct){
         })
     });
 };
+
+function updateUserInfo(userId, type){
+    var title;
+    var finalTitle;
+    var input;
+    if (type === "name") {
+      title = 'Ingrese su nombre';
+      finalTitle = 'Has cambiado tu nombre exitosamente';
+    } else if (type === "lastName") {
+      title = 'Ingrese su apellido';
+      finalTitle = 'Has cambiado tu apellido exitosamente';
+    } else if (type === 'card') {
+        title = 'Ingrese su Documento de identidad';
+        finalTitle = 'Has cambiado tu Documento exitosamente'
+    } else if (type === 'phone') {
+        title = 'Ingrese su Numero de Celular';
+        finalTitle = 'Has cambiado tu numero exitosamente'
+    }
+
+    Swal.fire({
+  title: title,
+  input: 'text',
+  inputAttributes: {
+    autocapitalize: 'off'
+  },
+  showCancelButton: true,
+  cancelButtonText: 'Cancelar',
+  confirmButtonText: 'Aceptar',
+  showLoaderOnConfirm: true,
+  preConfirm: (newInfo) => {
+    var userInfo = document.getElementById("userInfo_"+type);
+    userInfo.textContent = newInfo;
+    return fetch(`/updateUserInfo/${userId}`, {
+        method: 'POST',
+        body: JSON.stringify({ 'newInfo': newInfo, 'type': type }),
+        headers:{
+            'X-Requested-With': 'XMLHttpRequest',
+            'X-CSRFToken': csrftoken,
+        }
+        }
+    )
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText)
+        }
+        return response.json()
+      })
+      .catch(error => {
+        Swal.showValidationMessage(
+          `Request failed: ${error}`
+        )
+      })
+  },
+  allowOutsideClick: () => !Swal.isLoading()
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: finalTitle,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+})
+}
