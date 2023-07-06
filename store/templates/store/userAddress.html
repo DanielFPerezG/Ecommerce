@@ -1,0 +1,43 @@
+{% extends 'store/main.html' %}
+
+{% block content %}
+
+<div class="main-profile">
+  <div class="container">
+    <div class="row d-lg-flex d-md-flex justify-content-center align-items-center d-flex-row text-center h-100">
+      <div class="col-10 col-lg-8 col-md-8 pb-4">
+        <h5 class="text-left">Direcciones</h5>
+      </div>
+      <div class="col-10 col-lg-8 col-md-8 card shadow-sm rounded">
+      {% for address in addresses %}
+        <div class="card-body">
+          <div class="ml-auto">
+            <i class="fa fa-map-marker fa-2x fa-gray-color" aria-hidden="true"></i>
+          </div>
+          <span class=" text-dark">
+            {{ address.address }}
+          </span>
+          <span class="text-dark mx-auto">
+              {{ address.city }}
+          </span>
+          <span class="text-dark mx-auto">
+              {{ address.state }}
+          </span>
+          <div >
+            <i class="fa fa-ellipsis-h fa-gray-color" aria-hidden="true"></i>
+          </div>
+        </div>
+      {% endfor %}
+        <div class="card-body ">
+            <a href="#" class="d-flex justify-content-between flex-row">
+                <span>Registrar dirección</span>
+                <div >
+                    <i class="fa fa-angle-right fa-primary" aria-hidden="true"></i>
+                </div>
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -11,6 +11,7 @@ urlpatterns = [
     path('userProfile', views.userProfile, name="userProfile"),
     path('personalInformation', views.personalInformation, name="personalInformation"),
     path('updateUserInfo/<str:pk>', views.updateUserInfo, name="updateUserInfo"),
+    path('userAddress', views.userAddress, name="userAddress"),
 
     path('', views.home, name="home"),
     path('shopDetail/<str:pk>', views.shopDetail, name="shopDetail"),

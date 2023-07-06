@@ -355,3 +355,15 @@ def updateUserInfo(request,pk):
         return JsonResponse({'error': 'Invalid request.'})
 
 
+def userAddress(request):
+    cart = Cart.objects.get(user=request.user)
+
+    productCarts = json.loads(cart.products)
+    numberProductsCart = 0
+
+    for productJson in productCarts:
+        numberProductsCart += 1
+
+    context = {'numberProductsCart': numberProductsCart}
+    return render(request, 'store/userAddress.html', context)
+
