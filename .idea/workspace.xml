@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Create Address Template &amp; View">
-      <change afterPath="$PROJECT_DIR$/static/store/js/addressModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/store/json/colombia.json" afterDir="false" />
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Create address creation features using AJAX">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/userAddress.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/userAddress.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/store/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +138,7 @@
       <workItem from="1686692430233" duration="2492000" />
       <workItem from="1687026777549" duration="1471000" />
       <workItem from="1688673576957" duration="12170000" />
-      <workItem from="1688737148166" duration="5274000" />
+      <workItem from="1688737148166" duration="9041000" />
     </task>
     <task id="LOCAL-00001" summary="View &amp; Templates to Shopping Cart">
       <created>1679879176707</created>
@@ -460,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688674105480</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Create address creation features using AJAX">
+      <created>1688747547773</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1688747547773</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +497,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Create Template &amp; View to Banner Admin" />
     <MESSAGE value="Update Method Of Removing Products" />
     <MESSAGE value="Create Method Of Removing Banners" />
     <MESSAGE value="Update Template to Products Home" />
@@ -520,21 +521,12 @@
     <MESSAGE value="Create UserProfile Template &amp; View" />
     <MESSAGE value="Create personalInformation Template &amp; View with AJAX Functions" />
     <MESSAGE value="Create Address Template &amp; View" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Address Template &amp; View" />
+    <MESSAGE value="Create address creation features using AJAX" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create address creation features using AJAX" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/base/views.py</url>
-          <line>53</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/base/helpers.py</url>
-          <line>26</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/store/views.py</url>
           <line>206</line>
@@ -544,6 +536,11 @@
           <url>file://$PROJECT_DIR$/store/views.py</url>
           <line>374</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/base/helpers.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

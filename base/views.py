@@ -90,9 +90,9 @@ def createProduct(request):
         )
 
         # Change image resolution
-        ImageHandler.save_resized_image_create(temp_file, img, object = product, type = "ProductHome")
-        ImageHandler.save_resized_image_create(temp_fileDetail, imgDetail, object=product, type="ProductDetail")
-        ImageHandler.save_resized_image_create(temp_fileDetailSecond, imgDetailSecond, object=product, type="ProductDetail")
+        ImageHandler.save_resized_image_create(temp_file, img, object = product, type = "productHome")
+        ImageHandler.save_resized_image_create(temp_fileDetail, imgDetail, object=product, type="productDetail")
+        ImageHandler.save_resized_image_create(temp_fileDetailSecond, imgDetailSecond, object=product, type="productDetailSecond")
 
         product.save()
 

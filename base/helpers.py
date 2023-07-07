@@ -12,16 +12,36 @@ class ImageHandler:
             with Image.open(f) as image:
                 if type == "productHome":
                     cover = resizeimage.resize_cover(image, [370, 390])
+                    output = io.BytesIO()
+                    cover.save(output, format='JPEG', quality=100)
+                    output.seek(0)
+                    object.image.save(img.name, ContentFile(output.read()), save=False)
                 elif type == "productDetail":
                     cover = resizeimage.resize_cover(image, [770, 400])
+                    output = io.BytesIO()
+                    cover.save(output, format='JPEG', quality=100)
+                    output.seek(0)
+                    object.imageDetail.save(img.name, ContentFile(output.read()), save=False)
+                elif type == "productDetailSecond":
+                    cover = resizeimage.resize_cover(image, [770, 400])
+                    output = io.BytesIO()
+                    cover.save(output, format='JPEG', quality=100)
+                    output.seek(0)
+                    object.imageDetailSecond.save(img.name, ContentFile(output.read()), save=False)
                 elif type == "Banner":
                     cover = resizeimage.resize_cover(image, [790, 680])
+                    output = io.BytesIO()
+                    cover.save(output, format='JPEG', quality=100)
+                    output.seek(0)
+                    object.image.save(img.name, ContentFile(output.read()), save=False)
+
                 elif type == "Topic":
                     cover = resizeimage.resize_cover(image, [385, 330])
-                output = io.BytesIO()
-                cover.save(output, format='JPEG', quality=100)
-                output.seek(0)
-                object.image.save(img.name, ContentFile(output.read()), save=False)
+                    output = io.BytesIO()
+                    cover.save(output, format='JPEG', quality=100)
+                    output.seek(0)
+                    object.image.save(img.name, ContentFile(output.read()), save=False)
+
 
     def save_resized_image_update(image, type):
         with Image.open(image) as img:
