@@ -11,8 +11,10 @@ urlpatterns = [
     path('userProfile', views.userProfile, name="userProfile"),
     path('personalInformation', views.personalInformation, name="personalInformation"),
     path('updateUserInfo/<str:pk>', views.updateUserInfo, name="updateUserInfo"),
+
     path('userAddress', views.userAddress, name="userAddress"),
     path('createAddress', views.createAddress, name="createAddress"),
+    path('deleteAddress/<str:pk>', views.deleteAddress, name="deleteAddress"),
 
     path('', views.home, name="home"),
     path('shopDetail/<str:pk>', views.shopDetail, name="shopDetail"),

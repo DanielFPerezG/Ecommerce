@@ -393,3 +393,11 @@ def createAddress(request):
     else:
         return JsonResponse({'error': 'Invalid request.'})
 
+
+@csrf_exempt
+@login_required(login_url='login')
+def deleteAddress(request,pk):
+    address = UserAddress.objects.get(id=pk)
+    address.delete()
+
+    return JsonResponse({'message': 'Dirección eliminada correctamente'})

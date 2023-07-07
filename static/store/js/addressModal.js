@@ -129,3 +129,46 @@ function createAddress(userId) {
 }
 
 
+function deleteAddress(addressId) {
+  Swal.fire({
+  title: '¿Quieres eliminar esta dirección?',
+  showCancelButton: true,
+  confirmButtonText: 'Eliminar',
+  cancelButtonText: `Cancelar`,
+
+    preConfirm: () => {
+    return fetch(`/deleteAddress/${addressId}`, {
+            method: 'POST',
+            headers:{
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': csrftoken,
+            }
+            }
+        )
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(response.statusText)
+            }
+            return response.json()
+          })
+          .catch(error => {
+            Swal.showValidationMessage(
+              `Request failed: ${error}`
+            )
+          })
+    }
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Has eliminado la dirección con exito',
+      showConfirmButton: false,
+      timer: 1000
+    }).then(() => {
+        location.reload();
+      });
+  }
+});
+}
