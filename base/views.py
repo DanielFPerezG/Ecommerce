@@ -124,20 +124,21 @@ def updateProduct(request,pk):
     img_name = img.name
 
     if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES, instance=product)
-        if form.is_valid():
-            form.save()
+        if 'submit' in request.POST:
+            form = ProductForm(request.POST, request.FILES, instance=product)
+            if form.is_valid():
+                form.save()
 
-            if product.priceDiscount>0:
-                priceDiscount = product.price - (product.price*(product.discount/100))
-            else:
-                priceDiscount = product.price
-            
-            product.priceDiscount =priceDiscount
-            product.save()
+                if product.priceDiscount>0:
+                    priceDiscount = product.price - (product.price*(product.discount/100))
+                else:
+                    priceDiscount = product.price
+
+                product.priceDiscount =priceDiscount
+                product.save()
 
 
-            return redirect('adminProduct')
+                return redirect('adminProduct')
 
     return render(request,'base/updateProduct.html', {'form':form, 'product':product})
 
@@ -153,10 +154,11 @@ def updateTopic(request,pk):
     form = TopicForm(instance=topic)
 
     if request.method == 'POST':
-        form = TopicForm(request.POST, request.FILES, instance=topic)
-        if form.is_valid():
-            form.save()
-            return redirect('adminTopic')
+        if 'submit' in request.POST:
+            form = TopicForm(request.POST, request.FILES, instance=topic)
+            if form.is_valid():
+                form.save()
+                return redirect('adminTopic')
 
     return render(request,'base/updateTopic.html', {'form':form, 'topic':topic})
 
@@ -247,10 +249,11 @@ def updateBanner(request,pk):
     form = BannerForm(instance=banner)
 
     if request.method == 'POST':
-        form = BannerForm(request.POST, request.FILES, instance=banner)
-        if form.is_valid():
-            form.save()
-            return redirect('adminBanner')
+        if 'submit' in request.POST:
+            form = BannerForm(request.POST, request.FILES, instance=banner)
+            if form.is_valid():
+                form.save()
+                return redirect('adminBanner')
 
     return render(request,'base/updateBanner.html', {'form':form, 'banner':banner})
 

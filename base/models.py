@@ -155,10 +155,10 @@ class Cart(models.Model):
             products_list.append({
                 'id': product.id,
                 'name': product.name,
-                'price': int(product.price),
+                'price': int(product.priceDiscount),
                 'quantity': 1,
                 'image_url': product.image.url,
-                'total': int(product.price)*1
+                'total': int(product.priceDiscount)*1
             })
         self.products = json.dumps(products_list)
         self.save()
