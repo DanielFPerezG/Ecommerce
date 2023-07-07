@@ -10,7 +10,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from django.db.models import Q
-from base.models import Product, Topic, Banner, User, Cart
+from base.models import Product, Topic, Banner, User, Cart, UserAddress
 
 from store.forms import UserForm, MyUserCreationForm
 
@@ -357,6 +357,7 @@ def updateUserInfo(request,pk):
 
 def userAddress(request):
     cart = Cart.objects.get(user=request.user)
+    addresses = UserAddress.objects.filter(user=request.user)
 
     productCarts = json.loads(cart.products)
     numberProductsCart = 0
@@ -364,6 +365,31 @@ def userAddress(request):
     for productJson in productCarts:
         numberProductsCart += 1
 
-    context = {'numberProductsCart': numberProductsCart}
+    context = {'numberProductsCart': numberProductsCart, 'addresses': addresses}
     return render(request, 'store/userAddress.html', context)
+
+@csrf_exempt
+@login_required
+def createAddress(request):
+    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        data = json.loads(request.body)
+
+        address = data.get('address')
+        state = data.get('state')
+        city = data.get('city')
+        complement = data.get('complement')
+
+        user_address = UserAddress.objects.create(
+            user=request.user,
+            address=address,
+            state=state,
+            city=city,
+            complement=complement
+        )
+
+        user_address.save()
+
+        return JsonResponse({'message': 'User information updated successfully.'})
+    else:
+        return JsonResponse({'error': 'Invalid request.'})
 

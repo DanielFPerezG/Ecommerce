@@ -8,28 +8,31 @@
       <div class="col-10 col-lg-8 col-md-8 pb-4">
         <h5 class="text-left">Direcciones</h5>
       </div>
-      <div class="col-10 col-lg-8 col-md-8 card shadow-sm rounded">
+      <div class="col-10 col-lg-8 col-md-8 card shadow-sm rounded" id="addressContainer">
       {% for address in addresses %}
-        <div class="card-body">
-          <div class="ml-auto">
-            <i class="fa fa-map-marker fa-2x fa-gray-color" aria-hidden="true"></i>
-          </div>
-          <span class=" text-dark">
-            {{ address.address }}
-          </span>
-          <span class="text-dark mx-auto">
-              {{ address.city }}
-          </span>
-          <span class="text-dark mx-auto">
-              {{ address.state }}
-          </span>
-          <div >
-            <i class="fa fa-ellipsis-h fa-gray-color" aria-hidden="true"></i>
-          </div>
-        </div>
+      <div class="card-body">
+            <div class="d-flex align-items-center">
+                <div class="mr-3">
+                    <i class="fa fa-map-marker fa-2x fa-gray-color" aria-hidden="true"></i>
+                </div>
+                <div class="text-left">
+                    <span class="text-dark">{{ address.address }}</span>
+                    <br>
+                    <span class="text-muted small">{{ address.city }}</span>
+                    <span class="text-muted small"> - </span>
+                    <span class="text-muted small">{{ address.state }}</span>
+                    <br>
+                    <span class="text-muted small">{{ address.complement }}</span>
+                </div>
+                <a class="ml-auto" href="#">
+                    <i class="fa fa-trash fa-gray-color" aria-hidden="true"></i>
+                </a>
+            </div>
+      </div>
       {% endfor %}
+
         <div class="card-body ">
-            <a href="#" class="d-flex justify-content-between flex-row">
+            <a href="#" onclick="createAddress();" class="d-flex justify-content-between flex-row">
                 <span>Registrar dirección</span>
                 <div >
                     <i class="fa fa-angle-right fa-primary" aria-hidden="true"></i>
