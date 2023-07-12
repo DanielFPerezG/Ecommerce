@@ -401,3 +401,43 @@ def deleteAddress(request,pk):
     address.delete()
 
     return JsonResponse({'message': 'Dirección eliminada correctamente'})
+
+def securityInformation(request):
+    cart = Cart.objects.get(user=request.user)
+
+    productCarts = json.loads(cart.products)
+    numberProductsCart = 0
+
+    for productJson in productCarts:
+        numberProductsCart += 1
+
+    context = {'numberProductsCart': numberProductsCart}
+    return render(request, 'store/securityInformation.html', context)
+
+@csrf_exempt
+@login_required(login_url='login')
+def updatePassword(request,pk):
+
+    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        data = json.loads(request.body)
+        lastPassword = data.get('lastPassword')
+        newPassword = data.get('newPassword')
+        confirmPassword = data.get('confirmPassword')
+
+        user = User.objects.get(pk=pk)
+
+        # Verify if passwords match
+        if newPassword != confirmPassword:
+            return JsonResponse({'error': 'Las contraseñas no coinciden.'})
+
+        if lastPassword != user.password:
+            return JsonResponse({'error': 'La contraseña actual es incorrecta.'})
+
+
+        user.password = newPassword
+
+        user.save()
+
+        return JsonResponse({'message': 'User information updated successfully.'})
+    else:
+        return JsonResponse({'error': 'Invalid request.'})

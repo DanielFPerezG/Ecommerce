@@ -1,0 +1,41 @@
+{% extends 'store/main.html' %}
+
+{% block content %}
+
+<div class="main-profile">
+  <div class="container">
+    <div class="row d-lg-flex d-md-flex justify-content-center align-items-center d-flex-row text-center h-100">
+      <div class="col-10 col-lg-8 col-md-8 pb-5">
+        <h4 class="text-left">Seguridad</h4>
+      </div>
+      <div class="col-10 col-lg-8 col-md-8 card shadow-sm rounded mb-5">
+        <a class="card-body d-flex align-items-center">
+          <span class=" text-dark">
+            E-mail
+          </span>
+          <span class="text-dark mx-auto">
+            {{ request.user.email }}
+          </span>
+        </a>
+      </div>
+
+      <div class="col-10 col-lg-8 col-md-8 pb-4">
+        <h5 class="text-left">Cambiar contraseña</h5>
+      </div>
+      <div class="col-10 col-lg-8 col-md-8 card shadow-sm rounded">
+        <a href="#" onclick="updatePassword({{ request.user.id }});" class="card-body d-flex align-items-center border-bottom">
+          <span class=" text-dark" >
+            Contraseña
+          </span>
+          <span class="text-dark mx-auto" id="userInfo_name">
+            *************
+          </span>
+          <div >
+            <i class="fa fa-angle-right fa-gray-color" aria-hidden="true"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -101,3 +101,68 @@ function updateUserInfo(userId, type){
   }
 })
 }
+
+function updatePassword(userId){
+    Swal.fire({
+      title: 'Cambia tu contraseña',
+      html: '<div class="form-group">' +
+    '<label for="lastPassword">Contraseña actual:</label>' +
+    '<input id="lastPassword" class="form-control" placeholder="Ingresa tu contraseña actual" type="password">' +
+    '</div>' +
+    '<div class="form-group">' +
+    '<label for="newPassword">Nueva contraseña</label>' +
+    '<input id="newPassword" class="form-control" placeholder="Ingresa tu nueva contraseña" type="password">' +
+    '</div>' +
+    '<div class="form-group">' +
+    '<label for="confirmPassword">Repite la nueva contraseña</label>' +
+    '<input id="confirmPassword" class="form-control" placeholder="Ingresa tu nueva contraseña" type="password">' +
+    '</div>',
+      focusConfirm: false,
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      preConfirm: () => {
+        newPassword = Swal.getPopup().querySelector('#newPassword').value;
+        confirmPassword = Swal.getPopup().querySelector('#confirmPassword').value;
+        lastPassword = Swal.getPopup().querySelector('#lastPassword').value;
+
+        return fetch(`updatePassword/${userId}`, {
+            method: 'POST',
+            body: JSON.stringify({ 'lastPassword': lastPassword, 'newPassword': newPassword, 'confirmPassword': confirmPassword }),
+            headers:{
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': csrftoken,
+            }
+            }
+        )
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(response.statusText)
+            }
+            return response.json()
+          })
+          .then(data => {
+          if (data.error) {
+            // Display error message in the modal
+            Swal.showValidationMessage(data.error);
+          }
+          })
+          .catch(error => {
+            Swal.showValidationMessage(
+              `Request failed: ${error}`
+            )
+          })
+
+      },
+      allowOutsideClick: false,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Has cambiado tu contraseña con exito',
+      showConfirmButton: false,
+      timer: 1500
+    });
+      }
+    });
+}
