@@ -101,12 +101,12 @@ function createJSON(a,productId) {
                 for (let i = 0; i < data.length; i++) {
                     var totalElement = document.getElementById("total_price_"+data[i]["id"]);
                     var totalElementMobile = document.getElementById("total_price_"+data[i]["id"]+"_mobile");
-                    totalElement.textContent = "$"+data[i]["total"]
-                    totalElementMobile.textContent = "$"+data[i]["total"]
+                    totalElement.textContent = "$"+data[i]["total"].toLocaleString("en-US", { useGrouping: true })
+                    totalElementMobile.textContent = "$"+data[i]["total"].toLocaleString("en-US", { useGrouping: true })
                     subTotalcount += data[i]["total"]
                 }
-                subTotal.textContent = "$"+subTotalcount
-                totalPrice.textContent = "$"+(subTotalcount+10000)
+                subTotal.textContent = "$"+subTotalcount.toLocaleString("en-US", { useGrouping: true })
+                totalPrice.textContent = "$"+(subTotalcount+10000).toLocaleString("en-US", { useGrouping: true })
         });
 
 

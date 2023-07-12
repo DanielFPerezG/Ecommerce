@@ -41,7 +41,7 @@
                                 <td  class="align-middle d-none" id="{{ product.id }}">{{ product.id }}</td>
                                 <td class="align-middle" id="price_{{ product.id }}"><img src="{{product.image_url}}" alt="" style="width: 75px;"></td>
                                 <td class="align-middle"> {{ product.name }}</td>
-                                <td class="align-middle" id="price_{{ product.id }}">${{ product.price }}</td>
+                                <td class="align-middle" id="price_{{ product.id }}">${{ product.price|intcomma }}</td>
                                 <td class="align-middle">
                                     <form method="POST" action="">
                                         {% csrf_token %}
@@ -54,7 +54,7 @@
                                         </div>
                                     </form>
                                 </td>
-                                <td class="align-middle" id="total_price_{{ product.id }}"> ${{ product.total }} </td>
+                                <td class="align-middle" id="total_price_{{ product.id }}"> ${{ product.total|intcomma }} </td>
 
                                 <td class="align-middle">
                                     <form action="{% url 'store:deleteCart' pk=product.id %}" method="POST">
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                             <div class="price-mobile">
-                                <p class="align-middle" id="price_{{ product.id }}">${{ product.price }}</p>
+                                <p class="align-middle" id="price_{{ product.id }}">${{ product.price|intcomma}}</p>
                             </div>
                             <div>
                                 <table class="table table-cart table-cart-mobile table-borderless mb-0" id="CartTable">
@@ -107,7 +107,7 @@
                                 </table>
                             </div>
                             <div>
-                                <p id="total_price_{{ product.id }}_mobile"> ${{ product.total }} </p>
+                                <p id="total_price_{{ product.id }}_mobile"> ${{ product.total|intcomma }} </p>
                             </div>
                         </div>
                     </div>
