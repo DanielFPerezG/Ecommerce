@@ -2557,21 +2557,24 @@ responsive
 
 .tooltip-text {
   position: absolute;
-  background-color: #000;
-  color: #fff;
+  background-color: rgba(219, 207, 193, 0.7);
+  color: #4f483f;
   right: auto;
-  left: -200%; /* Ajusta el valor para controlar la posición hacia la izquierda */
-  padding: 10px; /* Ajusta el tamaño del padding según tus preferencias */
+  left: -90%;
+  padding: 10px;
   border-radius: 4px;
-  font-size: 14px; /* Ajusta el tamaño de la fuente según tus preferencias */
+  font-size: 14px;
   z-index: 9999;
+  max-width: 600px;
+  transform: translateY(-100%);
 }
 
 @media (max-width: 767px) {
   .tooltip-text {
-    left: -300%; /* Ajusta el valor para controlar la posición hacia la izquierda */
-    width: 200%; /* Ajusta el tamaño del ancho según tus preferencias */
-    max-width: 300px; /* Ajusta el tamaño máximo según tus preferencias */
+    left: -300%;
+    width: 200%;
+    max-width: 300px;
+    transform: translateY(-130%);
   }
 }
 
