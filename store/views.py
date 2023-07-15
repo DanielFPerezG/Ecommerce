@@ -441,3 +441,26 @@ def updatePassword(request,pk):
         return JsonResponse({'message': 'User information updated successfully.'})
     else:
         return JsonResponse({'error': 'Invalid request.'})
+
+
+def checkout(request):
+    cart = Cart.objects.get(user=request.user)
+    addresses = UserAddress.objects.filter(user=request.user)
+    addresses_json = json.dumps(list(addresses.values()))
+
+    productCarts = json.loads(cart.products)
+    numberProductsCart = 0
+    subTotal = 0
+
+    for productJson in productCarts:
+        numberProductsCart += 1
+        subTotal += productJson['total']
+
+    numberProductsCart = json.dumps(numberProductsCart)
+    productCart = cart.obtain_products()
+    productCart_json = json.dumps(productCart)
+
+    total = subTotal + 10000
+
+    context = {'cart': cart, 'productCart': productCart, 'productCart_json': productCart_json,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total, 'addresses': addresses, 'addresses_json': addresses_json}
+    return render(request, 'store/checkout.html', context)

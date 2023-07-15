@@ -2555,3 +2555,23 @@ responsive
   background-color: #ea4335;
 }
 
+.tooltip-text {
+  position: absolute;
+  background-color: #000;
+  color: #fff;
+  right: auto;
+  left: -200%; /* Ajusta el valor para controlar la posición hacia la izquierda */
+  padding: 10px; /* Ajusta el tamaño del padding según tus preferencias */
+  border-radius: 4px;
+  font-size: 14px; /* Ajusta el tamaño de la fuente según tus preferencias */
+  z-index: 9999;
+}
+
+@media (max-width: 767px) {
+  .tooltip-text {
+    left: -300%; /* Ajusta el valor para controlar la posición hacia la izquierda */
+    width: 200%; /* Ajusta el tamaño del ancho según tus preferencias */
+    max-width: 300px; /* Ajusta el tamaño máximo según tus preferencias */
+  }
+}
+
