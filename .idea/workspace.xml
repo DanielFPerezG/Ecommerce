@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Add Checkout System with Asynchronous Address Update">
-      <change afterPath="$PROJECT_DIR$/static/images/logo/bancolombiaMobile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/logo/daviplataMobile.png" afterDir="false" />
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Payment Method Icons in Mobile Version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/store/js/checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/js/checkout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/templates/store/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/checkout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,14 +146,7 @@
       <workItem from="1688995875740" duration="775000" />
       <workItem from="1689191269443" duration="6618000" />
       <workItem from="1689285963670" duration="223000" />
-      <workItem from="1689444651660" duration="10235000" />
-    </task>
-    <task id="LOCAL-00005" summary="Discount % in product image">
-      <created>1680033014744</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1680033014744</updated>
+      <workItem from="1689444651660" duration="18354000" />
     </task>
     <task id="LOCAL-00006" summary="Update Asynchronous Method">
       <created>1680036057756</created>
@@ -490,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689452645512</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Update Payment Method Icons in Mobile Version">
+      <created>1689455230010</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1689455230010</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,7 +515,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update Products Template in Home" />
     <MESSAGE value="Modularize Image Resizing System" />
     <MESSAGE value="Create AJAX System to Add and Update Shopping Cart Product" />
     <MESSAGE value="Update Product Detail Template" />
@@ -539,7 +539,8 @@
     <MESSAGE value="Update Product Price in Mobile View" />
     <MESSAGE value="Update the Numerical Format of the Product Price" />
     <MESSAGE value="Add Checkout System with Asynchronous Address Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Checkout System with Asynchronous Address Update" />
+    <MESSAGE value="Update Payment Method Icons in Mobile Version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Payment Method Icons in Mobile Version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -563,6 +564,11 @@
           <url>file://$PROJECT_DIR$/store/views.py</url>
           <line>399</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/store/views.py</url>
+          <line>468</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

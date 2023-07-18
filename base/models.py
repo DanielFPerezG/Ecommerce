@@ -185,3 +185,29 @@ class Cart(models.Model):
             }
             products.append(product)
         return products
+
+
+class PurchaseOrder(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    createdAt = models.DateTimeField(auto_now_add=True)
+    products = models.TextField(default='[]')
+    status = models.CharField(max_length=100, null=True)
+    total = models.PositiveIntegerField(null=True)
+    address = models.CharField(max_length=150)
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    complement = models.CharField(max_length=150)
+
+    def __str__(self):
+        return self.pk
+
+class PurchaseOrderItem(models.Model):
+    order = models.ForeignKey(PurchaseOrder, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    productName = models.CharField(max_length=150)
+    price = models.PositiveIntegerField()
+    quantity = models.PositiveIntegerField()
+    total = models.PositiveIntegerField()
+    boughtAt = models.DateTimeField(auto_now_add=True)
+    orderStatus = models.CharField(max_length=100)
+

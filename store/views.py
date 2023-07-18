@@ -10,7 +10,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from django.db.models import Q
-from base.models import Product, Topic, Banner, User, Cart, UserAddress
+from base.models import Product, Topic, Banner, User, Cart, UserAddress, PurchaseOrder, PurchaseOrderItem
 
 from store.forms import UserForm, MyUserCreationForm
 
@@ -464,3 +464,40 @@ def checkout(request):
 
     context = {'cart': cart, 'productCart': productCart, 'productCart_json': productCart_json,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total, 'addresses': addresses, 'addresses_json': addresses_json}
     return render(request, 'store/checkout.html', context)
+
+def createOrder(request, pk):
+    cart = Cart.objects.get(user=request.user)
+    selectedAddress = UserAddress.objects.get(pk=pk)
+
+    productCarts = json.loads(cart.products)
+    subTotal = 0
+
+    order = PurchaseOrder.objects.create(
+        user=request.user,
+        products=cart.products,
+        status="Pendiente de pago",
+        address=selectedAddress.address,
+        state=selectedAddress.state,
+        city=selectedAddress.city,
+        complement=selectedAddress.complement
+    )
+
+    for productJson in productCarts:
+        orderItem = PurchaseOrderItem.objects.create(
+            order=order,
+            user=request.user,
+            productName=productJson['name'],
+            price=productJson['price'],
+            quantity=productJson['quantity'],
+            total=productJson['total'],
+            orderStatus= order.status
+        )
+        subTotal += productJson['total']
+        orderItem.save()
+    order.total = subTotal
+    order.save()
+
+    cart.products = json.dumps([])
+    cart.save()
+
+    return JsonResponse({'message': 'Orden creada correctamente'})
