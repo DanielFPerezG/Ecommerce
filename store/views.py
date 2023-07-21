@@ -12,6 +12,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from base.models import Product, Topic, Banner, User, Cart, UserAddress, PurchaseOrder, PurchaseOrderItem
 
+from .helpers import ProductCart
+
 from store.forms import UserForm, MyUserCreationForm
 
 import json
@@ -87,11 +89,7 @@ def home(request):
 
     if request.user.is_authenticated:
         cart, create = Cart.objects.get_or_create(user=request.user)
-
-        productCarts = json.loads(cart.products)
-        numberProductsCart = 0
-        for productJson in productCarts:
-            numberProductsCart += 1
+        numberProductsCart = ProductCart.numberProducts(cart)
 
         context = {
             'topics': topics,
@@ -114,10 +112,7 @@ def shopDetail(request,pk):
 
     if request.user.is_authenticated:
         cart, create = Cart.objects.get_or_create(user=request.user)
-        productCarts = json.loads(cart.products)
-        numberProductsCart = 0
-        for productJson in productCarts:
-            numberProductsCart += 1
+        numberProductsCart = ProductCart.numberProducts(cart)
 
         context = {
             'products':products,
@@ -184,11 +179,7 @@ def store(request):
     page_obj = paginator.get_page(page_number)
     products = page_obj.object_list
 
-    if 'cart' in locals() and cart is not None:
-        productCarts = json.loads(cart.products)
-        numberProductsCart = 0
-        for productJson in productCarts:
-            numberProductsCart += 1
+    numberProductsCart = ProductCart.numberProducts(cart)
 
     if request.user.is_authenticated:
         context = {'products':products,'topics':topics,'query':query,'page_obj':page_obj,'products':products,'order_by':order_by,'numberProductsCart':numberProductsCart}
@@ -206,16 +197,12 @@ def create_cart(sender, instance, created, **kwargs):
 def addCart(request,pk):
     product = Product.objects.get(id=pk)
     cart, create = Cart.objects.get_or_create(user=request.user)
-    newProductCarts = []
 
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         cart.add_product(product)
-    productCarts = json.loads(cart.products)
-    numberProductsCart = 0
-    for productJson in productCarts :
-        numberProductsCart += 1
-        if int(productJson["id"]) == int(product.id):
-            newProductCarts.append(productJson)
+
+    numberProductsCart = ProductCart.numberProducts(cart)
+    newProductCarts = ProductCart.newProductCart(cart, product)
     numberProductsCart = json.dumps(numberProductsCart)
     newProductCarts = json.dumps(newProductCarts)
 
@@ -226,9 +213,9 @@ def addCart(request,pk):
 def addCartDetail(request,pk):
     product = Product.objects.get(id=pk)
     cart, create = Cart.objects.get_or_create(user=request.user)
-    cart.add_product(product)
 
     if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        cart.add_product(product)
         data = json.loads(request.body)
         productCart = cart.obtain_products()
 
@@ -250,25 +237,10 @@ def addCartDetail(request,pk):
 def viewCart(request):
     cart = Cart.objects.get(user=request.user)
 
-    productCarts = json.loads(cart.products)
-    numberProductsCart = 0
-    subTotal = 0
-
-    for productJson in productCarts:
-        numberProductsCart += 1
-        subTotal += productJson['total']
-        if productJson['quantity'] == 0:
-            cart.delete_product(productJson['id'])
-            cart.save()
-            productCarts.remove(productJson)
-
-
-    numberProductsCart = json.dumps(numberProductsCart)
     productCart = cart.obtain_products()
     productCart_json = json.dumps(productCart)
-
-
-
+    numberProductsCart = ProductCart.numberProducts(cart)
+    subTotal = ProductCart.subtotalCart(cart)
     total = subTotal + 10000
 
     context = {'cart': cart, 'productCart': productCart, 'productCart_json': productCart_json,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total}
@@ -306,24 +278,14 @@ def deleteCart(request,pk):
 
 def userProfile(request):
     cart = Cart.objects.get(user=request.user)
-
-    productCarts = json.loads(cart.products)
-    numberProductsCart = 0
-
-    for productJson in productCarts:
-        numberProductsCart += 1
+    numberProductsCart = ProductCart.numberProducts(cart)
 
     context = {'numberProductsCart': numberProductsCart}
     return render(request, 'store/userProfile.html', context)
 
 def personalInformation(request):
     cart = Cart.objects.get(user=request.user)
-
-    productCarts = json.loads(cart.products)
-    numberProductsCart = 0
-
-    for productJson in productCarts:
-        numberProductsCart += 1
+    numberProductsCart = ProductCart.numberProducts(cart)
 
     context = {'numberProductsCart': numberProductsCart}
     return render(request, 'store/personalInformation.html', context)
@@ -359,11 +321,7 @@ def userAddress(request):
     cart = Cart.objects.get(user=request.user)
     addresses = UserAddress.objects.filter(user=request.user)
 
-    productCarts = json.loads(cart.products)
-    numberProductsCart = 0
-
-    for productJson in productCarts:
-        numberProductsCart += 1
+    numberProductsCart = ProductCart.numberProducts(cart)
 
     context = {'numberProductsCart': numberProductsCart, 'addresses': addresses}
     return render(request, 'store/userAddress.html', context)
@@ -404,12 +362,7 @@ def deleteAddress(request,pk):
 
 def securityInformation(request):
     cart = Cart.objects.get(user=request.user)
-
-    productCarts = json.loads(cart.products)
-    numberProductsCart = 0
-
-    for productJson in productCarts:
-        numberProductsCart += 1
+    numberProductsCart = ProductCart.numberProducts(cart)
 
     context = {'numberProductsCart': numberProductsCart}
     return render(request, 'store/securityInformation.html', context)
@@ -449,14 +402,8 @@ def checkout(request):
     addresses_json = json.dumps(list(addresses.values()))
 
     productCarts = json.loads(cart.products)
-    numberProductsCart = 0
-    subTotal = 0
-
-    for productJson in productCarts:
-        numberProductsCart += 1
-        subTotal += productJson['total']
-
-    numberProductsCart = json.dumps(numberProductsCart)
+    numberProductsCart = ProductCart.numberProducts(cart)
+    subTotal = ProductCart.subtotalCart(cart)
     productCart = cart.obtain_products()
     productCart_json = json.dumps(productCart)
 
