@@ -102,6 +102,14 @@ def home(request):
             'topics': topics,
             'banners': banners,
             'products': products}
+
+    # Iterate through topics and handle instances with no image assigned
+    for topic in topics:
+        if topic.image and topic.image.file:
+            topic.image_url = topic.image.url
+        else:
+            topic.image_url = None
+
     return render(request, 'store/home.html', context)
 
 

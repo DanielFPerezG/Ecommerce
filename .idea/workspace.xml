@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Payment Method Icons in Mobile Version">
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Refactor Product Number, New Product and Cart Subtotal System">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/store/js/checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/js/checkout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/checkout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/updateProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/updateProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/bannerTopicArea.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/bannerTopicArea.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,20 +60,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/daniel.galindo/Documents/Ecommerce/ecommerce/static/images/logo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/daniel.galindo/Documents/Ecommerce/ecommerce/static/images/logo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/images/logo" />
@@ -146,21 +146,11 @@
       <workItem from="1688995875740" duration="775000" />
       <workItem from="1689191269443" duration="6618000" />
       <workItem from="1689285963670" duration="223000" />
-      <workItem from="1689444651660" duration="18354000" />
-    </task>
-    <task id="LOCAL-00006" summary="Update Asynchronous Method">
-      <created>1680036057756</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1680036057756</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Delete Product to Shopping Cart">
-      <created>1680038499229</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1680038499229</updated>
+      <workItem from="1689444651660" duration="19295000" />
+      <workItem from="1689716462123" duration="977000" />
+      <workItem from="1689729352411" duration="243000" />
+      <workItem from="1689773524383" duration="147000" />
+      <workItem from="1689872699932" duration="8034000" />
     </task>
     <task id="LOCAL-00008" summary="Add Modal to Templates">
       <created>1680066206539</created>
@@ -491,7 +481,21 @@
       <option name="project" value="LOCAL" />
       <updated>1689455230010</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Create Order Templates and Order Entry System">
+      <created>1689646912618</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1689646912618</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Refactor Product Number, New Product and Cart Subtotal System">
+      <created>1689967175180</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1689967175180</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,6 +512,17 @@
                   <entry key="Show.Git.Branches" value="true" />
                 </map>
               </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="test" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
             </State>
           </value>
         </entry>
@@ -515,8 +530,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modularize Image Resizing System" />
-    <MESSAGE value="Create AJAX System to Add and Update Shopping Cart Product" />
     <MESSAGE value="Update Product Detail Template" />
     <MESSAGE value="Implement AJAX &amp; Modal Add to Cart System" />
     <MESSAGE value="Add Search, Sorting and Filtering System" />
@@ -540,19 +553,21 @@
     <MESSAGE value="Update the Numerical Format of the Product Price" />
     <MESSAGE value="Add Checkout System with Asynchronous Address Update" />
     <MESSAGE value="Update Payment Method Icons in Mobile Version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Payment Method Icons in Mobile Version" />
+    <MESSAGE value="Create Order Templates and Order Entry System" />
+    <MESSAGE value="Refactor Product Number, New Product and Cart Subtotal System" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor Product Number, New Product and Cart Subtotal System" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/store/views.py</url>
-          <line>206</line>
+          <line>205</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/store/views.py</url>
-          <line>374</line>
+          <line>340</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -562,13 +577,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/store/views.py</url>
-          <line>399</line>
+          <line>365</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/store/views.py</url>
-          <line>468</line>
+          <line>423</line>
           <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/base/views.py</url>
+          <line>120</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/base/models.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
