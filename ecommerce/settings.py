@@ -32,7 +32,6 @@ ROOT_HOSTCONF = 'ecommerce.hosts'
 DEFAULT_HOST = ' '
 
 ALLOWED_HOSTS = [
-    '.url.com', 'base.url.com'
 ]
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
