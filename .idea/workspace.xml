@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Modularize Image Resizing System">
-      <change afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-    </list>
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Delete Static Files and Configure Settings to Deploy in Production" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,13 +144,6 @@
       <workItem from="1689729352411" duration="243000" />
       <workItem from="1689773524383" duration="147000" />
       <workItem from="1689872699932" duration="20505000" />
-    </task>
-    <task id="LOCAL-00009" summary="Add Modal to Templates">
-      <created>1680066273156</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1680066273156</updated>
     </task>
     <task id="LOCAL-00010" summary="Update Modal to style">
       <created>1680457332385</created>
@@ -493,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689976004445</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Delete Static Files and Configure Settings to Deploy in Production">
+      <created>1690000971004</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1690000971004</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,7 +523,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement AJAX &amp; Modal Add to Cart System" />
     <MESSAGE value="Add Search, Sorting and Filtering System" />
     <MESSAGE value="Update Navbar" />
     <MESSAGE value="Update Views User Authenticated System" />
@@ -553,7 +547,8 @@
     <MESSAGE value="Create Order Templates and Order Entry System" />
     <MESSAGE value="Refactor Product Number, New Product and Cart Subtotal System" />
     <MESSAGE value="Fix Bug in Product Image Saving System" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Bug in Product Image Saving System" />
+    <MESSAGE value="Delete Static Files and Configure Settings to Deploy in Production" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete Static Files and Configure Settings to Deploy in Production" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
