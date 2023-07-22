@@ -237,21 +237,21 @@ def addCartDetail(request,pk):
         cart.products = productCart
         cart.products = json.dumps(cart.products)
         cart.save()
+        return JsonResponse({'success': True, 'message': 'Producto agregado al carrito exitosamente'})
+    return JsonResponse({})
 
-    return redirect('store:home')
 
 
 
 def viewCart(request):
     cart = Cart.objects.get(user=request.user)
-
-    productCart = cart.obtain_products()
-    productCart_json = json.dumps(productCart)
+    products = Product.objects.all()
     numberProductsCart = ProductCart.numberProducts(cart)
-    subTotal = ProductCart.subtotalCart(cart)
+    subTotal = ProductCart.subtotalCart(cart,'cart')
     total = subTotal + 10000
+    productCartWithStock = ProductCart.productCartWithStock(cart, products)
 
-    context = {'cart': cart, 'productCart': productCart, 'productCart_json': productCart_json,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total}
+    context = {'cart': cart, 'productCart': productCartWithStock,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total}
     return render(request, 'store/viewCart.html', context)
 
 @csrf_exempt
@@ -409,47 +409,67 @@ def checkout(request):
     addresses = UserAddress.objects.filter(user=request.user)
     addresses_json = json.dumps(list(addresses.values()))
 
-    productCarts = json.loads(cart.products)
+    products = Product.objects.all()
     numberProductsCart = ProductCart.numberProducts(cart)
-    subTotal = ProductCart.subtotalCart(cart)
-    productCart = cart.obtain_products()
-    productCart_json = json.dumps(productCart)
-
+    productCartWithStockCheckout = ProductCart.productCartWithStockCheckout(cart, products)
+    subTotal = ProductCart.subtotalCart(productCartWithStockCheckout, 'checkout')
     total = subTotal + 10000
 
-    context = {'cart': cart, 'productCart': productCart, 'productCart_json': productCart_json,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total, 'addresses': addresses, 'addresses_json': addresses_json}
+    context = {'cart': cart, 'productCart': productCartWithStockCheckout,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total, 'addresses': addresses, 'addresses_json': addresses_json}
     return render(request, 'store/checkout.html', context)
 
 def createOrder(request, pk):
     cart = Cart.objects.get(user=request.user)
     selectedAddress = UserAddress.objects.get(pk=pk)
-
-    productCarts = json.loads(cart.products)
-    subTotal = 0
+    products = Product.objects.all()
+    productCartWithStockCheckout = ProductCart.productCartWithStockCheckout(cart, products)
+    subTotal = ProductCart.subtotalCart(productCartWithStockCheckout, 'checkout')
 
     order = PurchaseOrder.objects.create(
         user=request.user,
-        products=cart.products,
         status="Pendiente de pago",
         address=selectedAddress.address,
         state=selectedAddress.state,
         city=selectedAddress.city,
-        complement=selectedAddress.complement
+        complement=selectedAddress.complement,
+        total= subTotal
     )
 
-    for productJson in productCarts:
-        orderItem = PurchaseOrderItem.objects.create(
-            order=order,
-            user=request.user,
-            productName=productJson['name'],
-            price=productJson['price'],
-            quantity=productJson['quantity'],
-            total=productJson['total'],
-            orderStatus= order.status
-        )
-        subTotal += productJson['total']
+    for productJson in productCartWithStockCheckout:
+        if productJson['quantity'] >= productJson['stock'] :
+            for product in productCartWithStockCheckout:
+                product.pop('quantity', None)
+            for product in productCartWithStockCheckout:
+                product['quantity'] = product.pop('stock')
+            orderItem = PurchaseOrderItem.objects.create(
+                order=order,
+                user=request.user,
+                productName=productJson['name'],
+                price=productJson['price'],
+                quantity=productJson['quantity'],
+                total=productJson['total'],
+                orderStatus=order.status
+            )
+            product = Product.objects.get(pk=productJson['id'])
+            product.stock = product.stock - productJson['quantity']
+            product.save()
+        else:
+            for product in productCartWithStockCheckout:
+                product.pop('stock', None)
+            orderItem = PurchaseOrderItem.objects.create(
+                order=order,
+                user=request.user,
+                productName=productJson['name'],
+                price=productJson['price'],
+                quantity=productJson['quantity'],
+                total=productJson['total'],
+                orderStatus=order.status
+            )
+            product = Product.objects.get(pk=productJson['id'])
+            product.stock = product.stock - productJson['quantity']
+            product.save()
         orderItem.save()
-    order.total = subTotal
+    order.products = productCartWithStockCheckout
     order.save()
 
     cart.products = json.dumps([])

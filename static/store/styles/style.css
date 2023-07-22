@@ -2578,3 +2578,6 @@ responsive
   }
 }
 
+.grayscaleimg {
+  filter: grayscale(100%);
+}

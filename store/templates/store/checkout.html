@@ -115,7 +115,17 @@
                             </div>
                             {% for product in productCart %}
                             <div class="d-flex justify-content-between">
-                                <h6 class="font-weight-medium text-secondary">{{ product.name }} ({{ product.quantity }})</h6>
+                                {% if product.quantity > product.stock  %}
+                                    <h6 class="font-weight-medium text-secondary">
+                                      {{ product.name }}
+                                      <span style="text-decoration: line-through;">
+                                        ({{ product.quantity }})
+                                      </span>
+                                      ({{ product.stock }})
+                                    </h6>
+                                {% else %}
+                                    <h6 class="font-weight-medium text-secondary">{{ product.name }} ({{ product.quantity }})</h6>
+                                {% endif %}
                                 <h6 class="font-weight-medium text-secondary">${{ product.total|intcomma }}</h6>
                             </div>
                             {% endfor %}

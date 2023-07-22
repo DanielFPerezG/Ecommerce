@@ -48,29 +48,33 @@ function updateProductsPrice(a) {
       var totalElement = document.getElementById("total-price-detail");
       var price = document.getElementById("price-detail").textContent;
       price = price.replace("$", "");
-      console.log(price)
       price = parseFloat(price)*1000;
-      console.log(price)
       totalElement.textContent = (quantity*price).toLocaleString()
       oldQuantity.textContent = quantity
     };
 
-function addProductDetail() {
+function addProductDetail(productId, stock) {
       var quantity = parseInt(document.getElementById("product-quantity-detail").textContent);
-      var productId = document.getElementById("product-id-detail").textContent;
+      var productId = productId;
+      var stock = parseInt(stock);
 
-      const data = [];
+      if (quantity > stock) {
+          Swal.fire({
+              icon: 'error',
+              title: 'El producto no tiene tantas unidades disponibles',
+              text: 'Revisa junto al nombre cuantas unidades disponibles quedan. Pronto volveremos a abastecer nuestro inventario'
+      }
+      );
+          }
+      else{
+          const data = [];
 
-        // Obtener los valores de las celdas y construir un objeto JavaScript
         const jsonRow = {
           id: productId,
             quantity: quantity
         };
 
-        // Agregar el objeto a la lista de datos
         data.push(jsonRow);
-
-      // Convertir el objeto JavaScript en una cadena JSON
       const json = JSON.stringify(data);
 
       fetch('../addCartDetail/'+productId,{
@@ -83,13 +87,13 @@ function addProductDetail() {
         }
         )
         .then(response => {
-                return response.json() //Convert response to JSON
+                return response.json()
         })
         .then(data => {
+            if (data.success) {
+            // Redirigir al usuario al "home"
+            window.location.href = "..";
+            }
         });
+      }
     };
-
-jQuery('#add-to-cart-button').on('click', function() {
-    addProductDetail();
-    window.location.href = "..";
-});

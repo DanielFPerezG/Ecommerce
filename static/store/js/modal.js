@@ -36,6 +36,15 @@ function addCart(idProduct){
     });
 };
 
+function addCartNoStock(name_product){
+    Swal.fire({
+  icon: 'error',
+  title: 'El producto ' +name_product+' no tiene unidades disponibles',
+  text: 'Pronto volveremos a abastecer nuestro inventario'
+})
+
+}
+
 function updateUserInfo(userId, type){
     var title;
     var finalTitle;

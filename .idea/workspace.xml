@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Refactor Product Number, New Product and Cart Subtotal System">
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Fix Bug in Product Image Saving System">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/updateProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/updateProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/bannerTopicArea.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/bannerTopicArea.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/store/js/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/js/modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/store/js/quantity.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/js/quantity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/checkout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/productInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/productInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/shopDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/shopDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/store.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/store.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/viewCart.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/viewCart.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,14 +155,7 @@
       <workItem from="1689716462123" duration="977000" />
       <workItem from="1689729352411" duration="243000" />
       <workItem from="1689773524383" duration="147000" />
-      <workItem from="1689872699932" duration="8034000" />
-    </task>
-    <task id="LOCAL-00008" summary="Add Modal to Templates">
-      <created>1680066206539</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1680066206539</updated>
+      <workItem from="1689872699932" duration="20505000" />
     </task>
     <task id="LOCAL-00009" summary="Add Modal to Templates">
       <created>1680066273156</created>
@@ -495,7 +493,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689967175180</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Fix Bug in Product Image Saving System">
+      <created>1689976004445</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1689976004445</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +535,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update Product Detail Template" />
     <MESSAGE value="Implement AJAX &amp; Modal Add to Cart System" />
     <MESSAGE value="Add Search, Sorting and Filtering System" />
     <MESSAGE value="Update Navbar" />
@@ -555,7 +559,8 @@
     <MESSAGE value="Update Payment Method Icons in Mobile Version" />
     <MESSAGE value="Create Order Templates and Order Entry System" />
     <MESSAGE value="Refactor Product Number, New Product and Cart Subtotal System" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor Product Number, New Product and Cart Subtotal System" />
+    <MESSAGE value="Fix Bug in Product Image Saving System" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Bug in Product Image Saving System" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -581,19 +586,19 @@
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/store/views.py</url>
-          <line>423</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/base/views.py</url>
           <line>120</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/base/models.py</url>
-          <line>31</line>
-          <option name="timeStamp" value="31" />
+          <url>file://$PROJECT_DIR$/store/views.py</url>
+          <line>221</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/store/views.py</url>
+          <line>421</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

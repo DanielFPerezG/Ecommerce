@@ -19,11 +19,74 @@ class ProductCart:
 
         return newProductCarts
 
-    def subtotalCart(cart):
-        subTotal= 0
-        productCarts = json.loads(cart.products)
+    def productCartWithStock(cart, products):
+        productCart = json.loads(cart.products)
+        productCartWithStock = []
 
-        for productJson in productCarts:
-            subTotal += productJson['total']
+        for item in productCart:
+            productId = item['id']
+            productName = item['name']
+            price = item['price']
+            image_url = item['image_url']
+            productTotal = item['total']
+            quantity = item['quantity']
+            product = products.get(pk=productId)
+            stock = product.stock
+            itemWithStock = {
+                'id': productId,
+                'name': productName,
+                'price': price,
+                'image_url': image_url,
+                'total': productTotal,
+                'quantity': quantity,
+                'stock': stock,
+            }
+            productCartWithStock.append(itemWithStock)
 
-        return subTotal
+        return productCartWithStock
+
+    def productCartWithStockCheckout(cart, products):
+        productCart = json.loads(cart.products)
+        productCartWithStock = []
+
+        for item in productCart:
+            productId = item['id']
+            productName = item['name']
+            price = item['price']
+            image_url = item['image_url']
+            productTotal = item['total']
+            quantity = item['quantity']
+            product = products.get(pk=productId)
+            stock = product.stock
+
+            if int(quantity) > int(stock):
+                productTotal = int(price)*int(stock)
+            itemWithStock = {
+                'id': productId,
+                'name': productName,
+                'price': price,
+                'image_url': image_url,
+                'total': productTotal,
+                'quantity': quantity,
+                'stock': stock,
+            }
+            productCartWithStock.append(itemWithStock)
+
+        return productCartWithStock
+
+    def subtotalCart(cart, page):
+        subTotal = 0
+
+        if page == 'cart':
+            productCarts = json.loads(cart.products)
+
+            for productJson in productCarts:
+                subTotal += productJson['total']
+
+            return subTotal
+
+        else:
+            for item in cart:
+                subTotal += item['total']
+
+            return subTotal

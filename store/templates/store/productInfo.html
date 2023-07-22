@@ -26,13 +26,48 @@
                                     <div class="hover-content">
                                         <ul>
                                             <li><a href="{% url 'store:shopDetail' product.id %}"><i class="fa fa-eye"></i></a></li>
+                                            {% if product.stock > 0 %}
                                             <li><a type="button" onclick="addCart( {{ product.id }} );"><i class="fa fa-shopping-cart"></i></a></li>
+                                             {% else %}
+                                             <li><a type="button" onclick="addCartNoStock('{{ product.name }}');"><i class="fa fa-shopping-cart"></i></a></li>
+                                             {% endif %}
                                         </ul>
                                     </div>
+                                {% if product.stock > 0 %}
                                     <img src="{{product.image.url}}" alt="" class="img-fluid">
+                                {% else %}
+                                     <img src="{{product.image.url}}" alt="" class="img-fluid grayscaleimg">
+                                {% endif %}
                                 </div>
                                 <div class="down-content">
+                                {% if product.stock == 0 %}
+                                    <div class="row">
+                                          <div class="col-6 d-flex">
+
+                                            <h4>{{ product.name }}</h4>
+                                          </div>
+                                            <div class="col-6">
+                                              <div class="bg-pink text-danger d-flex justify-content-end">
+                                                  Sin unidades
+                                              </div>
+                                            </div>
+                                    </div>
+                                {% elif product.stock <= 10  %}
+                                    <div class="row">
+                                          <div class="col-6 d-flex">
+
+                                            <h4>{{ product.name }}</h4>
+                                          </div>
+                                            <div class="col-6">
+                                              <div class="bg-pink text-danger d-flex justify-content-end">
+                                                  {{product.stock}} Disponibles
+                                              </div>
+                                            </div>
+                                    </div>
+                                {% else %}
                                     <h4>{{ product.name }}</h4>
+                                {% endif %}
+
                                     {% if product.discount > 0 %}
                                         <div class="row">
                                           <div class="col-6 d-flex">
