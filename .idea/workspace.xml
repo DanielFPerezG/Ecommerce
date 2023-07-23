@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update urls.py">
-      <change afterPath="$PROJECT_DIR$/static/base/plugins/jquery-ui/jquery-ui.theme.css" afterDir="false" />
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Static Files with CSS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,13 +152,6 @@
       <workItem from="1689872699932" duration="20505000" />
       <workItem from="1690074541631" duration="108000" />
       <workItem from="1690137058976" duration="4550000" />
-    </task>
-    <task id="LOCAL-00025" summary="Update Banners Images">
-      <created>1681415862101</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1681415862101</updated>
     </task>
     <task id="LOCAL-00026" summary="update File Saving System">
       <created>1681421318349</created>
@@ -496,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690152591605</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Update Static Files with CSS">
+      <created>1690155539725</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1690155539725</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +531,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing Bugs When Creating New Products" />
     <MESSAGE value="Fix Price Bug In Cart" />
     <MESSAGE value="Add Delete Address Function" />
     <MESSAGE value="Add User Password Change Function" />
@@ -556,7 +555,8 @@
     <MESSAGE value="Update .min.css to .css" />
     <MESSAGE value="Update .min.css to .css in Store Template" />
     <MESSAGE value="Update urls.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update urls.py" />
+    <MESSAGE value="Update Static Files with CSS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Static Files with CSS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
