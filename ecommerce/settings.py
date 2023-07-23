@@ -148,7 +148,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Set a fallback STATIC_ROOT value for development (when DEBUG is True)
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Choose any directory name you prefer
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Choose any directory name you prefer
 
 # Following settings only make sense on production and may break development environments.
 if not DEBUG:

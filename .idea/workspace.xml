@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Delete Static Files and Configure Settings to Deploy in Production" />
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update build.sh">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +61,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/daniel.galindo/Documents/Ecommerce/ecommerce/static/images/logo&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/daniel.galindo/Documents/Ecommerce/ecommerce/static/images&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -69,6 +72,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/images" />
       <recent name="$PROJECT_DIR$/static/images/logo" />
       <recent name="$PROJECT_DIR$/static/store/json" />
       <recent name="$PROJECT_DIR$/store/templates/store" />
@@ -144,83 +148,8 @@
       <workItem from="1689729352411" duration="243000" />
       <workItem from="1689773524383" duration="147000" />
       <workItem from="1689872699932" duration="20505000" />
-    </task>
-    <task id="LOCAL-00010" summary="Update Modal to style">
-      <created>1680457332385</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1680457332386</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Merge from test branch to main branch">
-      <created>1680457606418</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1680457606419</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Update Templates First Version">
-      <created>1680640576881</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1680640576882</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Update Main &amp; Navbar Base Templates">
-      <created>1680645684833</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1680645684833</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Update Templates to Product Management Section">
-      <created>1680649345521</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1680649345521</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Update Create Product Template">
-      <created>1680655457916</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1680655457916</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Update Template in the Product Update Section">
-      <created>1680657794251</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1680657794251</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Update Template in the Topic Update &amp; Admin Section">
-      <created>1680660352432</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1680660352432</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Update Template to Admin Banners">
-      <created>1680661208426</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1680661208426</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Create Template, From &amp; View to Banner Update">
-      <created>1680661822427</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1680661822427</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Create Template &amp; View to Banner Admin">
-      <created>1680662380737</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1680662380737</updated>
+      <workItem from="1690074541631" duration="108000" />
+      <workItem from="1690137058976" duration="4550000" />
     </task>
     <task id="LOCAL-00021" summary="Update Method Of Removing Products">
       <created>1680663614170</created>
@@ -488,7 +417,84 @@
       <option name="project" value="LOCAL" />
       <updated>1690000971004</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Update Statics File">
+      <created>1690005346440</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1690005346440</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Update Build File With Makemigrations">
+      <created>1690005563620</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1690005563620</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Update Allowed_Hosts">
+      <created>1690005770821</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1690005770821</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Add Loggin Settings">
+      <created>1690006165905</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1690006165905</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Update Settings Static Root">
+      <created>1690007109683</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1690007109683</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Update Settings Static Root">
+      <created>1690008269908</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1690008269908</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Update Settings &amp; Build Files">
+      <created>1690137794084</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1690137794084</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Fix Error in the BASE_DIR Variable in the Settings.py File">
+      <created>1690138204527</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1690138204527</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Update Staticfiles in Settings.py">
+      <created>1690145508870</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1690145508870</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Update Staticfiles in Settings.py">
+      <created>1690146412273</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1690146412273</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Update build.sh">
+      <created>1690147823810</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1690147823810</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,15 +529,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Search, Sorting and Filtering System" />
-    <MESSAGE value="Update Navbar" />
-    <MESSAGE value="Update Views User Authenticated System" />
-    <MESSAGE value="Update Shopping Cart Template and AJAX Features" />
-    <MESSAGE value="Update Mobile Shopping Cart Template and AJAX Features" />
-    <MESSAGE value="Update LogIn Template" />
-    <MESSAGE value="Update Register Model, View &amp; Template" />
-    <MESSAGE value="Update navbar &amp; Shopping Cart AJAX Features" />
-    <MESSAGE value="Update User Model" />
     <MESSAGE value="Create UserProfile Template &amp; View" />
     <MESSAGE value="Create personalInformation Template &amp; View with AJAX Functions" />
     <MESSAGE value="Create Address Template &amp; View" />
@@ -548,7 +545,16 @@
     <MESSAGE value="Refactor Product Number, New Product and Cart Subtotal System" />
     <MESSAGE value="Fix Bug in Product Image Saving System" />
     <MESSAGE value="Delete Static Files and Configure Settings to Deploy in Production" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete Static Files and Configure Settings to Deploy in Production" />
+    <MESSAGE value="Update Statics File" />
+    <MESSAGE value="Update Build File With Makemigrations" />
+    <MESSAGE value="Update Allowed_Hosts" />
+    <MESSAGE value="Add Loggin Settings" />
+    <MESSAGE value="Update Settings Static Root" />
+    <MESSAGE value="Update Settings &amp; Build Files" />
+    <MESSAGE value="Fix Error in the BASE_DIR Variable in the Settings.py File" />
+    <MESSAGE value="Update Staticfiles in Settings.py" />
+    <MESSAGE value="Update build.sh" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update build.sh" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
