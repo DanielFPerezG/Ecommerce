@@ -58,6 +58,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django_hosts.middleware.HostsRequestMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -71,7 +72,7 @@ MIDDLEWARE = [
 
     'django_hosts.middleware.HostsResponseMiddleware',
 
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'ecommerce.urls'
@@ -145,15 +146,19 @@ USE_TZ = True
 # This setting tells Django at which URL static files are going to be served to the user.
 # Here, they will be accessible at your-domain.onrender.com/static/...
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')  # Choose any directory name you prefer
 
 # Set a fallback STATIC_ROOT value for development (when DEBUG is True)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Choose any directory name you prefer
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Choose any directory name you prefer
 
 # Following settings only make sense on production and may break development environments.
 if not DEBUG:
     # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
     # Turn on WhiteNoise storage backend that takes care of compressing static files
     # and creating unique names for each version so they can safely be cached forever.
