@@ -2,6 +2,6 @@ from django_hosts import patterns, host
 
 host_patterns = patterns(
     '',
-    host(r'', 'ecommerce.urls', name=' '),
-    host(r'base', 'base.urls', name='base'),
+    host(r'danielperez', 'ecommerce.urls', name='www'),  # Dominio principal
+    host(r'base', 'base.urls', name='base'),  # Subdominio base
 )
