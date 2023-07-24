@@ -20,16 +20,9 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django_hosts import patterns, host
 
+# URL patterns regulares de Django
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('base/', include('base.urls')),
     path('', include('store.urls')),
 ]
 urlpatterns += staticfiles_urlpatterns()
-
-host_patterns = patterns(
-    '',
-    host(r'danielperez', 'ecommerce.urls', name='www'),
-    host(r'base', 'base.urls', name='base'),
-)
-urlpatterns += host_patterns
