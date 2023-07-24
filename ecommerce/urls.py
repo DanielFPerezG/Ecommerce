@@ -25,6 +25,7 @@ urlpatterns = [
     path('base/', include('base.urls')),
     path('', include('store.urls')),
 ]
+urlpatterns += staticfiles_urlpatterns()
 
 host_patterns = patterns(
     '',
@@ -32,4 +33,3 @@ host_patterns = patterns(
     host(r'base', 'base.urls', name='base'),
 )
 urlpatterns += host_patterns
-urlpatterns += staticfiles_urlpatterns()
