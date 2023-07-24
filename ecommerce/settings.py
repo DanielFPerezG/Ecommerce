@@ -29,7 +29,7 @@ DEBUG = 'RENDER' not in os.environ
 
 ROOT_HOSTCONF = 'ecommerce.hosts'
 
-DEFAULT_HOST = ' '
+DEFAULT_HOST = ''
 
 ALLOWED_HOSTS = ['.danielperez.engineer', 'base.danielperez.engineer']
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
