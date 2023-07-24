@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django_hosts import patterns, host
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +26,10 @@ urlpatterns = [
     path('', include('store.urls')),
 ]
 
+host_patterns = patterns(
+    '',
+    host(r'danielperez', 'ecommerce.urls', name='www'),
+    host(r'base', 'base.urls', name='base'),
+)
+urlpatterns += host_patterns
 urlpatterns += staticfiles_urlpatterns()
