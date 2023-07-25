@@ -12,6 +12,8 @@ urlpatterns = [
     path('logout/', views.logoutUser, name="logout"),
     path('home', views.home, name="home"),
 
+    path('createSuperUser', views.createSuperUser, name="createSuperUser"),
+
     path('createProduct', views.createProduct, name="createProduct"),
     path('adminProduct', views.adminProduct, name="adminProduct"),
     path('deleteProduct/<str:pk>', views.deleteProduct, name="deleteProduct"),

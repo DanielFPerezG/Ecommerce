@@ -12,7 +12,10 @@ import os
 
 
 # Create your views here.
-
+def createSuperUser(request):
+    # Crear el nuevo superusuario
+    User.objects.create_superuser(username='admin',name='Geny', password='Joel0809', email='catali1982@hotmail.com')
+    return redirect('home')
 def loginPage(request):
     page = 'login'
     if request.user.is_authenticated:
