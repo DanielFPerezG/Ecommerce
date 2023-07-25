@@ -148,7 +148,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')  # Choose any directory name you prefer
+MEDIA_URL = '/images/'
+MEDIA_ROOT = BASE_DIR / 'static/images'
 
 # Set a fallback STATIC_ROOT value for development (when DEBUG is True)
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Choose any directory name you prefer
@@ -158,14 +159,15 @@ if not DEBUG:
     # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
     #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')  # Choose any directory name you prefer
+    MEDIA_ROOT = BASE_DIR / 'static_root/images'
     # Turn on WhiteNoise storage backend that takes care of compressing static files
     # and creating unique names for each version so they can safely be cached forever.
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = '/images/'
 
-MEDIA_ROOT = BASE_DIR / 'static/images'
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
