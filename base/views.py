@@ -111,8 +111,6 @@ def createProduct(request):
 def adminProduct(request):
     products = Product.objects.all()
 
-    ruta_base_servidor = settings.MEDIA_ROOT
-
     for product in products:
         image = product.image
         print(image.path)
