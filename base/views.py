@@ -115,8 +115,7 @@ def adminProduct(request):
 
     for product in products:
         image = product.image
-        ruta_completa_imagen = os.path.join(ruta_base_servidor, image)
-        print(ruta_completa_imagen)
+        print(image.path)
 
     return render(request, 'base/adminProduct.html', {'products':products})
 
