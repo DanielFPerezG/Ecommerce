@@ -14,6 +14,8 @@ urlpatterns = [
     path('updateUserInfo/<str:pk>', views.updateUserInfo, name="updateUserInfo"),
     path('securityInformation', views.securityInformation, name="securityInformation"),
     path('updatePassword/<str:pk>', views.updatePassword, name="updatePassword"),
+    
+    path('viewOrder', views.viewOrder, name="viewOrder"),
 
     path('userAddress', views.userAddress, name="userAddress"),
     path('createAddress', views.createAddress, name="createAddress"),

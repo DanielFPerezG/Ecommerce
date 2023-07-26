@@ -476,3 +476,12 @@ def createOrder(request, pk):
     cart.save()
 
     return JsonResponse({'message': 'Orden creada correctamente'})
+
+def viewOrder(request):
+    cart = Cart.objects.get(user=request.user)
+    products = Product.objects.all()
+    numberProductsCart = ProductCart.numberProducts(cart)
+    orders = PurchaseOrder.objects.filter(user=request.user)
+
+    context = {'cart': cart, 'numberProductsCart': numberProductsCart, 'orders': orders}
+    return render(request, 'store/viewOrder.html', context)

@@ -1,0 +1,81 @@
+{% extends 'store/main.html' %}
+
+{% block content %}
+
+<div class="main-profile">
+  <div class="container">
+    <div class="row d-lg-flex d-md-flex justify-content-center align-items-center d-flex-row text-center h-100">
+      <div class="col-10 col-lg-8 col-md-8 pb-4">
+        <h5 class="text-left">Ordenes</h5>
+      </div>
+      <div class="col-10 col-lg-8 col-md-8 card shadow-sm rounded">
+      {% for order in orders %}
+        <div class="card-body">
+            <div class="d-flex align-items-center">
+                <div class="mr-3">
+                    <i class="fa fa-archive fa-2x fa-gray-color" aria-hidden="true"></i>
+                </div>
+                <div class="text-left">
+                    <span class="text-dark">En camino</span>
+                    <br>
+                    <span class="text-muted small">Inter rapidisimo</span>
+                    <span class="text-muted small"> - </span>
+                    <span class="text-muted small"> Guia: </span>
+                    <br>
+                </div>
+                <a class="ml-auto" onclick="deleteAddress({{ address.id }});">
+                    <i class="fa fa-trash fa-gray-color" aria-hidden="true"></i>
+                </a>
+            </div>
+      </div>
+      {% endfor %}
+        <a href="#" onclick="updateUserInfo({{ request.user.id }}, 'lastName');" class="card-body d-flex align-items-center border-bottom">
+          <span class=" text-dark" >
+            Apellido
+          </span>
+          <span class="text-dark mx-auto" id="userInfo_lastName">
+            {% if request.user.lastName %}
+              {{ request.user.lastName }}
+            {% else %}
+                Por favor ingrese su apellido
+            {% endif %}
+          </span>
+          <div >
+            <i class="fa fa-angle-right fa-gray-color" aria-hidden="true"></i>
+          </div>
+        </a>
+        <a href="#" onclick="updateUserInfo({{ request.user.id }}, 'card');" class="card-body d-flex align-items-center border-bottom">
+          <span class=" text-dark">
+            Documento
+          </span>
+          <span class="text-dark mx-auto" id="userInfo_card">
+            {% if request.user.card %}
+              {{ request.user.card }}
+            {% else %}
+                Por favor ingrese su numero de documento
+            {% endif %}
+          </span>
+          <div >
+            <i class="fa fa-angle-right fa-gray-color" aria-hidden="true"></i>
+          </div>
+        </a>
+        <a href="#" onclick="updateUserInfo({{ request.user.id }}, 'phone');" class="card-body d-flex align-items-center">
+          <span class=" text-dark">
+            Telefono
+          </span>
+          <span class="text-dark mx-auto" id="userInfo_phone">
+            {% if request.user.phone %}
+              {{ request.user.phone }}
+            {% else %}
+                Por favor ingrese su numero de telefono
+            {% endif %}
+          </span>
+          <div >
+            <i class="fa fa-angle-right fa-gray-color" aria-hidden="true"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

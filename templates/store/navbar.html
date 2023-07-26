@@ -22,7 +22,7 @@
                                     <a href="javascript:;">{{request.user.name}}</a>
                                     <ul>
                                         <li><a href="{%  url 'store:userProfile' %}">Mi Perfil</a></li>
-                                        <li><a href="#">Mis Compras</a></li>
+                                        <li><a href="{%  url 'store:viewOrder' %}">Mis Compras</a></li>
                                         <li><a href="{% url 'store:logout' %}" >Cerrar Sesion </a></li>
                                     </ul>
                                 </li>
