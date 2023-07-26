@@ -10,6 +10,8 @@ from .helpers import ImageHandler
 import tempfile
 import os
 
+from django.conf import settings
+
 
 # Create your views here.
 def createSuperUser(request):
@@ -97,10 +99,6 @@ def createProduct(request):
         ImageHandler.save_resized_image_create(temp_fileDetail, imgDetail, object=product, type="productDetail")
         ImageHandler.save_resized_image_create(temp_fileDetailSecond, imgDetailSecond, object=product, type="productDetailSecond")
 
-        ruta_absoluta_imagen = os.path.abspath(os.path.join('images', img))
-
-        print(ruta_absoluta_imagen)
-
         product.save()
 
         # Remove temporary file
@@ -112,6 +110,13 @@ def createProduct(request):
 @login_required(login_url='login')
 def adminProduct(request):
     products = Product.objects.all()
+
+    ruta_base_servidor = settings.MEDIA_ROOT
+
+    for product in products:
+        image = product.image
+        ruta_completa_imagen = os.path.join(ruta_base_servidor, image)
+        print(ruta_completa_imagen)
 
     return render(request, 'base/adminProduct.html', {'products':products})
 
