@@ -55,31 +55,13 @@ class Topic(models.Model):
 
 
 class Product(models.Model):
-    def get_product_image_path(instance, filename, field=None):
-        if field:
-            # Check if the instance already has an image for the field
-            if instance.pk and hasattr(instance, field):
-                # Get the current image filename for the field
-                current_filename = os.path.basename(getattr(instance, field).path)
-
-                # Remove the existing image file for the field
-                os.remove(getattr(instance, field).path)
-
-                # Return the existing image path for the field
-                return f'product/{field}/{current_filename}'
-            else:
-                # Return the regular image path if it's a new instance
-                return f'product/{field}/{filename}'
-        else:
-            # Default path when 'field' is not provided (e.g., during creation)
-            return f'product/{filename}'
 
     name = models.CharField(max_length=150,null=True)
     message = models.CharField(max_length=150, null=True)
     bio = models.CharField(max_length=1000,null=True)
-    image = models.ImageField(null=True, upload_to=get_product_image_path)
-    imageDetail = models.ImageField(null=True, upload_to=get_product_image_path)
-    imageDetailSecond = models.ImageField(null=True, upload_to=get_product_image_path)
+    image = models.ImageField(null=True)
+    imageDetail = models.ImageField(null=True)
+    imageDetailSecond = models.ImageField(null=True)
     price = models.PositiveIntegerField(null=True)
     stock = models.PositiveIntegerField(null=True)
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
