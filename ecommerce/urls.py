@@ -32,7 +32,7 @@ urlpatterns += staticfiles_urlpatterns()
 
 
 urlpatterns += [
-    re_path(r'^media/(?P<path>.*)$', serve, {
+    re_path(r'^images/(?P<path>.*)$', serve, {
         'document_root': settings.MEDIA_ROOT,
     }),
 ]
