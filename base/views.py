@@ -97,6 +97,10 @@ def createProduct(request):
         ImageHandler.save_resized_image_create(temp_fileDetail, imgDetail, object=product, type="productDetail")
         ImageHandler.save_resized_image_create(temp_fileDetailSecond, imgDetailSecond, object=product, type="productDetailSecond")
 
+        ruta_absoluta_imagen = os.path.abspath(os.path.join('images', img))
+
+        print(ruta_absoluta_imagen)
+
         product.save()
 
         # Remove temporary file
