@@ -41,7 +41,7 @@ function confirmPurchase() {
             return response.json()
           })
         .then(data => {
-              window.location.href = '/store';
+              window.location.href = '/viewOrder';
             })
           .catch(error => {
             Swal.showValidationMessage(
