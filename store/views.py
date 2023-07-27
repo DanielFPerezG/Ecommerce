@@ -423,7 +423,7 @@ def createOrder(request, pk):
     selectedAddress = UserAddress.objects.get(pk=pk)
     products = Product.objects.all()
     productCartWithStockCheckout = ProductCart.productCartWithStockCheckout(cart, products)
-    subTotal = ProductCart.subtotalCart(productCartWithStockCheckout, 'checkout')
+    subTotal = ProductCart.subtotalCart(productCartWithStockCheckout, 'checkout')+10000
 
     order = PurchaseOrder.objects.create(
         user=request.user,
@@ -481,7 +481,7 @@ def viewOrder(request):
     cart = Cart.objects.get(user=request.user)
     products = Product.objects.all()
     numberProductsCart = ProductCart.numberProducts(cart)
-    orders = PurchaseOrder.objects.filter(user=request.user)
+    orders = PurchaseOrder.objects.filter(user=request.user).order_by('-createdAt')
 
     context = {'cart': cart, 'numberProductsCart': numberProductsCart, 'orders': orders}
     return render(request, 'store/viewOrder.html', context)

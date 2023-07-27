@@ -216,6 +216,8 @@ class PurchaseOrder(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     complement = models.CharField(max_length=150)
+    shippingCompany = models.CharField(max_length=100, null=True)
+    shippingGuide = models.CharField(max_length=100, null=True)
 
     def __str__(self):
         return self.pk
