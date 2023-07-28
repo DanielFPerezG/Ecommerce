@@ -1,0 +1,137 @@
+{% extends 'base/main.html' %}
+{% load humanize %}
+
+{% block content %}
+
+    <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Ordenes</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+              <li class="breadcrumb-item active">Ordenes</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Ordenes</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Fecha de Compra</th>
+                    <th>Comprador</th>
+                    <th>Estado</th>
+                    <th>Guia</th>
+                    <th>Precio Total</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                            <tr>
+                                <td>
+                                    {{order.createdAt}}
+                                </td>
+                                <td>
+                                    {{order.user.name}} {{ order.user.lastName }}
+                                </td>
+                                <td>
+                                    {% if order.status == 'Pendiente de pago' %}
+                                    <span class="badge badge-danger"><span class="h5">{{order.status}}</span></span>
+                                    {% elif order.status == 'Preparando envio' %}
+                                    <span class="badge badge-warning"><span class="h5">{{order.status}}</span></span>
+                                    {% elif order.status == 'En camino' %}
+                                    <span class="badge badge-light"><span class="h5">{{order.status}}</span></span>
+                                    {% elif order.status == 'Entregado' %}
+                                    <span class="badge badge-success"><span class="h5">{{order.status}}</span></span>
+                                    {% elif order.status == 'Cancelado' %}
+                                    <span class="badge badge-dark"><span class="h5">{{order.status}}</span></span>
+                                    {% endif %}
+
+                                </td>
+                                <td>
+                                    {% if order.shippingGuide %}
+                                    {{order.shippingGuide}}
+                                    {% else %}
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    ${{order.total|intcomma}}
+                                </td>
+                                <td class="product-option">
+                                    <a href="{% url 'updateProduct' order.id %}" class="dropdown-link mx-3">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                    </a>
+                                    <a href="{% url 'updateProduct' order.id %}" class="dropdown-link mx-3">
+                                        <i class="nav-icon fas fa-eye"></i>
+                                    </a>
+                                    {% if order.status == 'Pendiente de pago' %}
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default_{{ product.id }}">
+                                      <i class="nav-icon fas fa-trash"></i>
+                                    </button>
+                                    {% endif %}
+                                </td>
+
+                            </tr>
+                            <div class="modal fade" id="modal-default_{{ order.id }}">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 class="modal-title">Eliminar producto</h4>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>¿Seguro de querer eliminar el producto {{ order.user }}?</p>
+                                    </div>
+                                    <div class="modal-footer justify-content-between">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+                                        <a href="{% url 'deleteProduct' order.id %}">
+                                            <button type="button"  class="btn btn-danger">Eliminar</button>
+                                        </a>
+                                    </div>
+                                  </div>
+                                  <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                              </div>
+                              <!-- /.modal -->
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+{% endblock  %}
+

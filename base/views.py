@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.files.storage import default_storage
 
 from .forms import ProductForm, TopicForm, BannerForm
-from .models import User,Topic,Product,Banner
+from .models import User, Topic, Product, Banner, PurchaseOrder
 from .helpers import ImageHandler
 import tempfile
 import os
@@ -269,3 +269,9 @@ def deleteBanner(request,pk):
     banner.delete()
 
     return redirect('adminBanner')
+
+@login_required(login_url='login')
+def adminOrder(request):
+    orders = PurchaseOrder.objects.all().order_by('-createdAt')
+
+    return render(request, 'base/adminOrder.html', {'orders':orders})
