@@ -29,6 +29,7 @@ urlpatterns = [
 
     path('adminOrder', views.adminOrder, name="adminOrder"),
     path('viewOrderDetail/<str:pk>', views.viewOrderDetail, name="viewOrderDetail"),
+    path('cancelOrder/<str:pk>', views.cancelOrder, name="cancelOrder"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

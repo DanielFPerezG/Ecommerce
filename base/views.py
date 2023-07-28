@@ -294,3 +294,11 @@ def viewOrderDetail(request, pk):
         products = []
 
     return render(request, 'base/viewOrderDetail.html', {'order': order, 'products': products})
+
+@login_required(login_url='login')
+def cancelOrder(request,pk):
+    order = PurchaseOrder.objects.get(id=pk)
+    order.status = "Cancelado"
+    order.save()
+
+    return redirect('adminOrder')
