@@ -1,0 +1,184 @@
+{% extends 'base/main.html' %}
+{% load humanize %}
+
+{% block content %}
+
+    <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Detalles de la orden</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+              <li class="breadcrumb-item active">Detalles de la orden</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row ">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Orden ({{ order.id }})</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="row mt-3 d-flex justify-content-center">
+                  <div class=" row col-12 col-lg-11 d-lg-flex justify-content-lg-center">
+                  <div class="col-12 col-md-6 col-lg-3">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                      <div class="inner">
+                        <h3>${{ order.total|intcomma }}</h3>
+
+                        <p>Precio Total</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-12 col-md-6 col-lg-3">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                      <div class="inner">
+                        <h5>{{ order.address }}</h5>
+                        <h6>{{ order.city }} - {{ order.state }} - {{ order.complement }}</h6>
+                        <h5>Dirección</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-12 col-md-6 col-lg-3">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                      <div class="inner">
+                        <h3>{{ order.shippingCompany }}</h3>
+
+                        <p>Empresa distribuidora</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-12 col-md-6 col-lg-3">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                      <div class="inner">
+                        <h3>{{ order.shippingGuide }}</h3>
+
+                        <p>Guia de envio</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ./col -->
+                  </div>
+                </div>
+                <div class="row mt-3 d-flex justify-content-center">
+                  <div class=" row col-12 col-lg-11 d-lg-flex justify-content-lg-center">
+                  <div class="col-12 col-md-6 col-lg-3">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                      <div class="inner">
+                        <h3>{{ order.user.name }} {{ order.user.lastName }}</h3>
+
+                        <p>Cliente</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-12 col-md-6 col-lg-3">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                      <div class="inner">
+                        <h3>{{ order.user.card }}</h3>
+
+                        <p>Cedula</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-12 col-md-6 col-lg-3">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                      <div class="inner">
+                        <h3>{{ order.user.phone }}</h3>
+
+                        <p>Telefono</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-12 col-md-6 col-lg-3">
+                    <!-- small box -->
+                      {% if order.status == "Pendiente de pago" %}
+                          <div class="small-box bg-warning">
+                      {% else %}
+                          <div class="small-box bg-success">
+                      {% endif %}
+                      <div class="inner">
+                        <h3>{{ order.status }}</h3>
+
+                        <p>Estado de la orden</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ./col -->
+                  </div>
+                </div>
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Imagen</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for productOrder in products %}
+                            <tr>
+                                <td>
+                                    <img src="{{productOrder.image_url}}" style="width: 4rem; height: 4rem; border-radius:50%;object-fit:cover;">
+                                </td>
+                                <td>
+                                    {{productOrder.name}}
+                                </td>
+                                <td>
+                                    ${{productOrder.price|intcomma}}
+                                </td>
+                                <td>
+                                    {{productOrder.quantity}}
+                                </td>
+                                <td>
+                                    ${{productOrder.total|intcomma}}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+{% endblock  %}
+

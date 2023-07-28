@@ -8,6 +8,7 @@ from .forms import ProductForm, TopicForm, BannerForm
 from .models import User, Topic, Product, Banner, PurchaseOrder
 from .helpers import ImageHandler
 import tempfile
+import json
 import os
 
 
@@ -275,3 +276,21 @@ def adminOrder(request):
     orders = PurchaseOrder.objects.all().order_by('-createdAt')
 
     return render(request, 'base/adminOrder.html', {'orders':orders})
+
+@login_required(login_url='login')
+def viewOrderDetail(request, pk):
+    order = PurchaseOrder.objects.get(pk=pk)
+    products_data = order.products
+
+    try:
+        # Utiliza json.JSONDecoder() para cargar el JSON de forma más segura.
+        decoder = json.JSONDecoder()
+        products = decoder.decode(products_data)
+    except json.JSONDecodeError as e:
+        # Maneja cualquier error de decodificación aquí.
+        # Puedes imprimir el error o registrar el contenido de 'products_data' para depurar.
+        print(f"Error decoding JSON: {e}")
+        print(f"Invalid JSON data: {products_data}")
+        products = []
+
+    return render(request, 'base/viewOrderDetail.html', {'order': order, 'products': products})

@@ -469,7 +469,7 @@ def createOrder(request, pk):
             product.stock = product.stock - productJson['quantity']
             product.save()
         orderItem.save()
-    order.products = productCartWithStockCheckout
+    order.products = json.dumps(productCartWithStockCheckout)
     order.save()
 
     cart.products = json.dumps([])
