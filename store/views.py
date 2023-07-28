@@ -485,3 +485,11 @@ def viewOrder(request):
 
     context = {'cart': cart, 'numberProductsCart': numberProductsCart, 'orders': orders}
     return render(request, 'store/viewOrder.html', context)
+
+@login_required(login_url='login')
+def cancelStoreOrder(request,pk):
+    order = PurchaseOrder.objects.get(id=pk)
+    order.status = "Cancelado"
+    order.save()
+
+    return JsonResponse({'message': 'User information updated successfully.'})
