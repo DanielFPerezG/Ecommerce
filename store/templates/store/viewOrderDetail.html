@@ -7,17 +7,13 @@
   <div class="container">
     <div class="row d-lg-flex d-md-flex justify-content-center align-items-center d-flex-row text-center h-100">
       <div class="col-10 col-lg-8 col-md-8 pb-4">
-        <h5 class="text-left">Orden</h5>
+        <h5 class="text-left">Compra</h5>
       </div>
       <div class="col-10 col-lg-8 col-md-8 card shadow-sm rounded">
-      {% for order in orders %}
         <div class="card-body border-bottom">
             <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between">
                 <!-- Columna izquierda: Icono y texto -->
                 <div class="d-flex align-items-center mb-3">
-                    <div class="mr-3">
-                        <i class="fa fa-archive fa-2x fa-gray-color" aria-hidden="true"></i>
-                    </div>
                     <div class="text-left col-lg-19">
                         {% if order.status == 'Pendiente de pago' %}
                         <span class="text-danger">{{ order.status }}  (${{ order.total|intcomma }})</span>
@@ -27,12 +23,29 @@
                          <span class="text-warning">{{ order.status }}</span>
                         <br>
                         <span class="text-muted small">Hemos confirmado el pago y estamos preparando tus productos para despacho.</span>
+                        <br>
+                        <span class="text-muted small">Tu pedido se entregara a la dirección:</span>
+                        <br>
+                        <span class="text-muted small">{{ order.address }}</span>
+                        <br>
+                        <span class="text-muted small">{{ order.city }}</span>
+                        <span class="text-muted small"> - </span>
+                        <span class="text-muted small">{{ order.state }}</span>
                         {% elif order.status == 'En camino' %}
                          <span class="text-muted">{{ order.status }}</span>
                         <br>
                         <span class="text-muted small">Distribuidor: {{ order.shippingCompany }}</span>
                         <br>
                         <span class="text-muted small"> Guia: {{ order.shippingGuide }} </span>
+                        <br>
+                        <span class="text-muted small">Tu pedido se entregara a la dirección:</span>
+                        <br>
+                        <span class="text-muted small">{{ order.address }}</span>
+                        <br>
+                        <span class="text-muted small">{{ order.city }}</span>
+                        <span class="text-muted small"> - </span>
+                        <span class="text-muted small">{{ order.state }}</span>
+
                         {% elif order.status == 'Entregado' %}
                             <span class="text-success">{{ order.status }}</span>
                         <br>
@@ -48,22 +61,24 @@
                         <br>
                         <span class="text-muted small">Tu pedido ha sido cancelado.</span>
                         {% endif %}
-                    </div>
-                </div>
+                        <br><br>
+                        <h5>Productos de la compra</h5>
+                        {% for product in productsOrder %}
+                            <br>
+                            <h6 class="text-muted">{{ product.name }} ({{ product.quantity }})</h6>
+                            <span class="text-muted small">Precio unidad: ${{ product.price|intcomma }}</span>
+                            <br>
+                            <span class="text-muted small border-bottom">Precio total de producto: ${{ product.total|intcomma }}</span>
+                        {% endfor %}
+                        <br>
+                        <span class="text-muted small">Costo de envio: $10.000</span>
+                        <br>
+                        <span class="text-muted small">Precio total compra: ${{ order.total|intcomma }}</span>
 
-                <!-- Columna derecha: Botones -->
-                <div class="d-flex flex-column mb-2 col-lg-4">
-                    {% if order.status == 'Pendiente de pago' %}
-                    <button class="btn btn-primary mb-2 ">Realizar pago</button>
-                    <button class="btn btn-outline-danger" onclick="cancelOrder({{ order.id }})">Cancelar Compra</button>
-                    {% elif order.status == 'Cancelado' %}
-                    {% else %}
-                     <button onclick="orderDetail({{order.id}})" class="btn btn-primary mb-2 ">Ver compra</button>
-                    {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
-      {% endfor %}
 
       </div>
     </div>

@@ -493,3 +493,24 @@ def cancelStoreOrder(request,pk):
     order.save()
 
     return JsonResponse({'message': 'User information updated successfully.'})
+
+def viewOrderDetail(request, pk):
+    cart = Cart.objects.get(user=request.user)
+    products = Product.objects.all()
+    numberProductsCart = ProductCart.numberProducts(cart)
+    order = PurchaseOrder.objects.get(id=pk)
+    products_data = order.products
+
+    try:
+        # Utiliza json.JSONDecoder() para cargar el JSON de forma más segura.
+        decoder = json.JSONDecoder()
+        productsOrder = decoder.decode(products_data)
+    except json.JSONDecodeError as e:
+        # Maneja cualquier error de decodificación aquí.
+        # Puedes imprimir el error o registrar el contenido de 'products_data' para depurar.
+        print(f"Error decoding JSON: {e}")
+        print(f"Invalid JSON data: {products_data}")
+        productsOrder = []
+
+    context = {'cart': cart, 'numberProductsCart': numberProductsCart, 'order': order,  'productsOrder': productsOrder}
+    return render(request, 'store/viewOrderDetail.html', context)

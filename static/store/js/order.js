@@ -36,3 +36,7 @@ function cancelOrder(orderId){
   }
 })
 }
+
+function orderDetail(orderId){
+    window.location.href = `/viewOrderDetail/${orderId}`;
+}
