@@ -36,8 +36,8 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Id</th>
                     <th>Fecha de Compra</th>
+                      <th>Id</th>
                     <th>Cliente</th>
                     <th>Estado</th>
                     <th>Guia</th>
@@ -50,10 +50,10 @@
                         {% for order in orders %}
                             <tr>
                                 <td>
-                                    {{order.id}}
+                                    {{order.createdAt}}
                                 </td>
                                 <td>
-                                    {{order.createdAt}}
+                                    {{order.id}}
                                 </td>
                                 <td>
                                     {{order.user.name}} {{ order.user.lastName }}
@@ -82,9 +82,11 @@
                                     ${{order.total|intcomma}}
                                 </td>
                                 <td class="product-option">
-                                    <a href="{% url 'updateProduct' order.id %}" class="dropdown-link mx-3">
+                                    {% if order.status != 'Cancelado' and order.status != 'Entregado' %}
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-update_{{ order.id }}">
                                         <i class="nav-icon fas fa-edit"></i>
-                                    </a>
+                                    </button>
+                                    {% endif %}
                                     <a href="{% url 'viewOrderDetail' order.id %}" class="dropdown-link mx-3">
                                         <i class="nav-icon fas fa-eye"></i>
                                     </a>
@@ -119,7 +121,60 @@
                                   <!-- /.modal-content -->
                                 </div>
                                 <!-- /.modal-dialog -->
-                              </div>
+                            </div>
+                              <!-- /.modal -->
+                            <div class="modal fade" id="modal-update_{{ order.id }}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form method="POST" action="{% url 'updateOrder' order.id %}">
+                                            {% csrf_token %}
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Actualizar compra ({{ order.id }})</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                {% if order.status != 'Entregado' %}
+                                                <label>Estado de la orden</label>
+                                                <select class="custom-select" name="status">
+                                                    {% if order.status == 'Pendiente de pago' %}
+                                                    <option value="Preparando envio">Preparando envio</option>
+                                                    {% elif order.status == 'Preparando envio' %}
+                                                    <option value="En camino">En camino</option>
+                                                    {% elif order.status == 'En camino' %}
+                                                    <option value="Entregado">Entregado</option>
+                                                    {% endif %}
+                                                </select>
+                                                {% endif %}
+                                                {% if order.status == 'Preparando envio' %}
+                                                <label>Empresa de envio</label>
+                                                <select class="custom-select" name="shippingCompany">
+                                                    <option value="Servientrega">Servientrega</option>
+                                                    <option value="Inter Rapidisimo">Inter Rapidisimo</option>
+                                                    <option value="Coordinadora">Coordinadora</option>
+                                                    <option value="Envia">Envia</option>
+                                                    <option value="DHL">DHL</option>
+                                                    <option value="Mipaquete">Mipaquete</option>
+                                                    <option value="Envíoclick">Envíoclick</option>
+                                                    <option value="99 minutos">99 minutos</option>
+                                                </select>
+                                                {% endif %}
+                                                {% if order.status == 'Preparando envio' %}
+                                                <label>Número de guía de envío</label>
+                                                <input type="text" name="shippingGuide" class="form-control">
+                                                {% endif %}
+                                            </div>
+                                            <div class="modal-footer justify-content-between">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+                                                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
                               <!-- /.modal -->
                         {% endfor %}
                     </tbody>

@@ -55,7 +55,7 @@
                 <div class="d-flex flex-column mb-2 col-lg-4">
                     {% if order.status == 'Pendiente de pago' %}
                     <button class="btn btn-primary mb-2 ">Realizar pago</button>
-                    <button class="btn btn-danger" onclick="cancelOrder({{ order.id }})">Cancelar Compra</button>
+                    <button class="btn btn-outline-danger" onclick="cancelOrder({{ order.id }})">Cancelar Compra</button>
                     {% elif order.status == 'Cancelado' %}
                     {% else %}
                      <button class="btn btn-primary mb-2 ">Ver compra</button>

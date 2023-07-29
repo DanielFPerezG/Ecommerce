@@ -302,3 +302,23 @@ def cancelOrder(request,pk):
     order.save()
 
     return redirect('adminOrder')
+
+@login_required(login_url='login')
+def updateOrder(request,pk):
+    order = PurchaseOrder.objects.get(id=pk)
+
+    if request.method == 'POST':
+        if order.status == 'Preparando envio':
+            status = request.POST.get('status')
+            shippingCompany = request.POST.get('shippingCompany')
+            shippingGuide = request.POST.get('shippingGuide')
+            order.status = status
+            order.shippingCompany = shippingCompany
+            order.shippingGuide = shippingGuide
+            order.save()
+        else:
+            status = request.POST.get('status')
+            order.status = status
+            order.save()
+
+    return redirect('adminOrder')
