@@ -8,6 +8,9 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 from django.db.models import Q
 from base.models import Product, Topic, Banner, User, Cart, UserAddress, PurchaseOrder, PurchaseOrderItem
@@ -16,6 +19,8 @@ from .helpers import ProductCart
 
 from store.forms import UserForm, MyUserCreationForm
 
+import string
+import random
 import json
 
 # Create your views here.
@@ -81,6 +86,41 @@ def registerPage(request):
 
     context = {'page': page, 'messages': messages.get_messages(request)}
     return render(request, 'store/login_register.html',context)
+
+def generate_random_password(length=10):
+    characters = string.ascii_letters + string.digits
+    return ''.join(random.choice(characters) for _ in range(length))
+
+
+def resetPassword(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        try:
+            user = User.objects.get(email=email)
+            newPassword = generate_random_password()
+            user.set_password(newPassword)
+            user.save()
+
+            # Envía el correo electrónico con la nueva contraseña utilizando la plantilla HTML
+            subject = 'Solicitud de cambio de contraseña'
+            from_email = 'danielfeperezgalindo@gmail.com'  # Coloca aquí tu dirección de correo Gmail
+            recipient_list = [email]
+
+            # Renderiza la plantilla HTML con los datos necesarios
+            html_message = render_to_string('email/resetPasswordEmail.html', {'newPassword': newPassword})
+            plain_message = strip_tags(html_message)
+
+            # Crea el objeto EmailMultiAlternatives para enviar el correo con contenido HTML y texto plano
+            msg = EmailMultiAlternatives(subject, plain_message, from_email, recipient_list)
+            msg.attach_alternative(html_message, "text/html")
+            msg.send()
+
+            return redirect('store:login')
+        except User.DoesNotExist:
+            messages.error(request, 'El correo electronico no esta registrado.')
+            return redirect('store:resetPassword')
+
+    return render(request, 'store/resetPassword.html')
 
 def home(request):
     topics = Topic.objects.all()

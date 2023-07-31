@@ -2555,7 +2555,7 @@ responsive
   background-color: #ea4335;
 }
 
-.tooltip-text {
+.tooltip-text{
   position: absolute;
   background-color: rgba(219, 207, 193, 0.7);
   color: #4f483f;
@@ -2570,12 +2570,18 @@ responsive
 }
 
 @media (max-width: 767px) {
-  .tooltip-text {
+  .tooltip-text{
     left: -300%;
     width: 200%;
     max-width: 300px;
     transform: translateY(-130%);
   }
+}
+
+.tooltip-reset-password.tooltip-text  {
+  transform: translateY(-140%);
+  transform: translateX(27%);
+  left: 200%;
 }
 
 .grayscaleimg {

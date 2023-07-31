@@ -1,13 +1,16 @@
 $(document).ready(function() {
-  function showTooltip() {
-    var infoIcon = $("#info-icon");
-    var tooltipText = "La información proporcionada sera utilizada por parte del Edjo exclusivamente para el envio de los productos seleccionados con la empresa 'Interrapidisimo'.";
+  function showTooltip(iconId, tooltipText, extraClass) {
+    var infoIcon = $(iconId);
 
     infoIcon.on("mouseover", function() {
       var tooltip = $("<div>")
         .addClass("tooltip-text")
         .text(tooltipText)
         .appendTo("body");
+
+      if (extraClass) {
+        tooltip.addClass(extraClass); // Agrega la clase adicional específica para el tooltip de recuperar contraseña
+      }
 
       var tooltipWidth = tooltip.outerWidth();
       var tooltipHeight = tooltip.outerHeight();
@@ -30,5 +33,11 @@ $(document).ready(function() {
     });
   }
 
-  showTooltip();
+  // Llama la función showTooltip para el primer tooltip
+  var tooltipTextCheckout = "La información proporcionada será utilizada por parte del Edjo exclusivamente para el envío de los productos seleccionados con la empresa 'Interrapidisimo'.";
+  showTooltip("#info-icon", tooltipTextCheckout);
+
+  // Llama la función showTooltip para el segundo tooltip y agrega la clase "tooltip-reset-password"
+  var tooltipTextResetPassword = "Introduce tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.";
+  showTooltip("#info-icon-reset-password", tooltipTextResetPassword, "tooltip-reset-password");
 });
