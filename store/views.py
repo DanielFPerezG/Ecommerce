@@ -11,6 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from django.contrib.auth.hashers import check_password
 
 from django.db.models import Q
 from base.models import Product, Topic, Banner, User, Cart, UserAddress, PurchaseOrder, PurchaseOrderItem
@@ -428,14 +429,14 @@ def updatePassword(request,pk):
         user = User.objects.get(pk=pk)
 
         # Verify if passwords match
-        if newPassword != confirmPassword:
-            return JsonResponse({'error': 'Las contraseñas no coinciden.'})
+        if not check_password(lastPassword, user.password):
+            return JsonResponse({'error': 'La contraseña actual es incorrecta.'})
 
         if lastPassword != user.password:
             return JsonResponse({'error': 'La contraseña actual es incorrecta.'})
 
 
-        user.password = newPassword
+        user.set_password(newPassword)
 
         user.save()
 
