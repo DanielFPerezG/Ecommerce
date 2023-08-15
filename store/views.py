@@ -288,7 +288,7 @@ def viewCart(request):
     products = Product.objects.all()
     numberProductsCart = ProductCart.numberProducts(cart)
     subTotal = ProductCart.subtotalCart(cart,'cart')
-    total = subTotal + 10000
+    total = subTotal + 15000
     productCartWithStock = ProductCart.productCartWithStock(cart, products)
 
     context = {'cart': cart, 'productCart': productCartWithStock,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total}
@@ -453,7 +453,7 @@ def checkout(request):
     numberProductsCart = ProductCart.numberProducts(cart)
     productCartWithStockCheckout = ProductCart.productCartWithStockCheckout(cart, products)
     subTotal = ProductCart.subtotalCart(productCartWithStockCheckout, 'checkout')
-    total = subTotal + 10000
+    total = subTotal + 15000
 
     context = {'cart': cart, 'productCart': productCartWithStockCheckout,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total, 'addresses': addresses, 'addresses_json': addresses_json}
     return render(request, 'store/checkout.html', context)
@@ -463,7 +463,7 @@ def createOrder(request, pk):
     selectedAddress = UserAddress.objects.get(pk=pk)
     products = Product.objects.all()
     productCartWithStockCheckout = ProductCart.productCartWithStockCheckout(cart, products)
-    subTotal = ProductCart.subtotalCart(productCartWithStockCheckout, 'checkout')+10000
+    subTotal = ProductCart.subtotalCart(productCartWithStockCheckout, 'checkout')+15000
 
     order = PurchaseOrder.objects.create(
         user=request.user,

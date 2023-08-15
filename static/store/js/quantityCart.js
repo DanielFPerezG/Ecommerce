@@ -106,7 +106,7 @@ function createJSON(a,productId) {
                     subTotalcount += data[i]["total"]
                 }
                 subTotal.textContent = "$"+subTotalcount.toLocaleString("en-US", { useGrouping: true })
-                totalPrice.textContent = "$"+(subTotalcount+10000).toLocaleString("en-US", { useGrouping: true })
+                totalPrice.textContent = "$"+(subTotalcount+15000).toLocaleString("en-US", { useGrouping: true })
         });
 
 

@@ -253,7 +253,7 @@ const csrftoken = getCookie('csrftoken');
                     subTotalcount += data[i]["total"]
                 }
                 subTotal.textContent = "$"+subTotalcount
-                totalPrice.textContent = "$"+(subTotalcount+10000)
+                totalPrice.textContent = "$"+(subTotalcount+15000)
         });
 
 
