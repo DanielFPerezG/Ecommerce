@@ -416,7 +416,6 @@ def securityInformation(request):
     context = {'numberProductsCart': numberProductsCart}
     return render(request, 'store/securityInformation.html', context)
 
-@csrf_exempt
 @login_required(login_url='login')
 def updatePassword(request,pk):
 
@@ -432,8 +431,8 @@ def updatePassword(request,pk):
         if not check_password(lastPassword, user.password):
             return JsonResponse({'error': 'La contraseña actual es incorrecta.'})
 
-        if lastPassword != user.password:
-            return JsonResponse({'error': 'La contraseña actual es incorrecta.'})
+        if newPassword != confirmPassword:
+            return JsonResponse({'error': 'La nueva contraseña no es igual.'})
 
 
         user.set_password(newPassword)
