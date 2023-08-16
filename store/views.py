@@ -476,38 +476,18 @@ def createOrder(request, pk):
     )
 
     for productJson in productCartWithStockCheckout:
-        if productJson['quantity'] >= productJson['stock'] :
-            for product in productCartWithStockCheckout:
-                product.pop('quantity', None)
-            for product in productCartWithStockCheckout:
-                product['quantity'] = product.pop('stock')
-            orderItem = PurchaseOrderItem.objects.create(
-                order=order,
-                user=request.user,
-                productName=productJson['name'],
-                price=productJson['price'],
-                quantity=productJson['quantity'],
-                total=productJson['total'],
-                orderStatus=order.status
-            )
-            product = Product.objects.get(pk=productJson['id'])
-            product.stock = product.stock - productJson['quantity']
-            product.save()
-        else:
-            for product in productCartWithStockCheckout:
-                product.pop('stock', None)
-            orderItem = PurchaseOrderItem.objects.create(
-                order=order,
-                user=request.user,
-                productName=productJson['name'],
-                price=productJson['price'],
-                quantity=productJson['quantity'],
-                total=productJson['total'],
-                orderStatus=order.status
-            )
-            product = Product.objects.get(pk=productJson['id'])
-            product.stock = product.stock - productJson['quantity']
-            product.save()
+        orderItem = PurchaseOrderItem.objects.create(
+            order=order,
+            user=request.user,
+            productName=productJson['name'],
+            price=productJson['price'],
+            quantity=productJson['quantity'],
+            total=productJson['total'],
+            orderStatus=order.status
+        )
+        product = Product.objects.get(pk=productJson['id'])
+        product.stock = product.stock - productJson['quantity']
+        product.save()
         orderItem.save()
     order.products = json.dumps(productCartWithStockCheckout)
     order.save()

@@ -218,6 +218,7 @@ class PurchaseOrder(models.Model):
     complement = models.CharField(max_length=150)
     shippingCompany = models.CharField(max_length=100, null=True)
     shippingGuide = models.CharField(max_length=100, null=True)
+    shippingCost = models.PositiveIntegerField(null=True)
 
     def __str__(self):
         return self.pk

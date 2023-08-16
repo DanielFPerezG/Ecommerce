@@ -318,6 +318,7 @@ def updateOrder(request,pk):
             status = request.POST.get('status')
             shippingCompany = request.POST.get('shippingCompany')
             shippingGuide = request.POST.get('shippingGuide')
+            shippingCost = request.POST.get('shippingCost')
             order.status = status
             order.shippingCompany = shippingCompany
             order.shippingGuide = shippingGuide

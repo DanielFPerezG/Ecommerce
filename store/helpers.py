@@ -61,6 +61,7 @@ class ProductCart:
 
             if int(quantity) > int(stock):
                 productTotal = int(price)*int(stock)
+                quantity = stock
             itemWithStock = {
                 'id': productId,
                 'name': productName,
