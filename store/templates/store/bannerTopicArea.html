@@ -67,7 +67,7 @@
                                                 <h4>{{ topics.0.name }}</h4>
                                                 <p>{{ topics.0.bio }}</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Encuentra el tuyo</a>
+                                                    <a href="{% url 'store:store' %}?q={{topic.0.name}}">Encuentra el tuyo</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -87,7 +87,7 @@
                                                 <h4>{{ topics.1.name }}</h4>
                                                 <p>{{ topics.1.bio }}</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Encuentra el tuyo</a>
+                                                    <a href="{% url 'store:store' %}?q={{topic.1.name}}">Encuentra el tuyo</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -107,7 +107,7 @@
                                                 <h4>{{ topics.2.name }}</h4>
                                                 <p>{{ topics.2.bio }}</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Encuentra el tuyo</a>
+                                                    <a href="{% url 'store:store' %}?q={{topic.2.name}}">Encuentra el tuyo</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -127,7 +127,7 @@
                                                 <h4>{{ topics.3.name }}</h4>
                                                 <p>{{ topics.3.bio }}</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Encuentra el tuyo</a>
+                                                    <a href="{% url 'store:store' %}?q={{topic.3.name}}">Encuentra el tuyo</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -157,7 +157,7 @@
                                                     <h4>{{ topic.name }}</h4>
                                                     <p>{{ topic.bio }}</p>
                                                     <div class="main-border-button">
-                                                        <a href="#">Encuentra el tuyo</a>
+                                                        <a href="{% url 'store:store' %}?q={{topic.name}}">Encuentra el tuyo</a>
                                                     </div>
                                                 </div>
                                             </div>

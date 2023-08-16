@@ -99,7 +99,14 @@
                             {% else %}
                                 <h4>Total: &nbsp$</h4> <h4 id="total-price-detail">{{ product.price|intcomma }}</h4>
                             {% endif %}
-                            <div class="main-border-button"><a id="add-to-cart-button" onclick="addProductDetail('{{ product.id }}','{{ product.stock }}')">Add To Cart</a></div>
+
+                            {% if user.is_authenticated %}
+                                <div class="main-border-button"><a id="add-to-cart-button" onclick="addProductDetail('{{ product.id }}','{{ product.stock }}')">Add To Cart</a></div>
+                            {% else %}
+                                <div class="main-border-button"><a id="add-to-cart-button" href="{% url 'store:login' %}">Add To Cart</a></div>
+                            {% endif %}
+
+
                             <h4 id="product-quantity-detail">1</h4>
                         </div>
                 </div>

@@ -187,6 +187,7 @@ def store(request):
     topics = Topic.objects.all()
     if request.user.is_authenticated:
         cart, create = Cart.objects.get_or_create(user=request.user)
+        numberProductsCart = ProductCart.numberProducts(cart)
 
     if query_max_price != '' and query_min_price != '': 
         products = Product.objects.filter(
@@ -227,8 +228,6 @@ def store(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     products = page_obj.object_list
-
-    numberProductsCart = ProductCart.numberProducts(cart)
 
     if request.user.is_authenticated:
         context = {'products':products,'topics':topics,'query':query,'page_obj':page_obj,'products':products,'order_by':order_by,'numberProductsCart':numberProductsCart}

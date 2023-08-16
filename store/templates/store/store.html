@@ -89,7 +89,17 @@
                             <div class="hover-content">
                                 <ul>
                                     <li><a href="{% url 'store:shopDetail' product.id %}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a type="button" onclick="addCart( {{ product.id }} );"><i class="fa fa-shopping-cart"></i></a></li>
+                                    {% if product.stock > 0 %}
+                                    <li>
+                                    {% if user.is_authenticated %}
+                                        <a type="button" onclick="addCart( {{ product.id }} );"><i class="fa fa-shopping-cart"></i></a>
+                                    {% else %}
+                                        <a type="button" href="{% url 'store:login' %}"><i class="fa fa-shopping-cart"></i></a>
+                                    {% endif %}
+                                    </li>
+                                     {% else %}
+                                     <li><a type="button" onclick="addCartNoStock('{{ product.name }}');"><i class="fa fa-shopping-cart"></i></a></li>
+                                     {% endif %}
                                 </ul>
                             </div>
                             {% if product.stock > 0 %}
