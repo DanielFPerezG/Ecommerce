@@ -233,3 +233,8 @@ class PurchaseOrderItem(models.Model):
     boughtAt = models.DateTimeField(auto_now_add=True)
     orderStatus = models.CharField(max_length=100)
 
+class ShippingCost(models.Model):
+    cost = models.IntegerField(default=15000)
+
+    def __str__(self):
+        return str(self.cost)

@@ -12,9 +12,10 @@ from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.contrib.auth.hashers import check_password
+from django.views.decorators.cache import never_cache
 
 from django.db.models import Q
-from base.models import Product, Topic, Banner, User, Cart, UserAddress, PurchaseOrder, PurchaseOrderItem
+from base.models import Product, Topic, Banner, User, Cart, UserAddress, PurchaseOrder, PurchaseOrderItem, ShippingCost
 
 from .helpers import ProductCart
 
@@ -283,21 +284,24 @@ def addCartDetail(request,pk):
 
 
 
+@never_cache
 def viewCart(request):
+    shippingCost = ShippingCost.objects.first()
     cart = Cart.objects.get(user=request.user)
     products = Product.objects.all()
     numberProductsCart = ProductCart.numberProducts(cart)
     subTotal = ProductCart.subtotalCart(cart,'cart')
-    total = subTotal + 15000
+    total = subTotal + shippingCost.cost
     productCartWithStock = ProductCart.productCartWithStock(cart, products)
 
-    context = {'cart': cart, 'productCart': productCartWithStock,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total}
+    context = {'cart': cart, 'productCart': productCartWithStock,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total, 'ShippingCost': ShippingCost}
     return render(request, 'store/viewCart.html', context)
 
 @csrf_exempt
 def updateCart(request):
     cart = Cart.objects.get(user=request.user)
     productCart = cart.obtain_products()
+    shippingCost = ShippingCost.objects.first()
 
     if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
         data = json.loads(request.body)
@@ -310,7 +314,7 @@ def updateCart(request):
                 cart.delete_product(product["id"])
 
             product["total"] = product["price"]*product["quantity"]
-
+            product["shippingCost"] = shippingCost.cost
         cart.products = productCart
         cart.products = json.dumps(cart.products)
         cart.save()
@@ -447,22 +451,24 @@ def checkout(request):
     cart = Cart.objects.get(user=request.user)
     addresses = UserAddress.objects.filter(user=request.user)
     addresses_json = json.dumps(list(addresses.values()))
+    shippingCost = ShippingCost.objects.first()
 
     products = Product.objects.all()
     numberProductsCart = ProductCart.numberProducts(cart)
     productCartWithStockCheckout = ProductCart.productCartWithStockCheckout(cart, products)
     subTotal = ProductCart.subtotalCart(productCartWithStockCheckout, 'checkout')
-    total = subTotal + 15000
+    total = subTotal + shippingCost.cost
 
-    context = {'cart': cart, 'productCart': productCartWithStockCheckout,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total, 'addresses': addresses, 'addresses_json': addresses_json}
+    context = {'cart': cart, 'productCart': productCartWithStockCheckout,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total, 'addresses': addresses, 'addresses_json': addresses_json, 'ShippingCost': ShippingCost}
     return render(request, 'store/checkout.html', context)
 
 def createOrder(request, pk):
+    shippingCost = ShippingCost.objects.first()
     cart = Cart.objects.get(user=request.user)
     selectedAddress = UserAddress.objects.get(pk=pk)
     products = Product.objects.all()
     productCartWithStockCheckout = ProductCart.productCartWithStockCheckout(cart, products)
-    subTotal = ProductCart.subtotalCart(productCartWithStockCheckout, 'checkout')+15000
+    subTotal = ProductCart.subtotalCart(productCartWithStockCheckout, 'checkout')+shippingCost.cost
 
     order = PurchaseOrder.objects.create(
         user=request.user,
@@ -525,6 +531,7 @@ def viewOrderDetail(request, pk):
     numberProductsCart = ProductCart.numberProducts(cart)
     order = PurchaseOrder.objects.get(id=pk)
     products_data = order.products
+    shippingCost = ShippingCost.objects.first()
 
     try:
         # Utiliza json.JSONDecoder() para cargar el JSON de forma más segura.
@@ -537,5 +544,5 @@ def viewOrderDetail(request, pk):
         print(f"Invalid JSON data: {products_data}")
         productsOrder = []
 
-    context = {'cart': cart, 'numberProductsCart': numberProductsCart, 'order': order,  'productsOrder': productsOrder}
+    context = {'cart': cart, 'numberProductsCart': numberProductsCart, 'order': order,  'productsOrder': productsOrder, 'ShippingCost': ShippingCost}
     return render(request, 'store/viewOrderDetail.html', context)

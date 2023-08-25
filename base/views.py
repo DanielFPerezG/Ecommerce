@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.files.storage import default_storage
 
 from .forms import ProductForm, TopicForm, BannerForm
-from .models import User, Topic, Product, Banner, PurchaseOrder
+from .models import User, Topic, Product, Banner, PurchaseOrder, ShippingCost
 from .helpers import ImageHandler
 import tempfile
 import json
@@ -330,3 +330,17 @@ def updateOrder(request,pk):
             order.save()
 
     return redirect('adminOrder')
+
+def updateShippingCost(request):
+    shippingCost = ShippingCost.objects.first()
+
+    if request.method == 'POST':
+        if 'submit' in request.POST:
+            newCost = int(request.POST['newCost'])
+            shippingCost.cost = newCost
+            shippingCost.save()
+
+    context = {
+        'shippingCost': shippingCost
+    }
+    return render(request, 'base/updateShippingCost.html', context)

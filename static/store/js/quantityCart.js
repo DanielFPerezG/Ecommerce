@@ -97,6 +97,8 @@ function createJSON(a,productId) {
                 var subTotal = document.getElementById("subtotal");
                 var totalPrice = document.getElementById("total_price");
                 var subTotalcount = 0;
+                var shippingCost = data[0]["shippingCost"]
+                console.log(shippingCost)
 
                 for (let i = 0; i < data.length; i++) {
                     var totalElement = document.getElementById("total_price_"+data[i]["id"]);
@@ -106,7 +108,7 @@ function createJSON(a,productId) {
                     subTotalcount += data[i]["total"]
                 }
                 subTotal.textContent = "$"+subTotalcount.toLocaleString("en-US", { useGrouping: true })
-                totalPrice.textContent = "$"+(subTotalcount+15000).toLocaleString("en-US", { useGrouping: true })
+                totalPrice.textContent = "$"+(subTotalcount+shippingCost).toLocaleString("en-US", { useGrouping: true })
         });
 
 
