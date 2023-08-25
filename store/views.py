@@ -286,15 +286,15 @@ def addCartDetail(request,pk):
 
 @never_cache
 def viewCart(request):
-    shippingCost = ShippingCost.objects.first()
+    cost = ShippingCost.objects.first()
     cart = Cart.objects.get(user=request.user)
     products = Product.objects.all()
     numberProductsCart = ProductCart.numberProducts(cart)
     subTotal = ProductCart.subtotalCart(cart,'cart')
-    total = subTotal + shippingCost.cost
+    total = subTotal + cost.cost
     productCartWithStock = ProductCart.productCartWithStock(cart, products)
 
-    context = {'cart': cart, 'productCart': productCartWithStock,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total, 'ShippingCost': ShippingCost}
+    context = {'cart': cart, 'productCart': productCartWithStock,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total, 'cost': cost}
     return render(request, 'store/viewCart.html', context)
 
 @csrf_exempt
@@ -451,15 +451,15 @@ def checkout(request):
     cart = Cart.objects.get(user=request.user)
     addresses = UserAddress.objects.filter(user=request.user)
     addresses_json = json.dumps(list(addresses.values()))
-    shippingCost = ShippingCost.objects.first()
+    cost = ShippingCost.objects.first()
 
     products = Product.objects.all()
     numberProductsCart = ProductCart.numberProducts(cart)
     productCartWithStockCheckout = ProductCart.productCartWithStockCheckout(cart, products)
     subTotal = ProductCart.subtotalCart(productCartWithStockCheckout, 'checkout')
-    total = subTotal + shippingCost.cost
+    total = subTotal + cost.cost
 
-    context = {'cart': cart, 'productCart': productCartWithStockCheckout,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total, 'addresses': addresses, 'addresses_json': addresses_json, 'ShippingCost': ShippingCost}
+    context = {'cart': cart, 'productCart': productCartWithStockCheckout,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total, 'addresses': addresses, 'addresses_json': addresses_json, 'cost': cost}
     return render(request, 'store/checkout.html', context)
 
 def createOrder(request, pk):
