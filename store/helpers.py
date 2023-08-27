@@ -1,4 +1,9 @@
 import json
+import random
+import string
+
+from django.conf import settings
+from base.models import Cupon
 
 class ProductCart:
 
@@ -91,3 +96,28 @@ class ProductCart:
                 subTotal += item['total']
 
             return subTotal
+
+class CuponAdmin:
+
+    def generateFirstCupon(request):
+        prefix = "10OFF"
+        suffix = ''.join(random.choice(string.ascii_uppercase) for _ in range(2))
+        return prefix + suffix
+    def FirstOrderCupon(user):
+        value = settings.DISCOUNT_PERCENTAGE
+        cupon = str(CuponAdmin.generateFirstCupon(user))
+
+        newCupon = Cupon.objects.create(
+            cupon = cupon,
+            quantity = 1,
+            description = f'{value}% de descuento ¡por tu primera compra!',
+            user = user,
+            value = value
+        )
+        newCupon.save()
+
+        return newCupon
+
+
+
+

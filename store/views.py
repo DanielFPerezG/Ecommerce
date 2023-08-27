@@ -17,7 +17,7 @@ from django.views.decorators.cache import never_cache
 from django.db.models import Q
 from base.models import Product, Topic, Banner, User, Cart, UserAddress, PurchaseOrder, PurchaseOrderItem, ShippingCost
 
-from .helpers import ProductCart
+from .helpers import ProductCart, CuponAdmin
 
 from store.forms import UserForm, MyUserCreationForm
 
@@ -82,6 +82,23 @@ def registerPage(request):
 
         # Authenticate and login the user
         user = authenticate(request, username=email, password=password)
+
+        cuponName = CuponAdmin.FirstOrderCupon(user)
+        # Envía el correo electrónico con la nueva contraseña utilizando la plantilla HTML
+        subject = '¡Bienvenido a Edjo!'
+        from_email = 'danielfeperezgalindo@gmail.com'  # Coloca aquí tu dirección de correo Gmail
+        recipient_list = [email]
+
+        # Renderiza la plantilla HTML con los datos necesarios
+        html_message = render_to_string('email/cuponFirstOrder.html', {'cuponName': cuponName.cupon, 'value': cuponName.value})
+        plain_message = strip_tags(html_message)
+
+        # Crea el objeto EmailMultiAlternatives para enviar el correo con contenido HTML y texto plano
+        msg = EmailMultiAlternatives(subject, plain_message, from_email, recipient_list)
+        msg.attach_alternative(html_message, "text/html")
+        msg.send()
+
+
         if user is not None:
             login(request, user)
             return redirect('store:home')
@@ -89,7 +106,7 @@ def registerPage(request):
     context = {'page': page, 'messages': messages.get_messages(request)}
     return render(request, 'store/login_register.html',context)
 
-def generate_random_password(length=10):
+def generateRandomPassword(length=10):
     characters = string.ascii_letters + string.digits
     return ''.join(random.choice(characters) for _ in range(length))
 
@@ -99,7 +116,7 @@ def resetPassword(request):
         email = request.POST.get('email')
         try:
             user = User.objects.get(email=email)
-            newPassword = generate_random_password()
+            newPassword = generateRandomPassword()
             user.set_password(newPassword)
             user.save()
 
