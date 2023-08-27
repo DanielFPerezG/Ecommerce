@@ -33,6 +33,8 @@ urlpatterns = [
     path('createOrder/<str:pk>', views.createOrder, name="createOrder"),
     path('cancelStoreOrder/<str:pk>', views.cancelStoreOrder, name="cancelStoreOrder"),
 
+    path('validateCupon', views.validateCupon, name="validateCupon"),
+
     path('updateCart', views.updateCart, name='updateCart'),
     path('deleteCart/<str:pk>', views.deleteCart, name='deleteCart'),
 ]

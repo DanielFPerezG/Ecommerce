@@ -15,7 +15,7 @@ from django.contrib.auth.hashers import check_password
 from django.views.decorators.cache import never_cache
 
 from django.db.models import Q
-from base.models import Product, Topic, Banner, User, Cart, UserAddress, PurchaseOrder, PurchaseOrderItem, ShippingCost
+from base.models import Product, Topic, Banner, User, Cart, UserAddress, PurchaseOrder, PurchaseOrderItem, ShippingCost, Cupon
 
 from .helpers import ProductCart, CuponAdmin
 
@@ -475,6 +475,13 @@ def checkout(request):
     productCartWithStockCheckout = ProductCart.productCartWithStockCheckout(cart, products)
     subTotal = ProductCart.subtotalCart(productCartWithStockCheckout, 'checkout')
     total = subTotal + cost.cost
+    if cart.cupon:
+        subTotalDiscount = subTotal - subTotal * (cart.cupon.value/100)
+        totalDiscount = subTotalDiscount + cost.cost
+        context = {'subTotalDiscount': subTotalDiscount, 'totalDiscount':totalDiscount,  'cart': cart, 'productCart': productCartWithStockCheckout, 'numberProductsCart': numberProductsCart,
+                   'subTotal': subTotal, 'total': total, 'addresses': addresses, 'addresses_json': addresses_json,
+                   'cost': cost}
+        return render(request, 'store/checkout.html', context)
 
     context = {'cart': cart, 'productCart': productCartWithStockCheckout,'numberProductsCart': numberProductsCart, 'subTotal': subTotal, 'total': total, 'addresses': addresses, 'addresses_json': addresses_json, 'cost': cost}
     return render(request, 'store/checkout.html', context)
@@ -563,3 +570,29 @@ def viewOrderDetail(request, pk):
 
     context = {'cart': cart, 'numberProductsCart': numberProductsCart, 'order': order,  'productsOrder': productsOrder, 'ShippingCost': ShippingCost}
     return render(request, 'store/viewOrderDetail.html', context)
+
+def validateCupon(request):
+    cart = Cart.objects.get(user=request.user)
+    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        data = json.loads(request.body)
+        cuponCode = data.get('cuponCode')
+
+        try:
+            cupon = Cupon.objects.get(cupon=cuponCode)
+        except Cupon.DoesNotExist:
+            responseData = {'valid': False, 'message': 'Cupón no válido'}
+            return JsonResponse(responseData)
+
+        if cupon.user is not None and cupon.user != request.user:
+            responseData = {'valid': False, 'message': 'No puedes redimir este cupón'}
+            return JsonResponse(responseData)
+
+        if cupon.usedCoupon >= cupon.quantity:
+            responseData = {'valid': False, 'message': 'Cupón agotado'}
+            return JsonResponse(responseData)
+
+        cart.cupon = cupon
+        cart.save()
+        responseData = {'valid': True, 'cuponDescription': cupon.description, 'discountValue': cupon.value}
+        return JsonResponse(responseData)
+    return JsonResponse({'error': 'Invalid request method'})

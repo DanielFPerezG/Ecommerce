@@ -155,11 +155,22 @@ class Banner(models.Model):
     
     def __str__(self):
         return self.title
-    
+
+class Cupon(models.Model):
+    cupon = models.CharField(max_length=50)
+    value = models.PositiveIntegerField(default= settings.DISCOUNT_PERCENTAGE)
+    quantity = models.PositiveIntegerField()
+    usedCoupon = models.PositiveIntegerField(default=0)
+    description = models.CharField(max_length=100)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return str(self.description)
 
 class Cart(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     products = models.TextField(default='[]')
+    cupon = models.OneToOneField(Cupon,on_delete=models.CASCADE, null=True)
 
     def add_product(self, product):
         if not self.pk:
@@ -239,14 +250,3 @@ class ShippingCost(models.Model):
 
     def __str__(self):
         return str(self.cost)
-
-class Cupon(models.Model):
-    cupon = models.CharField(max_length=50)
-    value = models.PositiveIntegerField(default= settings.DISCOUNT_PERCENTAGE)
-    quantity = models.PositiveIntegerField()
-    usedCoupon = models.PositiveIntegerField(default=0)
-    description = models.CharField(max_length=100)
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-
-    def __str__(self):
-        return str(self.description)
