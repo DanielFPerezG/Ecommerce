@@ -34,6 +34,7 @@ urlpatterns = [
     path('cancelStoreOrder/<str:pk>', views.cancelStoreOrder, name="cancelStoreOrder"),
 
     path('validateCupon', views.validateCupon, name="validateCupon"),
+    path('removeCupon', views.removeCupon, name="removeCupon"),
 
     path('updateCart', views.updateCart, name='updateCart'),
     path('deleteCart/<str:pk>', views.deleteCart, name='deleteCart'),

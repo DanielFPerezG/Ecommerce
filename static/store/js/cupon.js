@@ -68,11 +68,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 const removeCouponBtn = document.getElementById("removeCouponBtn");
                 removeCouponBtn.addEventListener("click", function() {
-                    // Acción para eliminar el cupón aplicado
-                    // Aquí puedes realizar una solicitud AJAX para eliminar el cupón del servidor si es necesario
-
-                    // Luego, puedes limpiar el contenido del couponResult si deseas
-                    couponResult.innerHTML = "";
+                    // Realizar solicitud AJAX para eliminar el cupón
+                    fetch('removeCupon', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'X-CSRFToken': csrftoken,
+                        },
+                    })
+                    .then(response => {
+                        window.location.href = checkoutURL;
+                    })
+                    .catch(error => {
+                        console.error("Error al eliminar el cupón:", error);
+                    });
                 });
             } else {
                 // Manejar el caso en que el cupón no sea válido

@@ -119,9 +119,9 @@
                                 </div>
                             </div>
                             <div class="col-1 d-flex align-items-center justify-content-end">
-                                <button class="btn btn-sm btn-danger ml-2">
+                                <a href="{% url 'store:removeCupon' %}" class="btn btn-sm btn-danger ml-2">
                                     <i class="fa fa-times"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -189,7 +189,7 @@
                                         <span class="original-price" style="text-decoration: line-through;">${{ total|intcomma }}</span>
                                         <span class="new-price">&nbsp;&nbsp;${{ totalDiscount|intcomma }}</span>
                                     {% else %}
-                                        <span class="original-price" style="text-decoration: line-through;">${{ total|intcomma }}</span>
+                                        <span class="original-price" >${{ total|intcomma }}</span>
                                     {% endif %}
                                 </h5>
                             </div>
@@ -227,6 +227,7 @@
         </div>
         <script>
             var addresses = JSON.parse('{{ addresses_json|escapejs }}');
+            var checkoutURL = "{% url 'store:checkout' %}";
         </script>
 
     <!-- Cart End -->

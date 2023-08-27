@@ -596,3 +596,9 @@ def validateCupon(request):
         responseData = {'valid': True, 'cuponDescription': cupon.description, 'discountValue': cupon.value}
         return JsonResponse(responseData)
     return JsonResponse({'error': 'Invalid request method'})
+
+def removeCupon(request):
+    cart = Cart.objects.get(user=request.user)
+    cart.cupon = None
+    cart.save()
+    return redirect('store:checkout')
