@@ -85,7 +85,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     });
                 });
             } else {
-                // Manejar el caso en que el cupón no sea válido
+                const couponResult = document.getElementById("couponResult");
+                 couponResult.innerHTML = `
+                        <div class="alert alert-danger mb-0">
+                            ${data.message}
+                        </div>`;
             }
         })
         .catch(error => {
