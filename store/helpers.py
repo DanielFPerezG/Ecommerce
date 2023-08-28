@@ -80,6 +80,40 @@ class ProductCart:
 
         return productCartWithStock
 
+    def productCartWithStockCreateOrder(cart, products):
+        productCart = json.loads(cart.products)
+        productCartWithStock = []
+
+        for item in productCart:
+            productId = item['id']
+            productName = item['name']
+            price = item['price']
+            image_url = item['image_url']
+            productTotal = item['total']
+            quantity = item['quantity']
+            product = products.get(pk=productId)
+            stock = product.stock
+
+            if int(quantity) > int(stock):
+                productTotal = int(price)*int(stock)
+                quantity = stock
+            itemWithStock = {
+                'id': productId,
+                'name': productName,
+                'price': price,
+                'image_url': image_url,
+                'total': productTotal,
+                'quantity': quantity,
+                'stock': stock,
+            }
+            if cart.cupon:
+                itemWithStock['total'] = itemWithStock['total'] - (itemWithStock['total'] * cart.cupon.value / 100)
+                itemWithStock['cupon'] = cart.cupon.pk
+            productCartWithStock.append(itemWithStock)
+
+        return productCartWithStock
+
+
     def subtotalCart(cart, page):
         subTotal = 0
 
@@ -90,7 +124,13 @@ class ProductCart:
                 subTotal += productJson['total']
 
             return subTotal
-
+        elif page == 'createOrder':
+            if cart.cupon:
+                for item in cart:
+                    subTotal += item['total'] - (item['total'] * cart.cupon.value / 100)
+            else:
+                for item in cart:
+                    subTotal += item['total']
         else:
             for item in cart:
                 subTotal += item['total']

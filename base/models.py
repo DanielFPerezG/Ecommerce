@@ -231,6 +231,7 @@ class PurchaseOrder(models.Model):
     shippingCompany = models.CharField(max_length=100, null=True)
     shippingGuide = models.CharField(max_length=100, null=True)
     shippingCost = models.PositiveIntegerField(null=True)
+    cupon = models.OneToOneField(Cupon,on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.pk
@@ -244,6 +245,7 @@ class PurchaseOrderItem(models.Model):
     total = models.PositiveIntegerField()
     boughtAt = models.DateTimeField(auto_now_add=True)
     orderStatus = models.CharField(max_length=100)
+    cupon = models.OneToOneField(Cupon,on_delete=models.CASCADE, null=True)
 
 class ShippingCost(models.Model):
     cost = models.IntegerField(default=15000)

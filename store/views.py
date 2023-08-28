@@ -491,8 +491,8 @@ def createOrder(request, pk):
     cart = Cart.objects.get(user=request.user)
     selectedAddress = UserAddress.objects.get(pk=pk)
     products = Product.objects.all()
-    productCartWithStockCheckout = ProductCart.productCartWithStockCheckout(cart, products)
-    subTotal = ProductCart.subtotalCart(productCartWithStockCheckout, 'checkout')+shippingCost.cost
+        productCartWithStockCreateOrder = ProductCart.productCartWithStockCreateOrder(cart, products)
+    subTotal = ProductCart.subtotalCart(productCartWithStockCreateOrder, '') + shippingCost.cost
 
     order = PurchaseOrder.objects.create(
         user=request.user,
@@ -501,10 +501,11 @@ def createOrder(request, pk):
         state=selectedAddress.state,
         city=selectedAddress.city,
         complement=selectedAddress.complement,
-        total= subTotal
+        total= subTotal,
+        shippingCost=shippingCost.cost
     )
 
-    for productJson in productCartWithStockCheckout:
+    for productJson in productCartWithStockCreateOrder:
         orderItem = PurchaseOrderItem.objects.create(
             order=order,
             user=request.user,
@@ -517,8 +518,18 @@ def createOrder(request, pk):
         product = Product.objects.get(pk=productJson['id'])
         product.stock = product.stock - productJson['quantity']
         product.save()
+        if cart.cupon:
+            orderItem.cupon  = cart.cupon
         orderItem.save()
-    order.products = json.dumps(productCartWithStockCheckout)
+    if cart.cupon:
+        cupon = Cupon.objects.get(pk=cart.cupon.pk)
+        cupon.usedCoupon += 1
+        cupon.save()
+        order.cupon = cart.cupon
+        cart.cupon = None
+        cart.save()
+
+    order.products = json.dumps(productCartWithStockCreateOrder)
     order.save()
 
     cart.products = json.dumps([])
