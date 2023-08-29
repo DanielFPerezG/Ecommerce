@@ -165,6 +165,7 @@ class Cupon(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     createdAt = models.DateTimeField(auto_now_add=True)
     claimedBy = models.ManyToManyField(User, related_name='claimedBy', blank=True)
+    firstOrder = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.description)
