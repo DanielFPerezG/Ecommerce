@@ -14,7 +14,7 @@ from django.utils.html import strip_tags
 from django.contrib.auth.hashers import check_password
 from django.views.decorators.cache import never_cache
 
-from django.db.models import Q
+from django.db.models import Q, F
 from base.models import Product, Topic, Banner, User, Cart, UserAddress, PurchaseOrder, PurchaseOrderItem, ShippingCost, Cupon
 
 from .helpers import ProductCart, CuponAdmin
@@ -491,7 +491,7 @@ def createOrder(request, pk):
     cart = Cart.objects.get(user=request.user)
     selectedAddress = UserAddress.objects.get(pk=pk)
     products = Product.objects.all()
-        productCartWithStockCreateOrder = ProductCart.productCartWithStockCreateOrder(cart, products)
+    productCartWithStockCreateOrder = ProductCart.productCartWithStockCreateOrder(cart, products)
     subTotal = ProductCart.subtotalCart(productCartWithStockCreateOrder, '') + shippingCost.cost
 
     order = PurchaseOrder.objects.create(
@@ -524,6 +524,7 @@ def createOrder(request, pk):
     if cart.cupon:
         cupon = Cupon.objects.get(pk=cart.cupon.pk)
         cupon.usedCoupon += 1
+        cupon.claimedBy.add(request.user)
         cupon.save()
         order.cupon = cart.cupon
         cart.cupon = None
@@ -589,13 +590,25 @@ def validateCupon(request):
         cuponCode = data.get('cuponCode')
 
         try:
-            cupon = Cupon.objects.get(cupon=cuponCode)
+            cupon = Cupon.objects.filter(cupon=cuponCode)
+            if cupon.count() > 1:
+                try:
+                    cupon = cupon.get(usedCoupon__lt=F('quantity'))
+                except:
+                    responseData = {'valid': False, 'message': 'Cupón agotado'}
+                    return JsonResponse(responseData)
+            else :
+                cupon = Cupon.objects.get(cupon=cuponCode)
         except Cupon.DoesNotExist:
             responseData = {'valid': False, 'message': 'Cupón no válido'}
             return JsonResponse(responseData)
 
         if cupon.user is not None and cupon.user != request.user:
             responseData = {'valid': False, 'message': 'No puedes redimir este cupón'}
+            return JsonResponse(responseData)
+
+        if request.user in cupon.claimedBy.all():
+            responseData = {'valid': False, 'message': 'Solo puedes redimir el cupon una vez'}
             return JsonResponse(responseData)
 
         if cupon.usedCoupon >= cupon.quantity:

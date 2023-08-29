@@ -163,6 +163,8 @@ class Cupon(models.Model):
     usedCoupon = models.PositiveIntegerField(default=0)
     description = models.CharField(max_length=100)
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    createdAt = models.DateTimeField(auto_now_add=True)
+    claimedBy = models.ManyToManyField(User, related_name='claimedBy', blank=True)
 
     def __str__(self):
         return str(self.description)
