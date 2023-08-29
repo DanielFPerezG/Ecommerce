@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.files.storage import default_storage
 
 from .forms import ProductForm, TopicForm, BannerForm
-from .models import User, Topic, Product, Banner, PurchaseOrder, ShippingCost
+from .models import User, Topic, Product, Banner, PurchaseOrder, ShippingCost, Cupon
 from .helpers import ImageHandler
 import tempfile
 import json
@@ -344,3 +344,42 @@ def updateShippingCost(request):
         'shippingCost': shippingCost
     }
     return render(request, 'base/updateShippingCost.html', context)
+
+@login_required(login_url='login')
+def adminCupon(request):
+    cupons = Cupon.objects.filter(firstOrder=False)
+
+    return render(request, 'base/adminCupon.html', {'cupons':cupons})
+
+@login_required(login_url='login')
+def createCupon(request):
+    if request.method == "POST":
+        keyWord = request.POST.get('keyWord').upper()
+        value = int(request.POST.get('value'))
+        quantity = int(request.POST.get('quantity'))
+
+        cupon =  f"{keyWord}{value}"
+
+        cupon = Cupon(
+            cupon=cupon,
+            value=value,
+            description=f"{value}% de descuento en tu compra",
+            quantity=quantity,
+            firstOrder=False
+        )
+
+        cupon.save()
+        return redirect('adminCupon')
+
+    return render(request, 'base/createCupon.html')
+
+@login_required(login_url='login')
+def updateCupon(request,pk):
+    cupon = Cupon.objects.get(id=pk)
+
+    if request.method == 'POST':
+        quantity = request.POST.get('quantity')
+        cupon.quantity = quantity
+        cupon.save()
+
+    return redirect('adminCupon')

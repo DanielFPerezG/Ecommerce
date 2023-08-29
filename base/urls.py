@@ -32,6 +32,10 @@ urlpatterns = [
     path('cancelOrder/<str:pk>', views.cancelOrder, name="cancelOrder"),
     path('updateOrder/<str:pk>', views.updateOrder, name="updateOrder"),
 
+    path('createCupon', views.createCupon, name="createCupon"),
+    path('adminCupon', views.adminCupon, name="adminCupon"),
+    path('updateCupon/<str:pk>', views.updateCupon, name="updateCupon"),
+
     path('updateShippingCost', views.updateShippingCost, name="updateShippingCost"),
 ]
 

@@ -148,7 +148,30 @@
                 </a>
               </li>
             </ul>
-          </li>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-ticket-alt" aria-hidden="true"></i>
+              <p>
+                Cupones
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'adminCupon' %}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Administrar Cupones</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'createCupon' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear cupon</p>
+                </a>
+              </li>
+            </ul>
+        </li>
           <li class="nav-item">
             <a href="{% url 'updateShippingCost' %}" class="nav-link">
               <i class="nav-icon fas fa-shipping-fast"></i>
