@@ -1,0 +1,128 @@
+{% extends 'base/main.html' %}
+{% load humanize %}
+
+{% block content %}
+
+    <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Comunicaciones</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+              <li class="breadcrumb-item active">Comunicaciones</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Comunicaciones</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Creación</th>
+                    <th>id</th>
+                    <th>Titulo</th>
+                    <th>Asunto</th>
+                    <th>Cupon</th>
+                    <th>Enviado</th>
+                    <th>Options</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for email in emails %}
+                            <tr>
+                                <td>
+                                    {{ email.createdAt }}
+                                </td>
+                                <td>
+                                    {{email.id}}
+                                </td>
+                                <td>
+                                    {{email.title}}
+                                </td>
+                                <td>
+                                    {{email.subject}}
+                                </td>
+                                <td>
+                                    {{email.cupon.cupon}}
+                                </td>
+                                <td>
+                                    {% if email.sent == False %}
+                                        No
+                                    {% else %}
+                                        Si
+                                    {% endif %}
+
+                                </td>
+                                <td class="product-option">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-update_{{ email.id }}">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <div class="modal fade" id="modal-update_{{ email.id }}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form method="POST" action="{% url 'sendEmail' email.id %}">
+                                            {% csrf_token %}
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Enviar Correo Electronico ({{ email.id }})</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <select class="custom-select" name="confirmSend">
+                                                    <option value="send">Enviar</option>
+                                                </select>
+                                            </div>
+                                            <div class="modal-footer justify-content-between">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+                                                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                              <!-- /.modal -->
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+{% endblock  %}
+

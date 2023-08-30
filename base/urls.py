@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
@@ -36,7 +36,14 @@ urlpatterns = [
     path('adminCupon', views.adminCupon, name="adminCupon"),
     path('updateCupon/<str:pk>', views.updateCupon, name="updateCupon"),
 
+    path('createEmail', views.createEmail, name="createEmail"),
+    path('adminEmail', views.adminEmail, name="adminEmail"),
+    path('sendEmail/<str:pk>', views.sendEmail, name="sendEmail"),
+
     path('updateShippingCost', views.updateShippingCost, name="updateShippingCost"),
+
+
+    path('store/', include('store.urls', namespace='store')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

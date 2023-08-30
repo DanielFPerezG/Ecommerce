@@ -172,6 +172,29 @@
               </li>
             </ul>
         </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-envelope"></i>
+              <p>
+                Comunicaciones
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'adminEmail' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Vista de Comunicaciones</p>
+                </a>
+              </li>
+                <li class="nav-item">
+                <a href="{% url 'createEmail' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear Comunicación</p>
+                </a>
+              </li>
+            </ul>
+        </li>
           <li class="nav-item">
             <a href="{% url 'updateShippingCost' %}" class="nav-link">
               <i class="nav-icon fas fa-shipping-fast"></i>

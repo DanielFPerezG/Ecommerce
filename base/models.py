@@ -255,3 +255,14 @@ class ShippingCost(models.Model):
 
     def __str__(self):
         return str(self.cost)
+
+class EmailCommunication(models.Model):
+    subject =  models.CharField(max_length=150)
+    title = models.CharField(max_length=150)
+    fromEmail = models.EmailField(default='danielperezgalindo@gmail.com')
+    createdAt = models.DateTimeField(auto_now_add=True)
+    sent = models.BooleanField(default=False)
+    cupon = models.OneToOneField(Cupon, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.title

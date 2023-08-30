@@ -3,9 +3,13 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import default_storage
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.db.models import Q, F
 
 from .forms import ProductForm, TopicForm, BannerForm
-from .models import User, Topic, Product, Banner, PurchaseOrder, ShippingCost, Cupon
+from .models import User, Topic, Product, Banner, PurchaseOrder, ShippingCost, Cupon, EmailCommunication
 from .helpers import ImageHandler
 import tempfile
 import json
@@ -383,3 +387,64 @@ def updateCupon(request,pk):
         cupon.save()
 
     return redirect('adminCupon')
+
+@login_required(login_url='login')
+def adminEmail(request):
+    emails = EmailCommunication.objects.all()
+
+    return render(request, 'base/adminEmail.html', {'emails':emails})
+
+@login_required(login_url='login')
+def createEmail(request):
+    cupons = Cupon.objects.filter(
+        firstOrder=False,
+        usedCoupon__lt=F('quantity')
+    )
+    if request.method == "POST":
+        title = request.POST.get('title')
+        subject = request.POST.get('subject')
+        cuponId = request.POST.get('cuponId')
+
+        cupon =  Cupon.objects.get(id=cuponId)
+
+        email = EmailCommunication(
+            cupon=cupon,
+            title=title,
+            subject=subject,
+        )
+
+        email.save()
+        return redirect('adminEmail')
+
+    context = {'cupons':cupons}
+    return render(request, 'base/createEmail.html', context)
+
+@login_required(login_url='login')
+def sendEmail(request,pk):
+    email = EmailCommunication.objects.get(id=pk)
+    base = User.objects.all()
+    productsDiscount = Product.objects.exclude(discount__isnull=True).order_by('-discount')
+    products = productsDiscount[:4]
+
+    if request.method == "POST":
+        confirmSend = request.POST.get('confirmSend')
+
+        if confirmSend == 'send':
+            subject = email.subject
+            from_email = email.fromEmail
+            recipient_list = [user.email for user in base]
+
+            # Renderiza la plantilla HTML con los datos necesarios
+            html_message = render_to_string('email/cuponEmail.html',
+                                            {'email': email, 'products': products})
+            plain_message = strip_tags(html_message)
+
+            # Crea el objeto EmailMultiAlternatives para enviar el correo con contenido HTML y texto plano
+            msg = EmailMultiAlternatives(subject, plain_message, from_email, recipient_list)
+            msg.attach_alternative(html_message, "text/html")
+            msg.send()
+
+            email.sent = True
+            email.save()
+
+    return redirect('adminEmail')
