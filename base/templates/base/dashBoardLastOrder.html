@@ -1,0 +1,351 @@
+{% extends 'base/main.html' %}
+{% load humanize %}
+
+{% block content %}
+    <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Ultimas Ventas</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb-item active">Ultimas Ventas</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{ lastOrders.count }} </h3>
+
+                <p>Ultimas Ordenes</p>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>${{ widgetData.revenue|intcomma }}</h3>
+
+                <p>Ingresos</p>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>${{ widgetData.cost|intcomma }}</h3>
+
+                <p>Gastos</p>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>${{ widgetData.profit|intcomma }}</h3>
+
+                <p>Ingreso bruto</p>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>${{ widgetData.differenceShipping|intcomma }}</h3>
+
+                <p>Diferencia por Envio</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{ widgetData.dayDifference }}</h3>
+
+                <p>Días entre primer y ultima orden</p>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{ widgetData.averageProducts }}</h3>
+
+                <p>Productos promedio</p>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>${{ widgetData.averageValue|intcomma }}</h3>
+
+                <p>Compra promedio</p>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+
+        </div>
+        <!-- /.row -->
+
+                <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-6 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-pie mr-1"></i>
+                  Categorías
+                </h3>
+                <div class="card-tools">
+                  <ul class="nav nav-pills ml-auto">
+                    {% for topic, stats in topicStatistics.items %}
+                        {% if forloop.first %}
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#{{ topic }}-chart" data-toggle="tab">{{ topic }}</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                              <a class="nav-link" href="#{{ topic }}-chart" data-toggle="tab">{{ topic }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
+                  <!-- Agregar divs para mostrar ingresos por tema -->
+                    {% for topic, stats in topicStatistics.items %}
+                        {% if forloop.first %}
+                            <div class="tab-pane active" id="{{ topic }}-chart" style="position: relative;">
+                        {% else %}
+                            <div class="tab-pane" id="{{ topic }}-chart" style="position: relative;">
+                        {% endif %}
+                                <div class="row">
+                              <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-info">
+                                  <div class="inner">
+                                    <h3>{{ stats.count|intcomma }} </h3>
+
+                                    <p>Ordenes</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- ./col -->
+                              <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-info">
+                                  <div class="inner">
+                                    <h3>{{ stats.countProduct|intcomma }} </h3>
+
+                                    <p>Productos</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- ./col -->
+                              <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-warning">
+                                  <div class="inner">
+                                    <h3>${{ stats.average|intcomma }}</h3>
+
+                                    <p>Valor promedio</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- ./col -->
+                              <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-warning">
+                                  <div class="inner">
+                                    <h3>{{ stats.days|intcomma }} Días</h3>
+
+                                    <p>Renovar inventario</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- ./col -->
+                              <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-success">
+                                  <div class="inner">
+                                    <h3>${{ stats.revenue|intcomma }}</h3>
+
+                                    <p>Ingresos</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- ./col -->
+                              <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-danger">
+                                  <div class="inner">
+                                    <h3>${{ stats.cost|intcomma }}</h3>
+
+                                    <p>Gastos</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- ./col -->
+
+                              <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-success">
+                                  <div class="inner">
+                                    <h3>${{ stats.profit|intcomma }}</h3>
+
+                                    <p>Ingresos Brutos</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- ./col -->
+
+                            </div>
+                            <!-- /.row -->
+                            </div>
+                            <!-- Small boxes (Stat box) -->
+                    {% endfor %}
+                </div>
+              </div><!-- /.card-body -->
+
+            </div>
+
+
+            <!-- /.card -->
+
+              <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <i class="fas fa-chart-pie mr-1"></i>
+                      Compras con y sin cupon
+                    </h3>
+                  </div><!-- /.card-header -->
+                  <div class="card-body">
+                      <div class="chart">
+                      <canvas id="DoughnutChartCupon" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 319px;" width="957" height="750" class="chartjs-render-monitor"></canvas>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-pie mr-1"></i>
+                  Ordenes por día
+                </h3>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                  <div class="chart">
+                  <canvas id="dailyOrderChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 319px;" width="957" height="750" class="chartjs-render-monitor"></canvas>
+                  </div>
+              </div>
+              </div>
+
+        </section>
+            <section class="col-lg-6 connectedSortable">
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-pie mr-1"></i>
+                  Categorías más vendidas
+                </h3>
+                <div class="card-tools">
+                  <ul class="nav nav-pills ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#top-topic-products-chart" data-toggle="tab" onclick="updateBarChart('products')">Cantidad de Productos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#top-topic-profict-chart" data-toggle="tab" onclick="updateBarChart('profit')">Beneficios</a>
+                    </li>
+                  </ul>
+                </div>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                  <div class="chart">
+                  <canvas id="barChartTopic" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 319px;" width="957" height="750" class="chartjs-render-monitor"></canvas>
+                  </div>
+              </div>
+              </div>
+          <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-pie mr-1"></i>
+                  Ingresos, Gastos y Beneficios
+                </h3>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                  <div class="chart">
+                  <canvas id="barChartProfit" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 319px;" width="957" height="750" class="chartjs-render-monitor"></canvas>
+                  </div>
+              </div>
+          </div>
+          <!-- right col -->
+        <!-- /.row (main row) -->
+        </section>
+        <!-- /.content -->
+      </div>
+
+<script>
+
+    var DoughnutChartCuponLabels = {{ DoughnutChartCupon.labels|safe }}
+    var DoughnutChartCuponData = {{ DoughnutChartCupon.data|safe }}
+    var DoughnutChartCuponBackgroundColor = {{ DoughnutChartCupon.backgroundColor|safe }}
+    var DoughnutChartCuponBorderColor = {{ DoughnutChartCupon.borderColor|safe }}
+
+    var barChartTopicLabels = {{ barChartTopic.labels|safe }}
+    var barChartTopicProductData = {{ barChartTopic.data|safe }}
+    var barChartTopicBackgroundColor = {{ barChartTopic.backgroundColor|safe }}
+    var barChartTopicBorderColor = {{ barChartTopic.borderColor|safe }}
+
+    var barChartTopicProfitLabels = {{ barChartTopicProfit.labels|safe }}
+    var barChartTopicProfitData = {{ barChartTopicProfit.data|safe }}
+
+    var barChartProfitTopic = {{ barChartProfitTopic|safe }}
+    var barChartProfitRevenue = {{ barChartProfitRevenue|safe }}
+    var barChartProfitCost = {{ barChartProfitCost|safe }}
+    var barChartProfitProfit = {{ barChartProfitProfit|safe }}
+
+    var dailyOrderChartLabels = {{ dailyOrderChart.labels|safe }}
+    var dailyOrderChartData = {{ dailyOrderChart.data|safe }}
+    var dailyOrderChartBorderColor = {{ dailyOrderChart.borderColor|safe }}
+
+</script>
+
+{% endblock %}
+

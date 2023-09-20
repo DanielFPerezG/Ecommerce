@@ -494,6 +494,7 @@ def createOrder(request, pk):
     productCartWithStockCreateOrder = ProductCart.productCartWithStockCreateOrder(cart, products)
     subTotal = ProductCart.subtotalCart(productCartWithStockCreateOrder, '') + shippingCost.cost
 
+    ##Hacer validación de que el cupon tiene disponilidad y si no que recarge la pagina quitando el cupo del carrito.
     order = PurchaseOrder.objects.create(
         user=request.user,
         status="Pendiente de pago",
@@ -506,14 +507,19 @@ def createOrder(request, pk):
     )
 
     for productJson in productCartWithStockCreateOrder:
+        product = Product.objects.get(pk=productJson['id'])
+        productCost =  product.cost
+        productTopic = product.topic
         orderItem = PurchaseOrderItem.objects.create(
+            product = product,
             order=order,
             user=request.user,
             productName=productJson['name'],
             price=productJson['price'],
+            cost = productCost,
             quantity=productJson['quantity'],
-            total=productJson['total'],
-            orderStatus=order.status
+            total=productJson['price']*productJson['quantity'],
+            productTopic = productTopic,
         )
         product = Product.objects.get(pk=productJson['id'])
         product.stock = product.stock - productJson['quantity']

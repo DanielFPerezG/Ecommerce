@@ -93,6 +93,7 @@
                                     <div class="col-md-6 form-group">
                                         <label>Complemento</label>
                                         <input class="form-control" type="text" id="complement-input" value="{{ addresses.0.complement }}" readonly>
+                                        <input class="form-control d-none" type="text" id="address-id" value="{{ addresses.0.id }}" readonly>
                                     </div>
                                 {% else %}
                                     <div class="col-md-6 form-group">
@@ -199,7 +200,7 @@
                     <div class="card-header bg-secondary border-0">
                         <h4 class="font-weight-semi-bold m-0">Metodos de pago</h4>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" id="payment-methods">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="col-md-5  d-md-block d-none">
                                 <img src="{% static 'images/logo/bancolombia.png' %}" alt="Bancolombia" class="img-fluid payment-logo rounded">

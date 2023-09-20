@@ -87,12 +87,16 @@ class ProductCart:
         for item in productCart:
             productId = item['id']
             productName = item['name']
-            price = item['price']
             image_url = item['image_url']
-            productTotal = item['total']
             quantity = item['quantity']
             product = products.get(pk=productId)
             stock = product.stock
+            if cart.cupon:
+                price = item['price'] - (item['price'] * cart.cupon.value / 100)
+                productTotal = item['total'] - (item['total'] * cart.cupon.value / 100)
+            else:
+                price = item['price']
+                productTotal = item['total']
 
             if int(quantity) > int(stock):
                 productTotal = int(price)*int(stock)
@@ -107,8 +111,8 @@ class ProductCart:
                 'stock': stock,
             }
             if cart.cupon:
-                itemWithStock['total'] = itemWithStock['total'] - (itemWithStock['total'] * cart.cupon.value / 100)
                 itemWithStock['cupon'] = cart.cupon.pk
+
             productCartWithStock.append(itemWithStock)
 
         return productCartWithStock

@@ -9,11 +9,14 @@ from django.utils.html import strip_tags
 from django.db.models import Q, F
 
 from .forms import ProductForm, TopicForm, BannerForm
-from .models import User, Topic, Product, Banner, PurchaseOrder, ShippingCost, Cupon, EmailCommunication
+from .models import User, Topic, Product, Banner, PurchaseOrder, ShippingCost, Cupon, EmailCommunication, PurchaseOrderItem
 from .helpers import ImageHandler
+
+from datetime import timedelta
 import tempfile
 import json
 import os
+from collections import Counter
 
 
 # Create your views here.
@@ -322,11 +325,11 @@ def updateOrder(request,pk):
             status = request.POST.get('status')
             shippingCompany = request.POST.get('shippingCompany')
             shippingGuide = request.POST.get('shippingGuide')
-            shippingCost = request.POST.get('shippingCost')
+            shippingPaid = request.POST.get('shippingPaid')
             order.status = status
             order.shippingCompany = shippingCompany
             order.shippingGuide = shippingGuide
-            order.shippingCost = shippingCost
+            order.shippingPaid = shippingPaid
             order.save()
         else:
             status = request.POST.get('status')
@@ -448,3 +451,137 @@ def sendEmail(request,pk):
             email.save()
 
     return redirect('adminEmail')
+
+@login_required(login_url='login')
+def dashBoardLastOrder(request):
+    orders = PurchaseOrder.objects.filter(status="Entregado").order_by("-createdAt")
+    lastOrders = orders[:30]
+    differenceShipping = 0
+    cost = 0
+    revenue = 0
+    productsItem = 0
+    topicStatistics = {}
+
+    ordersCoupon = sum(1 for order in lastOrders if order.cupon is not None)
+    ordersWithoutCoupon = sum(1 for order in lastOrders if order.cupon is None)
+
+    DoughnutChartCupon = {
+        'labels': ['Órdenes con Cupón', 'Órdenes sin Cupón'],
+        'data': [ordersCoupon, ordersWithoutCoupon],
+        'backgroundColor': ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+        'borderColor': ['rgb(255, 99, 132)', 'rgb(54, 162, 235)']
+    }
+
+    if lastOrders:
+        lastOrder = lastOrders[0].createdAt
+        firstOrder = lastOrders[len(lastOrders)-1].createdAt
+
+        dayDifference = (lastOrder.date() - firstOrder.date()).days
+
+        orderDate = [order.createdAt.date() for order in lastOrders]
+        orderDateCount = dict(Counter(orderDate))
+        orderedDate = sorted(orderDateCount.keys())
+
+        dailyOrderDates = [date.strftime('%Y-%m-%d') for date in orderedDate]
+        dailyOrderCounts = [orderDateCount[date] for date in orderedDate]
+
+        dailyOrderChart = {
+            'labels': dailyOrderDates,
+            'data': dailyOrderCounts,
+            'borderColor': 'rgb(75, 192, 192)',
+        }
+
+        for order in lastOrders:
+            differenceShipping += order.shippingCost - order.shippingPaid
+            revenue += order.total - order.shippingCost
+
+            productItem = PurchaseOrderItem.objects.filter(order=order)
+            cost += sum(item.product.cost * item.quantity for item in productItem)
+            productsItem += sum(item.quantity for item in productItem)
+
+            for item in productItem:
+                productTopic = item.productTopic
+
+                if productTopic:
+                    if productTopic.name not in topicStatistics:
+                        topicStatistics[productTopic.name] = {
+                            'count': 1,
+                            'countProduct':  item.quantity,
+                            'revenue': item.total,
+                            'cost':  item.cost*item.quantity,
+                            'lastProductDate': item.boughtAt,
+                            'firstProductDate': item.boughtAt,
+                            'profit':  int(item.total - item.cost*item.quantity)
+                        }
+                    else:
+                        topicStatistics[productTopic.name]['count'] += 1
+                        topicStatistics[productTopic.name]['countProduct'] += item.quantity
+                        topicStatistics[productTopic.name]['revenue'] += item.total
+                        topicStatistics[productTopic.name]['cost'] += item.cost*item.quantity
+                        topicStatistics[productTopic.name]['profit'] += int(item.total - item.cost*item.quantity)
+
+                        if item.boughtAt < topicStatistics[productTopic.name]['firstProductDate']:
+                            topicStatistics[productTopic.name]['firstProductDate'] = item.boughtAt
+
+
+        for topic, stats in topicStatistics.items():
+            stats['average'] = int(stats['revenue'] / stats['countProduct'])
+
+            stats['days'] = (stats['lastProductDate'].date() - stats['firstProductDate'].date()).days
+
+        averageProducts = round(productsItem/len(lastOrders), 2)
+        averageValue = int(revenue/len(lastOrders))
+
+        # Ordena el diccionario topicStatistics por la clave 'countProduct' en orden descendente
+        sortedTopicStatistics = dict(
+            sorted(topicStatistics.items(), key=lambda x: x[1]['countProduct'], reverse=True))
+
+        sortedTopicProfit = dict(sorted(topicStatistics.items(), key=lambda x: x[1]['profit'], reverse=True))
+
+        barChartProfitTopic = list(sortedTopicProfit.keys())
+        barChartProfitRevenue = [sortedTopicProfit[topic]['revenue'] for topic in barChartProfitTopic]
+        barChartProfitCost = [sortedTopicProfit[topic]['cost'] for topic in barChartProfitTopic]
+        barChartProfitProfit = [sortedTopicProfit[topic]['profit'] for topic in barChartProfitTopic]
+
+        topTopics = list(sortedTopicStatistics.keys())[:5]
+        topTopicsProfit = list(sortedTopicProfit.keys())[:5]
+
+        barChartTopic =  {
+            'labels': topTopics,
+            'data': [sortedTopicStatistics[topic]['countProduct'] for topic in topTopics],
+            'backgroundColor': ['rgba(54, 162, 235, 0.2)'],
+            'borderColor': ['rgb(54, 162, 235)']
+        }
+
+        barChartTopicProfit = {
+            'labels': topTopicsProfit,
+            'data': [sortedTopicProfit[topic]['profit'] for topic in topTopicsProfit]
+        }
+
+        # Crear un diccionario para almacenar las variables
+        widgetData = {
+            'differenceShipping': differenceShipping,
+            'cost': cost,
+            'revenue': revenue,
+            'dayDifference': dayDifference,
+            'averageProducts': averageProducts,
+            'productsItem': productsItem,
+            'averageValue': averageValue,
+            'profit': revenue - cost
+        }
+
+
+        context = {'lastOrders':lastOrders,
+                   'topicStatistics': topicStatistics,
+                   'widgetData': widgetData,
+                   'DoughnutChartCupon': DoughnutChartCupon,
+                   'barChartTopic': barChartTopic,
+                   'barChartTopicProfit': barChartTopicProfit,
+                   'barChartProfitTopic':  barChartProfitTopic,
+                   'barChartProfitRevenue':  barChartProfitRevenue,
+                    'barChartProfitCost': barChartProfitCost,
+                    'barChartProfitProfit': barChartProfitProfit,
+                   'dailyOrderChart': dailyOrderChart,
+        }
+        return render(request, 'base/dashBoardLastOrder.html', context)
+    return render(request, 'base/dashBoardLastOrder.html')

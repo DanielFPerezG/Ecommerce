@@ -42,6 +42,8 @@ urlpatterns = [
 
     path('updateShippingCost', views.updateShippingCost, name="updateShippingCost"),
 
+    path('dashBoardLastOrder', views.dashBoardLastOrder, name="dashBoardLastOrder"),
+
 
     path('store/', include('store.urls', namespace='store')),
 ]

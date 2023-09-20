@@ -18,7 +18,7 @@ function updateAddressFields(selectElement) {
 
 function confirmPurchase() {
     var selectedOption = document.getElementById('address-select').value;
-    var selectedAddressId = null;
+    var selectedAddressId = document.getElementById('address-id').value;
     for (var i = 0; i < addresses.length; i++) {
         if (addresses[i].address === selectedOption) {
             selectedAddressId = addresses[i].id;

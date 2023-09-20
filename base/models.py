@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
+from django.utils import timezone
 
 import os
 import json
@@ -163,7 +164,7 @@ class Cupon(models.Model):
     usedCoupon = models.PositiveIntegerField(default=0)
     description = models.CharField(max_length=100)
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    createdAt = models.DateTimeField(auto_now_add=True)
+    createdAt = models.DateTimeField(default=timezone.now)
     claimedBy = models.ManyToManyField(User, related_name='claimedBy', blank=True)
     firstOrder = models.BooleanField(default=True)
 
@@ -223,7 +224,7 @@ class Cart(models.Model):
 
 class PurchaseOrder(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    createdAt = models.DateTimeField(auto_now_add=True)
+    createdAt = models.DateTimeField(default=timezone.now)
     products = models.TextField(default='[]')
     status = models.CharField(max_length=100, null=True)
     total = models.PositiveIntegerField(null=True)
@@ -234,6 +235,7 @@ class PurchaseOrder(models.Model):
     shippingCompany = models.CharField(max_length=100, null=True)
     shippingGuide = models.CharField(max_length=100, null=True)
     shippingCost = models.PositiveIntegerField(null=True)
+    shippingPaid = models.PositiveIntegerField(null=True)
     cupon = models.OneToOneField(Cupon,on_delete=models.CASCADE, null=True)
 
     def __str__(self):
@@ -241,14 +243,16 @@ class PurchaseOrder(models.Model):
 
 class PurchaseOrderItem(models.Model):
     order = models.ForeignKey(PurchaseOrder, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     productName = models.CharField(max_length=150)
     price = models.PositiveIntegerField()
+    cost = models.PositiveIntegerField()
     quantity = models.PositiveIntegerField()
     total = models.PositiveIntegerField()
     boughtAt = models.DateTimeField(auto_now_add=True)
-    orderStatus = models.CharField(max_length=100)
     cupon = models.OneToOneField(Cupon,on_delete=models.CASCADE, null=True)
+    productTopic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
 
 class ShippingCost(models.Model):
     cost = models.IntegerField(default=15000)
@@ -260,7 +264,7 @@ class EmailCommunication(models.Model):
     subject =  models.CharField(max_length=150)
     title = models.CharField(max_length=150)
     fromEmail = models.EmailField(default='danielperezgalindo@gmail.com')
-    createdAt = models.DateTimeField(auto_now_add=True)
+    createdAt = models.DateTimeField(default=timezone.now)
     sent = models.BooleanField(default=False)
     cupon = models.OneToOneField(Cupon, on_delete=models.CASCADE, null=True)
 

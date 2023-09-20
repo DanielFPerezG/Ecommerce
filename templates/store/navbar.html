@@ -18,6 +18,7 @@
                             <li class="scroll-to-section"><a href="{%  url 'store:store' %}">Nosotros</a></li>
 
                             {% if request.user.is_authenticated %}
+                                <li id="payment-methods"><a>Medios de Pago</a></li>
                                 <li class="submenu">
                                     <a href="javascript:;">{{request.user.name}}</a>
                                     <ul>
