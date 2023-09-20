@@ -46,10 +46,11 @@ class Topic(models.Model):
 
     def save(self, *args, **kwargs):
         if self.pk:
-            old_image = Topic.objects.get(pk=self.pk).image
-            if self.image and old_image != self.image:
-                if os.path.isfile(old_image.path):
-                    os.remove(old_image.path)
+            if Topic.objects.get(pk=self.pk).image != "":
+                old_image = Topic.objects.get(pk=self.pk).image
+                if self.image and old_image != self.image:
+                    if os.path.isfile(old_image.path):
+                        os.remove(old_image.path)
         super(Topic, self).save(*args, **kwargs)
 
     def __str__(self):

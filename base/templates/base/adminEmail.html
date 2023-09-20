@@ -73,9 +73,11 @@
 
                                 </td>
                                 <td class="product-option">
+                                    {% if email.sent == False %}
                                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-update_{{ email.id }}">
                                         <i class="nav-icon fas fa-edit"></i>
                                     </button>
+                                    {% endif %}
                                 </td>
                             </tr>
 

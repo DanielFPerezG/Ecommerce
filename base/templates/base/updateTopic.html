@@ -33,14 +33,16 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-                <form class="col-12" method="POST" enctype="multipart/form-data" action="">
+                <form class="col-12" method="POST" enctype="multipart/form-data" action="{% url 'updateTopic' pk=topic.pk %}">
                     <div class="card-body">
                         {% csrf_token %}
                         <div class="form-group text-center mx-auto">
                             <label>{{ topic.name }}</label>
+                            {% if topic.image != "" %}
                             <figure class="update-image">
                                 <img src="{{topic.image.url}}" style="width: 6rem; height: 6rem; border-radius:25%;object-fit:cover;">
                             </figure>
+                            {% endif %}
                         </div>
                         {% for field in form %}
                         <div class="form-group" id="user-group">
@@ -49,7 +51,7 @@
                         </div>
                         {% endfor %}
 
-                        <button type="submit" class="btn btn-primary" id="btn-login">
+                        <button type="submit" class="btn btn-primary" id="btn-login" name="submit">
                             <i class="fas fa-sign-in-alt"></i>  Actualizar
                         </button>
                     </div>
