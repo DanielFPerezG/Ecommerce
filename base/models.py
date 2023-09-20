@@ -150,9 +150,10 @@ class Banner(models.Model):
 
     def save(self, *args, **kwargs):
         if self.pk:
-            old_banner = Banner.objects.get(pk=self.pk)
-            if old_banner.image and self.image != old_banner.image and os.path.isfile(old_banner.image.path):
-                os.remove(old_banner.image.path)
+            if Banner.objects.get(pk=self.pk).image != "":
+                old_banner = Banner.objects.get(pk=self.pk)
+                if old_banner.image and self.image != old_banner.image and os.path.isfile(old_banner.image.path):
+                    os.remove(old_banner.image.path)
         super(Banner, self).save(*args, **kwargs)
     
     def __str__(self):

@@ -60,18 +60,18 @@
                                     <div class="thumb">
                                         <div class="inner-content">
                                             <h4>{{ topics.0.name }}</h4>
-                                            <span>Best Clothes For Women</span>
+                                            <span>{{ topics.0.title}}</span>
                                         </div>
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4>{{ topics.0.name }}</h4>
                                                 <p>{{ topics.0.bio }}</p>
                                                 <div class="main-border-button">
-                                                    <a href="{% url 'store:store' %}?q={{topic.0.name}}">Encuentra el tuyo</a>
+                                                    <a href="{% url 'store:store' %}?q={{ topics.0.name }}">Encuentra el tuyo</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="{{ topics.0.image_url }}">
+                                        <img src="{{ topics.0.image_url }}" alt="{{ topics.0.name }}">
                                     </div>
                                 </div>
                             </div>
@@ -80,18 +80,18 @@
                                     <div class="thumb">
                                         <div class="inner-content">
                                             <h4>{{ topics.1.name }}</h4>
-                                            <span>Best Clothes For Women</span>
+                                            <span>{{ topics.1.title}}</span>
                                         </div>
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4>{{ topics.1.name }}</h4>
                                                 <p>{{ topics.1.bio }}</p>
                                                 <div class="main-border-button">
-                                                    <a href="{% url 'store:store' %}?q={{topic.1.name}}">Encuentra el tuyo</a>
+                                                    <a href="{% url 'store:store' %}?q={{topics.1.name|urlencode}}">Encuentra el tuyo</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="{{ topics.1.image_url }}">
+                                        <img src="{{ topics.1.image_url }}" alt="{{ topics.1.name }}">
                                     </div>
                                 </div>
                             </div>
@@ -100,18 +100,18 @@
                                     <div class="thumb">
                                         <div class="inner-content">
                                             <h4>{{ topics.2.name }}</h4>
-                                            <span>Best Clothes For Men</span>
+                                            <span>{{ topics.2.title}}</span>
                                         </div>
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4>{{ topics.2.name }}</h4>
                                                 <p>{{ topics.2.bio }}</p>
                                                 <div class="main-border-button">
-                                                    <a href="{% url 'store:store' %}?q={{topic.2.name}}">Encuentra el tuyo</a>
+                                                    <a href="{% url 'store:store' %}?q={{topics.2.name|urlencode}}">Encuentra el tuyo</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="{{ topics.2.image_url }}">
+                                        <img src="{{ topics.2.image_url }}" alt="{{ topics.2.name }}">
                                     </div>
                                 </div>
                             </div>
@@ -120,18 +120,18 @@
                                     <div class="thumb">
                                         <div class="inner-content">
                                             <h4>{{ topics.3.name }}</h4>
-                                            <span>Best Clothes For Kids</span>
+                                            <span>{{ topics.3.title}}</span>
                                         </div>
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4>{{ topics.3.name }}</h4>
                                                 <p>{{ topics.3.bio }}</p>
                                                 <div class="main-border-button">
-                                                    <a href="{% url 'store:store' %}?q={{topic.3.name}}">Encuentra el tuyo</a>
+                                                    <a href="{% url 'store:store' %}?q={{topics.3.name|urlencode}}">Encuentra el tuyo</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="{{ topics.3.image_url }}">
+                                        <img src="{{ topics.3.image_url }}" alt="{{ topics.3.name }}">
                                     </div>
                                 </div>
                             </div>
@@ -150,18 +150,18 @@
                                         <div class="thumb">
                                             <div class="inner-content">
                                                 <h4>{{ topic.name }}</h4>
-                                                <span>Best Clothes For Women</span>
+                                                <span>{{ topics.title}}</span>
                                             </div>
                                             <div class="hover-content">
                                                 <div class="inner">
                                                     <h4>{{ topic.name }}</h4>
                                                     <p>{{ topic.bio }}</p>
                                                     <div class="main-border-button">
-                                                        <a href="{% url 'store:store' %}?q={{topic.name}}">Encuentra el tuyo</a>
+                                                        <a href="{% url 'store:store' %}?q={{topic.name|urlencode}}">Encuentra el tuyo</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <img src="{{ topic.image_url }}">
+                                            <img src="{{ topic.image_url }}" alt="{{ topic.name }}">
                                         </div>
                                     </div>
                                 </div>
