@@ -6,27 +6,32 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib import messages
 from django.core.paginator import Paginator
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse, reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.contrib.auth.hashers import check_password
 from django.views.decorators.cache import never_cache
+from django.utils import timezone
 
 from django.db.models import Q, F
 from base.models import Product, Topic, Banner, User, Cart, UserAddress, PurchaseOrder, PurchaseOrderItem, ShippingCost, Cupon
 
 from .helpers import ProductCart, CuponAdmin
 
+from cookie_consent.views import CookieGroupAcceptView
+
 from store.forms import UserForm, MyUserCreationForm
 
+from datetime import timedelta
 import string
 import random
 import json
 
-# Create your views here.
-
+def cookiePolicy(request):
+    return render(request, 'store/cookiePolicy.html')
 def loginPage(request):
     page = 'login'
     if request.user.is_authenticated:

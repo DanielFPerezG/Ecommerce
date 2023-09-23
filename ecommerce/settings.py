@@ -62,7 +62,16 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'widget_tweaks',
     'django_hosts',
+    'cookie_consent',
 ]
+
+COOKIE_CONSENT = {
+    'message': 'Este sitio web utiliza cookies para ofrecerte la mejor experiencia de usuario.',
+    'deny_text': 'Rechazar',
+    'allow_text': 'Aceptar',
+    'link_text': 'Más información',
+    'link_href': '/store/cookiePolicy/',  # Página de política de cookies
+}
 
 MIDDLEWARE = [
     'django_hosts.middleware.HostsRequestMiddleware',

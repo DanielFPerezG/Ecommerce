@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+from cookie_consent.views import CookieGroupAcceptView, CookieGroupDeclineView
+
 app_name = "store"   
 
 
@@ -8,6 +10,9 @@ urlpatterns = [
     path('login/', views.loginPage, name="login"),
     path('logout/', views.logoutUser, name="logout"),
     path('register/', views.registerPage, name="register"),
+
+    path('cookiePolicy/', views.cookiePolicy, name="cookiePolicy"),
+
 
     path('userProfile', views.userProfile, name="userProfile"),
     path('personalInformation', views.personalInformation, name="personalInformation"),
