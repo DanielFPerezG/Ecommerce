@@ -13,6 +13,8 @@ class User(AbstractUser):
     email = models.EmailField(unique=True, null=True)
     phone = models.PositiveIntegerField(null=True)
     card = models.PositiveIntegerField(null=True)
+    usePolicy = models.BooleanField(default=True)
+    commPolicy = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

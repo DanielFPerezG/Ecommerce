@@ -121,8 +121,16 @@
                       </div>
                       <input class="form-control" name="confirmPassword" placeholder="Repita su contraseña" type="password">
                     </div>
+                    <div class="form-group form-check text-left">
+                      <input type="checkbox" class="form-check-input" name="usePolicy">
+                      <label class="form-check-label" style="font-size: small">He leido y estoy de acuerdo con la <a href="#">Política de Privacidad</a> y <a href="#">Condiciones de Uso.</a></label>
+                    </div>
+                    <div class="form-group form-check text-left">
+                      <input type="checkbox" class="form-check-input" name="commPolicy">
+                      <label class="form-check-label" style="font-size: small">Deseo recibir información de promociones y nuevos productos.</label>
+                    </div>
                     {% if messages %}
-                      <div class="error-messages">
+                      <div class="error-messages text-left">
                         {% for message in messages %}
                           <p style="color:red">*{{ message }}<br></p>
                         {% endfor %}

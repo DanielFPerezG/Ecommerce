@@ -32,6 +32,9 @@ import json
 
 def cookiePolicy(request):
     return render(request, 'store/cookiePolicy.html')
+
+def usePolicy(request):
+    return render(request, 'store/usePolicy.html')
 def loginPage(request):
     page = 'login'
     if request.user.is_authenticated:
@@ -70,6 +73,8 @@ def registerPage(request):
         email = request.POST.get('email').lower()
         password = request.POST.get('password')
         confirmPassword = request.POST.get('confirmPassword')
+        acceptUsePolicy = request.POST.get('usePolicy')
+        acceptCommPolicy = request.POST.get('commPolicy')
 
         # Check if the user already exists
         if User.objects.filter(email=email).exists():
@@ -81,8 +86,14 @@ def registerPage(request):
             messages.error(request, 'Las contraseñas no coinciden.')
             return redirect('store:register')
 
+        if not acceptUsePolicy:
+            messages.error(request, 'Es necesario que aceptes las políticas de privacidad y condiciones de uso para registrarte.')
+            return redirect('store:register')
+
         # Create user
         user = User.objects.create_user(username=email, email=email, password=password, name=name)
+        if acceptCommPolicy:
+            user.commPolicy = True
         user.save()
 
         # Authenticate and login the user
