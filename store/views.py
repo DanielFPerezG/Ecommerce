@@ -99,11 +99,13 @@ def registerPage(request):
         # Authenticate and login the user
         user = authenticate(request, username=email, password=password)
 
-        cuponName = CuponAdmin.FirstOrderCupon(user)
         # Envía el correo electrónico con la nueva contraseña utilizando la plantilla HTML
         subject = '¡Bienvenido a Edjo!'
         from_email = 'danielfeperezgalindo@gmail.com'  # Coloca aquí tu dirección de correo Gmail
         recipient_list = [email]
+
+        cuponName = CuponAdmin.FirstOrderCupon(user)
+
 
         # Renderiza la plantilla HTML con los datos necesarios
         html_message = render_to_string('email/cuponFirstOrder.html', {'cuponName': cuponName.cupon, 'value': cuponName.value})
