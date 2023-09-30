@@ -485,6 +485,8 @@ def checkout(request):
     addresses = UserAddress.objects.filter(user=request.user)
     addresses_json = json.dumps(list(addresses.values()))
     cost = ShippingCost.objects.first()
+    cart.cupon = None
+    cart.save()
 
     products = Product.objects.all()
     numberProductsCart = ProductCart.numberProducts(cart)
@@ -510,7 +512,7 @@ def createOrder(request, pk):
     productCartWithStockCreateOrder = ProductCart.productCartWithStockCreateOrder(cart, products)
     subTotal = ProductCart.subtotalCart(productCartWithStockCreateOrder, '') + shippingCost.cost
 
-    ##Hacer validación de que el cupon tiene disponilidad y si no que recarge la pagina quitando el cupo del carrito.
+
     order = PurchaseOrder.objects.create(
         user=request.user,
         status="Pendiente de pago",

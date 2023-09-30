@@ -220,7 +220,14 @@
                         </div>
                     </div>
                     <div class="card-footer border-secondary bg-transparent">
+                        {% if addresses %}
                         <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3" onclick="confirmPurchase()">Confirmar Compra</button>
+                        {% else %}
+                             <div class="error-messages text-left">
+                                  <p style="color:red">*Para confirmar tu orden debes registrar una dirección<br></p>
+                             </div>
+                            <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3" onclick="confirmPurchase()" disabled>Confirmar Compra</button>
+                        {% endif %}
                     </div>
                 </div>
             </div>
