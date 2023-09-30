@@ -35,6 +35,23 @@
           </div>
         </a>
       </div>
+
+      <div class="col-10 col-lg-8 col-md-8 pb-4 pt-4">
+        <h5 class="text-left">Eliminar cuenta</h5>
+      </div>
+      <div class="col-10 col-lg-8 col-md-8 card shadow-sm rounded">
+        <a href="#" onclick="deleteUser({{ request.user.id }});" class="card-body d-flex align-items-center border-bottom">
+          <span class=" text-dark" >
+            {{ request.user.email }}
+          </span>
+          <span class="text-dark mx-auto" id="userInfo_name">
+
+          </span>
+          <div >
+            <i class="fa fa-trash fa-gray-color" aria-hidden="true"></i>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </div>

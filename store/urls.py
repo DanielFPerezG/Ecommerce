@@ -20,6 +20,7 @@ urlpatterns = [
     path('securityInformation', views.securityInformation, name="securityInformation"),
     path('updatePassword/<str:pk>', views.updatePassword, name="updatePassword"),
     path('resetPassword/', views.resetPassword, name='resetPassword'),
+    path('deleteUser/<str:pk>', views.deleteUser, name="deleteUser"),
     
     path('viewOrder', views.viewOrder, name="viewOrder"),
     path('viewOrderDetail/<str:pk>', views.viewOrderDetail, name="viewOrderDetail"),

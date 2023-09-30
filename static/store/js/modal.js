@@ -175,3 +175,35 @@ function updatePassword(userId){
       }
     });
 }
+function deleteUser(userId){
+    Swal.fire({
+
+        title: 'Eliminar contraseña',
+      html: '<div class="form-group">' +
+    '<label>Si eliminas tu cuenta perderas todo el registro de tus compras.</label>' +
+    '</div>',
+      focusConfirm: false,
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      preConfirm: () => {
+        return fetch(`deleteUser/${userId}`, {
+            method: 'POST',
+            headers:{
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': csrftoken,
+            }
+            }
+        )
+       .then(response => {
+        if (response.ok) {
+
+          window.location.href = '/';
+        } else {
+          console.error('Error al eliminar el usuario.');
+        }
+      });
+      },
+      allowOutsideClick: false,
+    }).then((result) => {
+    });
+}

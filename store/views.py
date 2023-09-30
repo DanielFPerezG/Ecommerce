@@ -453,6 +453,29 @@ def securityInformation(request):
     return render(request, 'store/securityInformation.html', context)
 
 @login_required(login_url='login')
+def deleteUser(request, pk):
+    if  request.user.id == int(pk):
+        user = User.objects.get(pk=pk)
+
+        # Eliminar direcciones asociadas al usuario
+        UserAddress.objects.filter(user=user).delete()
+
+        # Limpiar campos de datos personales en el usuario
+        user.username = user.name[0::-1]+str(random.randint(100, 999))+"@example.com"
+        user.name = None
+        user.lastName = None
+        user.email = None
+        user.phone = None
+        user.card = None
+        user.usePolicy = False
+        user.commPolicy = False
+
+        # Guardar el usuario sin datos personales
+        user.save()
+        logout(request)
+        return redirect('store:home')
+
+@login_required(login_url='login')
 def updatePassword(request,pk):
 
     if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
