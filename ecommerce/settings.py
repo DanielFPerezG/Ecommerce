@@ -35,9 +35,9 @@ ROOT_HOSTCONF = 'ecommerce.hosts'
 DEFAULT_HOST = ' '
 
 ALLOWED_HOSTS = [
-    '18.117.97.56',
+    'danielperez.engineer',
     
-    'base.18.117.97.56',
+    'base.danielperez.engineer',
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
