@@ -35,9 +35,9 @@ ROOT_HOSTCONF = 'ecommerce.hosts'
 DEFAULT_HOST = ' '
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
+    '18.117.97.56',
     
-    'base.localhost',
+    'base.18.117.97.56',
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -120,7 +120,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommerce_db',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': 3306
 
