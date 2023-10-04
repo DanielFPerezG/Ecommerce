@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ih_vc@2l^*=te0v&a=*t+x#cib-*jcz(2tayt$rn)@cmd6t80_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ROOT_HOSTCONF = 'ecommerce.hosts'
 
@@ -168,9 +168,7 @@ STATIC_URL = 'static/'
 
 MEDIA_URL = '/images/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
+#STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
