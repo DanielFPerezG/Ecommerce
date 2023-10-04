@@ -14,6 +14,7 @@ from pathlib import Path
 
 
 from decouple import config
+import os
 
 DISCOUNT_PERCENTAGE = config('DISCOUNT_PERCENTAGE', cast=int, default=0)
 
@@ -170,6 +171,7 @@ MEDIA_URL = '/images/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
 
