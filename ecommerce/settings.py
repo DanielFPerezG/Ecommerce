@@ -39,7 +39,9 @@ ALLOWED_HOSTS = [
     'danielperez.engineer',
     
     'base.danielperez.engineer',
+    'localhost'
 ]
+CSRF_TRUSTED_ORIGINS = ['https://danielperez.engineer', 'https://base.danielperez.engineer']
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -121,7 +123,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommerce_db',
         'USER': 'root',
-        'PASSWORD': '12345',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': 3306
 
