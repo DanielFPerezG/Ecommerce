@@ -93,28 +93,26 @@
     <script src="{% static 'store/js/custom.js' %}"></script>
 
     <script>
-     function deleteCookie(name) {
-        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    }
-    /*
+
      {% if request.COOKIES.cookies_accepted != 'true' %}
-        deleteCookie('csrftoken');  // Elimina la cookie del csrftoken
         {% if request.user.is_authenticated %}
             {% url 'store:logout' as logout_url %}
                 window.location.href = "{{ logout_url }}";
         {% endif %}
     {% endif %}
-    */
+
     function setCookiesAndReload(accepted) {
         var expirationDate = new Date();
         expirationDate.setFullYear(expirationDate.getFullYear() + 1);
         var cookieValue = accepted ? 'true' : 'false';
         document.cookie = 'cookies_accepted=' + cookieValue + '; expires=' + expirationDate.toUTCString() + '; secure=true; samesite=lax; path=/';
 
+        closeCookieBar();
         // Recarga la página actual
         location.reload();
       }
     if (document.cookie.indexOf('cookies_accepted=') === -1) {
+    document.cookie = 'cookies_accepted=;';
     showCookieBar({
       content: '<div class="col-12 cookie-bar p-4 bg-light fixed-bottom text-center"><h3>Bienvenido a Edjo</h3> <div class="col-12 d-flex justify-content-center align-items-center"><p class="text-center text-justify lead">En Edjo utilizamos cookies para brindarte la mejor experiencia de compra en línea. Estas pequeñas herramientas nos permiten personalizar tu visita, recomendarte productos que podrían interesarte y garantizar la seguridad de tus transacciones.</p></div> <a class="pb-5" href="{% url 'store:cookiePolicy' %}">Descubre cómo funcionan nuestras cookies</a><br><div class="pt-3"><button type="submit" class="btn btn-primary mx-2" onclick="setCookiesAndReload(true)">Aceptar Cookies</button><button type="submit" class="btn btn-secondary mx-2" onclick="setCookiesAndReload(false)">Rechazar</button></div></div> ',
     });
