@@ -106,8 +106,6 @@
         expirationDate.setFullYear(expirationDate.getFullYear() + 1);
         var cookieValue = accepted ? 'true' : 'false';
         document.cookie = 'cookies_accepted=' + cookieValue + '; expires=' + expirationDate.toUTCString() + '; secure=true; samesite=lax; path=/';
-
-        closeCookieBar();
         // Recarga la página actual
         location.reload();
       }
