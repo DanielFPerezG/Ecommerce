@@ -122,10 +122,7 @@
         // Recarga la página actual
         location.reload();
       }
-    if (document.cookie.indexOf('cookies_accepted=') === -1) {
-    console.log("no existe la cookie")
-    document.cookie = 'cookies_accepted=;';
-    } else{
+    if (document.cookie.split(';').some((item) => item.trim().startsWith('cookies_accepted='))) {
         var cookieValue = getCookieValue('cookies_accepted');
         if (cookieValue === "") {
             showCookieBar({
@@ -136,6 +133,10 @@
               content: '<div class="col-12 cookie-bar p-4 bg-light fixed-bottom text-center"><h3>Has rechazado las Cookies</h3> <div class="col-12 d-flex justify-content-center align-items-center"><p class="text-center text-justify lead">Por tu seguridad y la nuestra no podrás registrarte o ingresar tu usuario si no has aceptado las cookies.</p></div> <a class="pb-5" href="{% url 'store:cookiePolicy' %}">Descubre cómo funcionan nuestras cookies</a><br><div class="pt-3"><button type="submit" class="btn btn-primary mx-2" onclick="setCookiesAndReload(true)">Aceptar Cookies</button><button type="submit" class="btn btn-secondary mx-2" onclick="setCookiesAndReload(false)">Rechazar</button></div></div> ',
             });
         }
+    } else{
+        console.log("no existe la cookie")
+        document.cookie = 'cookies_accepted=';
+    }
         $(function() {
             var selectedClass = "";
             $("p").click(function(){
