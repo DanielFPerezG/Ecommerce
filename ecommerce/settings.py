@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ih_vc@2l^*=te0v&a=*t+x#cib-*jcz(2tayt$rn)@cmd6t80_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ROOT_HOSTCONF = 'ecommerce.hosts'
 
