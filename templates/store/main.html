@@ -123,6 +123,7 @@
         location.reload();
       }
     if (document.cookie.indexOf('cookies_accepted=') === -1) {
+    console.log("no existe la cookie")
     document.cookie = 'cookies_accepted=;';
     } else{
         var cookieValue = getCookieValue('cookies_accepted');
