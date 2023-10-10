@@ -96,6 +96,7 @@
      function deleteCookie(name) {
         document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     }
+    /*
      {% if request.COOKIES.cookies_accepted != 'true' %}
         deleteCookie('csrftoken');  // Elimina la cookie del csrftoken
         {% if request.user.is_authenticated %}
@@ -103,7 +104,7 @@
                 window.location.href = "{{ logout_url }}";
         {% endif %}
     {% endif %}
-
+    */
     function setCookiesAndReload(accepted) {
         var expirationDate = new Date();
         expirationDate.setFullYear(expirationDate.getFullYear() + 1);
