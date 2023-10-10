@@ -16,7 +16,7 @@ class User(AbstractUser):
     usePolicy = models.BooleanField(default=True)
     commPolicy = models.BooleanField(default=False)
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = []
 
     def __str__(self):
