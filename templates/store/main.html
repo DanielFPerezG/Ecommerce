@@ -95,6 +95,7 @@
     <script>
 
     function setCookiesAndReload(accepted) {
+        console.log(accepted)
         var expirationDate = new Date();
         expirationDate.setFullYear(expirationDate.getFullYear() + 1);
         var cookieValue = accepted ? 'true' : 'false';
