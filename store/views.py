@@ -479,30 +479,30 @@ def deleteUser(request, pk):
 
 @login_required(login_url='login')
 def updatePassword(request,pk):
+    if request.user.id == int(pk):
+        if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            data = json.loads(request.body)
+            lastPassword = data.get('lastPassword')
+            newPassword = data.get('newPassword')
+            confirmPassword = data.get('confirmPassword')
 
-    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        data = json.loads(request.body)
-        lastPassword = data.get('lastPassword')
-        newPassword = data.get('newPassword')
-        confirmPassword = data.get('confirmPassword')
+            user = User.objects.get(pk=pk)
 
-        user = User.objects.get(pk=pk)
+            # Verify if passwords match
+            if not check_password(lastPassword, user.password):
+                return JsonResponse({'error': 'La contraseña actual es incorrecta.'})
 
-        # Verify if passwords match
-        if not check_password(lastPassword, user.password):
-            return JsonResponse({'error': 'La contraseña actual es incorrecta.'})
-
-        if newPassword != confirmPassword:
-            return JsonResponse({'error': 'La nueva contraseña no es igual.'})
+            if newPassword != confirmPassword:
+                return JsonResponse({'error': 'La nueva contraseña no es igual.'})
 
 
-        user.set_password(newPassword)
+            user.set_password(newPassword)
 
-        user.save()
+            user.save()
 
-        return JsonResponse({'message': 'User information updated successfully.'})
-    else:
-        return JsonResponse({'error': 'Invalid request.'})
+            return JsonResponse({'message': 'User information updated successfully.'})
+        else:
+            return JsonResponse({'error': 'Invalid request.'})
 
 
 def checkout(request):
