@@ -380,28 +380,28 @@ def personalInformation(request):
 
 @csrf_exempt
 def updateUserInfo(request,pk):
+    if pk == request.user.id:
+        if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            data = json.loads(request.body)
+            new_info = data.get('newInfo')
+            info_type = data.get('type')
 
-    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        data = json.loads(request.body)
-        new_info = data.get('newInfo')
-        info_type = data.get('type')
+            user = User.objects.get(pk=pk)
 
-        user = User.objects.get(pk=pk)
+            if info_type == 'name':
+                user.name = new_info
+            elif info_type == 'lastName':
+                user.lastName = new_info
+            elif info_type == 'card':
+                user.card = new_info
+            elif info_type == 'phone':
+                user.phone = new_info
 
-        if info_type == 'name':
-            user.name = new_info
-        elif info_type == 'lastName':
-            user.lastName = new_info
-        elif info_type == 'card':
-            user.card = new_info
-        elif info_type == 'phone':
-            user.phone = new_info
+            user.save()
 
-        user.save()
-
-        return JsonResponse({'message': 'User information updated successfully.'})
-    else:
-        return JsonResponse({'error': 'Invalid request.'})
+            return JsonResponse({'message': 'User information updated successfully.'})
+        else:
+            return JsonResponse({'error': 'Invalid request.'})
 
 
 def userAddress(request):
