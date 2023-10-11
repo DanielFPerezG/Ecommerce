@@ -16,7 +16,7 @@ from pathlib import Path
 from decouple import config
 import os
 
-DISCOUNT_PERCENTAGE = config('DISCOUNT_PERCENTAGE', cast=int, default=0)
+DISCOUNT_PERCENTAGE = config('DISCOUNT_PERCENTAGE', cast=int, default=10)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
