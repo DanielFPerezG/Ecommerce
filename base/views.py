@@ -246,7 +246,8 @@ def createBanner(request):
             ImageHandler.save_resized_image_create(temp_file, img, object=banner, type="banner")
             # Remove temporary file
             os.remove(temp_file.name)
-            return redirect('home')
+            banner.save()
+            return redirect('adminBanner')
 
     
     return render(request, 'base/createBanner.html', {'topics':topics})

@@ -28,11 +28,12 @@ class ImageHandler:
                     cover.save(output, format='JPEG', quality=100)
                     output.seek(0)
                     object.imageDetailSecond.save(img.name, ContentFile(output.read()), save=False)
-                elif type == "Banner":
+                elif type == "banner":
                     cover = resizeimage.resize_cover(image, [790, 680])
                     output = io.BytesIO()
                     cover.save(output, format='JPEG', quality=100)
                     output.seek(0)
+
                     object.image.save(img.name, ContentFile(output.read()), save=False)
 
                 elif type == "Topic":
@@ -49,7 +50,7 @@ class ImageHandler:
                 cover = resizeimage.resize_cover(img, [370, 390])
             elif type == "productDetail":
                 cover = resizeimage.resize_cover(img, [770, 400])
-            elif type == "Banner":
+            elif type == "banner":
                 cover = resizeimage.resize_cover(img, [790, 680])
             elif type == "Topic":
                 cover = resizeimage.resize_cover(img, [385, 330])
