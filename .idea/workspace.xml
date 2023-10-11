@@ -4,69 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Administrator Permissions">
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Media files">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/templates/base/login_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/login_register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/Topic/Perfumes.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/Topic/Perfumes.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/Topic/Shampoos.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/Topic/Shampoos.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/Topic/joyeria.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/Topic/joyeria.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/Topic/pulsera.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/Topic/pulsera.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/about-left-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/about-left-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/about-us-page-heading.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/about-us-page-heading.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/baner-right-image-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/baner-right-image-01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/baner-right-image-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/baner-right-image-02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/baner-right-image-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/baner-right-image-03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/baner-right-image-04.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/baner-right-image-04.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/base-background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/base-background.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/close.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/close.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/discount-10%.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/discount-10%.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/discount-20%.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/discount-20%.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/explore-image-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/explore-image-01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/explore-image-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/explore-image-02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/icons/icono_grey.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons/icono_grey.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/icons/icono_growth.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons/icono_growth.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/icons/logo_grey.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons/logo_grey.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/icons/logo_grey.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons/logo_grey.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/instagram-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram-01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/instagram-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram-02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/instagram-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram-03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/instagram-04.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram-04.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/instagram-05.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram-05.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/instagram-06.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram-06.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/kid-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/kid-01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/kid-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/kid-02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/kid-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/kid-03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/left-banner-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/left-banner-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/loading.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/loading.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/logo/bancolombia.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/bancolombia.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/logo/bancolombiaMobile.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/bancolombiaMobile.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/logo/bancolombiaQR.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/bancolombiaQR.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/logo/daviplata.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/daviplata.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/logo/daviplataMobile.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/daviplataMobile.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/logo/daviviendaQR.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/daviviendaQR.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/logo/nequi.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/nequi.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/men-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/men-01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/men-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/men-02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/men-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/men-03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/next.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/next.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/prev.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/prev.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/products-page-heading.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/products-page-heading.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/service-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/service-01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/service-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/service-02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/service-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/service-03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/single-product-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/single-product-01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/single-product-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/single-product-02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/team-member-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/team-member-01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/team-member-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/team-member-02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/team-member-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/team-member-03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/white-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/white-logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/women-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/women-01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/women-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/women-02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/women-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/women-03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/store/styles/lightbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/lightbox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/store/js/paymentMethod.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/js/paymentMethod.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/templates/store/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/checkout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/navbar.html" afterDir="false" />
@@ -225,42 +167,7 @@
       <workItem from="1692992513150" duration="493000" />
       <workItem from="1692993273204" duration="331000" />
       <workItem from="1696512066480" duration="4325000" />
-      <workItem from="1696943774743" duration="15869000" />
-    </task>
-    <task id="LOCAL-00055" summary="Create Order Templates and Order Entry System">
-      <created>1689646912618</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1689646912618</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Refactor Product Number, New Product and Cart Subtotal System">
-      <created>1689967175180</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1689967175180</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Fix Bug in Product Image Saving System">
-      <created>1689976004445</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1689976004445</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Create Store Views and Templates for the Store Shopping Page">
-      <created>1690421075244</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1690421075244</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Adding Static Files to the Base Application">
-      <created>1690421239765</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1690421239765</updated>
+      <workItem from="1696943774743" duration="18675000" />
     </task>
     <task id="LOCAL-00060" summary="Add Order Management View">
       <created>1690505335262</created>
@@ -570,7 +477,42 @@
       <option name="project" value="LOCAL" />
       <updated>1697053550193</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Update Media Path">
+      <created>1697055210919</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1697055210919</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Update Debug to True">
+      <created>1697055957423</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1697055957423</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Update Debug to False">
+      <created>1697056767091</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1697056767092</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Update Media files">
+      <created>1697057852270</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1697057852270</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Update Media files">
+      <created>1697058480574</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1697058480574</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,10 +547,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Order Update System in User App" />
-    <MESSAGE value="Add Order View System in Store App" />
-    <MESSAGE value="Update Inventory System when Canceling Order" />
-    <MESSAGE value="Create Forgot Password System" />
     <MESSAGE value="Update Subtotal Value" />
     <MESSAGE value="Fix Password Update Function" />
     <MESSAGE value="Fix Password Refresh Function" />
@@ -630,7 +568,11 @@
     <MESSAGE value="Add Qr Payment Method" />
     <MESSAGE value="Fix Update User Info Bug" />
     <MESSAGE value="Update Administrator Permissions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Administrator Permissions" />
+    <MESSAGE value="Update Media Path" />
+    <MESSAGE value="Update Debug to True" />
+    <MESSAGE value="Update Debug to False" />
+    <MESSAGE value="Update Media files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Media files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
