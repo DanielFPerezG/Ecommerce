@@ -380,7 +380,7 @@ def personalInformation(request):
 
 @csrf_exempt
 def updateUserInfo(request,pk):
-    if pk == request.user.id:
+    if request.user.id == int(pk):
         if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
             data = json.loads(request.body)
             new_info = data.get('newInfo')
