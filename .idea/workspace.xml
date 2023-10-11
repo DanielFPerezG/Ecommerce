@@ -4,9 +4,74 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Shipping Cost Recording Function">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="5f218115-a61f-4744-af93-578f5c7bf4a2" name="Changes" comment="Update Administrator Permissions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/login_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/login_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/Topic/Perfumes.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/Topic/Perfumes.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/Topic/Shampoos.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/Topic/Shampoos.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/Topic/joyeria.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/Topic/joyeria.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/Topic/pulsera.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/Topic/pulsera.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/about-left-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/about-left-image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/about-us-page-heading.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/about-us-page-heading.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/baner-right-image-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/baner-right-image-01.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/baner-right-image-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/baner-right-image-02.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/baner-right-image-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/baner-right-image-03.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/baner-right-image-04.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/baner-right-image-04.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/base-background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/base-background.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/close.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/close.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/discount-10%.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/discount-10%.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/discount-20%.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/discount-20%.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/explore-image-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/explore-image-01.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/explore-image-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/explore-image-02.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/icons/icono_grey.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons/icono_grey.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/icons/icono_growth.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons/icono_growth.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/icons/logo_grey.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons/logo_grey.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/icons/logo_grey.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons/logo_grey.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/instagram-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram-01.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/instagram-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram-02.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/instagram-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram-03.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/instagram-04.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram-04.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/instagram-05.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram-05.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/instagram-06.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram-06.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/kid-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/kid-01.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/kid-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/kid-02.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/kid-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/kid-03.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/left-banner-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/left-banner-image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/loading.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/loading.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/logo/bancolombia.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/bancolombia.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/logo/bancolombiaMobile.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/bancolombiaMobile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/logo/bancolombiaQR.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/bancolombiaQR.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/logo/daviplata.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/daviplata.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/logo/daviplataMobile.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/daviplataMobile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/logo/daviviendaQR.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/daviviendaQR.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/logo/nequi.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/nequi.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/men-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/men-01.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/men-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/men-02.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/men-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/men-03.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/next.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/next.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/prev.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/prev.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/products-page-heading.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/products-page-heading.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/service-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/service-01.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/service-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/service-02.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/service-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/service-03.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/single-product-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/single-product-01.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/single-product-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/single-product-02.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/team-member-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/team-member-01.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/team-member-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/team-member-02.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/team-member-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/team-member-03.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/white-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/white-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/women-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/women-01.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/women-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/women-02.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/women-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/women-03.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/store/styles/lightbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/lightbox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/store/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/store/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/templates/store/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/checkout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/store/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/store/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +91,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="production_test" />
+        <entry key="$PROJECT_DIR$" value="test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,11 +144,11 @@
       <recent name="$PROJECT_DIR$/static/store/json" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/static/images/Topic" />
       <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/templates/base" />
       <recent name="$PROJECT_DIR$/templates/store" />
-      <recent name="$PROJECT_DIR$/store/templatetags" />
     </key>
   </component>
   <component name="RunManager">
@@ -159,216 +224,8 @@
       <workItem from="1692319256287" duration="134000" />
       <workItem from="1692992513150" duration="493000" />
       <workItem from="1692993273204" duration="331000" />
-    </task>
-    <task id="LOCAL-00025" summary="Update Banners Images">
-      <created>1681415862101</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1681415862101</updated>
-    </task>
-    <task id="LOCAL-00026" summary="update File Saving System">
-      <created>1681421318349</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1681421318349</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Update Banners &amp; Topics Messages">
-      <created>1681421810728</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1681421810728</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Update Products Template in Home">
-      <created>1681424058283</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1681424058283</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Modularize Image Resizing System">
-      <created>1681491472214</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1681491472214</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Create AJAX System to Add and Update Shopping Cart Product">
-      <created>1681883645771</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1681883645772</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Update Product Detail Template">
-      <created>1682450776875</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1682450776876</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Implement AJAX &amp; Modal Add to Cart System">
-      <created>1682456407984</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1682456407985</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Add Search, Sorting and Filtering System">
-      <created>1683669482546</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1683669482546</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Update Navbar">
-      <created>1683670728168</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1683670728168</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Update Views User Authenticated System">
-      <created>1683672550652</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1683672550652</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Update Shopping Cart Template and AJAX Features">
-      <created>1683842773911</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1683842773912</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Update Mobile Shopping Cart Template and AJAX Features">
-      <created>1683850335495</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1683850335496</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Update LogIn Template">
-      <created>1684530592633</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1684530592633</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Update User Model">
-      <created>1684530804899</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1684530804899</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Update Register Model, View &amp; Template">
-      <created>1684535070081</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1684535070081</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Update navbar &amp; Shopping Cart AJAX Features">
-      <created>1684538427488</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1684538427488</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Update User Model">
-      <created>1685398073887</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1685398073887</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Create UserProfile Template &amp; View">
-      <created>1685492482417</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1685492482417</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Create personalInformation Template &amp; View with AJAX Functions">
-      <created>1686185637933</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1686185637933</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Create Address Template &amp; View">
-      <created>1688674105480</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1688674105480</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Create address creation features using AJAX">
-      <created>1688747547773</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1688747547773</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Fixing Bugs When Creating New Products">
-      <created>1688765564462</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1688765564462</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Fix Price Bug In Cart">
-      <created>1688766372454</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1688766372454</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Add Delete Address Function">
-      <created>1688768370809</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1688768370809</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Add User Password Change Function">
-      <created>1689192026139</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1689192026140</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Update Product Price in Mobile View">
-      <created>1689194343991</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1689194343991</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Update the Numerical Format of the Product Price">
-      <created>1689195086463</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1689195086463</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Add Checkout System with Asynchronous Address Update">
-      <created>1689452645511</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1689452645512</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Update Payment Method Icons in Mobile Version">
-      <created>1689455230010</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1689455230010</updated>
+      <workItem from="1696512066480" duration="4325000" />
+      <workItem from="1696943774743" duration="15869000" />
     </task>
     <task id="LOCAL-00055" summary="Create Order Templates and Order Entry System">
       <created>1689646912618</created>
@@ -503,7 +360,217 @@
       <option name="project" value="LOCAL" />
       <updated>1692151620311</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Add wsgi.py">
+      <created>1696453748604</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1696453748604</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Update Settings.py">
+      <created>1696458478468</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1696458478468</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Update wsgi.py">
+      <created>1696461929559</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1696461929559</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Update settings.py">
+      <created>1696546403791</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1696546403792</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Update wsgi.py">
+      <created>1696546469257</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1696546469257</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Update settings.py">
+      <created>1696548051548</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1696548051548</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Update wsgi.py">
+      <created>1696975526947</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1696975526948</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Update wsgi.py">
+      <created>1696976060187</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1696976060187</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Update models.py">
+      <created>1696976540876</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1696976540876</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Update Debug">
+      <created>1696977252270</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1696977252270</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Update file name">
+      <created>1696978128117</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1696978128117</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Ignore Cookies Settings">
+      <created>1696978670335</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1696978670335</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Ignore Cookies Settings">
+      <created>1696979604533</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1696979604533</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Ignore Cookies Settings">
+      <created>1696979667157</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1696979667157</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Ignore Cookies Settings">
+      <created>1696980254422</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1696980254422</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Ignore Cookies Settings">
+      <created>1696980501111</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1696980501111</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Ignore Cookies Settings">
+      <created>1696982032244</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1696982032244</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Update Cookies Settings">
+      <created>1696982685462</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1696982685462</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Update Cookies Settings">
+      <created>1696982872296</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1696982872296</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Update Cookies Settings">
+      <created>1696987500625</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1696987500625</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Update Cookies Settings">
+      <created>1696988212428</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1696988212428</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Update Cookies Settings">
+      <created>1696988353011</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1696988353011</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Update Settings discount percentage">
+      <created>1696989026611</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1696989026611</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Update helprs.py">
+      <created>1696992911872</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1696992911872</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Update Create Banner Function">
+      <created>1696995408853</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1696995408853</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Update Create Banner Function">
+      <created>1696995558048</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1696995558048</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Add Qr Payment Method">
+      <created>1696995854894</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1696995854894</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Fix Update User Info Bug">
+      <created>1697042405481</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1697042405481</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Fix Update User Info Bug">
+      <created>1697043288162</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1697043288162</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Update Administrator Permissions">
+      <created>1697053550193</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1697053550193</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,7 +592,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="test" />
+                        <option value="aws_test" />
                       </list>
                     </value>
                   </entry>
@@ -538,21 +605,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Delete Address Function" />
-    <MESSAGE value="Add User Password Change Function" />
-    <MESSAGE value="Update Product Price in Mobile View" />
-    <MESSAGE value="Update the Numerical Format of the Product Price" />
-    <MESSAGE value="Add Checkout System with Asynchronous Address Update" />
-    <MESSAGE value="Update Payment Method Icons in Mobile Version" />
-    <MESSAGE value="Create Order Templates and Order Entry System" />
-    <MESSAGE value="Refactor Product Number, New Product and Cart Subtotal System" />
-    <MESSAGE value="Fix Bug in Product Image Saving System" />
-    <MESSAGE value="Create Store Views and Templates for the Store Shopping Page" />
-    <MESSAGE value="Adding Static Files to the Base Application" />
-    <MESSAGE value="Add Order Management View" />
-    <MESSAGE value="Add Detailed View of Each Order" />
-    <MESSAGE value="Add Order Cancel System in User App" />
-    <MESSAGE value="Add Order Cancel System in Store App" />
     <MESSAGE value="Add Order Update System in User App" />
     <MESSAGE value="Add Order View System in Store App" />
     <MESSAGE value="Update Inventory System when Canceling Order" />
@@ -563,7 +615,22 @@
     <MESSAGE value="Fix Bug when Creating an Order with More than One Product" />
     <MESSAGE value="Add Redirect Function to Login Page when Adding Products to Cart" />
     <MESSAGE value="Update Shipping Cost Recording Function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Shipping Cost Recording Function" />
+    <MESSAGE value="Add wsgi.py" />
+    <MESSAGE value="Update Settings.py" />
+    <MESSAGE value="Update settings.py" />
+    <MESSAGE value="Update wsgi.py" />
+    <MESSAGE value="Update models.py" />
+    <MESSAGE value="Update Debug" />
+    <MESSAGE value="Update file name" />
+    <MESSAGE value="Ignore Cookies Settings" />
+    <MESSAGE value="Update Cookies Settings" />
+    <MESSAGE value="Update Settings discount percentage" />
+    <MESSAGE value="Update helprs.py" />
+    <MESSAGE value="Update Create Banner Function" />
+    <MESSAGE value="Add Qr Payment Method" />
+    <MESSAGE value="Fix Update User Info Bug" />
+    <MESSAGE value="Update Administrator Permissions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Administrator Permissions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -574,19 +641,9 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/base/helpers.py</url>
-          <line>11</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/store/views.py</url>
           <line>409</line>
           <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/base/views.py</url>
-          <line>121</line>
-          <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/store/views.py</url>
@@ -604,16 +661,17 @@
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/base/views.py</url>
-          <line>334</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/store/views.py</url>
           <line>288</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Python.DjangoServer">
+        <watch expression="banner.image.DEFAULT_CHUNK_SIZE" />
+        <watch expression="banner.image.DEFAULT_CHUNK_SIZE" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
