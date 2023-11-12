@@ -281,18 +281,18 @@ def create_cart(sender, instance, created, **kwargs):
 def addCart(request,pk):
     product = Product.objects.get(id=pk)
     cart, create = Cart.objects.get_or_create(user=request.user)
+    if cart.user == request.user.id:
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            cart.add_product(product)
 
-    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        cart.add_product(product)
+        numberProductsCart = ProductCart.numberProducts(cart)
+        newProductCarts = ProductCart.newProductCart(cart, product)
+        numberProductsCart = json.dumps(numberProductsCart)
+        newProductCarts = json.dumps(newProductCarts)
 
-    numberProductsCart = ProductCart.numberProducts(cart)
-    newProductCarts = ProductCart.newProductCart(cart, product)
-    numberProductsCart = json.dumps(numberProductsCart)
-    newProductCarts = json.dumps(newProductCarts)
-
-    data = {"json1": numberProductsCart, "json2": newProductCarts}
-    data = json.dumps(data)
-    return HttpResponse(data)
+        data = {"json1": numberProductsCart, "json2": newProductCarts}
+        data = json.dumps(data)
+        return HttpResponse(data)
 
 def addCartDetail(request,pk):
     product = Product.objects.get(id=pk)
