@@ -600,14 +600,14 @@ def viewOrder(request):
 @login_required(login_url='login')
 def cancelStoreOrder(request,pk):
     order = PurchaseOrder.objects.get(id=pk)
-    order.status = "Cancelado"
-    order.save()
     productOrder = json.loads(order.products)
 
     for item in productOrder:
         product = Product.objects.get(id=item['id'])
         product.stock += item['quantity']
         product.save()
+
+    order.delete()
 
     return JsonResponse({'message': 'User information updated successfully.'})
 

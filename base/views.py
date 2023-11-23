@@ -306,8 +306,6 @@ def viewOrderDetail(request, pk):
 @login_required(login_url='login')
 def cancelOrder(request,pk):
     order = PurchaseOrder.objects.get(id=pk)
-    order.status = "Cancelado"
-    order.save()
     productOrder = json.loads(order.products)
 
     for item in productOrder:
@@ -315,6 +313,7 @@ def cancelOrder(request,pk):
         product.stock += item['quantity']
         product.save()
 
+    order.delete()
     return redirect('adminOrder')
 
 @login_required(login_url='login')
