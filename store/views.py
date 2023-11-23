@@ -534,58 +534,59 @@ def createOrder(request, pk):
     cart = Cart.objects.get(user=request.user)
     selectedAddress = UserAddress.objects.get(pk=pk)
     products = Product.objects.all()
-    productCartWithStockCreateOrder = ProductCart.productCartWithStockCreateOrder(cart, products)
-    subTotal = ProductCart.subtotalCart(productCartWithStockCreateOrder, '') + shippingCost.cost
+    if products:
+        productCartWithStockCreateOrder = ProductCart.productCartWithStockCreateOrder(cart, products)
+        subTotal = ProductCart.subtotalCart(productCartWithStockCreateOrder, '') + shippingCost.cost
 
 
-    order = PurchaseOrder.objects.create(
-        user=request.user,
-        status="Pendiente de pago",
-        address=selectedAddress.address,
-        state=selectedAddress.state,
-        city=selectedAddress.city,
-        complement=selectedAddress.complement,
-        total= subTotal,
-        shippingCost=shippingCost.cost
-    )
-
-    for productJson in productCartWithStockCreateOrder:
-        product = Product.objects.get(pk=productJson['id'])
-        productCost =  product.cost
-        productTopic = product.topic
-        orderItem = PurchaseOrderItem.objects.create(
-            product = product,
-            order=order,
+        order = PurchaseOrder.objects.create(
             user=request.user,
-            productName=productJson['name'],
-            price=productJson['price'],
-            cost = productCost,
-            quantity=productJson['quantity'],
-            total=productJson['price']*productJson['quantity'],
-            productTopic = productTopic,
+            status="Pendiente de pago",
+            address=selectedAddress.address,
+            state=selectedAddress.state,
+            city=selectedAddress.city,
+            complement=selectedAddress.complement,
+            total= subTotal,
+            shippingCost=shippingCost.cost
         )
-        product = Product.objects.get(pk=productJson['id'])
-        product.stock = product.stock - productJson['quantity']
-        product.save()
+
+        for productJson in productCartWithStockCreateOrder:
+            product = Product.objects.get(pk=productJson['id'])
+            productCost =  product.cost
+            productTopic = product.topic
+            orderItem = PurchaseOrderItem.objects.create(
+                product = product,
+                order=order,
+                user=request.user,
+                productName=productJson['name'],
+                price=productJson['price'],
+                cost = productCost,
+                quantity=productJson['quantity'],
+                total=productJson['price']*productJson['quantity'],
+                productTopic = productTopic,
+            )
+            product = Product.objects.get(pk=productJson['id'])
+            product.stock = product.stock - productJson['quantity']
+            product.save()
+            if cart.cupon:
+                orderItem.cupon  = cart.cupon
+            orderItem.save()
         if cart.cupon:
-            orderItem.cupon  = cart.cupon
-        orderItem.save()
-    if cart.cupon:
-        cupon = Cupon.objects.get(pk=cart.cupon.pk)
-        cupon.usedCoupon += 1
-        cupon.claimedBy.add(request.user)
-        cupon.save()
-        order.cupon = cart.cupon
-        cart.cupon = None
+            cupon = Cupon.objects.get(pk=cart.cupon.pk)
+            cupon.usedCoupon += 1
+            cupon.claimedBy.add(request.user)
+            cupon.save()
+            order.cupon = cart.cupon
+            cart.cupon = None
+            cart.save()
+
+        order.products = json.dumps(productCartWithStockCreateOrder)
+        order.save()
+
+        cart.products = json.dumps([])
         cart.save()
 
-    order.products = json.dumps(productCartWithStockCreateOrder)
-    order.save()
-
-    cart.products = json.dumps([])
-    cart.save()
-
-    return JsonResponse({'message': 'Orden creada correctamente'})
+        return JsonResponse({'message': 'Orden creada correctamente'})
 
 def viewOrder(request):
     cart = Cart.objects.get(user=request.user)

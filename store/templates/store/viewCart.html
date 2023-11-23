@@ -146,7 +146,9 @@
                                 <h5 class="font-weight-bold">Total</h5>
                                 <h5 class="font-weight-bold" id="total_price">${{ total|intcomma }}</h5>
                             </div>
+                            {% if productCart %}
                             <a href="{%  url 'store:checkout' %}"><button type="button"   class="btn btn-block btn-primary my-3 py-3">Continuar con la Compra</button></a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
