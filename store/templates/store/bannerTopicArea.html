@@ -71,7 +71,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {% if topics.0.image_url %}
                                         <img src="{{ topics.0.image_url }}" alt="{{ topics.0.name }}">
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +93,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {% if topics.1.image_url %}
                                         <img src="{{ topics.1.image_url }}" alt="{{ topics.1.name }}">
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +115,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {% if topics.2.image_url %}
                                         <img src="{{ topics.2.image_url }}" alt="{{ topics.2.name }}">
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +137,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {% if topics.3.image_url %}
                                         <img src="{{ topics.3.image_url }}" alt="{{ topics.3.name }}">
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -161,7 +169,9 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            {% if topic.image_url %}
                                             <img src="{{ topic.image_url }}" alt="{{ topic.name }}">
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
