@@ -24,8 +24,8 @@ $("#payment-methods").on("click", function() {
             ? 'margin-bottom: 20px;'
             : 'flex: 1; margin-right: 30px;') +
         '">' +
-          '<img src="images/logo/bancolombia.png" alt="Bancolombia" class="img-fluid payment-logo rounded align-items-start align-content-start" style="max-width: 50%; height: auto; max-height: 100px; float: left; clear: left;">' +
-          '<img src="images/logo/bancolombiaQR.png" alt="Código QR 1" style="max-width: 100%; height: auto; max-height: 300px;" />' +
+          '<img src="media/logo/bancolombia.png" alt="Bancolombia" class="img-fluid payment-logo rounded align-items-start align-content-start" style="max-width: 50%; height: auto; max-height: 100px; float: left; clear: left;">' +
+          '<img src="media/logo/bancolombiaQR.png" alt="Código QR 1" style="max-width: 100%; height: auto; max-height: 300px;" />' +
           '<div class="text-left ml-3"><h5>Cuenta de Ahorros Bancolombia</h5>'+
           '<p>Numero de cuenta: 213424142</p>'+
           '<p>Titular: Geny Pérez</p></div>'+
@@ -34,15 +34,15 @@ $("#payment-methods").on("click", function() {
         '<div style="' +
           (isMobile ? '' : 'flex: 1;') +
         '">' +
-        '<img src="images/logo/daviplata.png" alt="Daviplata" class="img-fluid payment-logo rounded" style="max-width: 33%; height: auto; max-height: 100px; float: right; clear: right;">' +
-          '<img src="images/logo/daviviendaQR.jpeg" alt="Código QR 2" style="max-width: 100%; height: auto; max-height: 300px;" />' +
+        '<img src="media/logo/daviplata.png" alt="Daviplata" class="img-fluid payment-logo rounded" style="max-width: 33%; height: auto; max-height: 100px; float: right; clear: right;">' +
+          '<img src="media/logo/daviviendaQR.jpeg" alt="Código QR 2" style="max-width: 100%; height: auto; max-height: 300px;" />' +
         '<div class="text-left ml-3"><h5>Cuenta de Ahorros Digital Daviplata</h5>'+
           '<p>Numero de telefono: 3144009545</p>'+
           '<p>Titular: Geny Pérez</p></div>'+
         '</div>' +
       '</div>' +
        '<div style="display: flex; align-items: center; justify-content: center; margin-top: 20px;"> ' +
-      '<img src="images/logo/nequi.png" alt="Nequi" style="width: 100px; height: 100px; margin-right: 10px;">' +
+      '<img src="media/logo/nequi.png" alt="Nequi" style="width: 100px; height: 100px; margin-right: 10px;">' +
       '<h4 style="background-color: #2f2461; color: white; padding: 5px; border-radius: 5px;">3140009545</h4>' +
       '</div>' +
       '<p style="margin-top: 20px;">Para confirmar tu compra envia el comprobante de pago al <a href="https://wa.me/3144009545" target="_blank" style="color: green;">whatsapp: +57 314 4009545.</a> Una vez que confirmemos la recepción del dinero se procedera al envío del pedido.</p>'+
@@ -80,8 +80,8 @@ $("#payment-methods-button").on("click", function() {
             ? 'margin-bottom: 20px;'
             : 'flex: 1; margin-right: 30px;') +
         '">' +
-          '<img src="images/logo/bancolombia.png" alt="Bancolombia" class="img-fluid payment-logo rounded align-items-start align-content-start" style="max-width: 50%; height: auto; max-height: 100px; float: left; clear: left;">' +
-          '<img src="images/logo/bancolombiaQR.png" alt="Código QR 1" style="max-width: 100%; height: auto; max-height: 300px;" />' +
+          '<img src="media/logo/bancolombia.png" alt="Bancolombia" class="img-fluid payment-logo rounded align-items-start align-content-start" style="max-width: 50%; height: auto; max-height: 100px; float: left; clear: left;">' +
+          '<img src="media/logo/bancolombiaQR.png" alt="Código QR 1" style="max-width: 100%; height: auto; max-height: 300px;" />' +
           '<div class="text-left ml-3"><h5>Cuenta de Ahorros Bancolombia</h5>'+
           '<p>Numero de cuenta: 213424142</p>'+
           '<p>Titular: Geny Pérez</p></div>'+
@@ -91,14 +91,14 @@ $("#payment-methods-button").on("click", function() {
           (isMobile ? '' : 'flex: 1;') +
         '">' +
         '<img src="images/logo/daviplata.png" alt="Daviplata" class="img-fluid payment-logo rounded" style="max-width: 33%; height: auto; max-height: 100px; float: right; clear: right;">' +
-          '<img src="images/logo/daviviendaQR.jpeg" alt="Código QR 2" style="max-width: 100%; height: auto; max-height: 300px;" />' +
+          '<img src="media/logo/daviviendaQR.jpeg" alt="Código QR 2" style="max-width: 100%; height: auto; max-height: 300px;" />' +
         '<div class="text-left ml-3"><h5>Cuenta de Ahorros Digital Daviplata</h5>'+
           '<p>Numero de telefono: 3144009545</p>'+
           '<p>Titular: Geny Pérez</p></div>'+
         '</div>' +
       '</div>' +
        '<div style="display: flex; align-items: center; justify-content: center; margin-top: 20px;"> ' +
-      '<img src="images/logo/nequi.png" alt="Nequi" style="width: 100px; height: 100px; margin-right: 10px;">' +
+      '<img src="media/logo/nequi.png" alt="Nequi" style="width: 100px; height: 100px; margin-right: 10px;">' +
       '<h4 style="background-color: #2f2461; color: white; padding: 5px; border-radius: 5px;">3140009545</h4>' +
       '</div>' +
       '<p style="margin-top: 20px;">Para confirmar tu compra envia el comprobante de pago al <a href="https://wa.me/3144009545" target="_blank" style="color: green;">whatsapp: +57 314 4009545.</a> Una vez que confirmemos la recepción del dinero se procedera al envío del pedido.</p>'+
