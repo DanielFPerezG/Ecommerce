@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.core.files.storage import default_storage
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
@@ -50,11 +51,11 @@ def logoutUser(request):
     logout(request)
     return redirect('home')
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def home(request):
     return render(request, 'base/home.html')
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def createProduct(request):
     topics = Topic.objects.all()
 
@@ -110,13 +111,13 @@ def createProduct(request):
     
     return render(request, 'base/createProduct.html', {'topics':topics})
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def adminProduct(request):
     products = Product.objects.all()
 
     return render(request, 'base/adminProduct.html', {'products':products})
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def deleteProduct(request,pk):
     product = Product.objects.get(id=pk)
     product.delete()
@@ -124,7 +125,7 @@ def deleteProduct(request,pk):
     return redirect('adminProduct')
 
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def updateProduct(request,pk):
     product = Product.objects.get(id=pk)
     form = ProductForm(instance=product)
@@ -150,13 +151,13 @@ def updateProduct(request,pk):
 
     return render(request,'base/updateProduct.html', {'form':form, 'product':product})
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def adminTopic(request):
     topics = Topic.objects.all()
 
     return render(request, 'base/adminTopic.html', {'topics':topics})
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def updateTopic(request,pk):
     topic = Topic.objects.get(id=pk)
     form = TopicForm(instance=topic)
@@ -170,7 +171,7 @@ def updateTopic(request,pk):
 
     return render(request,'base/updateTopic.html', {'form':form, 'topic':topic})
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def createBanner(request):
     topics = Topic.objects.all()
 
@@ -252,7 +253,7 @@ def createBanner(request):
     
     return render(request, 'base/createBanner.html', {'topics':topics})
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def updateBanner(request,pk):
     banner = Banner.objects.get(id=pk)
     form = BannerForm(instance=banner)
@@ -266,26 +267,26 @@ def updateBanner(request,pk):
 
     return render(request,'base/updateBanner.html', {'form':form, 'banner':banner})
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def adminBanner(request):
     banners = Banner.objects.all()
 
     return render(request, 'base/adminBanner.html', {'banners': banners})
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def deleteBanner(request,pk):
     banner = Banner.objects.get(id=pk)
     banner.delete()
 
     return redirect('adminBanner')
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def adminOrder(request):
     orders = PurchaseOrder.objects.all().order_by('-createdAt')
 
     return render(request, 'base/adminOrder.html', {'orders':orders})
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def viewOrderDetail(request, pk):
     order = PurchaseOrder.objects.get(pk=pk)
     products_data = order.products
@@ -303,7 +304,7 @@ def viewOrderDetail(request, pk):
 
     return render(request, 'base/viewOrderDetail.html', {'order': order, 'products': products})
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def cancelOrder(request,pk):
     order = PurchaseOrder.objects.get(id=pk)
     productOrder = json.loads(order.products)
@@ -316,7 +317,7 @@ def cancelOrder(request,pk):
     order.delete()
     return redirect('adminOrder')
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def updateOrder(request,pk):
     order = PurchaseOrder.objects.get(id=pk)
 
@@ -338,6 +339,7 @@ def updateOrder(request,pk):
 
     return redirect('adminOrder')
 
+@staff_member_required(login_url='login')
 def updateShippingCost(request):
     shippingCost = ShippingCost.objects.first()
 
@@ -352,13 +354,13 @@ def updateShippingCost(request):
     }
     return render(request, 'base/updateShippingCost.html', context)
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def adminCupon(request):
     cupons = Cupon.objects.filter(firstOrder=False)
 
     return render(request, 'base/adminCupon.html', {'cupons':cupons})
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def createCupon(request):
     if request.method == "POST":
         keyWord = request.POST.get('keyWord').upper()
@@ -380,7 +382,7 @@ def createCupon(request):
 
     return render(request, 'base/createCupon.html')
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def updateCupon(request,pk):
     cupon = Cupon.objects.get(id=pk)
 
@@ -391,13 +393,13 @@ def updateCupon(request,pk):
 
     return redirect('adminCupon')
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def adminEmail(request):
     emails = EmailCommunication.objects.all()
 
     return render(request, 'base/adminEmail.html', {'emails':emails})
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def createEmail(request):
     cupons = Cupon.objects.filter(
         firstOrder=False,
@@ -422,7 +424,7 @@ def createEmail(request):
     context = {'cupons':cupons}
     return render(request, 'base/createEmail.html', context)
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def sendEmail(request,pk):
     email = EmailCommunication.objects.get(id=pk)
     base = User.objects.all()
@@ -452,7 +454,7 @@ def sendEmail(request,pk):
 
     return redirect('adminEmail')
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def dashBoardLastOrder(request):
     orders = PurchaseOrder.objects.filter(status="Entregado").order_by("-createdAt")
     lastOrders = orders[:30]
