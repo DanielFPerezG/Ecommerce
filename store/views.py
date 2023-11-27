@@ -307,17 +307,14 @@ def addCartDetail(request,pk):
             for productDetail in productCart:
                 if productDetail["id"] == int(i["id"]):
                     productDetail["quantity"] = int(i["quantity"])
+                    productDetail["total"] = productDetail["price"] * productDetail["quantity"]
                     break
 
-                productDetail["total"] = productDetail["price"] * productDetail["quantity"]
         cart.products = productCart
         cart.products = json.dumps(cart.products)
         cart.save()
         return JsonResponse({'success': True, 'message': 'Producto agregado al carrito exitosamente'})
     return JsonResponse({})
-
-
-
 
 @never_cache
 def viewCart(request):

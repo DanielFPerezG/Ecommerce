@@ -148,6 +148,11 @@
                             </div>
                             {% if productCart %}
                             <a href="{%  url 'store:checkout' %}"><button type="button"   class="btn btn-block btn-primary my-3 py-3">Continuar con la Compra</button></a>
+                            {% else %}
+                                <div class="error-messages text-left">
+                                  <p style="color:red">*Debes agregar productos al carrito<br></p>
+                             </div>
+                                <a href="{%  url 'store:checkout' %}"><button type="button"   class="btn btn-block btn-primary my-3 py-3" disabled>Continuar con la Compra</button></a>
                             {% endif %}
                         </div>
                     </div>
