@@ -32,12 +32,15 @@
       {% endfor %}
 
         <div class="card-body ">
+            {% if addresses|length < 5 %}
+
             <a href="#" onclick="createAddress();" class="d-flex justify-content-between flex-row">
                 <span>Registrar dirección</span>
                 <div >
                     <i class="fa fa-angle-right fa-primary" aria-hidden="true"></i>
                 </div>
             </a>
+            {% endif %}
         </div>
       </div>
     </div>

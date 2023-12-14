@@ -423,6 +423,8 @@ def createAddress(request):
         city = data.get('city')
         complement = data.get('complement')
 
+        if request.user.addresses.count() >= 5:
+            return redirect('store:userAddress')
         user_address = UserAddress.objects.create(
             user=request.user,
             address=address,
