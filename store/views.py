@@ -379,24 +379,26 @@ def personalInformation(request):
 def updateUserInfo(request,pk):
 
     if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        data = json.loads(request.body)
-        new_info = data.get('newInfo')
-        info_type = data.get('type')
 
-        user = User.objects.get(pk=pk)
+        if request.user.id == int(pk):
+            data = json.loads(request.body)
+            new_info = data.get('newInfo')
+            info_type = data.get('type')
 
-        if info_type == 'name':
-            user.name = new_info
-        elif info_type == 'lastName':
-            user.lastName = new_info
-        elif info_type == 'card':
-            user.card = new_info
-        elif info_type == 'phone':
-            user.phone = new_info
+            user = User.objects.get(pk=pk)
 
-        user.save()
+            if info_type == 'name':
+                user.name = new_info
+            elif info_type == 'lastName':
+                user.lastName = new_info
+            elif info_type == 'card':
+                user.card = new_info
+            elif info_type == 'phone':
+                user.phone = new_info
 
-        return JsonResponse({'message': 'User information updated successfully.'})
+            user.save()
+
+            return JsonResponse({'message': 'User information updated successfully.'})
     else:
         return JsonResponse({'error': 'Invalid request.'})
 
@@ -440,9 +442,9 @@ def createAddress(request):
 @login_required(login_url='login')
 def deleteAddress(request,pk):
     address = UserAddress.objects.get(id=pk)
-    address.delete()
-
-    return JsonResponse({'message': 'Dirección eliminada correctamente'})
+    if address.user == request.user.id:
+        address.delete()
+        return JsonResponse({'message': 'Dirección eliminada correctamente'})
 
 def securityInformation(request):
     cart = Cart.objects.get(user=request.user)
@@ -478,26 +480,27 @@ def deleteUser(request, pk):
 def updatePassword(request,pk):
 
     if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        data = json.loads(request.body)
-        lastPassword = data.get('lastPassword')
-        newPassword = data.get('newPassword')
-        confirmPassword = data.get('confirmPassword')
+        if request.user.id == int(pk):
+            data = json.loads(request.body)
+            lastPassword = data.get('lastPassword')
+            newPassword = data.get('newPassword')
+            confirmPassword = data.get('confirmPassword')
 
-        user = User.objects.get(pk=pk)
+            user = User.objects.get(pk=pk)
 
-        # Verify if passwords match
-        if not check_password(lastPassword, user.password):
-            return JsonResponse({'error': 'La contraseña actual es incorrecta.'})
+            # Verify if passwords match
+            if not check_password(lastPassword, user.password):
+                return JsonResponse({'error': 'La contraseña actual es incorrecta.'})
 
-        if newPassword != confirmPassword:
-            return JsonResponse({'error': 'La nueva contraseña no es igual.'})
+            if newPassword != confirmPassword:
+                return JsonResponse({'error': 'La nueva contraseña no es igual.'})
 
 
-        user.set_password(newPassword)
+            user.set_password(newPassword)
 
-        user.save()
+            user.save()
 
-        return JsonResponse({'message': 'User information updated successfully.'})
+            return JsonResponse({'message': 'User information updated successfully.'})
     else:
         return JsonResponse({'error': 'Invalid request.'})
 
@@ -531,59 +534,60 @@ def createOrder(request, pk):
     cart = Cart.objects.get(user=request.user)
     selectedAddress = UserAddress.objects.get(pk=pk)
     products = Product.objects.all()
-    if products:
-        productCartWithStockCreateOrder = ProductCart.productCartWithStockCreateOrder(cart, products)
-        subTotal = ProductCart.subtotalCart(productCartWithStockCreateOrder, '') + shippingCost.cost
+    if selectedAddress.user == request.user.id:
+        if products:
+            productCartWithStockCreateOrder = ProductCart.productCartWithStockCreateOrder(cart, products)
+            subTotal = ProductCart.subtotalCart(productCartWithStockCreateOrder, '') + shippingCost.cost
 
 
-        order = PurchaseOrder.objects.create(
-            user=request.user,
-            status="Pendiente de pago",
-            address=selectedAddress.address,
-            state=selectedAddress.state,
-            city=selectedAddress.city,
-            complement=selectedAddress.complement,
-            total= subTotal,
-            shippingCost=shippingCost.cost
-        )
-
-        for productJson in productCartWithStockCreateOrder:
-            product = Product.objects.get(pk=productJson['id'])
-            productCost =  product.cost
-            productTopic = product.topic
-            orderItem = PurchaseOrderItem.objects.create(
-                product = product,
-                order=order,
+            order = PurchaseOrder.objects.create(
                 user=request.user,
-                productName=productJson['name'],
-                price=productJson['price'],
-                cost = productCost,
-                quantity=productJson['quantity'],
-                total=productJson['price']*productJson['quantity'],
-                productTopic = productTopic,
+                status="Pendiente de pago",
+                address=selectedAddress.address,
+                state=selectedAddress.state,
+                city=selectedAddress.city,
+                complement=selectedAddress.complement,
+                total= subTotal,
+                shippingCost=shippingCost.cost
             )
-            product = Product.objects.get(pk=productJson['id'])
-            product.stock = product.stock - productJson['quantity']
-            product.save()
+
+            for productJson in productCartWithStockCreateOrder:
+                product = Product.objects.get(pk=productJson['id'])
+                productCost =  product.cost
+                productTopic = product.topic
+                orderItem = PurchaseOrderItem.objects.create(
+                    product = product,
+                    order=order,
+                    user=request.user,
+                    productName=productJson['name'],
+                    price=productJson['price'],
+                    cost = productCost,
+                    quantity=productJson['quantity'],
+                    total=productJson['price']*productJson['quantity'],
+                    productTopic = productTopic,
+                )
+                product = Product.objects.get(pk=productJson['id'])
+                product.stock = product.stock - productJson['quantity']
+                product.save()
+                if cart.cupon:
+                    orderItem.cupon  = cart.cupon
+                orderItem.save()
             if cart.cupon:
-                orderItem.cupon  = cart.cupon
-            orderItem.save()
-        if cart.cupon:
-            cupon = Cupon.objects.get(pk=cart.cupon.pk)
-            cupon.usedCoupon += 1
-            cupon.claimedBy.add(request.user)
-            cupon.save()
-            order.cupon = cart.cupon
-            cart.cupon = None
+                cupon = Cupon.objects.get(pk=cart.cupon.pk)
+                cupon.usedCoupon += 1
+                cupon.claimedBy.add(request.user)
+                cupon.save()
+                order.cupon = cart.cupon
+                cart.cupon = None
+                cart.save()
+
+            order.products = json.dumps(productCartWithStockCreateOrder)
+            order.save()
+
+            cart.products = json.dumps([])
             cart.save()
 
-        order.products = json.dumps(productCartWithStockCreateOrder)
-        order.save()
-
-        cart.products = json.dumps([])
-        cart.save()
-
-        return JsonResponse({'message': 'Orden creada correctamente'})
+            return JsonResponse({'message': 'Orden creada correctamente'})
 
 def viewOrder(request):
     cart = Cart.objects.get(user=request.user)
@@ -598,15 +602,15 @@ def viewOrder(request):
 def cancelStoreOrder(request,pk):
     order = PurchaseOrder.objects.get(id=pk)
     productOrder = json.loads(order.products)
+    if order.user == request.user.id:
+        for item in productOrder:
+            product = Product.objects.get(id=item['id'])
+            product.stock += item['quantity']
+            product.save()
 
-    for item in productOrder:
-        product = Product.objects.get(id=item['id'])
-        product.stock += item['quantity']
-        product.save()
+        order.delete()
 
-    order.delete()
-
-    return JsonResponse({'message': 'User information updated successfully.'})
+        return JsonResponse({'message': 'Cancel order successfully.'})
 
 def viewOrderDetail(request, pk):
     cart = Cart.objects.get(user=request.user)
@@ -615,20 +619,20 @@ def viewOrderDetail(request, pk):
     order = PurchaseOrder.objects.get(id=pk)
     products_data = order.products
     shippingCost = ShippingCost.objects.first()
+    if order.user == request.user.id:
+        try:
+            # Utiliza json.JSONDecoder() para cargar el JSON de forma más segura.
+            decoder = json.JSONDecoder()
+            productsOrder = decoder.decode(products_data)
+        except json.JSONDecodeError as e:
+            # Maneja cualquier error de decodificación aquí.
+            # Puedes imprimir el error o registrar el contenido de 'products_data' para depurar.
+            print(f"Error decoding JSON: {e}")
+            print(f"Invalid JSON data: {products_data}")
+            productsOrder = []
 
-    try:
-        # Utiliza json.JSONDecoder() para cargar el JSON de forma más segura.
-        decoder = json.JSONDecoder()
-        productsOrder = decoder.decode(products_data)
-    except json.JSONDecodeError as e:
-        # Maneja cualquier error de decodificación aquí.
-        # Puedes imprimir el error o registrar el contenido de 'products_data' para depurar.
-        print(f"Error decoding JSON: {e}")
-        print(f"Invalid JSON data: {products_data}")
-        productsOrder = []
-
-    context = {'cart': cart, 'numberProductsCart': numberProductsCart, 'order': order,  'productsOrder': productsOrder, 'ShippingCost': ShippingCost}
-    return render(request, 'store/viewOrderDetail.html', context)
+        context = {'cart': cart, 'numberProductsCart': numberProductsCart, 'order': order,  'productsOrder': productsOrder, 'ShippingCost': ShippingCost}
+        return render(request, 'store/viewOrderDetail.html', context)
 
 def validateCupon(request):
     cart = Cart.objects.get(user=request.user)
