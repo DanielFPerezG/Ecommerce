@@ -10,7 +10,7 @@ from django.utils.html import strip_tags
 from django.db.models import Q, F
 
 from .forms import ProductForm, TopicForm, BannerForm
-from .models import User, Topic, Product, Banner, PurchaseOrder, ShippingCost, Cupon, EmailCommunication, PurchaseOrderItem
+from .models import User, Topic, Product, Banner, PurchaseOrder, ShippingCost, Cupon, EmailCommunication, PurchaseOrderItem, Cart
 from .helpers import ImageHandler
 
 from datetime import timedelta
@@ -121,6 +121,12 @@ def adminProduct(request):
 def deleteProduct(request,pk):
     product = Product.objects.get(id=pk)
     product.delete()
+
+    carts = Cart.objects.all()
+    for cart in carts:
+        productsList = []
+        cart.products = json.dumps(productsList)
+        cart.save()
 
     return redirect('adminProduct')
 
@@ -309,13 +315,14 @@ def cancelOrder(request,pk):
     order = PurchaseOrder.objects.get(id=pk)
     productOrder = json.loads(order.products)
 
-    for item in productOrder:
-        product = Product.objects.get(id=item['id'])
-        product.stock += item['quantity']
-        product.save()
+    if order.status == "Pendiente de pago":
+        for item in productOrder:
+            product = Product.objects.get(id=item['id'])
+            product.stock += item['quantity']
+            product.save()
 
-    order.delete()
-    return redirect('adminOrder')
+        order.delete()
+        return redirect('adminOrder')
 
 @staff_member_required(login_url='login')
 def updateOrder(request,pk):
