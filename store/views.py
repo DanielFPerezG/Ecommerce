@@ -442,7 +442,7 @@ def createAddress(request):
 @login_required(login_url='login')
 def deleteAddress(request,pk):
     address = UserAddress.objects.get(id=pk)
-    if address.user == request.user.id:
+    if address.user == request.user:
         address.delete()
         return JsonResponse({'message': 'Dirección eliminada correctamente'})
 
@@ -534,7 +534,11 @@ def createOrder(request, pk):
     cart = Cart.objects.get(user=request.user)
     selectedAddress = UserAddress.objects.get(pk=pk)
     products = Product.objects.all()
-    if selectedAddress.user == request.user.id:
+
+    existing_pending_orders = PurchaseOrder.objects.filter(user=request.user, status="Pendiente de pago")
+    if existing_pending_orders.exists():
+        return redirect('store:checkout')
+    if selectedAddress.user.id == request.user.id:
         if products:
             productCartWithStockCreateOrder = ProductCart.productCartWithStockCreateOrder(cart, products)
             subTotal = ProductCart.subtotalCart(productCartWithStockCreateOrder, '') + shippingCost.cost
