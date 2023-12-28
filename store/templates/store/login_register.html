@@ -1,4 +1,5 @@
 {% extends 'store/main.html' %}
+{% load static %}
 
 {% block content %}
         {% if page == 'login' %}
@@ -9,7 +10,7 @@
                     <div class="col-lg-12">
                         <div class="inner-content">
                             <h2>Iniciar Sesion</h2>
-                            <span>Ingresa y pide nuestros productos a todo <Colombia></Colombia></span>
+                            <span>Ingresa y descubre nuestros productos con envío a todo Colombia</span>
                         </div>
                     </div>
                 </div>
@@ -21,6 +22,7 @@
             <div class="col-12 col-lg-4 col-md-6">
               <div class="card shadow">
                 <div class="card-body mx-2 mx-lg-5 mx-md-3">
+                <!--
                   <p>
                     <a href="" class="btn btn-block btn-primary btn-gmail">
                       <i class="fa fa-google" aria-hidden="true"></i>&nbsp;&nbsp;Ingresa con Google</a>
@@ -28,6 +30,8 @@
                   <p class="text-muted font-weight-bold pt-2 pb-2">
                     <span class="">O</span>
                   </p>
+                  -->
+                <h5>Bienvenido a Edjo</h5><br>
                   <form method="POST">
                       {% csrf_token %}
                     <div class="form-group input-group">
@@ -62,8 +66,19 @@
                 </div>
               </div>
             </div>
-              <div class="col-6 h-100 login-description ">
-                sdasd
+              <div class="col-6 h-100 login-description text-center">
+                    <!--
+                      <img src="{% static "../media/login-page.jpg" %}" alt="Descripción de la imagen" class="img-fluid rounded shadow" style="max-width: 600px; max-height: 333px;">
+                      -->
+                    <div class="right-content pr-5 pl-5 mt-4">
+                        <h5>¡Bienvenido a Edjo, tu destino para el cuidado capilar natural en Colombia!</h5><br>
+                        <p class="text-left">Nos alegra que nos hayas elegido para ser parte de tu rutina de cuidado personal. En Edjo, somos un apasionado emprendimiento colombiano dedicado a ofrecerte lo mejor en productos capilares. Desde Shampoos hasta Acondicionadores, Cremas desenredantes e hidratantes, cada producto que ofrecemos es cuidadosamente elaborado con ingredientes naturales y artesanales de la más alta calidad. </p>
+                        <br>
+                        <p class="text-left">En Edjo, creemos en el poder de la naturaleza para nutrir y revitalizar tu cabello. Nos esforzamos por brindarte soluciones capilares que no solo son efectivas sino también respetuosas con el medio ambiente. Cada producto que encuentras aquí refleja nuestro compromiso con la excelencia y el bienestar capilar.</p>
+                        <br>
+                        <p class="text-left">Explora nuestra tienda y descubre una gama única de productos que transformarán tu experiencia de cuidado capilar. Estamos aquí para ayudarte a resaltar la belleza natural de tu cabello, brindándote opciones que cuidan de ti y de nuestro entorno.</p>
+
+                    </div>
               </div>
           </div>
         </div>
@@ -88,6 +103,7 @@
             <div class="col-12 col-lg-4 col-md-6">
               <div class="card shadow">
                 <div class="card-body mx-5">
+                <!--
                   <p>
                     <a href="" class="btn btn-block btn-primary btn-gmail">
                       <i class="fa fa-google" aria-hidden="true"></i>&nbsp;&nbsp;Inicia con Google</a>
@@ -95,6 +111,8 @@
                   <p class="text-muted font-weight-bold pt-2 pb-2">
                     <span>O</span>
                   </p>
+                  -->
+                    <h5>Bienvenido a Edjo</h5><br>
                   <form method="POST">
                   {% csrf_token %}
                     <div class="form-group input-group">
@@ -147,7 +165,15 @@
               </div>
             </div>
               <div class="col-6 h-100 login-description ">
-                sdasd
+                <div class="right-content pr-5 pl-5">
+                        <h5>¡Bienvenido a Edjo, tu destino para el cuidado capilar natural en Colombia!</h5><br>
+                        <p class="text-left">Nos alegra que nos hayas elegido para ser parte de tu rutina de cuidado personal. En Edjo, somos un apasionado emprendimiento colombiano dedicado a ofrecerte lo mejor en productos capilares. Desde Shampoos hasta Acondicionadores, Cremas desenredantes e hidratantes, cada producto que ofrecemos es cuidadosamente elaborado con ingredientes naturales y artesanales de la más alta calidad. </p>
+                        <br>
+                        <p class="text-left">En Edjo, creemos en el poder de la naturaleza para nutrir y revitalizar tu cabello. Nos esforzamos por brindarte soluciones capilares que no solo son efectivas sino también respetuosas con el medio ambiente. Cada producto que encuentras aquí refleja nuestro compromiso con la excelencia y el bienestar capilar.</p>
+                        <br>
+                        <p class="text-left">Explora nuestra tienda y descubre una gama única de productos que transformarán tu experiencia de cuidado capilar. Estamos aquí para ayudarte a resaltar la belleza natural de tu cabello, brindándote opciones que cuidan de ti y de nuestro entorno.</p>
+
+                    </div>
               </div>
           </div>
         </div>
