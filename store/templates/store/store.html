@@ -103,9 +103,9 @@
                                 </ul>
                             </div>
                             {% if product.stock > 0 %}
-                                    <img src="{{product.image.url}}" alt="" class="img-fluid">
+                                    <img src="{{product.image.url}}" alt="{{ product.name }}" class="img-fluid">
                                 {% else %}
-                                     <img src="{{product.image.url}}" alt="" class="img-fluid grayscaleimg">
+                                     <img src="{{product.image.url}}" alt="{{ product.name }}" class="img-fluid grayscaleimg">
                                 {% endif %}
                         </div>
                         <div class="down-content">

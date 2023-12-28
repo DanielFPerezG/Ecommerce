@@ -24,10 +24,10 @@
                 <div class="col-lg-8">
                 <div class="left-images">
                     {% if product.imageDetail %}
-                        <img src="{{product.imageDetail.url }}" alt="">
+                        <img src="{{product.imageDetail.url }}" alt="{{ product.name }}">
                     {% endif %}
                     {% if product.imageDetailSecond %}
-                        <img src="{{product.imageDetailSecond.url}}" alt="">
+                        <img src="{{product.imageDetailSecond.url}}" alt="{{ product.name }}">
                     {% endif %}
                 </div>
             </div>

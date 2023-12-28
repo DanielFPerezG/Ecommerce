@@ -39,7 +39,7 @@
                             {% for product in productCart %}
                             <tr class="cart-row">
                                 <td  class="align-middle d-none" id="{{ product.id }}">{{ product.id }}</td>
-                                <td class="align-middle" id="price_{{ product.id }}"><img src="{{product.image_url}}" alt="" style="width: 75px;"></td>
+                                <td class="align-middle" id="price_{{ product.id }}"><img src="{{product.image_url}}" alt="{{ product.name }}" style="width: 75px;"></td>
                                 <td class="align-middle">
                                     {{ product.name }}<br>
                                 {% if product.stock <= 10  %}
@@ -83,7 +83,7 @@
                 <div class="container container-mobile pt-4">
                     <div class="row pb-4">
                         <div class="col-6">
-                            <img src="{{product.image.url}}" alt="" style="width: 100%;">
+                            <img src="{{product.image.url}}" alt="{{ product.name }}" style="width: 100%;">
                         </div>
                         <div class="col-6">
                             <div class="mobile-product-name">
