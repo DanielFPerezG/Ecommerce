@@ -608,7 +608,7 @@ def viewOrder(request):
 def cancelStoreOrder(request,pk):
     order = PurchaseOrder.objects.get(id=pk)
     productOrder = json.loads(order.products)
-    if order.user == request.user.id:
+    if order.user == request.user:
         for item in productOrder:
             product = Product.objects.get(id=item['id'])
             product.stock += item['quantity']
@@ -625,7 +625,7 @@ def viewOrderDetail(request, pk):
     order = PurchaseOrder.objects.get(id=pk)
     products_data = order.products
     shippingCost = ShippingCost.objects.first()
-    if order.user == request.user.id:
+    if order.user_id == request.user.id:
         try:
             # Utiliza json.JSONDecoder() para cargar el JSON de forma más segura.
             decoder = json.JSONDecoder()
