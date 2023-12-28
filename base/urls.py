@@ -21,6 +21,7 @@ urlpatterns = [
 
     path('adminTopic', views.adminTopic, name="adminTopic"),
     path('updateTopic/<str:pk>', views.updateTopic, name="updateTopic"),
+    path('deleteTopic/<str:pk>', views.deleteTopic, name="deleteTopic"),
 
     path('createBanner', views.createBanner, name="createBanner"),
     path('adminBanner', views.adminBanner, name="adminBanner"),

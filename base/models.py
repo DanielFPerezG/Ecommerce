@@ -42,7 +42,7 @@ class Topic(models.Model):
     image = models.ImageField(null=True, upload_to=get_topic_image_path)
 
     def delete(self, *args, **kwargs):
-        if os.path.isfile(self.image.path):
+        if self.image and os.path.isfile(self.image.path):
             os.remove(self.image.path)
         super(Topic, self).delete(*args, **kwargs)
 

@@ -178,6 +178,13 @@ def updateTopic(request,pk):
     return render(request,'base/updateTopic.html', {'form':form, 'topic':topic})
 
 @staff_member_required(login_url='login')
+def deleteTopic(request,pk):
+    topic = Topic.objects.get(id=pk)
+    topic.delete()
+
+    return redirect('adminTopic')
+
+@staff_member_required(login_url='login')
 def createBanner(request):
     topics = Topic.objects.all()
 
