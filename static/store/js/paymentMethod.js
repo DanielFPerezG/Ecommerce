@@ -45,7 +45,7 @@ $("#payment-methods").on("click", function() {
       '<img src="media/logo/nequi.png" alt="Nequi" style="width: 100px; height: 100px; margin-right: 10px;">' +
       '<h4 style="background-color: #2f2461; color: white; padding: 5px; border-radius: 5px;">3140009545</h4>' +
       '</div>' +
-      '<p style="margin-top: 20px;">Para confirmar tu compra envia el comprobante de pago al <a href="https://wa.me/3144009545" target="_blank" style="color: green;">whatsapp: +57 314 4009545.</a> Una vez que confirmemos la recepción del dinero se procedera al envío del pedido.</p>'+
+      '<p style="margin-top: 20px;">Para confirmar tu compra envia el comprobante de pago al <a href="https://wa.me/3207015028" target="_blank" style="color: green;">whatsapp: +57 320 7015028.</a> Una vez que confirmemos la recepción del dinero se procedera al envío del pedido.</p>'+
         '<p style="margin-top: 20px; font-size: 12px; color: grey;">*Si realizas la compra desde Honda-Tolima o Puerto Bogota-Cundinamarca solo debes enviar el valor total antes de envío. Los productos los llevaremos a la puerta de tu casa GRATIS.</p>',
     showCloseButton: true,
     confirmButtonText:
@@ -101,7 +101,7 @@ $("#payment-methods-button").on("click", function() {
       '<img src="media/logo/nequi.png" alt="Nequi" style="width: 100px; height: 100px; margin-right: 10px;">' +
       '<h4 style="background-color: #2f2461; color: white; padding: 5px; border-radius: 5px;">3140009545</h4>' +
       '</div>' +
-      '<p style="margin-top: 20px;">Para confirmar tu compra envia el comprobante de pago al <a href="https://wa.me/3144009545" target="_blank" style="color: green;">whatsapp: +57 314 4009545.</a> Una vez que confirmemos la recepción del dinero se procedera al envío del pedido.</p>'+
+      '<p style="margin-top: 20px;">Para confirmar tu compra envia el comprobante de pago al <a href="https://wa.me/3207015028" target="_blank" style="color: green;">whatsapp: +57 320 7015028.</a> Una vez que confirmemos la recepción del dinero se procedera al envío del pedido.</p>'+
         '<p style="margin-top: 20px; font-size: 12px; color: grey;">*Si realizas la compra desde Honda-Tolima o Puerto Bogota-Cundinamarca solo debes enviar el valor total antes de envío. Los productos los llevaremos a la puerta de tu casa GRATIS.</p>',
     showCloseButton: true,
     confirmButtonText:
