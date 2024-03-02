@@ -15,7 +15,7 @@ from pathlib import Path
 from decouple import config
 
 
-DISCOUNT_PERCENTAGE = config('DISCOUNT_PERCENTAGE', cast=int, default=0)
+DISCOUNT_PERCENTAGE = config('DISCOUNT_PERCENTAGE', cast=int, default=10)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,7 +45,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'danielfeperezgalindo@gmail.com'
-EMAIL_HOST_PASSWORD = 'riawgasshexfsgsx'
+EMAIL_HOST_PASSWORD = 'epzklccaxwpvporw'
 
 AUTH_USER_MODEL = 'base.User'
 # Application definition
@@ -120,7 +120,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommerce_db',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '123456789',
         'HOST': 'localhost',
         'PORT': 3306
 
