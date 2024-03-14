@@ -67,6 +67,7 @@ def logoutUser(request):
 
 def registerPage(request):
     page = 'register'
+    topics = Topic.objects.all()[:3]
 
     if request.method == 'POST':
         name = request.POST.get('name').capitalize()
@@ -108,7 +109,7 @@ def registerPage(request):
 
 
         # Renderiza la plantilla HTML con los datos necesarios
-        html_message = render_to_string('email/cuponFirstOrder.html', {'cuponName': cuponName.cupon, 'value': cuponName.value})
+        html_message = render_to_string('email/cuponFirstOrder.html', {'cuponName': cuponName.cupon, 'value': cuponName.value, 'topics': topics, 'user': user})
         plain_message = strip_tags(html_message)
 
         # Crea el objeto EmailMultiAlternatives para enviar el correo con contenido HTML y texto plano
