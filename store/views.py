@@ -684,3 +684,10 @@ def removeCupon(request):
     cart.cupon = None
     cart.save()
     return redirect('store:checkout')
+
+def aboutUs(request):
+    cart = Cart.objects.get(user=request.user)
+    numberProductsCart = ProductCart.numberProducts(cart)
+
+    context = {'numberProductsCart': numberProductsCart}
+    return render(request, 'store/aboutUs.html', context)

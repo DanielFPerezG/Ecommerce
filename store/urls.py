@@ -30,6 +30,7 @@ urlpatterns = [
     path('deleteAddress/<str:pk>', views.deleteAddress, name="deleteAddress"),
 
     path('', views.home, name="home"),
+    path('aboutUs', views.aboutUs, name="aboutUs"),
     path('shopDetail/<str:pk>', views.shopDetail, name="shopDetail"),
     path('store', views.store, name="store"),
     path('addCart/<str:pk>', views.addCart, name="addCart"),
