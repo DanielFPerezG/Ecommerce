@@ -200,8 +200,9 @@
                     <div class="card-header bg-secondary border-0">
                         <h4 class="font-weight-semi-bold m-0">Metodos de pago</h4>
                     </div>
-                    <div class="card-body" id="payment-methods">
-                        <div class="d-flex justify-content-between align-items-center">
+                    <div class="card-body">
+                        <a>
+                        <div class="d-flex justify-content-between align-items-center payment-method-img">
                             <div class="col-md-5  d-md-block d-none">
                                 <img src="{% static '../media/logo/bancolombia.png' %}" alt="Bancolombia" class="img-fluid payment-logo rounded">
                             </div>
@@ -218,6 +219,7 @@
                                 <img src="{% static '../media/logo/daviplataMobile.png' %}" alt="Bancolombia Mobile" class="img-fluid payment-logo rounded">
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="card-footer border-secondary bg-transparent">
                         {% if addresses %}
