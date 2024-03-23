@@ -686,8 +686,13 @@ def removeCupon(request):
     return redirect('store:checkout')
 
 def aboutUs(request):
-    cart = Cart.objects.get(user=request.user)
-    numberProductsCart = ProductCart.numberProducts(cart)
+    if request.user.is_authenticated:
+        cart, create = Cart.objects.get_or_create(user=request.user)
+        cart = Cart.objects.get(user=request.user)
+        numberProductsCart = ProductCart.numberProducts(cart)
 
-    context = {'numberProductsCart': numberProductsCart}
+        context = {'numberProductsCart': numberProductsCart}
+    else:
+        context = {}
+
     return render(request, 'store/aboutUs.html', context)
