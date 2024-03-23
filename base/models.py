@@ -267,7 +267,7 @@ class ShippingCost(models.Model):
 class EmailCommunication(models.Model):
     subject =  models.CharField(max_length=150)
     title = models.CharField(max_length=150)
-    fromEmail = models.EmailField(default='danielperezgalindo@gmail.com')
+    fromEmail = models.EmailField(default='danielfeperezgalindo@gmail.com')
     createdAt = models.DateTimeField(default=timezone.now)
     sent = models.BooleanField(default=False)
     cupon = models.OneToOneField(Cupon, on_delete=models.CASCADE, null=True)

@@ -334,6 +334,9 @@ def cancelOrder(request,pk):
 @staff_member_required(login_url='login')
 def updateOrder(request,pk):
     order = PurchaseOrder.objects.get(id=pk)
+    base = User.objects.all()
+    decoder = json.JSONDecoder()
+    products = decoder.decode(order.products)
 
     if request.method == 'POST':
         if order.status == 'Preparando envio':
@@ -346,6 +349,20 @@ def updateOrder(request,pk):
             order.shippingGuide = shippingGuide
             order.shippingPaid = shippingPaid
             order.save()
+
+            subject = '¡Tu pedido está en camino! 🚚✨'
+            from_email = 'danielfeperezgalindo@gmail.com'
+            recipient_list = [user.email for user in base]
+
+            # Renderiza la plantilla HTML con los datos necesarios
+            html_message = render_to_string('email/orderSent.html',
+                                            {'order': order, 'products': products})
+            plain_message = strip_tags(html_message)
+
+            # Crea el objeto EmailMultiAlternatives para enviar el correo con contenido HTML y texto plano
+            msg = EmailMultiAlternatives(subject, plain_message, from_email, recipient_list)
+            msg.attach_alternative(html_message, "text/html")
+            msg.send()
         else:
             status = request.POST.get('status')
             order.status = status
