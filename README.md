@@ -36,7 +36,7 @@ Once you have installed Python and MySQL, you can configure and run the project 
 
 ## Import or clone repository
 
-**Clone the repository from GitHub:**
+**Clone the repository from GitHub:** 
 
    Use the following command to clone the repository to your local machine:
 ```bash
