@@ -39,7 +39,9 @@
                         <div class="form-group text-center mx-auto">
                             <label>{{ banner.name }}</label>
                             <figure class="update-image">
+                                {% if banner.image %}
                                 <img src="{{banner.image.url}}" style="width: 6rem; height: 6rem; border-radius:25%;object-fit:cover;">
+                                {% endif %}
                             </figure>
                         </div>
                         {% for field in form %}
@@ -52,7 +54,7 @@
                             {% endif %}
                         </div>
                         {% endfor %}
-                        <button type="submit" class="btn btn-primary" id="btn-login">
+                        <button type="submit" class="btn btn-primary" id="btn-login" name="submit">
                             <i class="fas fa-sign-in-alt"></i>  Actualizar
                         </button>
                     </div>
