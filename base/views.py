@@ -226,6 +226,7 @@ def createBanner(request):
 
             # Change image resolution
             ImageHandler.save_resized_image_create(temp_file, img, object=banner, type="banner")
+            banner.save()
             # Remove temporary file
             os.remove(temp_file.name)
             return redirect('home')
@@ -243,6 +244,7 @@ def createBanner(request):
 
             # Change image resolution
             ImageHandler.save_resized_image_create(temp_file, img, object=banner, type="banner")
+            banner.save()
             # Remove temporary file
             os.remove(temp_file.name)
             return redirect('home')

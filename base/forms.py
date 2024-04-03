@@ -101,7 +101,7 @@ class BannerForm(ModelForm):
         old_banner = Banner.objects.get(pk=banner.pk)
         if self.cleaned_data.get('image') and self.cleaned_data['image'] != old_banner.image:
             img = self.cleaned_data['image']
-            banner.image.save(img.name, ImageHandler.save_resized_image_update(img, 'Banner'), save=False)
+            banner.image.save(img.name, ImageHandler.save_resized_image_update(img, 'banner'), save=False)
         if commit:
             banner.save()
         return banner
