@@ -79,7 +79,8 @@ class TopicForm(ModelForm):
 
     def save(self, commit=True):
         topic = super().save(commit=False)
-        if self.cleaned_data.get('image'):
+        old_topic = Topic.objects.get(pk=topic.pk)
+        if self.cleaned_data.get('image') and self.cleaned_data['image'] != old_topic.image:
             img = self.cleaned_data['image']
             topic.image.save(img.name, ImageHandler.save_resized_image_update(img, 'Topic'), save=False)
         if commit:
@@ -97,7 +98,8 @@ class BannerForm(ModelForm):
 
     def save(self, commit=True):
         banner = super().save(commit=False)
-        if self.cleaned_data.get('image'):
+        old_banner = Banner.objects.get(pk=banner.pk)
+        if self.cleaned_data.get('image') and self.cleaned_data['image'] != old_banner.image:
             img = self.cleaned_data['image']
             banner.image.save(img.name, ImageHandler.save_resized_image_update(img, 'Banner'), save=False)
         if commit:
