@@ -60,24 +60,9 @@ class Topic(models.Model):
 
 
 class Product(models.Model):
-    def get_product_image_path(instance, filename, field=None):
-        if field:
-            # Check if the instance already has an image for the field
-            if instance.pk and hasattr(instance, field):
-                # Get the current image filename for the field
-                current_filename = os.path.basename(getattr(instance, field).path)
+    def get_product_image_path(instance, filename):
+        return 'product/{}'.format(filename)
 
-                # Remove the existing image file for the field
-                os.remove(getattr(instance, field).path)
-
-                # Return the existing image path for the field
-                return f'product/{field}/{current_filename}'
-            else:
-                # Return the regular image path if it's a new instance
-                return f'product/{field}/{filename}'
-        else:
-            # Default path when 'field' is not provided (e.g., during creation)
-            return f'product/{filename}'
 
     name = models.CharField(max_length=150,null=True)
     message = models.CharField(max_length=150, null=True)
@@ -95,6 +80,13 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
+    def save(self, *args, **kwargs):
+        if self.pk:
+            if Product.objects.get(pk=self.pk).image != "":
+                old_product = Product.objects.get(pk=self.pk)
+                if old_product.image and self.image != old_product.image and os.path.isfile(old_product.image.path):
+                    os.remove(old_product.image.path)
+        super(Product, self).save(*args, **kwargs)
     def delete(self, *args, **kwargs):
         if os.path.isfile(self.image.path):
             os.remove(self.image.path)
@@ -103,28 +95,6 @@ class Product(models.Model):
         if os.path.isfile(self.imageDetailSecond.path):
             os.remove(self.imageDetailSecond.path)
         super(Product, self).delete(*args, **kwargs)
-
-    def save(self, *args, **kwargs):
-        # Store the current image paths
-        old_image_path = self.image.path if self.pk else None
-        old_image_detail_path = self.imageDetail.path if self.pk else None
-        old_image_detail_second_path = self.imageDetailSecond.path if self.pk else None
-
-        super(Product, self).save(*args, **kwargs)
-
-        # Check if image paths have changed and remove old images
-        if old_image_path and self.image.path != old_image_path:
-            if os.path.isfile(old_image_path):
-                os.remove(old_image_path)
-
-        if old_image_detail_path and self.imageDetail.path != old_image_detail_path:
-            if os.path.isfile(old_image_detail_path):
-                os.remove(old_image_detail_path)
-
-        if old_image_detail_second_path and self.imageDetailSecond.path != old_image_detail_second_path:
-            if os.path.isfile(old_image_detail_second_path):
-                os.remove(old_image_detail_second_path)
-
 
     def __str__(self):
         return self.name

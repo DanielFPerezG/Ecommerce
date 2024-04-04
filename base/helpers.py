@@ -1,6 +1,7 @@
 import io
 from PIL import Image
 from resizeimage import resizeimage
+import os
 
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
@@ -43,12 +44,14 @@ class ImageHandler:
                     output.seek(0)
                     object.image.save(img.name, ContentFile(output.read()), save=False)
 
-
+    @staticmethod
     def save_resized_image_update(image, type):
         with Image.open(image) as img:
             if type == "productHome":
                 cover = resizeimage.resize_cover(img, [370, 390])
             elif type == "productDetail":
+                cover = resizeimage.resize_cover(img, [770, 400])
+            elif type == "productDetailSecond":
                 cover = resizeimage.resize_cover(img, [770, 400])
             elif type == "banner":
                 cover = resizeimage.resize_cover(img, [790, 680])

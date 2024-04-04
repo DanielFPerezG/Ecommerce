@@ -35,34 +35,37 @@ class ProductForm(ModelForm):
             old_product = Product.objects.get(pk=product.pk)
 
             if self.cleaned_data.get('image') and self.cleaned_data['image'] != old_product.image:
-                product.image = self.cleaned_data['image']
+                img = self.cleaned_data['image']
                 # Get the corresponding 'type' for the ImageHandler function
                 image_type = 'productHome'
-                product.image.storage.save(
-                    Product.get_product_image_path(product, product.image.name, 'image'),
-                    ImageHandler.save_resized_image_update(image=product.image, type=image_type)
-                )
+                product.image.save(img.name, ImageHandler.save_resized_image_update(image=img, type=image_type), save=False)
+                # Delete old image if it exists
+                if old_product.image:
+                    old_product.image.delete(save=False)
+                    product.image = self.cleaned_data['image']
 
             if self.cleaned_data.get('imageDetail') and self.cleaned_data['imageDetail'] != old_product.imageDetail:
-                product.imageDetail = self.cleaned_data['imageDetail']
+                img = self.cleaned_data['imageDetail']
                 # Get the corresponding 'type' for the ImageHandler function
                 image_type = 'productDetail'
-                product.imageDetail.storage.save(
-                    Product.get_product_image_path(product, product.imageDetail.name, 'imageDetail'),
-                    ImageHandler.save_resized_image_update(image=product.imageDetail, type=image_type)
-                )
+                product.imageDetail.save(
+                    img.name, ImageHandler.save_resized_image_update(image=img, type=image_type), save=False)
+                # Delete old imageDetail if it exists
+                if old_product.imageDetail:
+                    old_product.imageDetail.delete(save=False)
+                product.imageDetail = self.cleaned_data['imageDetail']
 
             if self.cleaned_data.get('imageDetailSecond') and self.cleaned_data['imageDetailSecond'] != old_product.imageDetailSecond:
-                product.imageDetailSecond = self.cleaned_data['imageDetailSecond']
+                img = self.cleaned_data['imageDetailSecond']
                 # Get the corresponding 'type' for the ImageHandler function
                 image_type = 'productDetailSecond'
-                product.imageDetailSecond.storage.save(
-                    Product.get_product_image_path(product, product.imageDetailSecond.name, 'imageDetailSecond'),
-                    ImageHandler.save_resized_image_update(image=product.imageDetailSecond, type=image_type)
-                )
-
-            if commit:
-                product.save()
+                product.imageDetailSecond.save(img.name, ImageHandler.save_resized_image_update(image=product.imageDetailSecond, type=image_type), save=False)
+                if self.cleaned_data.get('imageDetailSecond') and self.cleaned_data[
+                    'imageDetailSecond'] != old_product.imageDetailSecond:
+                    # Delete old imageDetailSecond if it exists
+                    if old_product.imageDetailSecond:
+                        old_product.imageDetailSecond.delete(save=False)
+                    product.imageDetailSecond = self.cleaned_data['imageDetailSecond']
 
         return product
 

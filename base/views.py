@@ -135,8 +135,6 @@ def deleteProduct(request,pk):
 def updateProduct(request,pk):
     product = Product.objects.get(id=pk)
     form = ProductForm(instance=product)
-    img = product.image
-    img_name = img.name
 
     if request.method == 'POST':
         if 'submit' in request.POST:
